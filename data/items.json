@@ -1,631 +1,906 @@
 [
  {
-  "id": "adage-flood-xai",
-  "theme": "impact",
-  "kind": "Paper",
-  "source": "arXiv 2604.26051 · ASU",
-  "date": "2026-07-31",
-  "added": "2026-10-05",
-  "title": "Evaluating the Alignment Between GeoAI Explanations and Domain Knowledge in Satellite Flood Mapping",
-  "authors": "H. Lee, W. Li",
-  "url": "https://arxiv.org/abs/2604.26051",
-  "summary": "Flood-mapping networks can score well while relying on the wrong evidence. ADAGE groups satellite bands (radar, visible, near-infrared) and uses grouped SHAP values to check whether a model leans on the physically sensible ones, for example radar under clouds. Models with the same accuracy differed widely, and some used RGB under thick cloud, which suggests shortcut learning.",
-  "fit": "Closest to your rainfall research: remote sensing, physical priors about which signal should matter, and validation against ground truth. A capstone could ask the same question of your CML rainfall maps.",
-  "topics": [
-   "Flood mapping",
-   "Explainable AI",
-   "Remote sensing",
-   "Disaster response"
-  ],
-  "techniques": [
-   "Semantic segmentation (U-Net, SegFormer)",
-   "Channel-group SHAP",
-   "mAP@k alignment score",
-   "SAR + multispectral fusion"
-  ],
-  "future": [
-   "Extend to wildfire and landslide mapping",
-   "Add temporal and physical-model knowledge",
-   "Use misalignment to retrain or correct models"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "Public datasets (C2S-MS Floods, UrbanSARFloods); one GPU."
- },
- {
-  "id": "attnsign",
-  "theme": "hci",
-  "kind": "Paper",
-  "source": "arXiv 2608.00235",
-  "date": "2026-07-31",
-  "added": "2026-10-05",
-  "title": "Attention-Steered Vision-Language Models for Sign Language Translation",
-  "authors": "M. Hu, G. Sun, A. D. Ross, S. Li, Z. Tao",
-  "url": "https://arxiv.org/abs/2608.00235",
-  "summary": "General vision-language models translate sign language poorly because they don't attend to the right regions at the right time. AttnSign steers the model's spatial and temporal attention toward the signer's hands and face during translation.",
-  "fit": "A video-understanding problem with a clear social payoff, and a way into how attention in large models can be guided.",
-  "topics": [
-   "Sign language translation",
-   "Vision-language models",
-   "Video grounding"
-  ],
-  "techniques": [
-   "Attention steering",
-   "Spatio-temporal grounding",
-   "Gloss-free translation"
-  ],
-  "future": [
-   "Steering with cheap cues (hand keypoints) instead of training",
-   "Evaluating on low-resource sign languages"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 2,
-  "needs": "GPU for VLM inference; public sign-language corpora."
- },
- {
-  "id": "bacpipe-bioacoustics",
-  "theme": "impact",
-  "kind": "Paper",
-  "source": "arXiv 2604.11560 · Naturalis",
-  "date": "2026-04",
-  "added": "2026-10-05",
-  "title": "bacpipe: Making Bioacoustic Deep Learning Models Accessible",
-  "authors": "V. S. Kather, S. Haupert, B. Ghani, D. Stowell",
-  "url": "https://github.com/bioacoustic-ai/bacpipe",
-  "summary": "Millions of hours of wildlife recordings sit unanalyzed. bacpipe wraps over 20 bioacoustic models (BirdNET, Perch and others) in one Python package with a dashboard, so you can embed recordings, cluster them, train probes, and click a point to hear the sound behind it.",
-  "fit": "Audio ML for conservation, very close to your music-genre classifier but with real ecological data. A ready toolkit means the project can focus on a new question rather than plumbing.",
-  "topics": [
-   "Biodiversity monitoring",
-   "Passive acoustic monitoring",
-   "Audio embeddings"
-  ],
-  "techniques": [
-   "Pretrained audio encoders",
-   "UMAP",
-   "k-means clustering",
-   "Linear and kNN probing"
-  ],
-  "future": [
-   "Better performance on noisy, overlapping soundscapes",
-   "Using embeddings to organize data beyond fixed species classifiers"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "Laptop; public recordings or a cheap AudioMoth recorder for local data."
- },
- {
-  "id": "coadaptive-neural-interfaces",
-  "theme": "neural",
-  "kind": "News",
-  "source": "TechXplore · UW ECE",
-  "date": "2026-04",
-  "added": "2026-10-05",
-  "title": "Neural interfaces that adapt to you: game theory for wearables and implants",
-  "url": "https://techxplore.com/news/2026-04-neural-interfaces-game-theory-wearables.html",
-  "summary": "University of Washington researchers model the user and the decoder as two players who learn from each other. In a closed-loop experiment, a forearm EMG strip drives an on-screen cursor while the decoder adapts, and the game-theoretic model predicts and shapes how both sides change.",
-  "fit": "Pairs control theory and signal processing with a human in the loop. A small, testable question: does the decoder's adaptation rate change how fast people learn?",
-  "topics": [
-   "Co-adaptive decoders",
-   "Human-in-the-loop control",
-   "EMG cursor control"
-  ],
-  "techniques": [
-   "Game theory",
-   "Adaptive decoding",
-   "Closed-loop experiments"
-  ],
-  "future": [
-   "Compare adaptation-rate policies in a simple closed-loop EMG or mouse-proxy task",
-   "Apply the framework to BCI calibration time"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 2,
-  "needs": "A few-channel EMG board (or a simulated user) and a cursor task."
- },
- {
-  "id": "differentiable-auditory-loop",
-  "theme": "audio",
-  "kind": "Paper",
-  "source": "arXiv 2606.04103",
-  "date": "2026-06-02",
-  "added": "2026-10-05",
-  "title": "The Differentiable Auditory Loop (DAL): Hyper-Personalized Hearing Aids",
-  "authors": "A. Ballesta Rosen, … R. F. Lyon, S. Carlile",
-  "url": "https://arxiv.org/abs/2606.04103",
-  "summary": "Instead of fixed per-frequency amplification, DAL trains a hearing-aid network so that an impaired ear model's neural response matches a normal ear's. It uses CARFAC, a differentiable cochlea model ported to JAX, and SEANet as the waveform-to-waveform aid. It beats a standard open hearing-aid baseline on neural and signal-fidelity metrics. Open source.",
-  "fit": "Signal processing meets biology: a physical model of the cochlea used as a loss function. Rare territory for an undergraduate, with open code to start from.",
-  "topics": [
-   "Hearing loss",
-   "Personalized audio",
-   "Computational auditory models"
-  ],
-  "techniques": [
-   "CARFAC cochlear model",
-   "JAX",
-   "SEANet U-Net",
-   "Stabilized auditory images",
-   "Gradient-based fitting"
-  ],
-  "future": [
-   "Hardware deployment for real-world clinical testing"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 2,
-  "needs": "GPU; open-source code. Listening tests with volunteers are optional."
- },
- {
   "id": "eeg-imagined-speech",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "arXiv 2609.29820",
-  "date": "2026-09-24",
   "added": "2026-10-05",
-  "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
   "authors": "F. M. Trier, X. Mao, S. Puthusserypady (DTU)",
-  "url": "https://arxiv.org/abs/2609.29820",
-  "summary": "Many imagined-speech EEG papers report high accuracy, but often with evaluation splits that leak information between subjects. This study re-evaluates a popular 14-channel dataset under a strict leave-subjects-out protocol and finds that simple spectral band-power features beat time-domain statistics (about 49% vs 38% for 3 classes), with alpha and delta bands carrying most of the signal.",
-  "fit": "Pure DSP plus classical ML on a public dataset: filtering, PSD estimation, band power, random forests. It is the same toolkit as your Random Signals and Statistical ML coursework, and the honest-evaluation angle is an easy place to make a real contribution.",
+  "date": "2026-09-24",
+  "feasibility": 3,
+  "fit": "It's mostly filtering and frequency analysis, which you know from your signal processing courses, plus a standard classifier. The data is public, so you could start in week one.",
+  "future": [
+   "Clean out eye-blink and muscle noise before analysis",
+   "Use only the electrodes over the most relevant brain areas",
+   "Try richer frequency features"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop only. Public Kumar EEG dataset; optional low-cost EEG headset to collect your own data.",
+  "source": "arXiv 2609.29820",
+  "summary": "EEG is a cap of electrodes that records the brain's electrical activity through the scalp. People silently imagined letters, numbers or objects, and the computer tried to guess which of the three they imagined. Earlier papers reported very high accuracy, but they tested on the same people they trained on. Tested only on new people, accuracy dropped to about 49% (pure guessing would be 33%).",
+  "techniques": [
+   "Removing 50 Hz power-line noise",
+   "Measuring signal strength in frequency bands",
+   "Random forest classifier",
+   "Testing only on people the model never saw"
+  ],
+  "terms": [
+   {
+    "meaning": "Electrodes on the scalp that record tiny voltages from brain activity.",
+    "term": "EEG"
+   },
+   {
+    "meaning": "Brain activity oscillates at typical speeds. Alpha is about 8–14 cycles per second; delta is below 4.",
+    "term": "Brain rhythms"
+   },
+   {
+    "meaning": "How much of a signal's energy sits in a given frequency range.",
+    "term": "Band power"
+   },
+   {
+    "meaning": "The model is tested on people it never saw during training, which is how a real device would be used.",
+    "term": "Subject-independent"
+   }
+  ],
+  "theme": "neural",
+  "title": "Decoding Imagined Speech: A Strictly Subject-Independent Approach Using EEG",
   "topics": [
    "Brain-computer interfaces",
    "Imagined speech",
    "Cross-subject generalization",
    "Assistive communication"
   ],
-  "techniques": [
-   "FIR notch + Butterworth band-pass",
-   "Periodogram PSD",
-   "Band-power features",
-   "Random forest",
-   "Subject-wise CV",
-   "Wilcoxon signed-rank test"
-  ],
-  "future": [
-   "Proper artifact removal (e.g. ICA) before feature extraction",
-   "Channel selection, since occipital electrodes may dominate visual-imagery classes",
-   "Richer spectral features beyond absolute band power"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "Laptop only. Public Kumar EEG dataset; optional low-cost EEG headset to collect your own data."
- },
- {
-  "id": "eeg-riemannian-attention",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "arXiv 2606.25456 · KDD 2026",
-  "date": "2026-06-24",
-  "added": "2026-10-05",
-  "title": "Towards Robust EEG Decoding Based on Riemannian Self-Attention",
-  "authors": "S. Jin, T. Zhou, … J. Kittler",
-  "url": "https://arxiv.org/abs/2606.25456",
-  "summary": "EEG covariance matrices live on a curved manifold of symmetric positive-definite (SPD) matrices. The authors build a self-attention network that works directly on that manifold using the Bures-Wasserstein metric, which handles badly conditioned matrices better than the usual affine-invariant metric, and a learnable generalized version (GBWAtt). Code is public.",
-  "fit": "A mathematically rich take on noisy biosignals: covariance estimation, geometry and attention. If you enjoy the math under the system, this is a deep but well-defined thread with open code to build on.",
-  "topics": [
-   "EEG decoding",
-   "Riemannian geometry",
-   "Low-SNR signals",
-   "Motor imagery BCI"
-  ],
-  "techniques": [
-   "SPD covariance matrices",
-   "Bures-Wasserstein metric",
-   "Riemannian self-attention",
-   "Matrix power deformation"
-  ],
-  "future": [
-   "Compare manifold methods against EEG foundation models on cross-subject splits",
-   "Lightweight versions for real-time, few-channel headsets",
-   "Interpretability: which channel couplings drive the attention"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 2,
-  "needs": "GPU for training; public EEG benchmarks (e.g. BCI Competition IV). Strong linear algebra."
- },
- {
-  "id": "flexitac",
-  "theme": "robotics",
-  "kind": "Paper",
-  "source": "arXiv 2604.28156 · Columbia",
-  "date": "2026-04-30",
-  "added": "2026-10-05",
-  "title": "FlexiTac: A Low-Cost, Open-Source, Scalable Tactile Sensing Solution",
-  "authors": "B. Huang, Y. Li",
-  "url": "https://flexitac.github.io/",
-  "summary": "Thin piezoresistive tactile pads (12×32 taxels) built from two flexible PCBs around a Velostat film, read by an Arduino Nano at 100 Hz, for about $30 a unit. The authors show it works for visuo-tactile fusion, transferring skills from a hand-held gripper to a robot, and simulation-based fine-tuning.",
-  "fit": "A cheap, open tactile sensor that turns contact into a small pressure image. Signal processing on it (denoising, calibration, slip detection) is a ready-made project.",
-  "topics": [
-   "Tactile sensing",
-   "Robot learning",
-   "Open hardware"
-  ],
-  "techniques": [
-   "Piezoresistive arrays",
-   "Multiplexed readout",
-   "3D visuo-tactile point clouds",
-   "Kelvin-Voigt tactile simulation"
-  ],
-  "future": [
-   "Single-PCB readout to cut cost further",
-   "Shear and vibration sensing (currently normal force only)",
-   "Slip detection from the 100 Hz pressure stream"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 3,
-  "needs": "About $30 per sensor; open designs on the project page."
- },
- {
-  "id": "generative-emg-sparse",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "Nature Sensors",
-  "date": "2025-12",
-  "added": "2026-10-05",
-  "title": "A simplified wearable powered by a generative EMG network for hand gestures and gait",
-  "url": "https://www.nature.com/articles/s44460-025-00002-2",
-  "summary": "Representation learning lets a compact device with only a few EMG sensors match the information of a dense high-density array. A transformer encoder-decoder reconstructs the missing channels, and a CNN-LSTM backend predicts gestures and gait kinematics. The device uses stretchable sensors and low-impedance electrodes.",
-  "fit": "Essentially a 'super-resolution for biosignals' problem, close in spirit to your spatial interpolation of rainfall across sparse CML links.",
-  "topics": [
-   "Sparse sensing",
-   "Gesture & gait prediction",
-   "Wearables"
-  ],
-  "techniques": [
-   "Generative transformer",
-   "Channel reconstruction",
-   "CNN-LSTM"
-  ],
-  "future": [
-   "How few sensors are enough, and where to place them",
-   "Applying the same idea to sparse EEG montages"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 2,
-  "needs": "Public HD-EMG datasets (e.g. CSL-HDEMG); GPU."
- },
- {
-  "id": "hdemg-quadriplegia-robot",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "arXiv 2602.02773 · CMU",
-  "date": "2026-02",
-  "added": "2026-10-05",
-  "title": "Bimanual High-Density EMG Control for In-Home Mobile Manipulation by Users with Quadriplegia",
-  "authors": "J. Yang, E. Hodgson, C. Sun, Z. Erickson, D. J. Weber",
-  "url": "https://arxiv.org/abs/2602.02773",
-  "summary": "Fabric sleeves with 128 electrodes per forearm pick up residual muscle signals from 'paralyzed' hand movements and let a man with complete quadriplegia drive a home robot for 12 days: drinking, wiping, fetching from another room. A small CNN on RMS heatmaps reached 91–98% gesture accuracy, and vision-language shared autonomy cut navigation-heavy task time by about 30%.",
-  "fit": "Biosignals, CV, robotics and HCI in one system with an obvious human payoff. The signal chain (high-pass, notch, 80 ms windows, temporal smoothing) is pure DSP. The authors plan to release the first EMG dataset from people with quadriplegia.",
-  "topics": [
-   "Neuromotor interfaces",
-   "Spinal cord injury",
-   "Assistive robotics",
-   "Shared autonomy"
-  ],
-  "techniques": [
-   "HD-sEMG (8×16 grids)",
-   "RMS spatial heatmaps",
-   "2D CNN",
-   "EMA + majority-vote smoothing",
-   "Open-vocabulary detection (YOLO-E)",
-   "Whisper voice commands"
-  ],
-  "future": [
-   "Few-shot adaptation across days and sleeve shifts using the released dataset",
-   "Modelling long-term nonstationarity (skin impedance, electrode drift)",
-   "Multi-user deployments and comparison with other assistive interfaces"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 2,
-  "needs": "The adaptation problem is doable offline once the dataset is released; a full system needs an EMG front-end and a robot."
- },
- {
-  "id": "hearing-aid-directivity",
-  "theme": "audio",
-  "kind": "Paper",
-  "source": "arXiv 2609.15760 · IWAENC 2026",
-  "date": "2026-09-14",
-  "added": "2026-10-05",
-  "title": "Directivity-Conditioned Low-Latency Neural Filtering for Speech Enhancement in Hearing Aids",
-  "authors": "L. Uphaus, A. Merboldt, M. Hofbauer, T. Gerkmann",
-  "url": "https://arxiv.org/abs/2609.15760",
-  "summary": "Hearing aid users in a noisy room want to choose whom to listen to. This 10 ms-latency neural filter for behind-the-ear devices lets the user steer its directional focus, coping with head shadow and varying microphone positions, and matches methods that run with looser latency limits.",
-  "fit": "Direct sequel to your Wiener-filter project: STFT processing, multichannel spatial filtering, and the latency-versus-quality trade-off, now with a steerable neural model.",
-  "topics": [
-   "Hearing aids",
-   "Multichannel speech enhancement",
-   "Spatial filtering"
-  ],
-  "techniques": [
-   "Neural directional filtering",
-   "FiLM conditioning",
-   "OnlineSpatialNet",
-   "Short-window STFT"
-  ],
-  "future": [
-   "State-space (Mamba) models for better quality at low latency"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 2,
-  "needs": "GPU; public multichannel datasets and hearing-aid transfer functions."
- },
- {
-  "id": "malaria-continual-learning",
-  "theme": "imaging",
-  "kind": "Paper",
-  "source": "arXiv 2507.23648",
-  "date": "2025-07",
-  "added": "2026-10-05",
-  "title": "Towards Field-Ready AI-based Malaria Diagnosis: A Continual Learning Approach",
-  "url": "https://arxiv.org/abs/2507.23648",
-  "summary": "Malaria detectors trained at one hospital degrade at another because microscopes, stains and lighting differ. The authors use continual learning so a model can absorb new sites without forgetting old ones, on blood-smear images taken with a smartphone attached to a microscope, and plan to deploy it in a field app with partner clinics in Africa.",
-  "fit": "Image processing and ML where domain shift is the main problem, the same robustness issue you deal with across CML links. The impact is direct and measurable.",
-  "topics": [
-   "Global health",
-   "Microscopy",
-   "Domain shift"
-  ],
-  "techniques": [
-   "Continual learning",
-   "Object detection",
-   "Smartphone microscopy"
-  ],
-  "future": [
-   "On-device inference in the field app",
-   "Fewer labels per new site (active or semi-supervised learning)"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "Public malaria smear datasets; laptop GPU."
- },
- {
-  "id": "myotext-semg-typing",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "arXiv 2601.03098 · Purdue",
-  "date": "2026-01",
-  "added": "2026-10-05",
-  "title": "From Muscle to Text with MyoText: sEMG to Text via Finger Classification and Transformer Decoding",
-  "authors": "M. Roy Chowdhury, S. Sen, Y. Ding",
-  "url": "https://arxiv.org/abs/2601.03098",
-  "summary": "Instead of guessing letters straight from wrist EMG, MyoText first classifies which finger moved (85% accuracy), expands that into candidate letters using touch-typing ergonomics, then lets a fine-tuned T5 language model pick the sentence. On Meta's emg2qwerty dataset it reaches a 5.4% character error rate.",
-  "fit": "A clean 'physics first, then language' pipeline on a large public dataset, very close to your genre-classifier and DSP experience. The hierarchy idea transfers to many other biosignal problems.",
-  "topics": [
-   "Keyboard-free typing",
-   "AR/VR input",
-   "Wearable neural interfaces",
-   "Assistive text entry"
-  ],
-  "techniques": [
-   "CNN-BiLSTM-attention",
-   "Finger-level classification",
-   "Ergonomic letter pooling",
-   "Constrained beam search",
-   "T5 fine-tuning",
-   "Leave-one-user-out CV"
-  ],
-  "future": [
-   "Evaluate on all 108 users of emg2qwerty",
-   "Real-time acquisition and on-device inference to measure latency and power",
-   "Personalized finger-to-key maps from population typing data"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "Laptop + Colab GPU. emg2qwerty is public."
- },
- {
-  "id": "prosthetic-grasp-aabb",
-  "theme": "robotics",
-  "kind": "Paper",
-  "source": "Robotics (MDPI) 15(1):22",
-  "date": "2026-01",
-  "added": "2026-10-05",
-  "title": "Vision-Guided Grasp Planning for Prosthetic Hands with AABB-Based Object Representation",
-  "authors": "S. Sulaiman, A. Bachhar, M. Shen, S. Bøgh",
-  "url": "https://doi.org/10.3390/robotics15010022",
-  "summary": "A modular pipeline that lets a prosthetic hand plan its grasp from an RGB-D camera: objects are approximated with bounding volumes, then perception, motion planning and per-finger actuation are chained. Tested on a Linker Hand O7 with the camera in several positions.",
-  "fit": "A geometric, explainable alternative to end-to-end learning. Pair it with ReGlove to compare learned vs geometric grasp selection.",
-  "topics": [
-   "Prosthetics",
-   "Grasp planning",
-   "3D perception"
-  ],
-  "techniques": [
-   "RGB-D point clouds",
-   "Bounding-volume hierarchy",
-   "Per-finger actuation"
-  ],
-  "future": [
-   "Eye-in-hand camera instead of a fixed one",
-   "Combine geometric planning with EMG intent"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 2,
-  "needs": "RGB-D camera (e.g. RealSense); a robot hand or simulation."
- },
- {
-  "id": "reglove-vision-orthosis",
-  "theme": "robotics",
-  "kind": "Paper",
-  "source": "arXiv 2512.11824 · Columbia",
-  "date": "2025-12",
-  "added": "2026-10-05",
-  "title": "ReGlove: A Soft Pneumatic Glove for Daily-Living Assistance via Wrist-Mounted Vision",
-  "authors": "R. Ho, J. Zhang (Columbia students)",
-  "url": "https://arxiv.org/abs/2512.11824",
-  "summary": "Two Columbia students turned a $17 pneumatic rehab glove into a vision-guided orthosis for under $250. A wrist camera and YOLOv11 on a Raspberry Pi 5 pick the grasp type (96.7% accuracy, under 40 ms end to end), so people whose muscle signals are too weak for EMG control can still grasp everyday objects.",
-  "fit": "A near-perfect template for a capstone: student-built, cheap, CV-driven, with a clear list of what is still missing. It sits right where vision, biomedicine and robotics meet.",
-  "topics": [
-   "Assistive orthoses",
-   "Stroke & SCI rehabilitation",
-   "Edge computer vision"
-  ],
-  "techniques": [
-   "YOLOv11 grasp classification",
-   "Wrist-mounted camera",
-   "Raspberry Pi 5 inference",
-   "ESP32 valve control",
-   "YCB benchmark"
-  ],
-  "future": [
-   "Fuse sEMG intent with vision instead of a tactile switch",
-   "Closed-loop force control and grasp switching mid-task",
-   "Clinical study with stroke and SCI users"
-  ],
-  "futureFrom": "paper",
-  "feasibility": 3,
-  "needs": "About $250 in parts (listed in the paper), a Raspberry Pi 5 and a webcam."
- },
- {
-  "id": "semg-wrist-thinnet",
-  "theme": "neural",
-  "kind": "Paper",
-  "source": "PMC · open access",
-  "date": "2026-05",
-  "added": "2026-10-05",
-  "title": "Wrist-Wearable sEMG Gesture Recognition System Based on the ThinNet Lightweight Network",
-  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13296126/",
-  "summary": "A full hardware-plus-algorithm design for gesture recognition from a wristband: the authors build their own wrist sEMG acquisition band and a small network, ThinNet, tuned to run efficiently, and only emit a gesture when three consecutive windows agree.",
-  "fit": "A complete, buildable reference for a wrist interface. Hardware stays a means here, but it shows how far a small model can go.",
-  "topics": [
-   "Gesture recognition",
-   "Wearables",
-   "Edge ML"
-  ],
-  "techniques": [
-   "Wrist sEMG acquisition",
-   "Lightweight CNN",
-   "Temporal voting"
-  ],
-  "future": [
-   "Inter-subject generalization without recalibration",
-   "Pairing wrist EMG with a camera for context"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 3,
-  "needs": "Off-the-shelf EMG band (e.g. Myo-style or OpenBCI) or public datasets such as NinaPro."
- },
- {
-  "id": "sign-to-voice-emergency",
-  "theme": "hci",
-  "kind": "Paper",
-  "source": "Scientific Reports",
-  "date": "2026-07-08",
-  "added": "2026-10-05",
-  "title": "A vision-based sign language recognition and voice conversion system for inclusive communication",
-  "authors": "V. K. R. Gajjala et al.",
-  "url": "https://pubmed.ncbi.nlm.nih.gov/42420290/",
-  "summary": "A real-time system that recognizes hand gestures with a CNN plus transformer classifier and speaks them aloud, aimed at deaf or speech-impaired people in emergencies when no interpreter is around.",
-  "fit": "Shows the full product loop (camera to speech) for an accessibility tool. Useful as a baseline if you go the sign-language route.",
-  "topics": [
-   "Assistive communication",
-   "Gesture recognition",
-   "Emergency access"
-  ],
-  "techniques": [
-   "Image preprocessing",
-   "CNN",
-   "Transformer classification",
-   "Text-to-speech"
-  ],
-  "future": [
-   "Robustness to real emergency-room conditions",
-   "Two-way systems (speech back to sign or text)"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 3,
-  "needs": "Webcam and laptop."
- },
- {
-  "id": "signvla",
-  "theme": "hci",
-  "kind": "Paper",
-  "source": "arXiv 2606.20857",
-  "date": "2026-06-18",
-  "added": "2026-10-05",
-  "title": "SignVLA: Real-Time Sign Language-Guided Robotic Manipulation",
-  "authors": "N. Bai, … Z. Tang",
-  "url": "https://arxiv.org/abs/2606.20857",
-  "summary": "Robots that follow instructions usually expect speech or text, which shuts out deaf and speech-impaired users. SignVLA reads hand landmarks from video, recognizes alphabet and command signs with an attention LSTM plus a temporal stabilizer, and passes the result to a vision-language-action robot policy.",
-  "fit": "An accessibility layer built from a small, well-understood model. A project could extend it to continuous signing or Israeli Sign Language, which has little coverage.",
-  "topics": [
-   "Sign language recognition",
-   "Accessible HRI",
-   "Vision-language-action models"
-  ],
-  "techniques": [
-   "Hand landmark extraction",
-   "Attention LSTM",
-   "Temporal stabilization"
-  ],
-  "future": [
-   "Continuous, sentence-level signing instead of isolated signs",
-   "Low-resource sign languages",
-   "Recognition robustness across signers and lighting"
-  ],
-  "futureFrom": "inferred",
-  "feasibility": 3,
-  "needs": "Webcam, MediaPipe hand landmarks, laptop; a robot arm is optional."
+  "url": "https://arxiv.org/abs/2609.29820"
  },
  {
   "id": "surgical-vr-digital-twin",
-  "theme": "robotics",
-  "kind": "Paper",
-  "source": "arXiv 2609.25527 · IROS 2026",
-  "date": "2026-09-22",
   "added": "2026-10-05",
+  "date": "2026-09-22",
+  "feasibility": 1,
+  "fit": "3D computer vision and user interfaces in a medical setting. A smaller version, like rebuilding a tabletop scene for remote control, is realistic for a project.",
+  "future": [
+   "Measure delay and accuracy of the 3D model compared with plain video",
+   "Test whether extra viewing angles really help people judge depth"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Depth cameras and a VR headset; a surgical robot is out of reach, so use a tabletop analogue.",
+  "source": "arXiv 2609.25527 · IROS 2026",
+  "summary": "In robotic surgery, the surgeon sees inside the body through one 3D camera and controls the instruments from a console. This system rebuilds a 3D model of the scene from cameras and shows it in a VR headset, so the surgeon can look from other angles and judge depth better.",
+  "techniques": [
+   "Tracking instruments without markers",
+   "Live 3D model of the scene (digital twin)",
+   "Multiple cameras",
+   "VR headset display"
+  ],
+  "terms": [
+   {
+    "meaning": "Controlling a robot remotely.",
+    "term": "Teleoperation"
+   },
+   {
+    "meaning": "A live 3D computer model that mirrors a real scene.",
+    "term": "Digital twin"
+   },
+   {
+    "meaning": "A thin camera inserted into the body.",
+    "term": "Endoscope"
+   }
+  ],
+  "theme": "robotics",
   "title": "Digital Twin-Driven VR Teleoperation with Multi-View Spatial Perception for Surgical Robots",
-  "url": "https://arxiv.org/abs/2609.25527",
-  "summary": "Surgical robots usually show the surgeon one stereo endoscope view. This system builds a digital twin of the surgical scene from markerless perception and streams it to a VR headset, so the surgeon can look from other viewpoints and judge depth better.",
-  "fit": "3D computer vision and HCI in a high-stakes medical setting. A reduced version (reconstructing a tabletop scene for a teleoperator) is a realistic project.",
   "topics": [
    "Surgical robotics",
    "Teleoperation",
    "3D scene reconstruction",
    "VR interfaces"
   ],
-  "techniques": [
-   "Markerless pose estimation",
-   "Digital twins",
-   "Multi-view perception",
-   "Head-mounted display rendering"
-  ],
+  "url": "https://arxiv.org/abs/2609.25527"
+ },
+ {
+  "id": "hearing-aid-directivity",
+  "added": "2026-10-05",
+  "authors": "L. Uphaus, A. Merboldt, M. Hofbauer, T. Gerkmann",
+  "date": "2026-09-14",
+  "feasibility": 2,
+  "fit": "A direct sequel to your Wiener filter project: the same short-time frequency processing, now with several microphones and a neural network you can steer.",
   "future": [
-   "Latency and accuracy of the twin vs raw video",
-   "User studies on depth perception with novel views"
+   "Try newer sequence models (Mamba) for better quality at low delay"
   ],
-  "futureFrom": "inferred",
-  "feasibility": 1,
-  "needs": "Depth cameras and a VR headset; a surgical robot is out of reach, so use a tabletop analogue."
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "GPU; public multichannel datasets and hearing-aid transfer functions.",
+  "source": "arXiv 2609.15760 · IWAENC 2026",
+  "summary": "In a noisy room, hearing-aid users want to focus on one person. This method uses the hearing aid's microphones to keep sound from one chosen direction and lets the user steer that direction. It adds only 10 milliseconds of delay, short enough not to feel out of sync, and still matches slower methods in quality.",
+  "techniques": [
+   "Short-time Fourier transform (STFT)",
+   "Combining several microphones",
+   "Neural network you can point at a direction"
+  ],
+  "terms": [
+   {
+    "meaning": "The delay between sound entering and leaving the device.",
+    "term": "Latency"
+   },
+   {
+    "meaning": "Combining microphones so sound from one direction is kept and the rest reduced. Also called beamforming.",
+    "term": "Directional filtering"
+   },
+   {
+    "meaning": "Splitting audio into short overlapping slices and looking at the frequencies in each.",
+    "term": "STFT"
+   }
+  ],
+  "theme": "audio",
+  "title": "Directivity-Conditioned Low-Latency Neural Filtering for Speech Enhancement in Hearing Aids",
+  "topics": [
+   "Hearing aids",
+   "Multichannel speech enhancement",
+   "Spatial filtering"
+  ],
+  "url": "https://arxiv.org/abs/2609.15760"
  },
  {
   "id": "vbts-tactile-review",
-  "theme": "robotics",
-  "kind": "Review",
-  "source": "arXiv 2608.15490",
-  "date": "2026-08-16",
   "added": "2026-10-05",
-  "title": "Vision-Based Tactile Intelligence for Robotics: Sensing, Learning, and Embodied Manipulation",
   "authors": "P. Zhou + 14 authors",
-  "url": "https://arxiv.org/abs/2608.15490",
-  "summary": "Vision-based tactile sensors put a camera behind a soft skin, so touch becomes an image. This review covers the hardware types, the learning methods from raw contact images up to tactile foundation models, and the simulators and datasets used to scale them.",
-  "fit": "Touch-as-image is where your image processing meets robotics: deformation fields, optical flow, frequency-domain filtering on a sensor you can build.",
+  "date": "2026-08-16",
+  "feasibility": 2,
+  "fit": "Touch as an image is exactly where your image-processing background meets robotics, and you can build one of these sensors yourself for little money.",
+  "future": [
+   "Make models trained in simulation work on real sensors",
+   "Make one model work across different sensor builds",
+   "Add touch to AI models that control robots from camera and language"
+  ],
+  "futureFrom": "paper",
+  "kind": "Review",
+  "needs": "A DIY GelSight-style sensor costs tens of dollars; otherwise public tactile datasets.",
+  "source": "arXiv 2608.15490",
+  "summary": "Some robot touch sensors are a small camera looking at the inside of a soft rubber skin. When the skin presses against something, the camera sees it deform, so touch becomes an image. This review explains the types of these sensors, how AI reads their images, and the simulators and datasets researchers use.",
+  "techniques": [
+   "Camera behind a soft skin (GelSight-style)",
+   "Tracking dots printed on the skin",
+   "Training in simulation, then on a real robot"
+  ],
+  "terms": [
+   {
+    "meaning": "A sensor that gives a robot a sense of touch.",
+    "term": "Tactile sensor"
+   },
+   {
+    "meaning": "Training in a computer simulation, then making it work on a real robot.",
+    "term": "Sim-to-real"
+   },
+   {
+    "meaning": "Robots picking up, moving and handling objects.",
+    "term": "Manipulation"
+   }
+  ],
+  "theme": "robotics",
+  "title": "Vision-Based Tactile Intelligence for Robotics: Sensing, Learning, and Embodied Manipulation",
   "topics": [
    "Tactile sensing",
    "Contact-rich manipulation",
    "Visuo-tactile learning"
   ],
-  "techniques": [
-   "GelSight-type sensors",
-   "Marker tracking",
-   "Sim-to-real",
-   "Cross-sensor adaptation"
-  ],
+  "url": "https://arxiv.org/abs/2608.15490"
+ },
+ {
+  "id": "attnsign",
+  "added": "2026-10-05",
+  "authors": "M. Hu, G. Sun, A. D. Ross, S. Li, Z. Tao",
+  "date": "2026-07-31",
+  "feasibility": 2,
+  "fit": "A video-understanding problem with clear social value, and a good way into how large AI models can be guided.",
   "future": [
-   "Sim-to-real transfer for tactile images",
-   "Adapting models across different sensor builds",
-   "Tactile signals inside vision-language-action models"
+   "Guide the model with cheap hints, like hand positions, instead of retraining",
+   "Test on sign languages with little data"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "GPU for VLM inference; public sign-language corpora.",
+  "source": "arXiv 2608.00235",
+  "summary": "Large AI models that understand images and text are bad at translating sign language, because they don't look at the hands and face at the right moments. This work guides the model's attention toward the signer's hands and face over time, which improves translation.",
+  "techniques": [
+   "Guiding where the model looks",
+   "Following the hands over time",
+   "Translation without word-by-word labels"
+  ],
+  "terms": [
+   {
+    "meaning": "AI that understands both images and text.",
+    "term": "Vision-language model"
+   },
+   {
+    "meaning": "Which parts of the input a model focuses on.",
+    "term": "Attention"
+   },
+   {
+    "meaning": "A word-by-word written label for each sign. 'Gloss-free' means no such labels are needed.",
+    "term": "Gloss"
+   }
+  ],
+  "theme": "hci",
+  "title": "Attention-Steered Vision-Language Models for Sign Language Translation",
+  "topics": [
+   "Sign language translation",
+   "Vision-language models",
+   "Video grounding"
+  ],
+  "url": "https://arxiv.org/abs/2608.00235"
+ },
+ {
+  "id": "adage-flood-xai",
+  "added": "2026-10-05",
+  "authors": "H. Lee, W. Li",
+  "date": "2026-07-31",
+  "feasibility": 3,
+  "fit": "Closest to your rainfall research: remote sensing, physical knowledge about which signal should matter, and checking against ground truth. You could ask the same question of rainfall maps made from cellular links.",
+  "future": [
+   "Apply it to wildfire and landslide maps",
+   "Add knowledge about how things change over time",
+   "Use the mismatches to retrain or correct models"
   ],
   "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public datasets (C2S-MS Floods, UrbanSARFloods); one GPU.",
+  "source": "arXiv 2604.26051 · ASU",
+  "summary": "AI models that map floods from satellite images can score well while looking at the wrong things. Radar sees through clouds and ordinary cameras don't, so under clouds a good model should rely on the radar. This paper measures how much each type of satellite input drives each decision and checks that against what experts know. Models with the same accuracy reasoned very differently, and some relied on camera images under thick clouds, a sign they had learned a shortcut.",
+  "techniques": [
+   "Labeling every pixel as flood or not (segmentation)",
+   "Measuring how much each input matters (SHAP)",
+   "Combining radar and camera satellite images"
+  ],
+  "terms": [
+   {
+    "meaning": "Satellite radar that works through clouds and at night.",
+    "term": "SAR"
+   },
+   {
+    "meaning": "Methods that show why a model made a decision.",
+    "term": "Explainable AI"
+   },
+   {
+    "meaning": "When a model gets the right answer for the wrong reason.",
+    "term": "Shortcut learning"
+   },
+   {
+    "meaning": "Labeling each pixel of an image.",
+    "term": "Segmentation"
+   }
+  ],
+  "theme": "impact",
+  "title": "Evaluating the Alignment Between GeoAI Explanations and Domain Knowledge in Satellite Flood Mapping",
+  "topics": [
+   "Flood mapping",
+   "Explainable AI",
+   "Remote sensing",
+   "Disaster response"
+  ],
+  "url": "https://arxiv.org/abs/2604.26051"
+ },
+ {
+  "id": "sign-to-voice-emergency",
+  "added": "2026-10-05",
+  "authors": "V. K. R. Gajjala et al.",
+  "date": "2026-07-08",
+  "feasibility": 3,
+  "fit": "Shows the full path from camera to speech. Useful as a starting point if you go the sign-language route.",
+  "future": [
+   "Make it work in real emergency-room conditions",
+   "Make it two-way, turning speech back into text or signs"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Webcam and laptop.",
+  "source": "Scientific Reports",
+  "summary": "A camera recognizes hand signs and the system speaks them aloud in real time. It's aimed at deaf or speech-impaired people in emergencies, when no interpreter is around.",
+  "techniques": [
+   "Image cleanup",
+   "Image-recognition network",
+   "Text-to-speech"
+  ],
+  "terms": [
+   {
+    "meaning": "Turning written text into spoken audio.",
+    "term": "Text-to-speech"
+   }
+  ],
+  "theme": "hci",
+  "title": "A vision-based sign language recognition and voice conversion system for inclusive communication",
+  "topics": [
+   "Assistive communication",
+   "Gesture recognition",
+   "Emergency access"
+  ],
+  "url": "https://pubmed.ncbi.nlm.nih.gov/42420290/"
+ },
+ {
+  "id": "eeg-riemannian-attention",
+  "added": "2026-10-05",
+  "authors": "S. Jin, T. Zhou, … J. Kittler",
+  "date": "2026-06-24",
   "feasibility": 2,
-  "needs": "A DIY GelSight-style sensor costs tens of dollars; otherwise public tactile datasets."
+  "fit": "Good if you enjoy the math behind a method. It builds on covariance and linear algebra from your random signals course, and you can start from their code.",
+  "future": [
+   "Compare with large pre-trained brain-signal models on new users",
+   "Make a lighter version that runs in real time on cheap headsets",
+   "Show which electrode pairs drive each decision"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "GPU for training; public EEG benchmarks (e.g. BCI Competition IV). Strong linear algebra.",
+  "source": "arXiv 2606.25456 · KDD 2026",
+  "summary": "Instead of looking at each EEG electrode on its own, many methods look at how pairs of electrodes rise and fall together, summarized in a table called a covariance matrix. These tables have a special mathematical structure, and treating them like ordinary numbers loses information. The authors build a neural network that respects that structure and copes better with very noisy data. Their code is public.",
+  "techniques": [
+   "Covariance between electrodes",
+   "Neural network that respects the matrices' geometry",
+   "Attention (the mechanism used in modern AI models)"
+  ],
+  "terms": [
+   {
+    "meaning": "A table showing how strongly each pair of signals varies together.",
+    "term": "Covariance matrix"
+   },
+   {
+    "meaning": "Math for curved spaces. Covariance matrices live in one, so simple averages can mislead.",
+    "term": "Riemannian geometry"
+   },
+   {
+    "meaning": "A part of a neural network that learns which inputs to focus on.",
+    "term": "Attention"
+   },
+   {
+    "meaning": "Imagining a movement, like moving your left hand, without doing it. A common brain-computer interface task.",
+    "term": "Motor imagery"
+   }
+  ],
+  "theme": "neural",
+  "title": "Towards Robust EEG Decoding Based on Riemannian Self-Attention",
+  "topics": [
+   "EEG decoding",
+   "Riemannian geometry",
+   "Low-SNR signals",
+   "Motor imagery BCI"
+  ],
+  "url": "https://arxiv.org/abs/2606.25456"
+ },
+ {
+  "id": "signvla",
+  "added": "2026-10-05",
+  "authors": "N. Bai, … Z. Tang",
+  "date": "2026-06-18",
+  "feasibility": 3,
+  "fit": "An accessibility tool built from a small, well-understood model. A project could extend it to full sentences or to Israeli Sign Language, which has very little software support.",
+  "future": [
+   "Recognize full signed sentences, not just single signs",
+   "Support sign languages with little data",
+   "Work across different signers and lighting"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Webcam, MediaPipe hand landmarks, laptop; a robot arm is optional.",
+  "source": "arXiv 2606.20857",
+  "summary": "Robots that follow instructions usually expect speech or typed text, which leaves out deaf and speech-impaired people. SignVLA watches the user's hands on video, tracks points on the fingers, and recognizes sign-language letters and commands. It then passes the instruction to a robot that carries it out.",
+  "techniques": [
+   "Tracking points on the hand from video",
+   "Sequence model (LSTM) for gestures",
+   "Smoothing predictions over time"
+  ],
+  "terms": [
+   {
+    "meaning": "About 20 points on the fingers and wrist, found automatically in video.",
+    "term": "Hand landmarks"
+   },
+   {
+    "meaning": "A neural network for sequences, such as a gesture unfolding over time.",
+    "term": "LSTM"
+   },
+   {
+    "meaning": "AI that takes what a robot sees plus an instruction and outputs robot actions.",
+    "term": "VLA model"
+   }
+  ],
+  "theme": "hci",
+  "title": "SignVLA: Real-Time Sign Language-Guided Robotic Manipulation",
+  "topics": [
+   "Sign language recognition",
+   "Accessible HRI",
+   "Vision-language-action models"
+  ],
+  "url": "https://arxiv.org/abs/2606.20857"
+ },
+ {
+  "id": "differentiable-auditory-loop",
+  "added": "2026-10-05",
+  "authors": "A. Ballesta Rosen, … R. F. Lyon, S. Carlile",
+  "date": "2026-06-02",
+  "feasibility": 2,
+  "fit": "Signal processing meets biology: a model of how the ear works is used to judge the output. Unusual territory for a student project, with open code to start from.",
+  "future": [
+   "Run it on real hearing-aid hardware and test with patients"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "GPU; open-source code. Listening tests with volunteers are optional.",
+  "source": "arXiv 2606.04103",
+  "summary": "Normal hearing aids just make some frequencies louder. This project uses a computer model of the inner ear to train a hearing-aid network: it adjusts the sound until a model of the damaged ear responds the way a healthy ear would. It beat a standard hearing-aid baseline in the authors' tests, and the code is open.",
+  "techniques": [
+   "Computer model of the inner ear (CARFAC)",
+   "Network that turns audio into improved audio",
+   "Tuning to each person's hearing loss"
+  ],
+  "terms": [
+   {
+    "meaning": "The spiral part of the inner ear that turns sound into nerve signals.",
+    "term": "Cochlea"
+   },
+   {
+    "meaning": "A model you can train through with standard AI methods.",
+    "term": "Differentiable model"
+   },
+   {
+    "meaning": "Tuning a hearing aid to one person's hearing test.",
+    "term": "Fitting"
+   }
+  ],
+  "theme": "audio",
+  "title": "The Differentiable Auditory Loop (DAL): Hyper-Personalized Hearing Aids",
+  "topics": [
+   "Hearing loss",
+   "Personalized audio",
+   "Computational auditory models"
+  ],
+  "url": "https://arxiv.org/abs/2606.04103"
+ },
+ {
+  "id": "semg-wrist-thinnet",
+  "added": "2026-10-05",
+  "date": "2026-05",
+  "feasibility": 3,
+  "fit": "A complete working example of a wrist gesture interface. The hardware is only a means here; the interesting part is getting good accuracy from a small model.",
+  "future": [
+   "Work for new users without recalibrating",
+   "Combine wrist signals with a camera"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Off-the-shelf EMG band (e.g. Myo-style or OpenBCI) or public datasets such as NinaPro.",
+  "source": "PMC · open access",
+  "summary": "The authors built a wristband that records muscle signals and a small, fast neural network, ThinNet, that recognizes hand gestures from them. To avoid false alarms, it only reports a gesture when three readings in a row agree.",
+  "techniques": [
+   "Recording muscle signals at the wrist",
+   "Small neural network",
+   "Voting over consecutive readings"
+  ],
+  "terms": [
+   {
+    "meaning": "Recognizing hand poses or movements.",
+    "term": "Gesture recognition"
+   },
+   {
+    "meaning": "A neural network small enough to run on a cheap chip.",
+    "term": "Lightweight network"
+   }
+  ],
+  "theme": "neural",
+  "title": "Wrist-Wearable sEMG Gesture Recognition System Based on the ThinNet Lightweight Network",
+  "topics": [
+   "Gesture recognition",
+   "Wearables",
+   "Edge ML"
+  ],
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13296126/"
+ },
+ {
+  "id": "flexitac",
+  "added": "2026-10-05",
+  "authors": "B. Huang, Y. Li",
+  "date": "2026-04-30",
+  "feasibility": 3,
+  "fit": "A cheap, open-source sensor that turns contact into a small image. Processing its signal (cleaning noise, calibrating, detecting slip) is a ready-made project.",
+  "future": [
+   "A cheaper all-in-one circuit board",
+   "Sense sideways forces and vibration, not just pressing",
+   "Detect slip from the pressure readings"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "About $30 per sensor; open designs on the project page.",
+  "source": "arXiv 2604.28156 · Columbia",
+  "summary": "A thin, flexible touch pad for robot grippers that costs about $30. It's a pressure-sensitive film between two flexible circuit boards, read by an Arduino 100 times a second, giving a small 12×32 'pressure image'. The authors show it helps robots learn tasks that need touch, and it's easy to simulate.",
+  "techniques": [
+   "Pressure-sensitive film",
+   "Reading many sensing points with few wires",
+   "Combining touch and camera data",
+   "Touch simulation"
+  ],
+  "terms": [
+   {
+    "meaning": "One sensing point on a touch sensor, like a pixel for touch.",
+    "term": "Taxel"
+   },
+   {
+    "meaning": "A material whose electrical resistance changes when pressed.",
+    "term": "Piezoresistive"
+   },
+   {
+    "meaning": "Noticing that an object is starting to slide out of a grip.",
+    "term": "Slip detection"
+   }
+  ],
+  "theme": "robotics",
+  "title": "FlexiTac: A Low-Cost, Open-Source, Scalable Tactile Sensing Solution",
+  "topics": [
+   "Tactile sensing",
+   "Robot learning",
+   "Open hardware"
+  ],
+  "url": "https://flexitac.github.io/"
+ },
+ {
+  "id": "coadaptive-neural-interfaces",
+  "added": "2026-10-05",
+  "date": "2026-04",
+  "feasibility": 2,
+  "fit": "It joins control and signal processing with a person in the loop. A small, testable question for a project: does how fast the computer adapts change how fast people learn?",
+  "future": [
+   "Compare how fast the decoder should adapt, using a simple cursor task",
+   "Use the idea to shorten setup time for brain-computer interfaces"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "A few-channel EMG board (or a simulated user) and a cursor task.",
+  "source": "TechXplore · UW ECE",
+  "summary": "When a person controls a cursor with muscle signals, both sides are learning: the person adjusts how they move, and the computer adjusts how it reads them. University of Washington researchers used game theory to model this back-and-forth. In experiments where an electrode strip on the forearm moved an on-screen cursor, the model predicted and shaped how both sides changed.",
+  "techniques": [
+   "Game theory",
+   "A decoder that keeps updating itself",
+   "Live cursor-control experiments"
+  ],
+  "terms": [
+   {
+    "meaning": "The algorithm that turns body signals into commands.",
+    "term": "Decoder"
+   },
+   {
+    "meaning": "The person and the decoder both change over time in response to each other.",
+    "term": "Co-adaptation"
+   },
+   {
+    "meaning": "The person sees the result immediately and corrects themselves.",
+    "term": "Closed loop"
+   }
+  ],
+  "theme": "neural",
+  "title": "Neural interfaces that adapt to you: game theory for wearables and implants",
+  "topics": [
+   "Co-adaptive decoders",
+   "Human-in-the-loop control",
+   "EMG cursor control"
+  ],
+  "url": "https://techxplore.com/news/2026-04-neural-interfaces-game-theory-wearables.html"
+ },
+ {
+  "id": "bacpipe-bioacoustics",
+  "added": "2026-10-05",
+  "authors": "V. S. Kather, S. Haupert, B. Ghani, D. Stowell",
+  "date": "2026-04",
+  "feasibility": 3,
+  "fit": "Audio AI for nature conservation, very close to your music-genre classifier but with real ecological data. Because the toolkit already exists, a project can focus on a new question.",
+  "future": [
+   "Work better on noisy recordings with many animals at once",
+   "Organize recordings beyond a fixed list of species"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop; public recordings or a cheap AudioMoth recorder for local data.",
+  "source": "arXiv 2604.11560 · Naturalis",
+  "summary": "Researchers have millions of hours of wildlife recordings that nobody has listened to. bacpipe puts more than 20 animal-sound AI models into one Python package with a visual dashboard. You can group similar sounds, train a quick classifier for a new species, and click a point to hear the sound behind it.",
+  "techniques": [
+   "Pre-trained animal-sound models",
+   "Mapping sounds so similar ones sit close together (UMAP)",
+   "Grouping similar sounds (clustering)",
+   "Quick classifiers on top"
+  ],
+  "terms": [
+   {
+    "meaning": "Leaving recorders in nature and analyzing the sound later.",
+    "term": "Passive acoustic monitoring"
+   },
+   {
+    "meaning": "A list of numbers summarizing a sound, where similar sounds get similar numbers.",
+    "term": "Embedding"
+   },
+   {
+    "meaning": "Automatically grouping similar items.",
+    "term": "Clustering"
+   }
+  ],
+  "theme": "impact",
+  "title": "bacpipe: Making Bioacoustic Deep Learning Models Accessible",
+  "topics": [
+   "Biodiversity monitoring",
+   "Passive acoustic monitoring",
+   "Audio embeddings"
+  ],
+  "url": "https://github.com/bioacoustic-ai/bacpipe"
+ },
+ {
+  "id": "hdemg-quadriplegia-robot",
+  "added": "2026-10-05",
+  "authors": "J. Yang, E. Hodgson, C. Sun, Z. Erickson, D. J. Weber",
+  "date": "2026-02",
+  "feasibility": 2,
+  "fit": "It combines everything on your list: body signals, computer vision, robotics and a clear human benefit. The signal processing (filtering, short time windows, smoothing decisions over time) is close to what you did with speech.",
+  "future": [
+   "Adapt quickly when the sleeve shifts or a new day starts, using the dataset the team plans to release",
+   "Handle slow changes in the signal over days",
+   "Test with more users and compare with other interfaces"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "The adaptation problem is doable offline once the dataset is released; a full system needs an EMG front-end and a robot.",
+  "source": "arXiv 2602.02773 · CMU",
+  "summary": "EMG measures the electrical signals muscles produce when the brain tells them to move. Even when a spinal-cord injury leaves a hand paralyzed, faint signals still reach the forearm muscles. The team built fabric sleeves with 128 electrodes per arm that pick these up, so a man paralyzed from the neck down could control a home robot just by trying to move his wrists. Over 12 days at home he used it to drink, wipe a table and fetch a drink from another room.",
+  "techniques": [
+   "Electrode grids on the forearm",
+   "Turning muscle activity into a heat-map image",
+   "Small image-recognition network (CNN)",
+   "Smoothing predictions over time to avoid mistakes",
+   "Camera-based object detection and voice commands"
+  ],
+  "terms": [
+   {
+    "meaning": "Electrodes on the skin that record the electrical activity of muscles.",
+    "term": "EMG"
+   },
+   {
+    "meaning": "Paralysis of both arms and legs, often from a neck-level spinal injury.",
+    "term": "Quadriplegia"
+   },
+   {
+    "meaning": "Many closely spaced electrodes, giving a detailed map of muscle activity.",
+    "term": "High-density EMG"
+   },
+   {
+    "meaning": "The person gives the commands and the robot helps with fiddly parts, like lining up its gripper.",
+    "term": "Shared autonomy"
+   },
+   {
+    "meaning": "A neural network designed for images.",
+    "term": "CNN"
+   }
+  ],
+  "theme": "neural",
+  "title": "Bimanual High-Density EMG Control for In-Home Mobile Manipulation by Users with Quadriplegia",
+  "topics": [
+   "Neuromotor interfaces",
+   "Spinal cord injury",
+   "Assistive robotics",
+   "Shared autonomy"
+  ],
+  "url": "https://arxiv.org/abs/2602.02773"
+ },
+ {
+  "id": "myotext-semg-typing",
+  "added": "2026-10-05",
+  "authors": "M. Roy Chowdhury, S. Sen, Y. Ding",
+  "date": "2026-01",
+  "feasibility": 3,
+  "fit": "It's a clean example of splitting a hard problem into easier steps, and it's close to your music-genre classifier: features from a signal, then a classifier. All the data is public and it runs on Colab.",
+  "future": [
+   "Evaluate on all 108 people in the dataset",
+   "Run it live on a real wristband and measure speed and battery use",
+   "Learn each person's own typing habits"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop + Colab GPU. emg2qwerty is public.",
+  "source": "arXiv 2601.03098 · Purdue",
+  "summary": "A wristband with EMG electrodes records muscle activity while people type. Guessing the exact letter from the muscle signal is hard, but guessing which finger moved is much easier, because each finger uses different muscles. MyoText guesses the finger first, lists the letters that finger usually types, then lets a language model pick the sentence that makes sense. On 30 people from a public Meta dataset, it got about 95 of every 100 letters right.",
+  "techniques": [
+   "Classifying which finger moved",
+   "Keyboard layout as a hint",
+   "Language model to fix the sentence",
+   "Testing on new users"
+  ],
+  "terms": [
+   {
+    "meaning": "Surface EMG: muscle signals recorded with electrodes on the skin rather than needles.",
+    "term": "sEMG"
+   },
+   {
+    "meaning": "AI trained on text that knows which word sequences are likely.",
+    "term": "Language model"
+   },
+   {
+    "meaning": "The share of letters the system gets wrong.",
+    "term": "Character error rate"
+   },
+   {
+    "meaning": "A public dataset from Meta of wrist muscle signals recorded while 108 people typed.",
+    "term": "emg2qwerty"
+   }
+  ],
+  "theme": "neural",
+  "title": "From Muscle to Text with MyoText: sEMG to Text via Finger Classification and Transformer Decoding",
+  "topics": [
+   "Keyboard-free typing",
+   "AR/VR input",
+   "Wearable neural interfaces",
+   "Assistive text entry"
+  ],
+  "url": "https://arxiv.org/abs/2601.03098"
+ },
+ {
+  "id": "prosthetic-grasp-aabb",
+  "added": "2026-10-05",
+  "authors": "S. Sulaiman, A. Bachhar, M. Shen, S. Bøgh",
+  "date": "2026-01",
+  "feasibility": 2,
+  "fit": "Pairs well with ReGlove: you could compare a learned approach with a geometric one for choosing grips.",
+  "future": [
+   "Put the camera on the hand itself",
+   "Combine with muscle signals to know when the user wants to grab"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "RGB-D camera (e.g. RealSense); a robot hand or simulation.",
+  "source": "Robotics (MDPI) 15(1):22",
+  "summary": "A camera that also measures depth looks at an object, and the system approximates the object's shape with simple boxes. From that, a prosthetic hand plans how to close each finger. It's a step-by-step geometric approach rather than one big AI model, so it's easier to see why it chose a grip.",
+  "techniques": [
+   "Depth camera (3D point cloud)",
+   "Approximating objects with boxes",
+   "Planning each finger's movement"
+  ],
+  "terms": [
+   {
+    "meaning": "An artificial replacement for a missing body part.",
+    "term": "Prosthesis"
+   },
+   {
+    "meaning": "A camera that also measures how far away each point is.",
+    "term": "Depth camera"
+   },
+   {
+    "meaning": "A set of 3D points describing an object's surface.",
+    "term": "Point cloud"
+   }
+  ],
+  "theme": "robotics",
+  "title": "Vision-Guided Grasp Planning for Prosthetic Hands with AABB-Based Object Representation",
+  "topics": [
+   "Prosthetics",
+   "Grasp planning",
+   "3D perception"
+  ],
+  "url": "https://doi.org/10.3390/robotics15010022"
+ },
+ {
+  "id": "generative-emg-sparse",
+  "added": "2026-10-05",
+  "date": "2025-12",
+  "feasibility": 2,
+  "fit": "It's a 'fill in the gaps' problem, close in spirit to estimating rainfall between sparse cellular links in your research.",
+  "future": [
+   "Find the fewest sensors that still work, and where to place them",
+   "Try the same idea on brain signals with few electrodes"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public HD-EMG datasets (e.g. CSL-HDEMG); GPU.",
+  "source": "Nature Sensors",
+  "summary": "Detailed muscle maps normally need dozens of electrodes, which makes devices bulky. This team trained an AI model to fill in what the missing electrodes would have measured, so a compact device with only a few sensors works almost as well as a dense grid. They used it to recognize hand gestures and predict walking movements.",
+  "techniques": [
+   "AI model that reconstructs missing sensor signals",
+   "Gesture and walking prediction",
+   "Stretchable skin sensors"
+  ],
+  "terms": [
+   {
+    "meaning": "AI that produces new data, here the signals the missing electrodes would have recorded.",
+    "term": "Generative model"
+   },
+   {
+    "meaning": "The pattern of how someone walks.",
+    "term": "Gait"
+   }
+  ],
+  "theme": "neural",
+  "title": "A simplified wearable powered by a generative EMG network for hand gestures and gait",
+  "topics": [
+   "Sparse sensing",
+   "Gesture & gait prediction",
+   "Wearables"
+  ],
+  "url": "https://www.nature.com/articles/s44460-025-00002-2"
+ },
+ {
+  "id": "reglove-vision-orthosis",
+  "added": "2026-10-05",
+  "authors": "R. Ho, J. Zhang (Columbia students)",
+  "date": "2025-12",
+  "feasibility": 3,
+  "fit": "A great model for a capstone: built by students, cheap, driven by computer vision, with a clear list of what's still missing. It sits right where vision, medicine and robotics meet.",
+  "future": [
+   "Add muscle signals to sense when the user wants to grab",
+   "Control grip strength and switch grips mid-task",
+   "Test with stroke and spinal-injury patients"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "About $250 in parts (listed in the paper), a Raspberry Pi 5 and a webcam.",
+  "source": "arXiv 2512.11824 · Columbia",
+  "summary": "Two Columbia students turned a $17 inflatable rehab glove into one that closes around objects for you, for under $250 in total. A small camera on the wrist sees what's in front of the hand, and a Raspberry Pi picks the right grip (a pinch, a full-hand grip and so on) in under 40 milliseconds. It's meant for people whose muscle signals are too weak to control a device, for example after a stroke.",
+  "techniques": [
+   "Object detection with YOLO",
+   "Camera on the wrist",
+   "Raspberry Pi running the model",
+   "Air pump and valves controlled by a microcontroller"
+  ],
+  "terms": [
+   {
+    "meaning": "A device worn on the body to support or assist a weak limb.",
+    "term": "Orthosis"
+   },
+   {
+    "meaning": "A popular, fast computer-vision model that finds and labels objects in an image.",
+    "term": "YOLO"
+   },
+   {
+    "meaning": "The shape your hand makes to hold something: a pinch for a coin, a full grip for a bottle.",
+    "term": "Grasp type"
+   }
+  ],
+  "theme": "robotics",
+  "title": "ReGlove: A Soft Pneumatic Glove for Daily-Living Assistance via Wrist-Mounted Vision",
+  "topics": [
+   "Assistive orthoses",
+   "Stroke & SCI rehabilitation",
+   "Edge computer vision"
+  ],
+  "url": "https://arxiv.org/abs/2512.11824"
+ },
+ {
+  "id": "malaria-continual-learning",
+  "added": "2026-10-05",
+  "date": "2025-07",
+  "feasibility": 3,
+  "fit": "Image processing where the main challenge is that conditions change from place to place, like the differences between cellular links in your rainfall work. The impact is direct and measurable.",
+  "future": [
+   "Run the model on the phone itself, in the field",
+   "Need fewer labeled images for each new clinic"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public malaria smear datasets; laptop GPU.",
+  "source": "arXiv 2507.23648",
+  "summary": "To diagnose malaria, a technician looks at a blood sample under a microscope. AI can help, but a model trained at one hospital often fails at another, because microscopes, stains and lighting differ. The authors use continual learning, which lets the model learn each new clinic without forgetting the old ones, on photos taken with a phone attached to a microscope.",
+  "techniques": [
+   "Finding parasites in images (object detection)",
+   "Continual learning",
+   "Phone camera on a microscope"
+  ],
+  "terms": [
+   {
+    "meaning": "A thin layer of blood on a glass slide, viewed under a microscope.",
+    "term": "Blood smear"
+   },
+   {
+    "meaning": "When new data looks different from the training data.",
+    "term": "Domain shift"
+   },
+   {
+    "meaning": "Training a model on new data without it forgetting what it learned before.",
+    "term": "Continual learning"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Towards Field-Ready AI-based Malaria Diagnosis: A Continual Learning Approach",
+  "topics": [
+   "Global health",
+   "Microscopy",
+   "Domain shift"
+  ],
+  "url": "https://arxiv.org/abs/2507.23648"
  }
 ]
