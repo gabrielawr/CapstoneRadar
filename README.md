@@ -38,8 +38,8 @@ another device.
 ## Adding new items
 
 Each new item is one object in `data/items.json` with these fields:
-`id, theme (neural | imaging | hci | robotics | audio | impact), kind, source, date, added,
-title, authors, url, summary, fit, topics[], techniques[], future[],
+`id, theme (vision | wireless | neural | imaging | hci | robotics | audio | impact), kind, source, date, added,
+title, authors, url, summary, fit, terms[{term, meaning}], topics[], techniques[], future[],
 futureFrom ("paper" | "inferred"), feasibility (1–3), needs`.
 
 After you change files, the app picks up new data the next time it opens online.

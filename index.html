@@ -21,7 +21,7 @@ body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 :root{
   --bg:#f2f5f5; --panel:#ffffff; --ink:#13232a; --muted:#5a6c72; --line:#d9e2e3;
   --accent:#0f6870; --accent-soft:#dcefef; --star:#a8650f; --star-soft:#f8ead4; --no:#8a959a;
-  --t-neural:#7a4fc0; --t-imaging:#c0455a; --t-hci:#1d7fb8; --t-robotics:#3f8a3a; --t-audio:#b8792a; --t-impact:#0f6870;
+  --t-neural:#7a4fc0; --t-imaging:#c0455a; --t-hci:#1d7fb8; --t-robotics:#3f8a3a; --t-audio:#b8792a; --t-impact:#0f6870; --t-vision:#c2410c; --t-wireless:#4f5bd5;
   --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --f-body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -29,12 +29,12 @@ body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0e1517; --panel:#152024; --ink:#e3ecec; --muted:#93a6aa; --line:#25363b;
   --accent:#5fc6c4; --accent-soft:#183a3c; --star:#f0b452; --star-soft:#3a2c14; --no:#6e7f84;
-  --t-neural:#b49af0; --t-imaging:#f08797; --t-hci:#6ab8e8; --t-robotics:#86c97f; --t-audio:#e6b06a; --t-impact:#5fc6c4;
+  --t-neural:#b49af0; --t-imaging:#f08797; --t-hci:#6ab8e8; --t-robotics:#86c97f; --t-audio:#e6b06a; --t-impact:#5fc6c4; --t-vision:#f59a6b; --t-wireless:#9aa4f5;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0e1517; --panel:#152024; --ink:#e3ecec; --muted:#93a6aa; --line:#25363b;
   --accent:#5fc6c4; --accent-soft:#183a3c; --star:#f0b452; --star-soft:#3a2c14; --no:#6e7f84;
-  --t-neural:#b49af0; --t-imaging:#f08797; --t-hci:#6ab8e8; --t-robotics:#86c97f; --t-audio:#e6b06a; --t-impact:#5fc6c4;
+  --t-neural:#b49af0; --t-imaging:#f08797; --t-hci:#6ab8e8; --t-robotics:#86c97f; --t-audio:#e6b06a; --t-impact:#5fc6c4; --t-vision:#f59a6b; --t-wireless:#9aa4f5;
   color-scheme:dark}
 html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
@@ -157,6 +157,8 @@ a.open{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-w
 
 <script>
 const THEMES = {
+  vision:{label:"Image & video AI",c:"--t-vision"},
+  wireless:{label:"Wireless signals",c:"--t-wireless"},
   neural:{label:"Neural & bio-signals",c:"--t-neural"},
   imaging:{label:"Medical imaging",c:"--t-imaging"},
   hci:{label:"Vision for interaction",c:"--t-hci"},
