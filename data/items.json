@@ -105,7 +105,8 @@
   "added": "2026-10-08",
   "authors": "P. G. Kashani, S. Chen, A. Ozcan (UCLA)",
   "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video"
+   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
+   "Khen Cohen (TAU physics; supervises many EE final-year projects): ML for images and audio, audio deepfake detection, fiber-optic cables used as sensors"
   ],
   "date": "2026-10-01",
   "feasibility": 2,
@@ -343,7 +344,8 @@
   "authors": "Z. Li, T. Gao, … T. Lei",
   "contacts": [
    "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
-   "Prof. Gil Zussman (Columbia EE, WiMNet lab): wireless networks, the COSMOS testbed, smart city streets"
+   "Prof. Gil Zussman (Columbia EE, WiMNet lab): wireless networks, the COSMOS testbed, smart city streets",
+   "Khen Cohen (TAU physics; supervises many EE final-year projects): ML for images and audio, audio deepfake detection, fiber-optic cables used as sensors"
   ],
   "date": "2026-09-14",
   "feasibility": 2,
