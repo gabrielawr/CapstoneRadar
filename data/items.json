@@ -1,5 +1,486 @@
 [
  {
+  "id": "pv-thermal-defect-seg",
+  "added": "2026-10-08",
+  "authors": "N. Galal, E. A. Marzouk, H. E. Moustafa, H. B. Nafea, A. A. Hekal",
+  "date": "2026-10-08",
+  "feasibility": 3,
+  "fit": "A clean, doable image-segmentation project with a clear green-energy payoff. Your image-enhancement background helps, since heat images are noisy and low-contrast.",
+  "future": [
+   "Name the defect type, not just its location",
+   "Test on other cameras and panel types",
+   "Handle shadows, dust and low sunlight"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "The public Photovoltaic Thermal Images Dataset (on request) and one GPU or Colab.",
+  "source": "Scientific Reports · Mansoura University",
+  "summary": "Big solar farms have thousands of panels, and a broken cell shows up as a hot spot. Drones with heat cameras can photograph a whole farm, but someone still has to find the faulty spots in the images. This team trained a small network to mark every pixel as healthy or faulty in drone heat images from a South African solar plant. It found the faulty areas well (about 84 out of 100 on the standard overlap score), beat several common models, and processed about 65 images per second.",
+  "techniques": [
+   "Small image backbone for phones and drones (MobileNet)",
+   "Combining fine and coarse image detail (feature pyramid)",
+   "Looking at several context sizes at once (atrous pooling)",
+   "Image augmentation (flips, brightness, rotation)"
+  ],
+  "terms": [
+   {
+    "meaning": "A picture of heat rather than visible light.",
+    "term": "Thermal (infrared) image"
+   },
+   {
+    "meaning": "Labelling every pixel of an image, here as faulty or healthy.",
+    "term": "Segmentation"
+   },
+   {
+    "meaning": "How much the predicted area overlaps the true area, from 0 to 1.",
+    "term": "Dice score"
+   }
+  ],
+  "theme": "vision",
+  "title": "MFPN-ASPP: MobileNet feature pyramid with ASPP for photovoltaic panel defect segmentation",
+  "topics": [
+   "Solar energy",
+   "Drone inspection",
+   "Thermal imaging",
+   "Segmentation"
+  ],
+  "url": "https://www.nature.com/articles/s41598-026-71340-5"
+ },
+ {
+  "id": "vitalfr3-vital-signs",
+  "added": "2026-10-08",
+  "authors": "G. Bakhshi, H. Abou-Zeid",
+  "date": "2026-10-03",
+  "feasibility": 2,
+  "fit": "The processing chain is pure signals-and-systems: find the person in the range profile, then filter out a slow breathing wave and a faster heartbeat wave. It is a contact-free cousin of your audio filtering work.",
+  "future": [
+   "Test on more people and in moving or crowded scenes",
+   "Compare which frequencies work best for heartbeat",
+   "Run sensing alongside real data transmission"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "A cheap 60 GHz or 24 GHz radar evaluation board (or public radar vital-sign datasets) and a chest-strap reference; laptop processing.",
+  "source": "arXiv 2610.04213 · eess.SP",
+  "summary": "Future 6G networks will use a new range of radio frequencies, and engineers hope the same signals can also watch over people's health without any wearable. Your chest moves a few millimetres when you breathe and much less with each heartbeat, and a radar-like signal can pick up that motion. This team built a calibrated test setup from a programmable radio and measured 16 people at six frequencies between 10 and 22.5 GHz. Breathing rate was off by less than one breath per minute on average, and most heart-rate readings were within 5 beats per minute.",
+  "techniques": [
+   "Frequency-sweep radar (FMCW)",
+   "Locating the person by distance (range profile)",
+   "Separating slow breathing from faster heartbeat with filters",
+   "Calibrating the radio with loopback recordings"
+  ],
+  "terms": [
+   {
+    "meaning": "Basic body readings such as breathing rate and heart rate.",
+    "term": "Vital signs"
+   },
+   {
+    "meaning": "A radar that sends a tone sweeping up in frequency; the echo's delay tells distance, and tiny phase changes reveal tiny motions.",
+    "term": "FMCW radar"
+   },
+   {
+    "meaning": "A radio whose signal processing is done in software, so it can be reprogrammed.",
+    "term": "Software-defined radio (SDR)"
+   },
+   {
+    "meaning": "The next mobile network generation and the new 7–24 GHz frequency range it may use.",
+    "term": "6G / FR3"
+   }
+  ],
+  "theme": "wireless",
+  "title": "VitalFR3: Wireless Vital Sign Sensing in the Upper Mid-Band (FR3)",
+  "topics": [
+   "Contact-free health monitoring",
+   "Radar sensing",
+   "6G",
+   "Breathing and heart rate"
+  ],
+  "url": "https://arxiv.org/abs/2610.04213"
+ },
+ {
+  "id": "optical-deepfake-detector",
+  "added": "2026-10-08",
+  "authors": "P. G. Kashani, S. Chen, A. Ozcan (UCLA)",
+  "date": "2026-10-01",
+  "feasibility": 2,
+  "fit": "The digital front end is exactly your kind of work: turn video into compact spatial, frequency and time features. A capstone could build only that software part and test which features best separate real from fake.",
+  "future": [
+   "Use it as a fast first filter before a heavier digital check",
+   "Keep up with new video generators",
+   "Reduce the false alarms on real videos"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "The optics are out of scope; the software side needs public datasets (Celeb-DF) and one GPU.",
+  "source": "eLight · UCLA (via ScienceDaily)",
+  "summary": "Fake videos made by AI are everywhere, and checking each one with a big computer model costs time and energy. The UCLA team lets light do much of the work. A small program squeezes each video into a short summary of its picture, colour and motion patterns, and that summary is shown on a tiny programmable screen; light passing through it and some fixed glass-like layers produces a real-or-fake score. It checked 15 videos at once and got about 98 of every 100 right, and still did well on videos from a new AI video generator after a little retraining.",
+  "techniques": [
+   "Compact video features (picture, frequency and motion)",
+   "Light-based classifier",
+   "Checking many videos in one pass",
+   "Robustness tests against blur, noise and compression"
+  ],
+  "terms": [
+   {
+    "meaning": "A fake video made by AI to look real.",
+    "term": "Deepfake"
+   },
+   {
+    "meaning": "A tiny screen that shapes a light beam pixel by pixel.",
+    "term": "Spatial light modulator"
+   },
+   {
+    "meaning": "A patterned clear sheet that bends light in a planned way, acting like a fixed neural-network layer.",
+    "term": "Diffractive layer"
+   }
+  ],
+  "theme": "vision",
+  "title": "Scalable, energy-efficient optical-neural architecture for multiplexed deepfake video detection",
+  "topics": [
+   "Deepfake detection",
+   "Video features",
+   "Optical computing",
+   "Media trust"
+  ],
+  "url": "https://www.sciencedaily.com/releases/2026/09/260929053534.htm"
+ },
+ {
+  "id": "voice-diabetes-screening",
+  "added": "2026-10-08",
+  "authors": "thymia & RMIT University",
+  "date": "2026-10-01",
+  "feasibility": 2,
+  "fit": "Speech features plus a classifier, the same pipeline as your MFCC genre classifier but aimed at health. It also shows a real-world issue worth studying: fairness across different groups of speakers.",
+  "future": [
+   "Larger clinical studies",
+   "Make it work equally well for all groups",
+   "Use it to send more people for blood tests"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "This dataset is private; a project would use public voice-health datasets and a laptop.",
+  "source": "EASD 2026 · thymia & RMIT (via Knowridge)",
+  "summary": "Many people have type 2 diabetes without knowing it, and testing needs a blood draw. This team trained a model on more than 63,000 voice recordings from 21,000 people to look for subtle signs of diabetes in 20 seconds of reading aloud. In a group with blood tests, it caught about 8 of every 10 people with diabetes, but it also flagged about half of the healthy people. It worked less well for some groups, so it is meant as a first nudge toward a blood test, not a diagnosis.",
+  "techniques": [
+   "Extracting features from short speech clips",
+   "Classifier trained on tens of thousands of recordings",
+   "Checking accuracy across different groups"
+  ],
+  "terms": [
+   {
+    "meaning": "A common illness where the body handles blood sugar poorly.",
+    "term": "Type 2 diabetes"
+   },
+   {
+    "meaning": "A quick, cheap check to decide who should get a proper test.",
+    "term": "Screening"
+   },
+   {
+    "meaning": "Flagging someone as sick when they are healthy.",
+    "term": "False positive"
+   }
+  ],
+  "theme": "audio",
+  "title": "A 20-second voice test may detect diabetes",
+  "topics": [
+   "Voice and health",
+   "Disease screening",
+   "Speech analysis",
+   "Fairness"
+  ],
+  "url": "https://knowridge.com/2026/10/a-20-second-voice-test-may-detect-diabetes"
+ },
+ {
+  "id": "weednet",
+  "added": "2026-10-08",
+  "authors": "Y. Shen, … S. Sarkar, A. Singh",
+  "date": "2026-09-30",
+  "feasibility": 3,
+  "fit": "A big, real image-classification problem with clear social value (less herbicide, better harvests). The global-then-local idea is something you could copy at small scale for weeds or crops common in Israel.",
+  "future": [
+   "Add more photos of rare growth stages",
+   "Run it on field robots and drones",
+   "Build question-answering tools for farmers"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public iNaturalist images or the released model; one GPU for fine-tuning.",
+  "source": "Nature Communications · Iowa State",
+  "summary": "Farmers need to know which weed they face to pick the right treatment, but there are thousands of species and they change look as they grow. This team trained an image model on about 14 million photos of 1,593 weed species, mostly from a citizen-science app. It names the species about 91 times out of 100 worldwide, and after fine-tuning on one region (84 weeds in Iowa) about 97 times out of 100. They checked it on drone and ground-robot images too.",
+  "techniques": [
+   "Learning from unlabelled photos first (self-supervised)",
+   "Global model, then regional tuning (fine-tuning)",
+   "Image classification across many classes",
+   "Testing on drone and robot images"
+  ],
+  "terms": [
+   {
+    "meaning": "A large model trained on huge, broad data that can be adapted to many specific tasks.",
+    "term": "Foundation model"
+   },
+   {
+    "meaning": "Learning from unlabelled images by solving puzzles made from the images themselves.",
+    "term": "Self-supervised learning"
+   },
+   {
+    "meaning": "Briefly retraining a big model on a small, specific dataset.",
+    "term": "Fine-tuning"
+   }
+  ],
+  "theme": "vision",
+  "title": "WeedNet: a foundation model-based global-to-local AI approach for weed species identification and classification",
+  "topics": [
+   "Agriculture",
+   "Image classification",
+   "Citizen-science data",
+   "Environment"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-78044-4"
+ },
+ {
+  "id": "xvr-xray-registration",
+  "added": "2026-10-08",
+  "authors": "V. Gopalakrishnan, N. Dey, P. Golland et al. (MIT CSAIL)",
+  "date": "2026-09-16",
+  "feasibility": 2,
+  "fit": "It turns physics simulation into training data, a neat trick when real labelled images are scarce. It sits between your image-enhancement work and machine learning, and the 2D/3D geometry ties back to your signals and transforms courses.",
+  "future": [
+   "Make it fast enough for continuous real-time use",
+   "Handle body parts that move, such as breathing organs",
+   "Test reliability in more clinical situations"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "Public CT scans and X-ray simulation code (the xvr code is public); one GPU.",
+  "source": "MIT News · Nature",
+  "summary": "During keyhole surgery, doctors steer thin tools using live X-rays, but an X-ray is flat, so it is hard to tell where the tool is in 3D. Lining the X-ray up with the patient's earlier 3D scan helps, but by hand it is slow. The MIT system simulates about 1,000 fake X-rays per second from that patient's own 3D scan and trains a network just for that patient. A version pre-trained on 2,000 people adapts to a new patient in about five minutes and then aligns images in seconds to under a millimetre.",
+  "techniques": [
+   "Simulating X-rays from a 3D scan",
+   "Training one network per patient",
+   "Pre-training on many patients, then quick tuning",
+   "Estimating camera pose from an image"
+  ],
+  "terms": [
+   {
+    "meaning": "Lining up two images of the same thing so the same point matches in both.",
+    "term": "Registration"
+   },
+   {
+    "meaning": "Hospital scans that give a full 3D picture of the inside of the body.",
+    "term": "CT / MRI scan"
+   },
+   {
+    "meaning": "Teaching a network on lots of general data first, so it learns a new case quickly.",
+    "term": "Pre-training"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Rapid patient-specific neural networks for X-ray to volume registration",
+  "topics": [
+   "Image-guided surgery",
+   "Medical imaging",
+   "Simulation for training data",
+   "3D from 2D"
+  ],
+  "url": "https://news.mit.edu/2026/new-ai-technique-could-make-minimally-invasive-surgeries-safer-more-precise-0916"
+ },
+ {
+  "id": "topcap-speech-topology",
+  "added": "2026-10-08",
+  "authors": "P. Feng, Q. Qu, … Y. Zhu",
+  "date": "2026-09-16",
+  "feasibility": 3,
+  "fit": "A fresh kind of hand-made feature to set beside the MFCCs you used for genre classification. Comparing the two on a small speech or music task would make a tidy, original capstone.",
+  "future": [
+   "Try other sound tasks, such as music or heart sounds",
+   "Test with more kinds of real-world noise",
+   "Compare against standard speech features"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public speech datasets (e.g. TIMIT-like corpora) and free libraries for shape analysis (giotto-tda, ripser); a laptop.",
+  "source": "Nature Communications · SUSTech Shenzhen",
+  "summary": "Neural networks for speech work well but are hard to understand, and they can stumble on noise. This team describes the overall shape of a short piece of sound wave instead, using a branch of math called topology that captures how the wave repeats and vibrates. These shape features alone sorted 'voiced' sounds (like z) from 'voiceless' ones (like s) about as well as neural networks. Adding them to a neural network made it more accurate, more stable and less hurt by noise.",
+  "techniques": [
+   "Describing the shape of a short signal piece (topological data analysis)",
+   "Shape features fed to simple classifiers",
+   "Adding shape features to a neural network",
+   "Noise-robustness tests"
+  ],
+  "terms": [
+   {
+    "meaning": "The math of shape that cares about loops and connections, not exact sizes.",
+    "term": "Topology"
+   },
+   {
+    "meaning": "Whether your vocal cords buzz when making the sound, like z versus s.",
+    "term": "Voiced vs voiceless"
+   },
+   {
+    "meaning": "A model whose decisions a person can follow and explain.",
+    "term": "Interpretable"
+   }
+  ],
+  "theme": "audio",
+  "title": "Topology-enhanced machine learning for speech signal processing",
+  "topics": [
+   "Speech features",
+   "Interpretable ML",
+   "Noise robustness",
+   "Topology"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-77649-z"
+ },
+ {
+  "id": "frequency-traffic-detector",
+  "added": "2026-10-08",
+  "authors": "Z. Li, T. Gao, … T. Lei",
+  "date": "2026-09-14",
+  "feasibility": 2,
+  "fit": "This is your filters course inside a neural network: low-pass and high-pass filters that the network learns and adapts per pixel. A great bridge from classic image processing to modern vision.",
+  "future": [
+   "Combine the camera with other sensors such as radar",
+   "Make the frequency steps cheaper for tiny devices",
+   "Improve results in bad weather and extreme lighting"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public driving datasets (KITTI, BDD100K) and one GPU; an edge board is optional.",
+  "source": "Nature Communications · Shaanxi Univ. of Sci. & Tech.",
+  "summary": "A car's camera must find people, cars and bikes in busy street scenes, fast, on a small onboard computer. This team built object spotting around an old DSP idea: split the image into smooth parts (low frequencies) and sharp edges (high frequencies), and treat them differently. Near edges the network looks at fine detail; in smooth areas it looks wider. The model is small, runs about 35 frames per second on a car-grade chip, and beat popular detectors on four driving datasets.",
+  "techniques": [
+   "Learned low-pass and high-pass filters",
+   "Adapting each filter's reach per pixel (adaptive dilation)",
+   "Combining features from several image scales",
+   "Running on a small car-grade chip"
+  ],
+  "terms": [
+   {
+    "meaning": "Drawing a labelled box around each object in an image.",
+    "term": "Object detection"
+   },
+   {
+    "meaning": "Smooth, slowly changing areas versus sharp edges and fine texture.",
+    "term": "Low / high frequencies (in images)"
+   },
+   {
+    "meaning": "Spreading a filter's taps apart so it sees a wider area without extra cost.",
+    "term": "Dilation"
+   },
+   {
+    "meaning": "The standard accuracy score for object detection; higher is better.",
+    "term": "mAP"
+   }
+  ],
+  "theme": "vision",
+  "title": "Frequency-oriented adaptive real-time object detector for cluttered traffic scenes",
+  "topics": [
+   "Self-driving",
+   "Object detection",
+   "Frequency-domain processing",
+   "Real-time vision"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-76346-1"
+ },
+ {
+  "id": "lte-wifi-rain-doppler",
+  "added": "2026-10-08",
+  "authors": "Z. Wang, J. A. Zhang, K. Wu, Y. J. Guo",
+  "date": "2026-08-17",
+  "feasibility": 2,
+  "fit": "This is the next step after your cellular-link rainfall research: same goal, but using frequency changes instead of signal loss. It is a classic DSP story (cleaning up timing errors, then a time-frequency view) followed by a small classifier, like your genre project.",
+  "future": [
+   "Prove the flicker comes from rain and not from wind or swaying trees",
+   "Test at more sites and in more seasons",
+   "Combine with signal-loss methods from longer microwave links"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "A Wi-Fi card that exposes signal measurements (e.g. ESP32 or Intel 5300 tools), a rain gauge for ground truth, and a rainy season; a laptop is enough for the processing.",
+  "source": "arXiv 2608.16088 · UTS Sydney",
+  "summary": "Rain gauges and weather radars are expensive and spread thin, so many places have poor rain data. Phone networks are everywhere, but at ordinary phone frequencies rain barely weakens the signal, so the usual trick of measuring signal loss fails. This team listened for something else: falling drops make the radio signal flicker slightly in frequency (a Doppler effect). Using that flicker, they told no rain, light rain and heavy rain apart about 95 times out of 100 on Wi-Fi, and estimated rain rate from real 4G towers to within about a quarter of a millimetre per hour.",
+  "techniques": [
+   "Correcting timing and phase errors in the received signal",
+   "Time-frequency analysis of signal flicker (Doppler spectrum)",
+   "Decision-tree voting classifier (random forest)",
+   "Small 1D neural network for rain rate (1D CNN)"
+  ],
+  "terms": [
+   {
+    "meaning": "Moving objects shift the frequency of waves bouncing off them, like a passing siren changing pitch.",
+    "term": "Doppler effect"
+   },
+   {
+    "meaning": "A detailed measurement a Wi-Fi or 4G receiver makes of how the signal arrived on each frequency.",
+    "term": "CSI (channel state information)"
+   },
+   {
+    "meaning": "The ordinary mobile phone network.",
+    "term": "4G / LTE"
+   },
+   {
+    "meaning": "A classifier that lets many simple decision trees vote.",
+    "term": "Random forest"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Rainfall Sensing via Mobile Communication Signals",
+  "topics": [
+   "Rain sensing",
+   "Cellular signals",
+   "Wi-Fi sensing",
+   "Environment"
+  ],
+  "url": "https://arxiv.org/abs/2608.16088"
+ },
+ {
+  "id": "cml-satellite-rain-fusion",
+  "added": "2026-10-08",
+  "authors": "T. Shit, M. Fencl, C. Chwala, V. Bareš",
+  "date": "2026-08-17",
+  "feasibility": 3,
+  "fit": "This is almost exactly your Columbia and CellEnMon topic, rain from cellular microwave links, with one smart extra input. A capstone could reproduce it on Israeli link data if your old lab can share it.",
+  "future": [
+   "Use the better rain/no-rain decisions to improve rain amount estimates",
+   "Try it in regions with few rain gauges, such as Africa",
+   "Add newer satellite products with finer detail"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public microwave-link datasets (e.g. OpenMRG from Sweden) plus free satellite cloud products; a laptop or one GPU.",
+  "source": "EGUsphere preprint · CTU Prague & KIT",
+  "summary": "The microwave links between cell towers lose signal when it rains, so they can act as free rain gauges. The hard part is telling 'rain' from 'dry but noisy' on each link. This team fed a neural network both the link's signal loss and what a weather satellite saw in the clouds above it every 15 minutes. Using the link alone, the model caught only about half of the rain; adding the satellite cloud data raised that to about 9 out of 10, with few false alarms, across 5,000 links in Germany and Czechia.",
+  "techniques": [
+   "Measuring rain from signal loss on tower-to-tower links",
+   "Adding satellite cloud maps as a second input (data fusion)",
+   "Small neural network for rain / no rain (CNN)",
+   "Testing in one country after training in another"
+  ],
+  "terms": [
+   {
+    "meaning": "The point-to-point radio beam that connects two cell towers; rain along the path weakens it.",
+    "term": "Commercial microwave link (CML)"
+   },
+   {
+    "meaning": "A weather satellite that stays above the same spot and photographs clouds every few minutes.",
+    "term": "Geostationary satellite"
+   },
+   {
+    "meaning": "A neural network that learns patterns by sliding small filters over the data.",
+    "term": "CNN"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Fusing geostationary satellite cloud properties with signal attenuation from microwave links for rain detection",
+  "topics": [
+   "Rain detection",
+   "Microwave links",
+   "Satellite data",
+   "Data fusion"
+  ],
+  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3905/"
+ },
+ {
   "id": "eeg-imagined-speech",
   "added": "2026-10-05",
   "authors": "F. M. Trier, X. Mao, S. Puthusserypady (DTU)",

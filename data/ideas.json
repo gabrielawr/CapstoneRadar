@@ -1,1 +1,16 @@
-[]
+[
+ {
+  "id": "sign-language-israeli",
+  "createdAt": "2026-10-08T06:30:00Z",
+  "needs": "A laptop and a webcam, free hand-tracking software (MediaPipe), and time to collect videos. No special hardware. A contact in the deaf community or an ISL course would help a lot.",
+  "novelty": "Very little ISL video data or software exists, so even a working recognizer for a few dozen everyday signs would be new. You could also test a cheap trick from the papers you starred: instead of feeding the whole video to a large AI model, first find the hands and face, then let a small model read only those points over time.",
+  "problem": "Deaf people in Israel often have no interpreter at a clinic, a bank or a government office. Apps that turn signing into text exist for American and Chinese Sign Language, but almost nothing works for Israeli Sign Language (ISL).",
+  "related": [
+   "SignVLA: Real-Time Sign Language-Guided Robotic Manipulation",
+   "Attention-Steered Vision-Language Models for Sign Language Translation",
+   "A vision-based sign language recognition and voice conversion system for inclusive communication"
+  ],
+  "scope": "Weeks 1–3: record or collect short videos of 30–50 common ISL signs (from volunteers or the Israeli deaf community's online dictionaries) and track hand points automatically. Weeks 4–8: train a small sequence model to recognize single signs, and test it on signers it never saw. Weeks 9–12: a live webcam demo that shows the recognized sign as text or speech, plus a short evaluation of what fails (lighting, fast signing, different hands).",
+  "title": "A sign-language reader for Israeli Sign Language"
+ }
+]
