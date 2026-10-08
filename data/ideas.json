@@ -1,6 +1,10 @@
 [
  {
   "id": "sign-language-israeli",
+  "contacts": [
+   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
+   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
+  ],
   "createdAt": "2026-10-08T06:30:00Z",
   "needs": "A laptop and a webcam, free hand-tracking software (MediaPipe), and time to collect videos. No special hardware. A contact in the deaf community or an ISL course would help a lot.",
   "novelty": "Very little ISL video data or software exists, so even a working recognizer for a few dozen everyday signs would be new. You could also test a cheap trick from the papers you starred: instead of feeding the whole video to a large AI model, first find the hands and face, then let a small model read only those points over time.",
