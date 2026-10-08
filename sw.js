@@ -1,6 +1,6 @@
 // Capstone Radar service worker: the app shell works offline,
 // and the reading list (data/*.json) is fetched fresh whenever you're online.
-const CACHE = "radar-v4";
+const CACHE = "radar-v5";
 const SHELL = ["./", "index.html", "manifest.webmanifest",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
   "data/items.json", "data/ideas.json", "data/meta.json"];
