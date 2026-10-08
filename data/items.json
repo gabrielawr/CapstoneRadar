@@ -50,9 +50,6 @@
   "id": "vitalfr3-vital-signs",
   "added": "2026-10-08",
   "authors": "G. Bakhshi, H. Abou-Zeid",
-  "contacts": [
-   "Prof. Gil Zussman (Columbia EE, WiMNet lab): wireless networks, the COSMOS testbed, smart city streets"
-  ],
   "date": "2026-10-03",
   "feasibility": 2,
   "fit": "The processing chain is pure signals-and-systems: find the person in the range profile, then filter out a slow breathing wave and a faster heartbeat wave. It is a contact-free cousin of your audio filtering work.",
@@ -104,10 +101,6 @@
   "id": "optical-deepfake-detector",
   "added": "2026-10-08",
   "authors": "P. G. Kashani, S. Chen, A. Ozcan (UCLA)",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
-   "Khen Cohen (TAU physics; supervises many EE final-year projects): ML for images and audio, audio deepfake detection, fiber-optic cables used as sensors"
-  ],
   "date": "2026-10-01",
   "feasibility": 2,
   "fit": "The digital front end is exactly your kind of work: turn video into compact spatial, frequency and time features. A capstone could build only that software part and test which features best separate real from fake.",
@@ -342,11 +335,6 @@
   "id": "frequency-traffic-detector",
   "added": "2026-10-08",
   "authors": "Z. Li, T. Gao, … T. Lei",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
-   "Prof. Gil Zussman (Columbia EE, WiMNet lab): wireless networks, the COSMOS testbed, smart city streets",
-   "Khen Cohen (TAU physics; supervises many EE final-year projects): ML for images and audio, audio deepfake detection, fiber-optic cables used as sensors"
-  ],
   "date": "2026-09-14",
   "feasibility": 2,
   "fit": "This is your filters course inside a neural network: low-pass and high-pass filters that the network learns and adapts per pixel. A great bridge from classic image processing to modern vision.",
@@ -398,11 +386,6 @@
   "id": "lte-wifi-rain-doppler",
   "added": "2026-10-08",
   "authors": "Z. Wang, J. A. Zhang, K. Wu, Y. J. Guo",
-  "contacts": [
-   "Jonatan Ostrometzky (TAU, CellEnMon lab): sensing rain and weather from cellular network signals, with ML",
-   "Prof. Hagit Messer (TAU EE): signal processing; pioneer of measuring rain from cellular links",
-   "Prof. Gil Zussman (Columbia EE, WiMNet lab): wireless networks, the COSMOS testbed, smart city streets"
-  ],
   "date": "2026-08-17",
   "feasibility": 2,
   "fit": "This is the next step after your cellular-link rainfall research: same goal, but using frequency changes instead of signal loss. It is a classic DSP story (cleaning up timing errors, then a time-frequency view) followed by a small classifier, like your genre project.",
@@ -454,10 +437,6 @@
   "id": "cml-satellite-rain-fusion",
   "added": "2026-10-08",
   "authors": "T. Shit, M. Fencl, C. Chwala, V. Bareš",
-  "contacts": [
-   "Jonatan Ostrometzky (TAU, CellEnMon lab): sensing rain and weather from cellular network signals, with ML",
-   "Prof. Hagit Messer (TAU EE): signal processing; pioneer of measuring rain from cellular links"
-  ],
   "date": "2026-08-17",
   "feasibility": 3,
   "fit": "This is almost exactly your Columbia and CellEnMon topic, rain from cellular microwave links, with one smart extra input. A capstone could reproduce it on Israeli link data if your old lab can share it.",
@@ -505,9 +484,6 @@
   "id": "eeg-imagined-speech",
   "added": "2026-10-05",
   "authors": "F. M. Trier, X. Mao, S. Puthusserypady (DTU)",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-09-24",
   "feasibility": 3,
   "fit": "It's mostly filtering and frequency analysis, which you know from your signal processing courses, plus a standard classifier. The data is public, so you could start in week one.",
@@ -558,9 +534,6 @@
  {
   "id": "surgical-vr-digital-twin",
   "added": "2026-10-05",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video"
-  ],
   "date": "2026-09-22",
   "feasibility": 1,
   "fit": "3D computer vision and user interfaces in a medical setting. A smaller version, like rebuilding a tabletop scene for remote control, is realistic for a project.",
@@ -607,9 +580,6 @@
   "id": "hearing-aid-directivity",
   "added": "2026-10-05",
   "authors": "L. Uphaus, A. Merboldt, M. Hofbauer, T. Gerkmann",
-  "contacts": [
-   "Prof. Hagit Messer (TAU EE): signal processing; pioneer of measuring rain from cellular links"
-  ],
   "date": "2026-09-14",
   "feasibility": 2,
   "fit": "A direct sequel to your Wiener filter project: the same short-time frequency processing, now with several microphones and a neural network you can steer.",
@@ -698,9 +668,6 @@
   "id": "attnsign",
   "added": "2026-10-05",
   "authors": "M. Hu, G. Sun, A. D. Ross, S. Li, Z. Tao",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video"
-  ],
   "date": "2026-07-31",
   "feasibility": 2,
   "fit": "A video-understanding problem with clear social value, and a good way into how large AI models can be guided.",
@@ -745,10 +712,6 @@
   "id": "adage-flood-xai",
   "added": "2026-10-05",
   "authors": "H. Lee, W. Li",
-  "contacts": [
-   "Jonatan Ostrometzky (TAU, CellEnMon lab): sensing rain and weather from cellular network signals, with ML",
-   "Prof. Hagit Messer (TAU EE): signal processing; pioneer of measuring rain from cellular links"
-  ],
   "date": "2026-07-31",
   "feasibility": 3,
   "fit": "Closest to your rainfall research: remote sensing, physical knowledge about which signal should matter, and checking against ground truth. You could ask the same question of rainfall maps made from cellular links.",
@@ -799,9 +762,6 @@
   "id": "sign-to-voice-emergency",
   "added": "2026-10-05",
   "authors": "V. K. R. Gajjala et al.",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video"
-  ],
   "date": "2026-07-08",
   "feasibility": 3,
   "fit": "Shows the full path from camera to speech. Useful as a starting point if you go the sign-language route.",
@@ -838,9 +798,6 @@
   "id": "eeg-riemannian-attention",
   "added": "2026-10-05",
   "authors": "S. Jin, T. Zhou, … J. Kittler",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-06-24",
   "feasibility": 2,
   "fit": "Good if you enjoy the math behind a method. It builds on covariance and linear algebra from your random signals course, and you can start from their code.",
@@ -891,10 +848,6 @@
   "id": "signvla",
   "added": "2026-10-05",
   "authors": "N. Bai, … Z. Tang",
-  "contacts": [
-   "Tali Dekel (Weizmann, computer science): AI that understands, edits and generates images and video",
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-06-18",
   "feasibility": 3,
   "fit": "An accessibility tool built from a small, well-understood model. A project could extend it to full sentences or to Israeli Sign Language, which has very little software support.",
@@ -982,9 +935,6 @@
  {
   "id": "semg-wrist-thinnet",
   "added": "2026-10-05",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-05",
   "feasibility": 3,
   "fit": "A complete working example of a wrist gesture interface. The hardware is only a means here; the interesting part is getting good accuracy from a small model.",
@@ -1070,9 +1020,6 @@
  {
   "id": "coadaptive-neural-interfaces",
   "added": "2026-10-05",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-04",
   "feasibility": 2,
   "fit": "It joins control and signal processing with a person in the loop. A small, testable question for a project: does how fast the computer adapts change how fast people learn?",
@@ -1162,9 +1109,6 @@
   "id": "hdemg-quadriplegia-robot",
   "added": "2026-10-05",
   "authors": "J. Yang, E. Hodgson, C. Sun, Z. Erickson, D. J. Weber",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-02",
   "feasibility": 2,
   "fit": "It combines everything on your list: body signals, computer vision, robotics and a clear human benefit. The signal processing (filtering, short time windows, smoothing decisions over time) is close to what you did with speech.",
@@ -1221,9 +1165,6 @@
   "id": "myotext-semg-typing",
   "added": "2026-10-05",
   "authors": "M. Roy Chowdhury, S. Sen, Y. Ding",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2026-01",
   "feasibility": 3,
   "fit": "It's a clean example of splitting a hard problem into easier steps, and it's close to your music-genre classifier: features from a signal, then a classifier. All the data is public and it runs on Colab.",
@@ -1318,9 +1259,6 @@
  {
   "id": "generative-emg-sparse",
   "added": "2026-10-05",
-  "contacts": [
-   "Prof. Yael Hanein (TAU EE): wearable skin electrodes for brain and muscle signals; facial expressions, finger gestures, sleep"
-  ],
   "date": "2025-12",
   "feasibility": 2,
   "fit": "It's a 'fill in the gaps' problem, close in spirit to estimating rainfall between sparse cellular links in your research.",
