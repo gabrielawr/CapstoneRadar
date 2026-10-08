@@ -358,7 +358,7 @@ document.addEventListener("click", async e => {
 });
 
 async function loadJSON(path, fallback){
-  try{ const r = await fetch(path, {cache:"no-cache"}); if(!r.ok) throw 0; return await r.json(); }
+  try{ const r = await fetch(path, {cache:"no-store"}); if(!r.ok) throw 0; return await r.json(); }
   catch(e){ return fallback; }
 }
 state.ratings = loadRatings();
@@ -368,7 +368,25 @@ render();
   state.items = items; state.ideas = ideas.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))); state.meta = meta; state.dbReady = true;
   render();
 })();
-if("serviceWorker" in navigator){ window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+// Keep the installed app current: check for a new version on every open,
+// and reload once when a new version takes over.
+if("serviceWorker" in navigator){
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if(!reloaded){ reloaded = true; location.reload(); } });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js", {updateViaCache:"none"}).then(reg => {
+      reg.update().catch(()=>{});
+      document.addEventListener("visibilitychange", () => { if(document.visibilityState === "visible") reg.update().catch(()=>{}); });
+    }).catch(()=>{});
+  });
+}
+// Reload the reading list when the app comes back to the foreground.
+document.addEventListener("visibilitychange", async () => {
+  if(document.visibilityState !== "visible") return;
+  const [items, ideas, meta] = await Promise.all([loadJSON("data/items.json", null), loadJSON("data/ideas.json", null), loadJSON("data/meta.json", null)]);
+  if(items){ state.items = items; } if(ideas){ state.ideas = ideas.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))); } if(meta){ state.meta = meta; }
+  render();
+});
 </script>
 
 </body>
