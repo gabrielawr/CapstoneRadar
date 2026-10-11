@@ -1,5 +1,530 @@
 [
  {
+  "id": "av-neuroamp-hearing-aid",
+  "added": "2026-10-10",
+  "authors": "Y.-J. Li, Y. Tsao, B. Su, K.-C. Ting, F.-G. Zeng",
+  "date": "2026-10-06",
+  "feasibility": 2,
+  "fit": "A direct next step from the hearing-aid speech-enhancement paper you starred, adding lip-reading video to your Wiener-filter background.",
+  "future": [
+   "Make it run with low delay on a phone",
+   "Test with more languages and real-world videos",
+   "Simplify the video branch to just lip points"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public audio-visual speech datasets (e.g. LRS3, GRID) and simulated hearing-loss audiograms; one GPU. Only the abstract was readable, so check the full paper for details.",
+  "source": "arXiv 2610.08579 · eess.AS",
+  "summary": "Hearing aids struggle most when two people talk at once. This team built one network that takes in the noisy sound, a video of the speaker's face, and the user's hearing test, and does the cleaning, the personal amplification and the loudness squeezing all together. According to the abstract it beat standard hearing-aid processing and an audio-only version, even on Mandarin it never trained on. Listening tests with people with hearing loss showed the biggest gains when other talkers competed.",
+  "techniques": [
+   "Audio plus video network",
+   "Audiogram-conditioned layers (FiLM)",
+   "Joint cleaning and amplification",
+   "Listening tests with real users"
+  ],
+  "terms": [
+   {
+    "meaning": "A hearing test chart showing how loud each pitch must be for a person to hear it.",
+    "term": "Audiogram"
+   },
+   {
+    "meaning": "Making quiet sounds louder and loud sounds softer so everything fits what the ear can still hear.",
+    "term": "Dynamic range compression"
+   },
+   {
+    "meaning": "Letting extra information, like the audiogram, scale and shift the network's internal signals.",
+    "term": "Conditioning (FiLM)"
+   }
+  ],
+  "theme": "audio",
+  "title": "Audiovisual joint learning for end-to-end hearing aids",
+  "topics": [
+   "Hearing aids",
+   "Speech enhancement",
+   "Lip reading",
+   "Accessibility"
+  ],
+  "url": "https://arxiv.org/abs/2610.08579"
+ },
+ {
+  "id": "lung-ultrasound-tb-screening",
+  "added": "2026-10-10",
+  "authors": "C. M. Geldenhuys, J. M. Jansen van Vüren, … G. Theron, T. R. Niesler",
+  "date": "2026-10-02",
+  "feasibility": 2,
+  "fit": "Fits Prof. Giryes's group's interest in reliable deep learning on medical images, and tackles a global-health problem; your image-enhancement experience could help with the noisy ultrasound images.",
+  "future": [
+   "Feed real video clips instead of repeated still frames",
+   "Use self-training on unlabelled scans",
+   "Collect more labelled scans"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public lung-ultrasound datasets (e.g. POCUS COVID datasets) and free pretrained models; this paper's data is not public. One GPU.",
+  "source": "arXiv 2610.03290 · eess.IV · SATNAC 2026",
+  "summary": "Tuberculosis still kills over a million people a year, and portable ultrasound could screen for it in rural clinics, but there are few labelled lung scans. The team in South Africa tried 17 networks pretrained on other images, including heart ultrasound, to see if borrowed knowledge helps. Every one beat their earlier system, and when set to catch 90 of 100 sick patients, correct all-clear results for healthy people rose from about 60 to 79 of 100. Surprisingly, which network they borrowed barely mattered: the small amount of labelled data is the real bottleneck.",
+  "techniques": [
+   "Reusing pretrained image networks",
+   "Comparing many networks fairly",
+   "Simple feature normalisation",
+   "Screening-style evaluation"
+  ],
+  "terms": [
+   {
+    "meaning": "Teaching a network on a large, different dataset first, then fine-tuning it on your small one.",
+    "term": "Pretraining"
+   },
+   {
+    "meaning": "The part of a network that turns an image into a compact list of numbers describing it.",
+    "term": "Encoder"
+   },
+   {
+    "meaning": "Out of all sick people, how many the test correctly flags.",
+    "term": "Sensitivity"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Wrong Organ, Right Physics: Transferring Echocardiography Pretraining to Lung Ultrasound for Tuberculosis Screening",
+  "topics": [
+   "Giryes fit",
+   "Global health",
+   "Ultrasound",
+   "Transfer learning"
+  ],
+  "url": "https://arxiv.org/abs/2610.03290"
+ },
+ {
+  "id": "sapien-agent-policy-engine",
+  "added": "2026-10-10",
+  "authors": "C. Tiffany, W. Zhang, E. Bagdasarian, L. Tsai",
+  "date": "2026-09-30",
+  "feasibility": 3,
+  "fit": "The rulebook compiles into a small automaton that watches every step, which is very close to the property monitors you know from hardware verification, and a basic version is easy to build in Python.",
+  "future": [
+   "Detect vague task requests and ask the user before writing rules",
+   "Reuse rule templates to cut the one to two minutes it takes to write rules",
+   "Send simple checks to small fast classifiers"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop with Python and the public AgentDojo benchmark; no code was released, so you would write a small version of the rule checker yourself.",
+  "source": "arXiv 2610.00797 · cs.AI, cs.CR",
+  "summary": "A simple 'allowed tools' list is too weak to keep an AI agent safe, because what is safe depends on what it already did. Sapien writes a custom rulebook for each task, in a pattern language much like regular expressions over the sequence of tool calls. Each new call is checked against the rulebook in under a millisecond, and anything off-script is blocked. When an attacker fully takes over the agent, Sapien blocked about 93–95 of every 100 attacks on one benchmark, against about 83–87 for a plain allowed list, while normal tasks almost always still worked.",
+  "techniques": [
+   "Pattern language over sequences of actions",
+   "Compiling patterns to a state machine (NFA)",
+   "Checking every action before it runs",
+   "A language model writes the rulebook for each task"
+  ],
+  "terms": [
+   {
+    "meaning": "A language model that can take actions on its own by calling tools like email, files or web search.",
+    "term": "AI agent"
+   },
+   {
+    "meaning": "One action the agent asks to run, such as 'send this email to this address'.",
+    "term": "Tool call"
+   },
+   {
+    "meaning": "A compact pattern describing which sequences are allowed, like a filter for text.",
+    "term": "Regular expression"
+   },
+   {
+    "meaning": "A small state machine that reads events one by one and says 'allowed' or 'not allowed'.",
+    "term": "Automaton"
+   }
+  ],
+  "theme": "impact",
+  "title": "Sapien: A Stateful Policy Engine for Autonomous AI Agents",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Runtime monitoring",
+   "Policy languages"
+  ],
+  "url": "https://arxiv.org/abs/2610.00797"
+ },
+ {
+  "id": "sifari-radio-astronomy-imaging",
+  "added": "2026-10-10",
+  "authors": "S. Mao, A. Isella, P. Perdikaris, L.-T. Lo, H. Li",
+  "date": "2026-09-28",
+  "feasibility": 2,
+  "fit": "Pure Fourier-domain signal processing plus a neat neural trick, with stunning space images as the reward; a fun place to test your image-reconstruction skills.",
+  "future": [
+   "Handle uneven sampling that differs by direction",
+   "Extend to colour (spectral) and polarisation data",
+   "Check how reliable the uncertainty maps are"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Free public ALMA telescope data and simulators (e.g. CASA); one GPU. The authors' code is promised on publication.",
+  "source": "arXiv 2609.35966 · astro-ph.IM",
+  "summary": "Radio telescope arrays do not take pictures: they measure scattered samples of the image's 2D Fourier transform, and astronomers must fill in the rest. This team fits a small neural network directly to those samples, with no training images, so the network itself becomes the image. On simulations it made point sources about 8 times sharper than the standard method and recovered the full brightness of discs that the old method lost most of. On real data it revealed two young planets forming around a nearby star.",
+  "techniques": [
+   "Network fitted to Fourier samples (neural field)",
+   "Fourier-feature inputs",
+   "Uncertainty maps by averaging network weights",
+   "Comparison with classic deconvolution"
+  ],
+  "terms": [
+   {
+    "meaning": "Many telescopes combined so they act like one huge dish; each pair measures one Fourier sample of the sky.",
+    "term": "Interferometer"
+   },
+   {
+    "meaning": "A small network that takes pixel coordinates in and gives brightness out, so the image is stored in the network's weights.",
+    "term": "Neural field"
+   },
+   {
+    "meaning": "The decades-old standard algorithm that builds radio images by adding point sources one at a time.",
+    "term": "CLEAN"
+   }
+  ],
+  "theme": "impact",
+  "title": "SIFARI: Self-Supervised Interferometric Fitting for Astronomical Radio Imaging",
+  "topics": [
+   "Wildcard",
+   "Astronomy",
+   "Image reconstruction",
+   "Fourier sampling"
+  ],
+  "url": "https://arxiv.org/abs/2609.35966"
+ },
+ {
+  "id": "ai-weather-africa-rainfall",
+  "added": "2026-10-10",
+  "authors": "S. Nath, D. Sow, … F. Pappenberger, R. Mbuvha",
+  "date": "2026-09-24",
+  "feasibility": 3,
+  "fit": "A fair, careful comparison on public data is a very doable first step towards a cheap warning system, and you could extend it to check how well the AI models catch the heavy-rain days that cause floods.",
+  "future": [
+   "Focus the scores on extreme rain, not average days",
+   "Test in real time at African forecast centres",
+   "Look at spatial patterns, not single points"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public AI forecast models and free satellite rainfall data (IMERG, CHIRPS); a laptop or free cloud GPU.",
+  "source": "arXiv 2609.31775 · AfriClimate AI, ECMWF, Oxford",
+  "summary": "Many African weather services cannot afford to run big physics-based forecast models, but new AI forecast models run on a single computer. This team asked whether the AI models are actually good enough for rainfall in Africa. They compared three Google DeepMind AI models with Europe's top physics model over 2020–2025, checking 1 to 9 days ahead against free satellite rainfall maps. The AI models were about 5% better on typical cases, up to 15% better near Cameroon and Gabon one day ahead, but worse in dry highland areas.",
+  "techniques": [
+   "Comparing forecasts against satellite rain maps",
+   "Correcting forecast bias per climate zone",
+   "Probabilistic forecast scores",
+   "Statistical significance tests"
+  ],
+  "terms": [
+   {
+    "meaning": "Forecasting by simulating the physics of the atmosphere on a supercomputer.",
+    "term": "Numerical weather prediction (NWP)"
+   },
+   {
+    "meaning": "How far ahead the forecast is made, e.g. 3 days before the rain.",
+    "term": "Lead time"
+   },
+   {
+    "meaning": "Adjusting a forecast so that '70% chance of rain' really means rain about 7 times out of 10.",
+    "term": "Calibration"
+   }
+  ],
+  "theme": "impact",
+  "title": "Suitable Measures for the Potential Operational Utility of AI NWP Rainfall Forecasts Over Africa",
+  "topics": [
+   "Early warning",
+   "Africa",
+   "AI weather models",
+   "Satellite rainfall"
+  ],
+  "url": "https://arxiv.org/abs/2609.31775"
+ },
+ {
+  "id": "das-fiber-urban-traffic",
+  "added": "2026-10-10",
+  "authors": "H. Tian, H. Cai, X. Chen, Y. Yang",
+  "date": "2026-09-23",
+  "feasibility": 2,
+  "fit": "Exactly the 'communication cable as a sensor' idea you like, and the core is image processing on the vibration pictures, not hardware.",
+  "future": [
+   "Check speeds against GPS or cameras",
+   "Handle heavy congestion and two-way traffic",
+   "Use less hand labelling (self-supervised learning)"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public DAS recordings (several open datasets exist, e.g. from Stanford or PubDAS); the paper's own data is not public. One GPU.",
+  "source": "arXiv 2609.28793 · cs.LG",
+  "summary": "Cities need traffic data, but cameras and road sensors are costly. This team used 23 km of internet fiber already buried under a university campus: laser pulses sent down the fiber pick up tiny vibrations from passing cars. They turned the vibrations into space-time images, where each car draws a line, and trained an object detector to find the lines, first on fake images and then on real ones. Their counts matched manual counts very closely (correlation 0.93), 50 times faster than the old method, and showed traffic up 34% on a football gameday.",
+  "techniques": [
+   "Band-pass filtering and envelope detection",
+   "Object detector on space-time images (YOLO)",
+   "Training on simulated then real data",
+   "Speed from line slope (PCA)"
+  ],
+  "terms": [
+   {
+    "meaning": "Sending laser pulses down an ordinary fiber-optic cable and reading the light bounced back to feel vibrations every few metres.",
+    "term": "Distributed acoustic sensing (DAS)"
+   },
+   {
+    "meaning": "A picture where one axis is position along the cable and the other is time, so a moving car shows up as a slanted line.",
+    "term": "Space-time image"
+   },
+   {
+    "meaning": "Fake but realistic training examples made by simulation.",
+    "term": "Synthetic data"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Monitoring Urban Traffic Dynamics at Fine Spatiotemporal Resolution Using Distributed Acoustic Sensing and Deep Learning",
+  "topics": [
+   "Fiber as a sensor",
+   "Traffic",
+   "Object detection",
+   "Smart cities"
+  ],
+  "url": "https://arxiv.org/abs/2609.28793"
+ },
+ {
+  "id": "holography-pollen-low-cost",
+  "added": "2026-10-10",
+  "authors": "S. Warshaneyan, J. Danyal, B. Cugmas, … R. Kadiķis",
+  "date": "2026-09-19",
+  "feasibility": 2,
+  "fit": "Matches Prof. Giryes's group's strength in combining optics and neural networks and in testing whether networks are reliable; the real problem is making lab diagnosis affordable where microscopes are scarce.",
+  "future": [
+   "Train a network to do the image rebuilding so lens-free closes the gap to the microscope",
+   "Make the detector less fragile to small disturbances",
+   "Try other samples such as blood or parasites"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public hologram simulations or an existing lens-free dataset; data from this paper is not listed as public, so check with the authors. One GPU.",
+  "source": "arXiv 2609.23017 · cs.CV",
+  "summary": "Microscopes are expensive, so the team tried a cheap lens-free setup: a light source shines through the sample onto a camera chip, and software turns the blurry pattern into an image. They imaged six pollen types both ways and trained the same detector and classifier on each. The normal microscope sorted pollen about 97 of 100 times; the best software-rebuilt lens-free images about 77 of 100, and raw patterns far worse. They also found that the 'heat maps' meant to explain the network's decisions became close to random on lens-free images unless smoothed.",
+  "techniques": [
+   "Rebuilding images from holograms",
+   "Object detector (YOLO)",
+   "Small image classifier (MobileNet)",
+   "Testing how trustworthy explanations are"
+  ],
+  "terms": [
+   {
+    "meaning": "Imaging with no lens: the camera records an interference pattern and software rebuilds the picture from it.",
+    "term": "Lens-free holography"
+   },
+   {
+    "meaning": "Recovering the missing part of a light wave so a sharp image can be rebuilt from the recorded pattern.",
+    "term": "Phase retrieval"
+   },
+   {
+    "meaning": "A picture that shows which pixels a network relied on for its answer.",
+    "term": "Explanation heat map"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Reconstructed holograms and explanation-aware evaluation for low-cost computational pollen analysis in veterinary cytology",
+  "topics": [
+   "Giryes fit",
+   "Computational imaging",
+   "Low-cost diagnosis",
+   "Explainable AI"
+  ],
+  "url": "https://arxiv.org/abs/2609.23017"
+ },
+ {
+  "id": "tacls-gnss-flash-flood",
+  "added": "2026-10-10",
+  "authors": "Y. Bock (Scripps), NASA JPL, NOAA NWS",
+  "date": "2026-09-18",
+  "feasibility": 2,
+  "fit": "This is your cellular-link rain idea with a different free signal: existing navigation infrastructure turned into a weather sensor, and used to warn ahead of time rather than just measure.",
+  "future": [
+   "Test where there is no weather radar, such as Africa or South Asia",
+   "Report false-alarm rates and how many minutes of warning it gives",
+   "Combine with cellular-link rain estimates"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "Free public GPS-station delay data (e.g. NASA or the Nevada Geodetic Lab) plus public flood-warning records; a laptop is enough.",
+  "source": "The Verge via Zetik · NASA JPL / NOAA",
+  "summary": "Flash floods can form in under six hours, often where there are few rain gauges. TACLS uses GPS ground stations that already exist: water vapour in the air slightly delays the satellite signals, so the delay tells you how much moisture is overhead. A machine-learning model trained on over 30 years of these readings flags sudden moisture jumps and separates real storms from glitches, and forecasters then decide whether to warn. In tests on past storms it caught about 93 of every 100 flash-flood warnings that were issued, and it is due at all 122 US weather offices in the second half of October.",
+  "techniques": [
+   "Moisture from GPS signal delays",
+   "Anomaly detection on long time series",
+   "Sorting glitches from real events",
+   "Map tool for human forecasters"
+  ],
+  "terms": [
+   {
+    "meaning": "Satellite navigation systems like GPS; ground receivers record signals from them all day.",
+    "term": "GNSS"
+   },
+   {
+    "meaning": "Moist air slows radio waves a tiny bit, so the extra travel time reveals how much water is in the air.",
+    "term": "Signal delay from water vapour"
+   },
+   {
+    "meaning": "Teaching a model what normal looks like, so it can flag anything unusual.",
+    "term": "Anomaly detection"
+   }
+  ],
+  "theme": "wireless",
+  "title": "NWS Deploys Improved TACLS to 122 Offices for Earlier Flash Flood Warnings",
+  "topics": [
+   "Early warning",
+   "Flash floods",
+   "GPS as a sensor",
+   "Machine learning"
+  ],
+  "url": "https://www.zetik.com/news/article/story_id-p008-216314"
+ },
+ {
+  "id": "camelot-agent-model-checking",
+  "added": "2026-10-10",
+  "authors": "E. Nikolaou, M. W. Eckhoff, … D. Aspinall",
+  "date": "2026-09-16",
+  "feasibility": 2,
+  "fit": "This is your NVIDIA work pointed at AI software: same model checker, same 'prove it can never happen' mindset, but the design under test is an AI agent's plan instead of a circuit.",
+  "future": [
+   "Cut false alarms where safe plans get blocked (loops are over-approximated)",
+   "Handle rules that depend on data only known at run time",
+   "Support privacy rules about who may read which data"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop, the authors' public code and the public AgentDojo test suite, plus a small budget for calls to an AI model.",
+  "source": "arXiv 2609.18674 · cs.CR, cs.LO",
+  "summary": "AI assistants that can send emails, pay bills or book travel can be tricked by hidden instructions planted in a web page or a message. This team checks the assistant's whole plan before it is allowed to touch anything. They turn the plan into a small state machine and use a model checker, the same kind of tool used to prove chips correct, to test it against written safety rules. On a standard test suite, their rules fully covered 22 of 28 security policies, and when a plan fails the check, the tool shows the assistant exactly why so it can fix the plan.",
+  "techniques": [
+   "Turning code into a state machine",
+   "Rules written in temporal logic (CTL)",
+   "Off-the-shelf model checker (nuXmv)",
+   "Feeding the failure trace back to the AI to repair its plan"
+  ],
+  "terms": [
+   {
+    "meaning": "A program that explores every possible step of a system to prove a rule always holds, or to find a case where it breaks.",
+    "term": "Model checker"
+   },
+   {
+    "meaning": "A precise way to write rules about order in time, like 'money is never sent before the user approves'.",
+    "term": "Temporal logic"
+   },
+   {
+    "meaning": "Hiding instructions inside text an AI reads, so it does something the user never asked for.",
+    "term": "Prompt injection"
+   },
+   {
+    "meaning": "A concrete step-by-step trace showing how a rule can be broken.",
+    "term": "Counterexample"
+   }
+  ],
+  "theme": "impact",
+  "title": "CaMeLoT: CaMeL orchestrated with Temporal logic for static verification and liveness",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Model checking",
+   "Prompt injection"
+  ],
+  "url": "https://arxiv.org/abs/2609.18674"
+ },
+ {
+  "id": "audio-sports-highlights",
+  "added": "2026-10-10",
+  "authors": "H. Xu, M. Sarkar, V. Raj, D. Gunawan (Deakin / Dolby)",
+  "date": "2026-09-15",
+  "feasibility": 3,
+  "fit": "It is your music-genre classifier skill set (spectrograms, embeddings, a small sequence model) on a fun, very visible problem; a great semester demo.",
+  "future": [
+   "Make predictions smoother over time instead of jumpy",
+   "Try it on Israeli football or basketball broadcasts",
+   "Better voice/background splitting"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public SV-Highlights dataset (YouTube videos) and free pretrained audio models; one GPU.",
+  "source": "arXiv 2609.17923 · MMSports '26",
+  "summary": "Finding the exciting moments in a two-hour match is usually done by big video AI models. This team asked how far you get by just listening: commentary, crowd roar and whistles. Using 317 match videos across 8 sports, a sound-only model beat a picture-only model and every earlier audio-plus-video method they tried, and simply combining sound and picture did best. Splitting out the commentator's voice showed it carries more of the signal than the crowd, but you need both.",
+  "techniques": [
+   "Pretrained audio network (AST) features",
+   "Small sequence model (GRU)",
+   "Voice/background separation (Demucs)",
+   "Late fusion with video features"
+  ],
+  "terms": [
+   {
+    "meaning": "A picture of sound showing which frequencies are loud at each moment.",
+    "term": "Spectrogram"
+   },
+   {
+    "meaning": "A list of numbers a pretrained network produces to summarise a short clip.",
+    "term": "Embedding"
+   },
+   {
+    "meaning": "Splitting a mixed recording into parts, such as voice and background.",
+    "term": "Source separation"
+   }
+  ],
+  "theme": "audio",
+  "title": "Audio for Sports Highlight Detection: A Comparative Empirical Study",
+  "topics": [
+   "Wildcard",
+   "Sports",
+   "Audio event detection",
+   "Multimodal"
+  ],
+  "url": "https://arxiv.org/abs/2609.17923"
+ },
+ {
+  "id": "coralscapes-v2-reefs",
+  "added": "2026-10-10",
+  "authors": "J. Sauder, T. Ruckli, … D. Tuia, G. Banc-Prandi",
+  "date": "2026-09",
+  "feasibility": 3,
+  "fit": "A climate-and-ocean problem right next door in the Red Sea, solved with the image segmentation you know; underwater colour and blur also give your image-enhancement background a role.",
+  "future": [
+   "Run the models on underwater robots doing surveys",
+   "Track fish behaviour over time",
+   "Handle dense fish schools"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Coralscapes data (version 1 is public; check V2 release) and one GPU.",
+  "source": "arXiv 2609.12826 · EPFL, MIT, Red Sea partners",
+  "summary": "Coral reefs are dying from heat, and divers cannot survey them fast enough by eye. This team labelled 2,433 underwater video frames from 45 Red Sea sites, pixel by pixel, into 95 classes, including healthy, bleached and dead coral, and outlined every one of about 65,000 fish. The best network labelled about 80 of every 100 pixels correctly, and the new data improved every model they tested. It is the closest thing reefs have to a self-driving-car street dataset.",
+  "techniques": [
+   "Pixel-level labelling network (SegFormer)",
+   "Large pretrained vision models with light fine-tuning (LoRA)",
+   "Video-based fish outlining",
+   "Keeping test sites separate from training sites"
+  ],
+  "terms": [
+   {
+    "meaning": "Labelling every pixel in an image with what it shows.",
+    "term": "Segmentation"
+   },
+   {
+    "meaning": "Labelling every pixel and also telling apart individual objects, like fish number 1 versus fish number 2.",
+    "term": "Panoptic"
+   },
+   {
+    "meaning": "Corals turning white when hot water makes them lose the algae that feed them.",
+    "term": "Coral bleaching"
+   }
+  ],
+  "theme": "vision",
+  "title": "Coralscapes V2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs",
+  "topics": [
+   "Wildcard",
+   "Ocean",
+   "Climate",
+   "Segmentation"
+  ],
+  "url": "https://arxiv.org/abs/2609.12826"
+ },
+ {
   "id": "pv-thermal-defect-seg",
   "added": "2026-10-08",
   "authors": "N. Galal, E. A. Marzouk, H. E. Moustafa, H. B. Nafea, A. A. Hekal",
