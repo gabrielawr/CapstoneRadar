@@ -1,5 +1,516 @@
 [
  {
+  "id": "alertcalifornia-ai-first-detection",
+  "added": "2026-10-15",
+  "authors": "ALERTCalifornia, UC San Diego (dir. N. Driscoll)",
+  "date": "2026-10-14",
+  "feasibility": 3,
+  "fit": "A real, deployed vision system for a global problem, the kind Prof. Giryes's group could advise on: a project could make smoke detection more reliable in fog, haze or at night, using public smoke-camera datasets.",
+  "future": [
+   "Tell smoke from fog and dust more reliably",
+   "Detect smoke at night or in haze",
+   "Estimate fire location from two or more camera views"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "One GPU; public wildfire smoke-camera datasets (e.g. HPWREN FIgLib or PyroNear2025). No hardware.",
+  "source": "Seoul Economic Daily (from The New York Times) · UC San Diego",
+  "summary": "A network of about 1,300 solar-powered cameras on mountaintops and towers watches California's fire-prone hills. Since 2023 an AI scans the video for smoke, and it is now the first to spot 51 of every 100 wildfires, before any 911 call. A person still checks each alert, because fog and dust look like smoke. The state plans to grow the network to 1,800 cameras to cover blind spots.",
+  "techniques": [
+   "Real-time video analysis for smoke",
+   "Human checking of every AI alert",
+   "Rotating and zooming cameras"
+  ],
+  "terms": [
+   {
+    "meaning": "An alert for something that is not really there, such as fog mistaken for smoke.",
+    "term": "False alarm"
+   },
+   {
+    "meaning": "An area no camera can see.",
+    "term": "Blind spot"
+   }
+  ],
+  "theme": "vision",
+  "title": "AI Spots More Than Half of California Wildfires First",
+  "topics": [
+   "Giryes fit",
+   "Early warning",
+   "Wildfire",
+   "Smoke detection"
+  ],
+  "url": "https://en.sedaily.com/international/2026/10/14/ai-spots-more-than-half-of-california-wildfires-first"
+ },
+ {
+  "id": "relative-patch-ai-image-detector",
+  "added": "2026-10-15",
+  "authors": "T. Wang, O. Li, Y. Hao, Z. Tang, S. Wang",
+  "date": "2026-10-08",
+  "feasibility": 2,
+  "fit": "Directly on Path A of your own idea (detect if possible), and it matches Prof. Giryes's group's work on making networks robust, aimed at the real problem of fake images. You could test it against WhatsApp-style compression and screenshots, which this paper does not report.",
+  "future": [
+   "Test how it holds up after compression, resizing and screenshots",
+   "Check video deepfakes frame by frame",
+   "Combine with frequency-domain clues"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "One GPU (or Colab), public real-vs-AI image benchmarks; code may need re-implementing if not released.",
+  "source": "arXiv 2610.11876 · cs.CV",
+  "summary": "Detectors of AI-made images often work on the generators they were trained on and then fail on new ones. A popular training trick pastes small squares of a fake image into a real one, so the detector learns to spot fake squares. This team noticed that the network 'blurs' its judgement across neighbouring squares, so the labels it learns from are not quite right. Their fix is to compare how the score of the same square changes between two mixed images, which turned out to be a cleaner signal. It beat the best earlier detectors by about 4 to 6 points of accuracy, including on images collected from the open internet.",
+  "techniques": [
+   "Mixing patches of real and AI images",
+   "Comparing the same patch across two mixed images",
+   "Ranking images by how much fake content they hold",
+   "Vision transformer (image network with self-attention)"
+  ],
+  "terms": [
+   {
+    "meaning": "A detector that still works on image generators it never saw during training.",
+    "term": "Generalizable detector"
+   },
+   {
+    "meaning": "A small square tile of an image; the network gives each tile its own 'fake or real' score.",
+    "term": "Patch"
+   },
+   {
+    "meaning": "A layer that lets every tile look at every other tile, which is powerful but mixes their information.",
+    "term": "Self-attention"
+   },
+   {
+    "meaning": "Accuracy averaged over real and fake images, so a detector can't score well by always guessing one answer.",
+    "term": "Balanced accuracy"
+   }
+  ],
+  "theme": "vision",
+  "title": "Relative Patch Response Learning for Generalizable AI-Generated Image Detection",
+  "topics": [
+   "AI image detection",
+   "Giryes fit",
+   "Deepfakes",
+   "Robustness"
+  ],
+  "url": "https://arxiv.org/abs/2610.11876"
+ },
+ {
+  "id": "wildcard-singing-pitch-correction",
+  "added": "2026-10-15",
+  "authors": "B. Dong, … J. Han, Y. He",
+  "date": "2026-10-08",
+  "feasibility": 2,
+  "fit": "Wildcard close to your music-genre classifier: notes, pitch and keys instead of genres. Fun to explore as a karaoke helper or a practice coach that tells singers which notes slipped.",
+  "future": [
+   "Real-time version for live singing",
+   "Feedback app for singing practice",
+   "Handle sliding and vibrato, not just fixed notes"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop with a GPU; public singing datasets with pitch labels; code may need re-implementing.",
+  "source": "arXiv 2610.11524 · cs.SD / eess.AS",
+  "summary": "Auto-tune tools usually need the correct melody to fix an off-key singer. This team fixes pitch with only the singing itself. For each note, their model decides whether it is wrong and, if so, by how many semitones to move it. It then prefers moves that fit the key the song seems to be in. On real amateur recordings paired with professional versions, the share of correct notes went from about 73 to 83 in 100.",
+  "techniques": [
+   "Pretrained music-note encoder with small add-on layers",
+   "Predicting 'fix or not' and 'by how much' per note",
+   "Re-ranking corrections to fit the song's key"
+  ],
+  "terms": [
+   {
+    "meaning": "How high or low a note sounds; it depends on the sound's basic frequency.",
+    "term": "Pitch"
+   },
+   {
+    "meaning": "The smallest step between notes in Western music, like neighbouring piano keys.",
+    "term": "Semitone"
+   },
+   {
+    "meaning": "The set of notes a song mostly uses, which tells you which notes 'sound right'.",
+    "term": "Key (tonality)"
+   }
+  ],
+  "theme": "audio",
+  "title": "Reference-Free Singing Pitch Correction via Music-Constrained Sequence Editing",
+  "topics": [
+   "Wildcard",
+   "Music",
+   "Pitch correction",
+   "Audio editing"
+  ],
+  "url": "https://arxiv.org/abs/2610.11524"
+ },
+ {
+  "id": "agent-runtime-temporal-monitor",
+  "added": "2026-10-15",
+  "authors": "N. Kekatos, S. Basagiannis, … P. Katsaros",
+  "date": "2026-10-07",
+  "feasibility": 3,
+  "fit": "This is the same 'write the rule, then check it automatically' job you do on hardware at NVIDIA, applied to AI assistants. It plugs straight into your 'safety layer for AI agents' idea card and uses the same public benchmark.",
+  "future": [
+   "Record timestamps and user approvals in assistant logs so time-based rules can work",
+   "Use the authors' proposed 12-field log format",
+   "Run the checker live, blocking bad actions before they happen"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "A laptop, the public AgentDojo and STAC recorded sessions, and the free MonPoly checker; no AI-model budget needed for offline replay.",
+  "source": "arXiv 2610.09793 · cs.CR",
+  "summary": "AI assistants that can send emails or move money can be tricked by hidden instructions inside what they read. This team tested a 'watchman' that checks every action the assistant takes against rules written in a precise logic language, instead of asking another AI whether things look okay. They replayed thousands of recorded assistant sessions from public attack benchmarks. Five simple rules caught about 7 in 10 attacks, but also raised a false alarm on about 3 in 10 normal sessions. They found that the logs lack timestamps and approvals, which is why the rules were so blunt, and they show how a single planted line can fool a naive check and how to fix it.",
+  "techniques": [
+   "Rules written in a time-aware logic (temporal logic)",
+   "An off-the-shelf rule checker (MonPoly)",
+   "Replaying recorded assistant sessions",
+   "Tracking where each piece of data came from"
+  ],
+  "terms": [
+   {
+    "meaning": "Checking a system's behaviour against written rules while it runs (or on its recorded log), instead of proving it correct beforehand.",
+    "term": "Runtime verification"
+   },
+   {
+    "meaning": "A precise language for rules about order and time, like 'never pay before the user approves'.",
+    "term": "Temporal logic"
+   },
+   {
+    "meaning": "Hiding instructions inside a web page or email so an AI assistant obeys the attacker instead of the user.",
+    "term": "Prompt injection"
+   },
+   {
+    "meaning": "Where a piece of information came from, e.g. which lookup produced an email address.",
+    "term": "Provenance"
+   }
+  ],
+  "theme": "impact",
+  "title": "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Runtime verification",
+   "Prompt injection"
+  ],
+  "url": "https://arxiv.org/abs/2610.09793"
+ },
+ {
+  "id": "wildcard-titan-radar-terrain",
+  "added": "2026-10-15",
+  "authors": "K. Lee",
+  "date": "2026-10-06",
+  "feasibility": 3,
+  "fit": "Wildcard from space: a clean test of 'does what a network learned on Earth work somewhere totally different', using free NASA/USGS data. Fun to explore with your image-processing background.",
+  "future": [
+   "Fairer comparisons that isolate the effect of pretraining",
+   "Map Titan's lakes automatically",
+   "Try the same on Mars or Venus radar maps"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop; the free USGS Cassini SAR mosaic and published Titan terrain map; free pretrained models.",
+  "source": "arXiv 2610.07576 · cs.CV / eess.IV",
+  "summary": "Saturn's moon Titan is hidden under thick haze, so the Cassini spacecraft mapped it with radar. This study asks whether image networks trained on Earth photos and satellite images can tell Titan's dunes, plains and lake basins apart. Using expert-drawn maps as labels and testing on regions the model never saw, the pretrained networks beat hand-made image measurements. But which network wins changes with small training choices, and extra training on Titan helped one network and hurt another.",
+  "techniques": [
+   "Features from pretrained image models (DINOv2 and others)",
+   "Simple linear classifier on top",
+   "Testing on separate regions of the moon",
+   "Comparing with classic texture measurements"
+  ],
+  "terms": [
+   {
+    "meaning": "A radar that builds a sharp picture of the ground from a moving spacecraft, working through clouds and haze.",
+    "term": "Synthetic aperture radar (SAR)"
+   },
+   {
+    "meaning": "An image model already trained on huge datasets, whose features you reuse for a new task.",
+    "term": "Pretrained network"
+   },
+   {
+    "meaning": "Using knowledge learned on one kind of data for another kind.",
+    "term": "Transfer"
+   }
+  ],
+  "theme": "vision",
+  "title": "CETUS: How Far Do Representations Trained on Earth Transfer to Cassini SAR of Titan?",
+  "topics": [
+   "Wildcard",
+   "Space",
+   "Radar images",
+   "Transfer learning"
+  ],
+  "url": "https://arxiv.org/abs/2610.07576"
+ },
+ {
+  "id": "dysarthric-asr-artificial-conversations",
+  "added": "2026-10-15",
+  "authors": "D. Nadrchal, M. Swain, F. Schmid, G. Widmer, P. Primus",
+  "date": "2026-10-02",
+  "feasibility": 3,
+  "fit": "Speech processing that directly gives someone their voice back, close to your Wiener-filter speech work. A project could copy the three-step recipe for a Hebrew speaker or test how few hours are really needed.",
+  "future": [
+   "Test on more speakers and larger models",
+   "Measure how much personal data is really needed",
+   "Try a Hebrew version"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop with a GPU or Colab; the released 33-hour dataset and open Whisper models.",
+  "source": "arXiv 2610.03017 · eess.AS",
+  "summary": "One Czech man breathes through an opening in his neck and has a muscle condition that makes his speech very hard for strangers to understand. This team built a speech-to-text system just for him. They recorded 33 hours of his speech using playful made-up conversations to keep sessions natural, and they released the recordings. They trained an open speech recognizer in three steps: normal Czech, then simulated speech of this kind, then his own voice. It made about half as many mistakes as the starting model, beat human helpers on single sentences, and he said it helps him.",
+  "techniques": [
+   "Open speech recognizer (Whisper) fine-tuned in three stages",
+   "Simulating the sound of this type of voice",
+   "Collecting data through scripted 'artificial conversations'",
+   "Testing in near real-time dialogue"
+  ],
+  "terms": [
+   {
+    "meaning": "Slurred or unclear speech caused by weak or poorly controlled speech muscles.",
+    "term": "Dysarthria"
+   },
+   {
+    "meaning": "A surgical opening in the neck for breathing, which changes how the voice sounds.",
+    "term": "Tracheostomy"
+   },
+   {
+    "meaning": "Taking a model trained on lots of general data and training it a bit more on your own small dataset.",
+    "term": "Fine-tuning"
+   }
+  ],
+  "theme": "audio",
+  "title": "Personalized Automatic Speech Recognition for a Dysarthric and Tracheostomic Speaker using Artificial Conversations",
+  "topics": [
+   "Accessibility",
+   "Speech recognition",
+   "Personalization",
+   "Assistive communication"
+  ],
+  "url": "https://arxiv.org/abs/2610.03017"
+ },
+ {
+  "id": "latent-frequency-watermark-attack",
+  "added": "2026-10-15",
+  "authors": "K. Aistov, … D. Vatolin, A. Antsiferova",
+  "date": "2026-10-01",
+  "feasibility": 3,
+  "fit": "This is Path B of your idea (stamp if detection fails) seen from the attacker's side, and it is pure Fourier thinking, your DSP home turf. Removing or protecting a stamp is an image-restoration problem, a core strength of Prof. Giryes's group.",
+  "future": [
+   "Test watermarks against this attack as a standard check",
+   "Design stamps spread across frequencies the attack doesn't touch",
+   "Measure how often the attack forges a stamp instead of removing it"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "One GPU or Colab, open-source Stable Diffusion and open watermarking code (e.g. Tree-Ring, Stable Signature), prompts from public sets.",
+  "source": "arXiv 2610.02010 · cs.CV / cs.MM",
+  "summary": "If we cannot always detect AI images, one plan is to hide an invisible 'stamp' in every image a generator makes. This team asked how easy it is to erase such stamps. Their trick: squeeze the image into the compact code an AI image model works with, take a Fourier transform of that code, swap out a chosen set of frequencies with noise, and rebuild the picture. Against six stamping methods it erased or badly weakened several of them, kept the image looking the same, and ran faster than earlier attacks.",
+  "techniques": [
+   "Fourier transform of the model's internal code",
+   "Replacing chosen frequencies with noise",
+   "AI re-drawing to keep the image natural",
+   "Measuring watermark survival and image quality"
+  ],
+  "terms": [
+   {
+    "meaning": "A hidden pattern added to an image that people can't see but a program can read.",
+    "term": "Invisible watermark"
+   },
+   {
+    "meaning": "The compact numbers an AI image model uses to represent a picture internally, a bit like a zip file of the image.",
+    "term": "Latent code"
+   },
+   {
+    "meaning": "The type of AI that makes images by starting from noise and cleaning it up step by step.",
+    "term": "Diffusion model"
+   }
+  ],
+  "theme": "vision",
+  "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+  "topics": [
+   "AI image detection",
+   "Giryes fit",
+   "Watermarks",
+   "Frequency domain"
+  ],
+  "url": "https://arxiv.org/abs/2610.02010"
+ },
+ {
+  "id": "grdisaster-crowd-photos",
+  "added": "2026-10-15",
+  "authors": "W. Yin, … X. X. Zhu, H. Li",
+  "date": "2026-10",
+  "feasibility": 2,
+  "fit": "Fits Prof. Giryes's group's 3D and multi-view vision strengths and tackles disaster response. A semester project could improve the weak step, matching a messy phone photo to a satellite view.",
+  "future": [
+   "Use before-and-after images of the same place",
+   "Add road maps, elevation and weather data",
+   "Give a confidence score and flag 'not enough evidence'",
+   "Build lighter models for field use"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "One GPU; the PhotoMappers-based triplets if released, or public street-view and satellite tiles; free open AI models.",
+  "source": "arXiv 2610.00302 · cs.CV",
+  "summary": "After a hurricane or flood, people post thousands of photos, but rescuers need to know where each was taken and how bad the damage is. This team built a set of about 26,000 photos, each matched to a street-view image and a satellite image of the same spot. They then asked AI models to find each photo's location by comparing it with the satellite view, and to rate the damage. Matching street-view photos to satellite images worked about 9 times in 10, but random phone photos only about 4 times in 10. The best AI damage ratings agreed with the reference fairly well (about 74 in 100).",
+  "techniques": [
+   "Matching ground photos to satellite images (cross-view retrieval)",
+   "Image features from a large pretrained network (DINOv3)",
+   "Asking AI models to rate damage on a checklist",
+   "Comparing AI answers with experts"
+  ],
+  "terms": [
+   {
+    "meaning": "Photos taken and shared by ordinary people rather than by professionals.",
+    "term": "Crowdsourced imagery"
+   },
+   {
+    "meaning": "An AI that looks at an image and answers questions about it in words.",
+    "term": "Vision-language model (VLM)"
+   },
+   {
+    "meaning": "Finding the same place in pictures taken from very different angles, like from the ground and from space.",
+    "term": "Cross-view matching"
+   }
+  ],
+  "theme": "impact",
+  "title": "Decoding the Disaster: Multi-Task Geospatial Reasoning with Vision-Language Models and Crowdsourced Imagery for Disaster Mapping",
+  "topics": [
+   "Giryes fit",
+   "Disaster response",
+   "Geolocation",
+   "Vision-language models"
+  ],
+  "url": "https://arxiv.org/abs/2610.00302"
+ },
+ {
+  "id": "global-forecast-inequality",
+  "added": "2026-10-15",
+  "authors": "M. Linsenmeier, J. G. Shrader",
+  "date": "2026-09-14",
+  "feasibility": 3,
+  "fit": "This is the 'why' behind your early-warning card: it measures exactly the gap that free signals like cellular links could help fill. Good for your project's opening slide.",
+  "future": [
+   "Test whether adding cheap or opportunistic data closes the gap in one country",
+   "Repeat the study for rain and wind, not only temperature",
+   "Focus on extreme days rather than average days"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Open-access paper; public forecast archives (e.g. ECMWF/WMO) and station lists if you want to reproduce a slice of it.",
+  "source": "Nature Communications 17, 10792",
+  "summary": "Good warnings for heat waves and cold snaps need good forecasts, but not everyone gets them. This study compared temperature forecasts across the world since 1985. A 7-day forecast in a rich country is about as accurate as a 1-day forecast in a poor one, and poor countries are roughly 17 years behind. Poorer countries have fewer weather stations, their stations report less often, and only about 1 in 5 send an official city forecast to the UN weather agency, compared with 3 in 4 rich countries.",
+  "techniques": [
+   "Comparing forecasts with what happened, country by country",
+   "Statistics over 40 years of data",
+   "Linking accuracy to station density"
+  ],
+  "terms": [
+   {
+    "meaning": "How closely a forecast matches what actually happened, compared with just guessing the usual weather.",
+    "term": "Forecast skill"
+   },
+   {
+    "meaning": "A balloon carrying sensors up through the air to measure temperature and wind at different heights.",
+    "term": "Weather balloon (radiosonde)"
+   }
+  ],
+  "theme": "impact",
+  "title": "Global inequalities in weather forecasts",
+  "topics": [
+   "Early warning",
+   "Heat waves",
+   "Global South",
+   "Weather data gaps"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-77630-w"
+ },
+ {
+  "id": "wildcard-etruscan-tomb-acoustics",
+  "added": "2026-10-15",
+  "authors": "M. Forte, J. Ortoleva",
+  "date": "2026-09-05",
+  "feasibility": 2,
+  "fit": "Wildcard: room acoustics is pure signal processing (an impulse response from a hand clap). Fun to explore: simulate how a space sounds from a 3D model, or 'hear' an ancient room from its measured echo.",
+  "future": [
+   "Measure more tombs to see if this was a tradition",
+   "Rebuild what a ritual sounded like inside",
+   "Compare intended vs accidental acoustic effects"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "Laptop; free room-acoustics simulators (e.g. pyroomacoustics) and public room impulse-response datasets.",
+  "source": "Archaeology News Online · J. Archaeological Method and Theory",
+  "summary": "Two painted tombs in Italy, about 2,400 years old, may have been built to play with the senses of mourners. Researchers clapped their hands at different spots to measure how long the sound lingered, built 3D models, used AI to study the paintings, and simulated people walking through by candlelight. In the small tomb, sound died quickly, keeping visitors calm and focused. In the large one, sound lingered and deep tones could be felt in the body, which together with flickering light may have caused a dizzy, trance-like feeling.",
+  "techniques": [
+   "Hand-clap echo measurements",
+   "3D models of the rooms",
+   "AI analysis of the wall paintings",
+   "Simulated walk-throughs with candlelight"
+  ],
+  "terms": [
+   {
+    "meaning": "How long a sound keeps bouncing around a room after it stops.",
+    "term": "Reverberation"
+   },
+   {
+    "meaning": "A room's 'fingerprint': what you record after a short sharp sound like a clap.",
+    "term": "Impulse response"
+   }
+  ],
+  "theme": "audio",
+  "title": "Etruscan tombs were designed to shape how mourners saw, heard and felt",
+  "topics": [
+   "Wildcard",
+   "Room acoustics",
+   "Archaeology",
+   "Art and heritage"
+  ],
+  "url": "https://archaeologymag.com/2026/09/etruscan-tombs-were-designed-to-shape-how-mourners-saw-heard-and-felt/"
+ },
+ {
+  "id": "cml-air-temperature-proxy",
+  "added": "2026-10-15",
+  "authors": "P. Musil, M. Ištvánek, Š. Miklánek, J. Hejna, P. Mlýnek",
+  "date": "2026-08-14",
+  "feasibility": 3,
+  "fit": "This is the heat-wave half of your multi-hazard early-warning card, from the same cellular-link data you know from CellEnMon. The public dataset means you could try it without asking an operator.",
+  "future": [
+   "Scale to large, mixed networks of links",
+   "Use links at different heights to map city heat",
+   "Turn the temperature proxy into heat-wave warnings"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop; the public Zenodo dataset (CC BY, about 62 MB) and nearby weather-station data.",
+  "source": "EGUsphere preprint egusphere-2026-3888 · in open review",
+  "summary": "The radio links between cell towers already report rain through signal loss. This team asked whether the same equipment can also watch heat. Each link unit logs its own internal temperature for maintenance, and that reading follows the outside air closely but runs about 25 °C too hot because of its own electronics and the sun. Once each unit's personal offset is removed, the error drops to about 2 °C, and a small learning model brings it to about 1.7 °C. Reviewers (comments posted in late September) question how freely operators share such data.",
+  "techniques": [
+   "Removing each unit's personal offset",
+   "Ranking which logged values help most (feature selection)",
+   "Small regression and time-series models",
+   "Testing on rooftops the model never saw"
+  ],
+  "terms": [
+   {
+    "meaning": "The point-to-point radio connection between two cell towers; rain and heat change its readings.",
+    "term": "Commercial microwave link (CML)"
+   },
+   {
+    "meaning": "A steady error, like a thermometer that always reads 25 degrees too high.",
+    "term": "Offset"
+   },
+   {
+    "meaning": "Something that is not the thing you want but moves together with it, so you can use it instead.",
+    "term": "Proxy"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Feasibility and limits of commercial microwave links for opportunistic air-temperature monitoring",
+  "topics": [
+   "Early warning",
+   "Heat waves",
+   "Cellular links as sensors",
+   "Machine learning"
+  ],
+  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3888/"
+ },
+ {
   "id": "av-neuroamp-hearing-aid",
   "added": "2026-10-10",
   "authors": "Y.-J. Li, Y. Tsao, B. Su, K.-C. Ting, F.-G. Zeng",
