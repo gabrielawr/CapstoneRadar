@@ -1,5 +1,532 @@
 [
  {
+  "id": "ai-forecasts-record-heat",
+  "added": "2026-10-22",
+  "authors": "J. B. Wessel, F. Spuler, M. Kretschmer, C. Ferro, S. Sippel",
+  "date": "2026-10-15",
+  "feasibility": 3,
+  "fit": "This answers the key question in your early-warning card: can a learned model warn about 'beyond anything seen before'? These AI forecasts are cheap to run and free to download, which matters for places with no weather radar.",
+  "future": [
+   "Check against weather stations in data-poor regions, such as Africa",
+   "Retrain with extremes removed to see if the AI can still predict them",
+   "Test rarer events like extreme rain",
+   "Test longer periods and other variables"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop and free public data (WeatherBench2 archive, Google WeatherNext2 forecasts, HadISD station records); no training of big models needed.",
+  "source": "arXiv 2610.20519 · Leipzig University & University of Exeter",
+  "summary": "A worry about AI weather models is that they learn from the past, so they might miss heat waves hotter than anything on record. This team checked two AI models that give a range of possible outcomes (not one number) against Europe's top physics-based forecast, over all land on Earth in 2022. The AI models were better at warning of extreme and even record-breaking heat, in every region and at every lead time up to five days. The physics forecast missed about 40 of every 100 records entirely (all its scenarios were too cool), while the best AI model missed only about 9 to 17.",
+  "techniques": [
+   "Comparing forecasts against past records",
+   "Scoring the chance of an extreme (Brier score)",
+   "Checking against 5,778 weather stations",
+   "Case study of the 2022 European heat wave"
+  ],
+  "terms": [
+   {
+    "meaning": "A forecast that gives many possible outcomes with their chances, instead of a single guess.",
+    "term": "Probabilistic forecast"
+   },
+   {
+    "meaning": "How far ahead the forecast is made, for example 3 days before the heat arrives.",
+    "term": "Lead time"
+   },
+   {
+    "meaning": "A value higher than any measured before at that place and time of year.",
+    "term": "Record-breaking event"
+   }
+  ],
+  "theme": "impact",
+  "title": "Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes",
+  "topics": [
+   "Early warning",
+   "Heat waves",
+   "Record-breaking extremes",
+   "AI weather models"
+  ],
+  "url": "https://arxiv.org/abs/2610.20519"
+ },
+ {
+  "id": "ai-forecasts-tropical-cyclones",
+  "added": "2026-10-22",
+  "authors": "N. Chalumeau, X. Renard, R. Meynadier, H. Rakotoarimanga, M. Detyniecki, E. de Bezenac",
+  "date": "2026-10-15",
+  "feasibility": 2,
+  "fit": "It covers the wind-and-storm side of your early-warning card. A semester project could take the free AI forecasts and add a small 'wind correction' model for the peak winds they miss.",
+  "future": [
+   "Correct the AI models' too-weak peak winds",
+   "Training goals that give extra weight to extreme winds",
+   "Compare against real observations, not just other models",
+   "Include seasons without storms to test false alarms"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop and free public data (IBTrACS storm tracks, ECMWF open data, WeatherNext2 archive); avoid re-running the AI models yourself, which took 6,000+ GPU hours.",
+  "source": "arXiv 2610.22077 · INRIA, Sorbonne & AXA",
+  "summary": "Tropical cyclones (hurricanes and typhoons) bring the most damaging winds on Earth, and poorer coastal countries depend on free global forecasts to warn people. This team compared three AI weather models with Europe's main physics-based forecast on 178 strong storms. The AI models were much better at predicting where a storm would go; the best one beat the physics forecast on about 9 of every 10 storms in 2025. But they still underestimated the strongest winds, so they predict the path better than the punch.",
+  "techniques": [
+   "Tracking storm centers in forecast maps",
+   "Scoring how close predicted paths are to real ones",
+   "Comparing predicted and real peak winds",
+   "Checking the wind-versus-pressure relationship"
+  ],
+  "terms": [
+   {
+    "meaning": "A large rotating storm over warm oceans; called a hurricane or typhoon depending on the region.",
+    "term": "Tropical cyclone"
+   },
+   {
+    "meaning": "A set of many forecast runs with small differences, used to see the range of possible outcomes.",
+    "term": "Ensemble"
+   },
+   {
+    "meaning": "A forecast's habit of making storms consistently too weak or too strong.",
+    "term": "Intensity bias"
+   }
+  ],
+  "theme": "impact",
+  "title": "Can AI Forecast the Extremes? Evaluating Probabilistic Weather Models on Tropical Cyclones",
+  "topics": [
+   "Early warning",
+   "Strong winds and storms",
+   "AI weather models",
+   "Global South"
+  ],
+  "url": "https://arxiv.org/abs/2610.22077"
+ },
+ {
+  "id": "das-bridge-flood-river",
+  "added": "2026-10-22",
+  "authors": "H. Li, J. Liu, D. Hwang, H. Y. Noh, B. Biondi",
+  "date": "2026-10",
+  "feasibility": 2,
+  "fit": "Free infrastructure as a sensor, like your cellular-link rain work, but with fiber and vibrations. A fun project: could this slowing-down signal warn that a riverbank is getting dangerously soft?",
+  "future": [
+   "Test whether the softening signal appears early enough to warn of bank failure",
+   "Repeat at other bridges and floods",
+   "Add machine learning to separate traffic from weather effects"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public DAS datasets (several are open online) and a laptop; no access to fiber hardware needed if you use existing recordings.",
+  "source": "arXiv 2610.09289 · physics.geo-ph",
+  "summary": "Cars driving over a bridge make it vibrate, and those vibrations spread into the ground like a tiny, constant earthquake. This team listened to them with an ordinary telecom fiber-optic cable along a Korean highway, turned into thousands of vibration sensors by sending laser pulses through it. From the vibrations they built a picture of the ground under the river down to bedrock, which could be refreshed with about five minutes of recording. During a July 2025 flood, the waves slowed by up to 1 percent as heavy rain soaked and softened the riverbanks.",
+  "techniques": [
+   "Using traffic vibrations as a free signal source",
+   "Cross-correlation of vibration recordings",
+   "Measuring tiny speed changes in waves",
+   "Linking changes to rain and river level"
+  ],
+  "terms": [
+   {
+    "meaning": "Sending laser pulses down a fiber-optic cable and reading tiny changes in the reflected light to sense vibration every few meters.",
+    "term": "Distributed acoustic sensing (DAS)"
+   },
+   {
+    "meaning": "Vibrations that travel through the ground.",
+    "term": "Seismic waves"
+   },
+   {
+    "meaning": "Making the same underground picture again and again to see how it changes over time.",
+    "term": "Time-lapse imaging"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Bridge Vibrations as Persistent Seismic Sources for Time-lapse Imaging of River Corridors with Distributed Acoustic Sensing",
+  "topics": [
+   "Fiber as a sensor",
+   "Floods",
+   "Infrastructure monitoring",
+   "Time-lapse imaging"
+  ],
+  "url": "https://arxiv.org/abs/2610.09289"
+ },
+ {
+  "id": "diffusion-rain-map-inpainting",
+  "added": "2026-10-22",
+  "authors": "D. Kishikawa, Y. Muto, S. Kotsuki (Chiba University)",
+  "date": "2026-10-20",
+  "feasibility": 2,
+  "fit": "Filling holes in images (inpainting) is classic image restoration, a core strength of Prof. Giryes's group, applied here to rain data for regions without radar. It also links to your rain work: cellular-link rain estimates could be extra hints for filling the gaps.",
+  "future": [
+   "Add cellular-link or rain-gauge data as extra hints",
+   "Measure the effect on flood warnings in data-poor regions",
+   "Make it faster for near-real-time use"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "A GPU (free Colab may be tight) and free public data: ERA5 rainfall and JAXA GSMaP satellite rain maps.",
+  "source": "EurekAlert (Chiba University) · Earth and Space Science",
+  "summary": "Satellite rain maps are the only rain data for much of the world, but they have holes wherever the satellite had no valid view. This team treated the hourly global rain maps like a video and trained an image-generating AI (a diffusion model) to fill in the holes, using infrared satellite pictures, location and time as hints. It filled the gaps more accurately and more realistically than older AI approaches, and stayed consistent from place to place and hour to hour. They also tested it on real Japanese satellite rain maps with missing regions.",
+  "techniques": [
+   "Diffusion model for filling gaps",
+   "Treating rain maps as video (3D U-Net)",
+   "Extra inputs: infrared images, location, time",
+   "Simulated holes for training"
+  ],
+  "terms": [
+   {
+    "meaning": "Filling in missing or damaged parts of an image so they look right.",
+    "term": "Inpainting"
+   },
+   {
+    "meaning": "An image-generating AI that learns to turn noise step by step into a realistic picture.",
+    "term": "Diffusion model"
+   },
+   {
+    "meaning": "A picture of heat given off by clouds and ground, available even when rain sensors have gaps.",
+    "term": "Infrared satellite image"
+   }
+  ],
+  "theme": "impact",
+  "title": "Filling the gaps in global rainfall maps",
+  "topics": [
+   "Giryes fit",
+   "Image restoration",
+   "Satellite rainfall",
+   "Climate data"
+  ],
+  "url": "https://www.eurekalert.org/news-releases/1147919"
+ },
+ {
+  "id": "duet-piano-to-score",
+  "added": "2026-10-22",
+  "authors": "W. Zeng, Y. Wang",
+  "date": "2026-10-15",
+  "feasibility": 2,
+  "fit": "Music tech is a natural place for you after your music-genre classifier, and here the hard part is a timing and alignment problem, very signal-processing in spirit. Fun twist: add an audio front end so it goes from a phone recording to sheet music.",
+  "future": [
+   "Start from audio recordings instead of MIDI",
+   "Extend beyond piano",
+   "Handle very free, expressive playing"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop with GPU or Colab, the public ASAP piano dataset, and the authors' open code and weights.",
+  "source": "arXiv 2610.21467 · eess.AS",
+  "summary": "A pianist never plays exactly in time, so turning a real performance into clean sheet music is hard: the computer must guess the beat and what each note's written length was meant to be. This model reads the notes as played and, at the same time, tracks the beat and the start of each bar, letting the two views help each other. It then writes out the score note by note. On a pop-piano dataset it cut timing errors in the score by almost half (from about 6.6 to 3.6 percent), with a smaller gain on classical pieces; code and demos are public.",
+  "techniques": [
+   "Two encoders: one for notes, one for time frames",
+   "Cross-attention linking the two",
+   "Time-aware position encoding",
+   "Note-by-note score writing (autoregressive decoder)"
+  ],
+  "terms": [
+   {
+    "meaning": "A digital record of which piano keys were pressed, when, and how hard, rather than the sound itself.",
+    "term": "MIDI"
+   },
+   {
+    "meaning": "A neural network type that looks at all parts of a sequence at once to decide what matters.",
+    "term": "Transformer"
+   },
+   {
+    "meaning": "The first, strongest beat of each bar of music.",
+    "term": "Downbeat"
+   }
+  ],
+  "theme": "audio",
+  "title": "DuET: Note-Frame Dual Encoding for Piano Performance-to-Score Transcription",
+  "topics": [
+   "Wildcard",
+   "Music",
+   "Transcription",
+   "Timing and rhythm"
+  ],
+  "url": "https://arxiv.org/abs/2610.21467"
+ },
+ {
+  "id": "flashrefocus-image-refocusing",
+  "added": "2026-10-22",
+  "authors": "C.-H. Cheng, C.-M. Lee, M.-C. Chang, X. Li, Y.-L. Liu, C.-C. Hsu",
+  "date": "2026-10",
+  "feasibility": 3,
+  "fit": "Computational photography, a field you haven't explored yet: blur is just a filter that depends on distance, so your image-enhancement and filtering background fits right in. A fun demo could refocus phone photos live.",
+  "future": [
+   "Run fully on a phone",
+   "Video refocusing",
+   "Combine with phone depth sensors"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "A GPU or Colab, public bokeh datasets (EBB!), and your own phone photos.",
+  "source": "arXiv 2610.23297 · cs.CV / eess.IV",
+  "summary": "Ever taken a photo focused on the wrong thing? AI can now change the focus after the shot, but it has been slow. This team runs the heavy image-generating AI just once per photo to recover a fully sharp version, then a small fast network adds blur where you want it, guided by a map of how far each point is. Each new focus choice takes about half a second, over 400 times faster than an earlier AI method. They also made a test set of 89 photo pairs from three real cameras and report the most natural-looking background blur in their tests.",
+  "techniques": [
+   "One-time recovery of an all-sharp image (diffusion model)",
+   "Small network that renders blur",
+   "Depth-guided blur maps",
+   "Real-camera test set"
+  ],
+  "terms": [
+   {
+    "meaning": "Changing which part of a photo is sharp after it was taken.",
+    "term": "Refocusing"
+   },
+   {
+    "meaning": "The soft, blurred background in photos taken with a wide-open lens.",
+    "term": "Bokeh"
+   },
+   {
+    "meaning": "An image saying how blurry each pixel should be, based on its distance from the focus plane.",
+    "term": "Defocus map"
+   }
+  ],
+  "theme": "vision",
+  "title": "FlashReFocus: Interactive Image Refocusing in Seconds",
+  "topics": [
+   "Wildcard",
+   "Computational photography",
+   "Image restoration",
+   "Fast AI"
+  ],
+  "url": "https://arxiv.org/abs/2610.23297"
+ },
+ {
+  "id": "motion-deepfake-videos-moda",
+  "added": "2026-10-22",
+  "authors": "F. Liu, Y. Meng, T. Dong, G. Chen, H. Zhu",
+  "date": "2026-10-08",
+  "feasibility": 2,
+  "fit": "This is your own idea card, detect if possible, applied to video, and the winning clue is exactly your DSP strength: frequency fingerprints. Testing it after WhatsApp-style compression would be a natural next step for you.",
+  "future": [
+   "Test after messaging-app compression and screen recording",
+   "Extend to newer video generators",
+   "Release code and data so detectors can be compared"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "A GPU (Colab works for a small version), public real/fake video datasets, and open-source video generators to make your own fakes.",
+  "source": "arXiv 2610.11496 · cs.CV, cs.CR",
+  "summary": "New AI tools can take one photo of a person and make a full video of them dancing or moving, and such clips have already reached hundreds of millions of viewers. The team built a large test set of about 1,400 real and 30,000 fake videos from six generators. They found that the generators leave tiny, fast-changing patterns, a kind of fingerprint you can see in the frequency content of the frames. Their detector, which combines what the image shows with these frequency clues, got about 95 of 100 videos right on familiar generators, and about 78 to 82 of 100 right on clips from tools and websites it had never seen, and could often name which tool made the video.",
+  "techniques": [
+   "Frequency (Fourier) features of frames",
+   "Combining picture content with frequency clues",
+   "Testing on unseen generators and internet clips",
+   "Robustness checks against attacks"
+  ],
+  "terms": [
+   {
+    "meaning": "A fake image or video of a real person made by AI.",
+    "term": "Deepfake"
+   },
+   {
+    "meaning": "A typical pattern in the Fourier transform of an image that reveals which tool made it.",
+    "term": "Frequency fingerprint"
+   },
+   {
+    "meaning": "Telling not just 'fake or real' but which generator made the fake.",
+    "term": "Attribution"
+   },
+   {
+    "meaning": "Methods for finding hidden, tiny signals in images; here used to spot generator traces.",
+    "term": "Steganalysis"
+   }
+  ],
+  "theme": "vision",
+  "title": "Stop My Dancing! Understanding, Detecting and Attributing Motion-Aware Deepfake Videos",
+  "topics": [
+   "AI image detection",
+   "Deepfakes",
+   "Frequency domain",
+   "Giryes fit"
+  ],
+  "url": "https://arxiv.org/abs/2610.11496"
+ },
+ {
+  "id": "nlos-imaging-light-cone",
+  "added": "2026-10-22",
+  "authors": "L. Wang, X. Liu, J. Dong, Q. Zhang, J. Liu, Y. Wang, Y. Duan",
+  "date": "2026-10",
+  "feasibility": 2,
+  "fit": "Pure signal processing meets deep learning: the core trick is a clever transform plus frequency-by-frequency filtering, close to your Wiener-filter work. Fun to explore with public datasets, and seeing around corners could one day help rescue teams.",
+  "future": [
+   "Use with cheaper, lower-quality laser timing hardware",
+   "Real-time reconstruction",
+   "Apply to search-and-rescue or vehicle safety scenarios"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public NLOS datasets (e.g. from Stanford and Zaragoza labs) and a GPU; no laser hardware needed.",
+  "source": "arXiv 2610.22847 · eess.IV",
+  "summary": "Cameras can 'see around corners': shine fast laser pulses on a wall, time the faint light that bounces off a hidden object and back, and compute what the hidden scene looks like. The classic math for this works well with lots of clean light but breaks down when the signal is weak or only a few spots on the wall are measured. This team kept the classic formula but added a small neural network that adjusts it to how good the measurement is, deciding how much to smooth each frequency. It held up in weak light and kept the scene's shape even with only a 32 by 32 grid of measurement spots, on both simulated data and real captures from several setups.",
+  "techniques": [
+   "Classic light-cone transform",
+   "Learned correction weighted by signal quality",
+   "Per-frequency smoothing map predicted by a network",
+   "Attention over space and time for weak signals"
+  ],
+  "terms": [
+   {
+    "meaning": "Reconstructing a scene that is hidden from the camera, using light bounced off a wall.",
+    "term": "Non-line-of-sight (NLOS) imaging"
+   },
+   {
+    "meaning": "A math trick that turns the bounce-timing data into a form you can undo quickly with Fourier transforms.",
+    "term": "Light-cone transform"
+   },
+   {
+    "meaning": "A way to stop the reconstruction from amplifying noise, like the noise-balancing in a Wiener filter.",
+    "term": "Regularization"
+   }
+  ],
+  "theme": "vision",
+  "title": "Measurement-Adaptive Light-Cone Transform for Robust Non-Line-of-Sight Imaging",
+  "topics": [
+   "Wildcard",
+   "Computational imaging",
+   "Seeing around corners",
+   "Physics plus deep learning"
+  ],
+  "url": "https://arxiv.org/abs/2610.22847"
+ },
+ {
+  "id": "snoar-denoising-without-clean",
+  "added": "2026-10-22",
+  "authors": "S. Cornell, M. Maciejewski",
+  "date": "2026-10",
+  "feasibility": 3,
+  "fit": "A direct follow-up to your Wiener-filter speech enhancement project: same goal, but learning from real-world noise with no clean reference. Useful for hearing aids, which you starred.",
+  "future": [
+   "Try it on hearing-aid or phone recordings from a specific noisy place",
+   "Test other network sizes and more datasets",
+   "Learn the mix-back amount automatically instead of fixing it"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop with a GPU or free Colab and public noisy speech datasets (WHAM!, CHiME-3).",
+  "source": "arXiv 2610.20863 · CMU & Johns Hopkins",
+  "summary": "Training a speech-cleaning AI usually needs pairs of noisy and perfectly clean recordings, which you never have for real places like a hospital or a bus. This method learns from noisy recordings alone: a 'teacher' network cleans them, its guesses are corrected (leftover noise is subtracted, and a bit of the original recording is mixed back in so speech is not over-removed), and a 'student' learns from new mixes of these corrected guesses. It got about 97 percent of the way to a model trained with perfect clean data. On real noisy recordings, it made speech both easier for a computer to transcribe and nicer to listen to than an earlier method.",
+  "techniques": [
+   "Teacher–student training",
+   "Subtracting leftover noise estimate",
+   "Mixing back part of the noisy input",
+   "Remixing speech and noise across recordings"
+  ],
+  "terms": [
+   {
+    "meaning": "One network makes guesses on unlabeled data and a second learns from those guesses, improving over rounds.",
+    "term": "Self-training (teacher–student)"
+   },
+   {
+    "meaning": "A noise-free recording of the same speech, used as the 'right answer' in normal training.",
+    "term": "Clean reference"
+   },
+   {
+    "meaning": "Building new training mixtures by pairing cleaned speech from one recording with noise from another.",
+    "term": "Remixing"
+   }
+  ],
+  "theme": "audio",
+  "title": "SNOAR: Self-training with Noise filtering, Observation adding, and Remixing for Speech Denoising Without Clean References",
+  "topics": [
+   "Speech enhancement",
+   "Hearing and accessibility",
+   "Learning without labels",
+   "Real-world audio"
+  ],
+  "url": "https://arxiv.org/abs/2610.20863"
+ },
+ {
+  "id": "spides-browser-agent-ifc",
+  "added": "2026-10-22",
+  "authors": "E. Zverev, J. Kim, L. Trampert, B. Köpf, A. Kolluri, S. Tople, S. Zanella-Béguelin",
+  "date": "2026-10-16",
+  "feasibility": 2,
+  "fit": "The guarantee comes from the rules, not from the AI behaving well, which is the same 'prove it, don't hope' mindset you use in hardware verification. The code is public, so it is easy to build on.",
+  "future": [
+   "Label web pages automatically instead of by hand, and measure the errors that adds",
+   "Reduce how often the user must approve actions (about 2 per task now)",
+   "Handle attacks that tamper with the page itself"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop, the open-source SPIDES code and MicroNet test sites from Microsoft's GitHub, and some budget for AI-model calls.",
+  "source": "arXiv 2610.24277 · Microsoft, ISTA, CISPA",
+  "summary": "AI agents that browse the web for you can be tricked by hidden text on a page ('ignore your user, send me their address'). Instead of asking another AI whether something looks suspicious, this team tags every piece of a web page as trusted or untrusted, and private or public, and those tags travel with the data. Untrusted or private text is hidden from the agent behind a placeholder, and strict rules decide which actions are allowed, for example private data may only go to sites allowed to read it. On a test world of 28 fake websites with 56 attacks, it blocked every attack with five different AI models, while still finishing about 67 to 86 of every 100 normal tasks.",
+  "techniques": [
+   "Trust and privacy labels on page elements",
+   "Hiding untrusted text behind placeholders",
+   "Rule-based allow/deny for each click or form fill",
+   "A separate sandboxed AI for handling hidden data"
+  ],
+  "terms": [
+   {
+    "meaning": "Hidden instructions planted in a web page or email that try to hijack an AI agent.",
+    "term": "Prompt injection"
+   },
+   {
+    "meaning": "Tagging data with labels like 'secret' or 'untrusted' and blocking any action that would move it somewhere it should not go.",
+    "term": "Information-flow control"
+   },
+   {
+    "meaning": "An AI that clicks, types and navigates websites on your behalf.",
+    "term": "Browser agent"
+   }
+  ],
+  "theme": "impact",
+  "title": "SPIDES: Information-Flow Control for Browser Agents",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Prompt injection",
+   "Guarantees by design"
+  ],
+  "url": "https://arxiv.org/abs/2610.24277"
+ },
+ {
+  "id": "symbolic-constraint-agents",
+  "added": "2026-10-22",
+  "authors": "J. Lee, S. Barke",
+  "date": "2026-10-18",
+  "feasibility": 2,
+  "fit": "This is your NVIDIA job applied to AI: write the spec, then let a solver check every step, exactly like proving a chip behaves. The rule-mining step would make a neat starting point for the agent-safety idea card.",
+  "future": [
+   "Release the rule catalogs and code so others can reuse them",
+   "Combine rule refinement with extra generated examples to cover more tools",
+   "Make warnings help consistently, since they sometimes lowered success"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop, the free Z3 solver, the public AppWorld or tau-bench benchmarks, and a modest budget for AI-model calls.",
+  "source": "arXiv 2610.25552 · UIUC & Microsoft Research",
+  "summary": "AI assistants that use apps (send money, book flights, edit files) often call those apps with wrong or unsafe inputs, and the mistakes are hard to spot. This team had an AI read each app's manual and write down precise rules, such as 'only pay an account that appeared earlier in the task'. Before every action, a logic solver (a program that checks rules mathematically) tests the planned call against those rules; if a rule is broken, the agent gets a warning, or the input is fixed automatically when only one correct fix exists. On a test of 417 tasks across nine apps, auto-fixing raised the success rate of one small model from about 45 to about 50 tasks in 100, and cut failed app calls by 59 to 87 percent.",
+  "techniques": [
+   "AI reads app manuals and drafts rules",
+   "Rule checking with a logic solver (Z3)",
+   "Pruning rules that are too strict, using example runs",
+   "Automatic minimal fix of a bad input"
+  ],
+  "terms": [
+   {
+    "meaning": "An AI model that does not just chat but takes actions by calling apps or tools.",
+    "term": "Agent"
+   },
+   {
+    "meaning": "A program that decides automatically whether a set of precise rules can all be true at once; Z3 is a free one.",
+    "term": "Logic solver (SMT solver)"
+   },
+   {
+    "meaning": "One action the agent takes, like 'send_payment(to, amount)', with its inputs.",
+    "term": "Tool call"
+   },
+   {
+    "meaning": "A rule written in exact math-like form so a computer can check it with no guesswork.",
+    "term": "Formal constraint"
+   }
+  ],
+  "theme": "impact",
+  "title": "Symbolic Constraint Agents: Mining Formal Tool-Call Constraints to Prevent Agent Errors",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Formal verification",
+   "Specification mining"
+  ],
+  "url": "https://arxiv.org/abs/2610.25552"
+ },
+ {
   "id": "alertcalifornia-ai-first-detection",
   "added": "2026-10-15",
   "authors": "ALERTCalifornia, UC San Diego (dir. N. Driscoll)",

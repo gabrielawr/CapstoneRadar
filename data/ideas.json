@@ -3,7 +3,7 @@
   "id": "ai-image-detect-or-stamp",
   "createdAt": "2026-10-10T15:13:00Z",
   "needs": "A laptop with a GPU (or free Colab), public datasets of real and AI-generated images, open-source detectors and watermarking code. No special hardware.",
-  "novelty": "Your own question: can AI tell AI images from real ones? If yes, flag deepfakes; if not, stamp AI images so a policy can rely on them. The honest answer is 'partly', so pick one side and attack its weak spot. Path A (detect): build a detector using frequency-domain clues (your DSP strength) and test it on images it has never seen, after WhatsApp-style compression and screenshots; the October 2026 'relative patch' detector is a fresh baseline that has not been tested this way. Path B (stamp): measure which watermark designs survive AI re-drawing and the new 'latent frequency masking' attack (which swaps out frequencies inside the AI model's internal code), then try a stamp that survives it; removing a watermark is an image-restoration problem, which is Prof. Giryes's group's core strength. Optional extra from your NVIDIA work: prove that a small image change cannot flip the detector's answer. End with what your numbers mean for an AI-content labeling policy.",
+  "novelty": "Your own question: can AI tell AI images from real ones? If yes, flag deepfakes; if not, stamp AI images so a policy can rely on them. The honest answer is 'partly', so pick one side and attack its weak spot. Path A (detect): build a detector using frequency-domain clues (your DSP strength) and test it on images it has never seen, after WhatsApp-style compression and screenshots; the October 2026 'relative patch' detector is a fresh baseline that has not been tested this way. Path B (stamp): measure which watermark designs survive AI re-drawing and the new 'latent frequency masking' attack (which swaps out frequencies inside the AI model's internal code), then try a stamp that survives it; removing a watermark is an image-restoration problem, which is Prof. Giryes's group's core strength. Optional extra from your NVIDIA work: prove that a small image change cannot flip the detector's answer. End with what your numbers mean for an AI-content labeling policy. New support for Path A: an October 2026 study of AI 'dancing' deepfake videos found that generators leave frequency fingerprints that still worked on about 8 in 10 clips from tools and websites the detector had never seen, so the frequency route is promising for video too.",
   "problem": "Fake images spread faster than fact-checkers can check them. Today's AI-image detectors work well on the image generators they were trained on but fail on new ones and after an image is compressed or re-shared. Invisible 'stamps' (watermarks such as Google's SynthID) exist, but recent papers show an AI re-drawing of the image can wipe them out, and open-source generators don't stamp anything.",
   "related": [
    "Beyond Semantic Features: Pixel-level Mapping for Generalized AI-Generated Image Detection (AAAI 2026)",
@@ -11,7 +11,8 @@
    "SynthID-Image: Image watermarking at internet scale",
    "Vanishing Watermarks: Diffusion-Based Image Editing Undermines Robust Invisible Watermarking (2026)",
    "Relative Patch Response Learning for Generalizable AI-Generated Image Detection",
-   "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking"
+   "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+   "Stop My Dancing! Understanding, Detecting and Attributing Motion-Aware Deepfake Videos"
   ],
   "scope": "Weeks 1–3: choose Path A or B; gather real photos and AI images from 5–10 different generators (public benchmarks exist), or set up 2–3 open watermarking methods. Weeks 4–8: Path A: train a detector on a few generators and test on the unseen ones, before and after compression, resizing and screenshots. Path B: attack the watermarks with compression, cropping and AI re-drawing, then try a fix. Weeks 9–12: a clear results table (what works, what breaks), a small demo that checks an uploaded image, and a one-page 'what this means for policy' section.",
   "title": "Telling AI images from real ones: a detector that survives WhatsApp, or a stamp that survives editing"
@@ -20,12 +21,14 @@
   "id": "checked-agent-safety-layer",
   "createdAt": "2026-10-10T08:01:00Z",
   "needs": "Laptop, public AgentDojo benchmark, open-source CaMeLoT code and a free model checker (nuXmv), plus a small budget for AI-model calls.",
-  "novelty": "Bring your hardware verification habits to AI: write a few safety rules precisely (like 'never send data to an address the user did not mention'), turn each agent plan or stream of actions into a small state machine, and prove or check the rules automatically. Measuring how many attacks you stop versus how many good tasks you wrongly block, on a public benchmark, is a solid undergrad contribution.",
+  "novelty": "Bring your hardware verification habits to AI: write a few safety rules precisely (like 'never send data to an address the user did not mention'), turn each agent plan or stream of actions into a small state machine, and prove or check the rules automatically. Measuring how many attacks you stop versus how many good tasks you wrongly block, on a public benchmark, is a solid undergrad contribution. Two October 2026 papers make the first weeks easier: one lets an AI draft the safety rules from each app's manual and checks every action with a free logic solver (Z3), and another (SPIDES, open code) shows that labelling data as trusted/untrusted and private/public can block every attack in its test by design.",
   "problem": "AI assistants that can send emails, move money or edit files can be tricked by hidden instructions in what they read. Today's protections are mostly 'ask another AI if this looks okay', which can itself be fooled.",
   "related": [
    "CaMeLoT: CaMeL orchestrated with Temporal logic for static verification and liveness",
    "Sapien: A Stateful Policy Engine for Autonomous AI Agents",
-   "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC"
+   "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
+   "Symbolic Constraint Agents: Mining Formal Tool-Call Constraints to Prevent Agent Errors",
+   "SPIDES: Information-Flow Control for Browser Agents"
   ],
   "scope": "Weeks 1–3: set up the public AgentDojo benchmark and the CaMeLoT code; write 5–10 safety rules for one area (e.g. email or banking). Weeks 4–8: build a small Python rule checker that watches each tool call (as in Sapien), and compare it with the plan-level model checking in CaMeLoT. Weeks 9–12: run attacks, count attacks stopped and good tasks blocked, and study why safe plans get blocked.",
   "title": "A safety layer for AI agents that is checked like a chip"
@@ -34,7 +37,7 @@
   "id": "free-signal-flash-flood-warning",
   "createdAt": "2026-10-10T08:00:00Z",
   "needs": "A laptop; an existing cellular-link dataset (from your lab or the open OpenMRG Gothenburg dataset), free public GPS-station data, crowdsourced weather-station data, and official records of past floods, storms and heat waves. No sensor building.",
-  "novelty": "Each of these signals has mostly been used alone, and mostly to measure weather that already happened. Combining several free signals and asking a model to warn hours ahead would be new at undergrad level and builds straight on your CellEnMon work. The hard part, and the interesting one, is 'unprecedented': models learn from the past, so a record-breaking event looks unlike anything in the training data. Treating warnings as 'this is far outside normal' (anomaly detection) instead of only 'this looks like past storms' is a real research question.",
+  "novelty": "Each of these signals has mostly been used alone, and mostly to measure weather that already happened. Combining several free signals and asking a model to warn hours ahead would be new at undergrad level and builds straight on your CellEnMon work. The hard part, and the interesting one, is 'unprecedented': models learn from the past, so a record-breaking event looks unlike anything in the training data. Treating warnings as 'this is far outside normal' (anomaly detection) instead of only 'this looks like past storms' is a real research question. October 2026 papers give an encouraging answer: free AI weather forecasts (downloadable at no cost) already beat the best physics-based forecast at warning of record-breaking heat, and predict tropical-storm paths better, though they still underestimate peak winds. So a strong baseline is free; your free-signal data could be the local correction on top, for example fixing the too-weak winds or the 'last few hours' that global forecasts miss.",
   "problem": "Serious, record-breaking weather (floods, damaging winds, heat waves) kills people most in places with no weather radar and few weather stations, such as much of Africa and rural Asia. But signals that 'feel' the weather already exist almost everywhere: rain weakens the microwave links between cell towers, wind makes those links flicker, moist air delays GPS signals, and cheap home weather stations and even phone battery temperatures track heat.",
   "related": [
    "NWS Deploys Improved TACLS to 122 Offices for Earlier Flash Flood Warnings",
@@ -42,7 +45,9 @@
    "Rainfall Sensing via Mobile Communication Signals",
    "Suitable Measures for the Potential Operational Utility of AI NWP Rainfall Forecasts Over Africa",
    "Global inequalities in weather forecasts",
-   "Feasibility and limits of commercial microwave links for opportunistic air-temperature monitoring"
+   "Feasibility and limits of commercial microwave links for opportunistic air-temperature monitoring",
+   "Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes",
+   "Can AI Forecast the Extremes? Evaluating Probabilistic Weather Models on Tropical Cyclones"
   ],
   "scope": "Weeks 1–3: pick one region with public data (Israel, the Netherlands, New York's open OpenMesh link data, or an African dataset) and list past extreme days: floods, wind storms and heat waves. Gather cellular-link data, GPS-station delays and crowdsourced weather-station data for those days. Weeks 4–8: build simple per-hazard warning signals (rain from link signal loss plus GPS moisture for floods; link flicker for strong wind; for heat, the temperature each link unit already logs about itself, corrected for its personal offset, plus crowdsourced station temperatures), then train one small model, or an 'unusually extreme' detector, that warns a few hours ahead. Start with two hazards and add the third if time allows. Weeks 9–12: replay past events as if live, measure warning time and false alarms for each hazard, test on the most record-breaking events separately, and draw a simple warning map.",
   "title": "Early warning for extreme weather from free signals: floods, strong winds and heat waves"
