@@ -1,530 +1,423 @@
 [
  {
-  "id": "ai-forecasts-record-heat",
-  "added": "2026-10-22",
-  "authors": "J. B. Wessel, F. Spuler, M. Kretschmer, C. Ferro, S. Sippel",
-  "date": "2026-10-15",
+  "id": "acoustic-deforestation-guatemala",
+  "added": "2026-10-24",
+  "authors": "Wildlife Conservation Society; Cornell Lab of Ornithology; Chemnitz University of Technology; Federal University of Mato Grosso do Sul",
+  "date": "2026-04",
   "feasibility": 3,
-  "fit": "This answers the key question in your early-warning card: can a learned model warn about 'beyond anything seen before'? These AI forecasts are cheap to run and free to download, which matters for places with no weather radar.",
+  "fit": "This is your sound-classification experience (the MFCC genre classifier) applied to protecting forests, and false alarms are a classic detection-tradeoff problem. A project could build a small chainsaw-and-gunshot detector that runs on a cheap device, and measure how well it holds up in rain and birdsong.",
   "future": [
-   "Check against weather stations in data-poor regions, such as Africa",
-   "Retrain with extremes removed to see if the AI can still predict them",
-   "Test rarer events like extreme rain",
-   "Test longer periods and other variables"
+   "Cut false alarms from similar-sounding events",
+   "Low-power models for small devices",
+   "Decide when alerts should trigger a field response"
   ],
   "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop and free public data (WeatherBench2 archive, Google WeatherNext2 forecasts, HadISD station records); no training of big models needed.",
-  "source": "arXiv 2610.20519 · Leipzig University & University of Exeter",
-  "summary": "A worry about AI weather models is that they learn from the past, so they might miss heat waves hotter than anything on record. This team checked two AI models that give a range of possible outcomes (not one number) against Europe's top physics-based forecast, over all land on Earth in 2022. The AI models were better at warning of extreme and even record-breaking heat, in every region and at every lead time up to five days. The physics forecast missed about 40 of every 100 records entirely (all its scenarios were too cool), while the best AI model missed only about 9 to 17.",
+  "kind": "News",
+  "needs": "Laptop, public environmental sound datasets (e.g. ESC-50, chainsaw recordings from Rainforest Connection) and optionally a cheap microcontroller board.",
+  "source": "Mongabay (2026-04) · Wildlife Conservation Society, Cornell Lab of Ornithology",
+  "summary": "Guatemala's Maya Biosphere Reserve (about 2.2 million hectares) loses thousands of hectares of forest a year to illegal logging, ranching and settlements, and rangers often find clearings a week after they happened. Today's audio recorders store only a few hours of sound a day, and someone has to walk out to collect the memory cards. The new system puts AI on recorders in the forest to recognize chainsaws, gunshots and engines among 50 to 100 sound types, and sends short clips with a spectrogram and a confidence score by satellite to rangers. Testing is planned for this year, and the team is openly worried about false alarms, theft of devices and slow ranger response.",
   "techniques": [
-   "Comparing forecasts against past records",
-   "Scoring the chance of an extreme (Brier score)",
-   "Checking against 5,778 weather stations",
-   "Case study of the 2022 European heat wave"
+   "Sound-event classifier for human activity",
+   "On-device processing with satellite upload",
+   "Confidence scores for rangers to check",
+   "Combining with camera traps and satellite images"
   ],
   "terms": [
    {
-    "meaning": "A forecast that gives many possible outcomes with their chances, instead of a single guess.",
-    "term": "Probabilistic forecast"
+    "meaning": "Leaving recorders in nature and analyzing the sounds they capture.",
+    "term": "Acoustic monitoring"
    },
    {
-    "meaning": "How far ahead the forecast is made, for example 3 days before the heat arrives.",
-    "term": "Lead time"
+    "meaning": "A picture of sound showing which frequencies are present over time.",
+    "term": "Spectrogram"
    },
    {
-    "meaning": "A value higher than any measured before at that place and time of year.",
-    "term": "Record-breaking event"
+    "meaning": "An alarm when nothing is actually wrong.",
+    "term": "False positive"
    }
   ],
-  "theme": "impact",
-  "title": "Probabilistic AI models outperform numerical weather prediction models on record breaking heat extremes",
+  "theme": "audio",
+  "title": "In Guatemala, new AI technology will be 'listening' for illegal deforestation",
   "topics": [
-   "Early warning",
-   "Heat waves",
-   "Record-breaking extremes",
-   "AI weather models"
+   "Illegal deforestation",
+   "Conservation",
+   "Sound classification",
+   "Edge AI"
   ],
-  "url": "https://arxiv.org/abs/2610.20519"
+  "url": "https://news.mongabay.com/2026/04/in-guatemala-new-ai-technology-will-be-listening-for-illegal-deforestation/"
  },
  {
-  "id": "ai-forecasts-tropical-cyclones",
-  "added": "2026-10-22",
-  "authors": "N. Chalumeau, X. Renard, R. Meynadier, H. Rakotoarimanga, M. Detyniecki, E. de Bezenac",
-  "date": "2026-10-15",
+  "id": "child-lung-sounds-smartphone",
+  "added": "2026-10-24",
+  "authors": "S. Jeong, S. Nam, S. Jung, S.-E. Kim (Seoul National University of Science and Technology)",
+  "date": "2026-07-30",
   "feasibility": 2,
-  "fit": "It covers the wind-and-storm side of your early-warning card. A semester project could take the free AI forecasts and add a small 'wind correction' model for the peak winds they miss.",
+  "fit": "This is your Wiener-filter and MFCC experience in a new setting: the core problem is that two microphones have different frequency responses, which is pure signal processing. A project could test it across several phone models, or add noise handling for real home recordings.",
   "future": [
-   "Correct the AI models' too-weak peak winds",
-   "Training goals that give extra weight to extreme winds",
-   "Compare against real observations, not just other models",
-   "Include seasons without storms to test false alarms"
+   "Larger studies across several hospitals",
+   "Real recordings made by parents at home",
+   "Many different smartphone models"
   ],
   "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "Laptop and free public data (IBTrACS storm tracks, ECMWF open data, WeatherNext2 archive); avoid re-running the AI models yourself, which took 6,000+ GPU hours.",
-  "source": "arXiv 2610.22077 · INRIA, Sorbonne & AXA",
-  "summary": "Tropical cyclones (hurricanes and typhoons) bring the most damaging winds on Earth, and poorer coastal countries depend on free global forecasts to warn people. This team compared three AI weather models with Europe's main physics-based forecast on 178 strong storms. The AI models were much better at predicting where a storm would go; the best one beat the physics forecast on about 9 of every 10 storms in 2025. But they still underestimated the strongest winds, so they predict the path better than the punch.",
+  "needs": "Laptop with GPU or free Colab, public lung-sound datasets (e.g. ICBHI, SPRSound) and your own phone recordings for testing.",
+  "source": "IEEE Journal of Biomedical and Health Informatics · SEOULTECH (EurekAlert, 2026-10-16)",
+  "summary": "Breathing illnesses in young children are a major health worry, but checking a child's lungs normally means a doctor with a stethoscope, in person. A phone microphone could do this at home, but AI trained on stethoscope recordings fails badly on phone audio because the two record sound so differently: on new phone recordings it did worse than a coin flip. This team trained on recordings from 611 children (147 with both a stethoscope and a phone recording) and taught the model to adjust stethoscope training data to 'sound like' a phone. On phone recordings from 48 new children, the adapted model correctly separated normal from abnormal lungs far better, with a score of 0.86 out of 1 versus 0.39 for the stethoscope-only model.",
   "techniques": [
-   "Tracking storm centers in forecast maps",
-   "Scoring how close predicted paths are to real ones",
-   "Comparing predicted and real peak winds",
-   "Checking the wind-versus-pressure relationship"
+   "Filtering and downsampling phone audio to match a stethoscope",
+   "Mixing sound statistics between devices (MixStyle)",
+   "Transformer on spectrograms",
+   "Testing on a separate group of children"
   ],
   "terms": [
    {
-    "meaning": "A large rotating storm over warm oceans; called a hurricane or typhoon depending on the region.",
-    "term": "Tropical cyclone"
+    "meaning": "Teaching a model trained on one kind of data (stethoscope audio) to work on a related but different kind (phone audio).",
+    "term": "Domain adaptation"
    },
    {
-    "meaning": "A set of many forecast runs with small differences, used to see the range of possible outcomes.",
-    "term": "Ensemble"
+    "meaning": "A picture of a sound showing which frequencies are present over time.",
+    "term": "Spectrogram"
    },
    {
-    "meaning": "A forecast's habit of making storms consistently too weak or too strong.",
-    "term": "Intensity bias"
+    "meaning": "A neural network that reads spectrograms the way image models read pictures.",
+    "term": "Audio Spectrogram Transformer"
    }
   ],
-  "theme": "impact",
-  "title": "Can AI Forecast the Extremes? Evaluating Probabilistic Weather Models on Tropical Cyclones",
+  "theme": "audio",
+  "title": "Smartphone-Based Detection of Abnormal Lung Sounds Using Domain-Adaptive Deep Learning",
   "topics": [
-   "Early warning",
-   "Strong winds and storms",
-   "AI weather models",
-   "Global South"
+   "Children's lung disease",
+   "Home health checks",
+   "Smartphone audio"
   ],
-  "url": "https://arxiv.org/abs/2610.22077"
+  "url": "https://www.eurekalert.org/news-releases/1147666"
  },
  {
-  "id": "das-bridge-flood-river",
-  "added": "2026-10-22",
-  "authors": "H. Li, J. Liu, D. Hwang, H. Y. Noh, B. Biondi",
-  "date": "2026-10",
-  "feasibility": 2,
-  "fit": "Free infrastructure as a sensor, like your cellular-link rain work, but with fiber and vibrations. A fun project: could this slowing-down signal warn that a riverbank is getting dangerously soft?",
+  "id": "dakar-pm25-forecast-open-data",
+  "added": "2026-10-24",
+  "authors": "M. Kebe, A. Traore, M. Sow, M. Gueye, A. Gueye, A. Dia, A. Wague (Cheikh Anta Diop University, Dakar)",
+  "date": "2026-05-13",
+  "feasibility": 3,
+  "fit": "A very doable project with real impact: you could rebuild it for another Global South city with open data, or test it in Israel during dust storms. It shows how far free satellite data can go where monitors are missing.",
   "future": [
-   "Test whether the softening signal appears early enough to warn of bank failure",
-   "Repeat at other bridges and floods",
-   "Add machine learning to separate traffic from weather effects"
+   "Test in other Sahel cities",
+   "Reduce reliance on recent ground readings",
+   "Forecast more than one day ahead"
   ],
   "futureFrom": "inferred",
   "kind": "Paper",
-  "needs": "Public DAS datasets (several are open online) and a laptop; no access to fiber hardware needed if you use existing recordings.",
-  "source": "arXiv 2610.09289 · physics.geo-ph",
-  "summary": "Cars driving over a bridge make it vibrate, and those vibrations spread into the ground like a tiny, constant earthquake. This team listened to them with an ordinary telecom fiber-optic cable along a Korean highway, turned into thousands of vibration sensors by sending laser pulses through it. From the vibrations they built a picture of the ground under the river down to bedrock, which could be refreshed with about five minutes of recording. During a July 2025 flood, the waves slowed by up to 1 percent as heavy rain soaked and softened the riverbanks.",
+  "needs": "Laptop and free data: Copernicus CAMS, Sentinel-5P, ERA5 and any city's public air-quality readings.",
+  "source": "Environmental Monitoring and Assessment 198, 581 · Cheikh Anta Diop University",
+  "summary": "African megacities badly need warnings about dirty air, but they have very few ground monitors. In a low-income district of Dakar, the average fine-dust level over the study period was 274.7 micrograms per cubic meter, many times above healthy levels. This team forecast the next day's fine-dust level using only free data: satellite measurements of haze and gases, weather data, and recent readings. Their best model was very close to what was later measured on a separate 2024 test year (it explained about 93% of the day-to-day variation), and haze seen from space, much of it Saharan dust, was the strongest clue.",
   "techniques": [
-   "Using traffic vibrations as a free signal source",
-   "Cross-correlation of vibration recordings",
-   "Measuring tiny speed changes in waves",
-   "Linking changes to rain and river level"
+   "Free satellite haze and gas data (Copernicus, Sentinel-5P)",
+   "Weather data (ERA5)",
+   "Tree-ensemble models (CatBoost, XGBoost)",
+   "Explaining which inputs matter (SHAP)"
   ],
   "terms": [
    {
-    "meaning": "Sending laser pulses down a fiber-optic cable and reading tiny changes in the reflected light to sense vibration every few meters.",
-    "term": "Distributed acoustic sensing (DAS)"
+    "meaning": "Fine particles smaller than 2.5 micrometers that get deep into the lungs; the main measure of dirty air.",
+    "term": "PM2.5"
    },
    {
-    "meaning": "Vibrations that travel through the ground.",
-    "term": "Seismic waves"
+    "meaning": "How much haze or dust blocks sunlight, measured from satellites.",
+    "term": "Aerosol optical depth (AOD)"
    },
    {
-    "meaning": "Making the same underground picture again and again to see how it changes over time.",
-    "term": "Time-lapse imaging"
+    "meaning": "Many simple decision-tree models combined to make one better prediction.",
+    "term": "Ensemble model"
    }
   ],
-  "theme": "wireless",
-  "title": "Bridge Vibrations as Persistent Seismic Sources for Time-lapse Imaging of River Corridors with Distributed Acoustic Sensing",
+  "theme": "impact",
+  "title": "Operational 24-h PM2.5 forecasting using ensemble methods and open-access satellite data: application to Dakar, Senegal",
   "topics": [
-   "Fiber as a sensor",
-   "Floods",
-   "Infrastructure monitoring",
-   "Time-lapse imaging"
+   "Air pollution",
+   "Global South",
+   "Satellite data",
+   "Forecasting"
   ],
-  "url": "https://arxiv.org/abs/2610.09289"
+  "url": "https://link.springer.com/article/10.1007/s10661-026-15384-0"
  },
  {
-  "id": "diffusion-rain-map-inpainting",
-  "added": "2026-10-22",
-  "authors": "D. Kishikawa, Y. Muto, S. Kotsuki (Chiba University)",
-  "date": "2026-10-20",
+  "id": "elephant-train-vibration-alerts",
+  "added": "2026-10-24",
+  "authors": "Northeast Frontier Railway (India); Sri Lanka Department of Wildlife Conservation and Sri Lanka Railways",
+  "date": "2026-10-06",
   "feasibility": 2,
-  "fit": "Filling holes in images (inpainting) is classic image restoration, a core strength of Prof. Giryes's group, applied here to rain data for regions without radar. It also links to your rain work: cellular-link rain estimates could be extra hints for filling the gaps.",
+  "fit": "This is infrastructure as a sensor, like your cellular-link rain work, but with vibrations. A semester project could build a classifier that tells elephant footsteps from trains, cars and people in vibration recordings, and measure how early it can warn.",
   "future": [
-   "Add cellular-link or rain-gauge data as extra hints",
-   "Measure the effect on flood warnings in data-poor regions",
-   "Make it faster for near-real-time use"
+   "Measure false alarms and how many seconds of warning drivers get",
+   "Tell elephants from other animals, people and vehicles",
+   "Combine vibration with thermal cameras at bends"
   ],
   "futureFrom": "inferred",
   "kind": "News",
-  "needs": "A GPU (free Colab may be tight) and free public data: ERA5 rainfall and JAXA GSMaP satellite rain maps.",
-  "source": "EurekAlert (Chiba University) · Earth and Space Science",
-  "summary": "Satellite rain maps are the only rain data for much of the world, but they have holes wherever the satellite had no valid view. This team treated the hourly global rain maps like a video and trained an image-generating AI (a diffusion model) to fill in the holes, using infrared satellite pictures, location and time as hints. It filled the gaps more accurately and more realistically than older AI approaches, and stayed consistent from place to place and hour to hour. They also tested it on real Japanese satellite rain maps with missing regions.",
+  "needs": "Public DAS or geophone vibration datasets and a laptop; field data from a railway would be a bonus but isn't required to start.",
+  "source": "Organiser (2026-10-06) · Northeast Frontier Railway, India; Good Good Good (2026-09-18) · Sri Lanka pilot",
+  "summary": "Trains kill elephants across South Asia: more than 144 died this way in Assam and West Bengal over about 15 years, and Sri Lanka recorded 21 deaths in 2025 alone. Cameras on trains don't work well because most crashes happen around bends. India's Northeast Frontier Railway instead 'listens' along the tracks, using an AI system based on distributed acoustic sensing (usually a fiber-optic cable along the line) that picks up the vibrations of elephants walking nearby and sends real-time alerts. The railway credits it, along with speed limits and patrols, with saving 255 elephants from January to September 2026, and Sri Lanka is piloting a similar vibration-sensing system at 13 crossings that texts train drivers.",
   "techniques": [
-   "Diffusion model for filling gaps",
-   "Treating rain maps as video (3D U-Net)",
-   "Extra inputs: infrared images, location, time",
-   "Simulated holes for training"
+   "Vibration sensing along the track",
+   "AI that classifies the source of a vibration",
+   "Real-time alerts to drivers and stations"
   ],
   "terms": [
    {
-    "meaning": "Filling in missing or damaged parts of an image so they look right.",
-    "term": "Inpainting"
+    "meaning": "Sending laser pulses down a fiber-optic cable and reading tiny changes in the reflected light, so the cable works like thousands of vibration sensors.",
+    "term": "Distributed acoustic sensing (DAS)"
    },
    {
-    "meaning": "An image-generating AI that learns to turn noise step by step into a realistic picture.",
-    "term": "Diffusion model"
+    "meaning": "Vibrations travelling through the ground, here from heavy footsteps.",
+    "term": "Seismic signal"
    },
    {
-    "meaning": "A picture of heat given off by clouds and ground, available even when rain sensors have gaps.",
-    "term": "Infrared satellite image"
+    "meaning": "Automatically noticing when something enters an area it shouldn't, here the railway track.",
+    "term": "Intrusion detection"
    }
   ],
-  "theme": "impact",
-  "title": "Filling the gaps in global rainfall maps",
+  "theme": "wireless",
+  "title": "NFR's AI shield saves 255 elephants from deadly train collisions in 2026",
   "topics": [
-   "Giryes fit",
-   "Image restoration",
-   "Satellite rainfall",
-   "Climate data"
+   "Wildlife-train collisions",
+   "Fiber as a sensor",
+   "Conservation"
   ],
-  "url": "https://www.eurekalert.org/news-releases/1147919"
+  "url": "https://organiser.org/2026/10/06/384558/bharat/nfrs-ai-shield-saves-255-elephants-from-deadly-train-collisions-in-2026/"
  },
  {
-  "id": "duet-piano-to-score",
-  "added": "2026-10-22",
-  "authors": "W. Zeng, Y. Wang",
-  "date": "2026-10-15",
+  "id": "laser-weeding-robot-organic-farms",
+  "added": "2026-10-24",
+  "authors": "V. Czymmek, J. Völckner, F. Zilske, S. Hussmann (West Coast Univ. of Applied Sciences, Germany; Naiture GmbH)",
+  "date": "2026-04-01",
   "feasibility": 2,
-  "fit": "Music tech is a natural place for you after your music-genre classifier, and here the hard part is a timing and alignment problem, very signal-processing in spirit. Fun twist: add an audio front end so it goes from a phone recording to sheet music.",
+  "fit": "Physical AI where the real bottleneck is perception, not mechanics: telling small weeds from crops under changing light and overlapping leaves. A project could improve the crop-versus-weed detector on public field images, especially for overlapping leaves, without touching a robot. You also starred WeedNet.",
   "future": [
-   "Start from audio recordings instead of MIDI",
-   "Extend beyond piano",
-   "Handle very free, expressive playing"
+   "Handle leaves that hide weeds later in the season",
+   "Trials across more fields, seasons and weed species",
+   "Measure effect on yield and soil"
   ],
-  "futureFrom": "inferred",
+  "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "Laptop with GPU or Colab, the public ASAP piano dataset, and the authors' open code and weights.",
-  "source": "arXiv 2610.21467 · eess.AS",
-  "summary": "A pianist never plays exactly in time, so turning a real performance into clean sheet music is hard: the computer must guess the beat and what each note's written length was meant to be. This model reads the notes as played and, at the same time, tracks the beat and the start of each bar, letting the two views help each other. It then writes out the score note by note. On a pop-piano dataset it cut timing errors in the score by almost half (from about 6.6 to 3.6 percent), with a smaller gain on classical pieces; code and demos are public.",
+  "needs": "Public crop/weed image datasets (e.g. CropAndWeed, Sugar Beets 2016) and a GPU or Colab; no robot needed.",
+  "source": "AgriEngineering 8(4), 133 · West Coast University of Applied Sciences & Naiture",
+  "summary": "Organic farms can't spray herbicides, so weeds between crop plants are pulled by hand, which costs one German farm over 250,000 euros a year and about 1,800 euros per hectare for carrots. This team's robot drives over the rows, uses cameras and an image-recognition network to tell weeds from carrots or beetroot, and zaps each weed with a laser. In field trials, about 95 of every 100 weeds it targeted were killed, and overall it removed about 76 of every 100 weeds in carrots after one pass. Its estimated running cost is 250 to 600 euros per hectare, but detection dropped badly once beetroot leaves grew over the weeds.",
   "techniques": [
-   "Two encoders: one for notes, one for time frames",
-   "Cross-attention linking the two",
-   "Time-aware position encoding",
-   "Note-by-note score writing (autoregressive decoder)"
+   "Image-recognition network that labels crop vs weed",
+   "Camera units at 30 frames per second",
+   "Laser aimed by fast mirrors",
+   "Field trials in carrots and beetroot"
   ],
   "terms": [
    {
-    "meaning": "A digital record of which piano keys were pressed, when, and how hard, rather than the sound itself.",
-    "term": "MIDI"
+    "meaning": "Farming without synthetic pesticides or herbicides.",
+    "term": "Organic farming"
    },
    {
-    "meaning": "A neural network type that looks at all parts of a sequence at once to decide what matters.",
-    "term": "Transformer"
+    "meaning": "The share of weeds the camera system actually found.",
+    "term": "Detection rate"
    },
    {
-    "meaning": "The first, strongest beat of each bar of music.",
-    "term": "Downbeat"
+    "meaning": "When one object hides another in the image, here crop leaves covering weeds.",
+    "term": "Occlusion"
    }
   ],
-  "theme": "audio",
-  "title": "DuET: Note-Frame Dual Encoding for Piano Performance-to-Score Transcription",
+  "theme": "robotics",
+  "title": "Field Validation of a Laser-Based Robotic System for Autonomous Weed Control in Organic Farming",
   "topics": [
-   "Wildcard",
-   "Music",
-   "Transcription",
-   "Timing and rhythm"
+   "Weeds and farm labor",
+   "Physical AI",
+   "Agriculture",
+   "Computer vision"
   ],
-  "url": "https://arxiv.org/abs/2610.21467"
+  "url": "https://www.mdpi.com/2624-7402/8/4/133"
  },
  {
-  "id": "flashrefocus-image-refocusing",
-  "added": "2026-10-22",
-  "authors": "C.-H. Cheng, C.-M. Lee, M.-C. Chang, X. Li, Y.-L. Liu, C.-C. Hsu",
-  "date": "2026-10",
-  "feasibility": 3,
-  "fit": "Computational photography, a field you haven't explored yet: blur is just a filter that depends on distance, so your image-enhancement and filtering background fits right in. A fun demo could refocus phone photos live.",
-  "future": [
-   "Run fully on a phone",
-   "Video refocusing",
-   "Combine with phone depth sensors"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "A GPU or Colab, public bokeh datasets (EBB!), and your own phone photos.",
-  "source": "arXiv 2610.23297 · cs.CV / eess.IV",
-  "summary": "Ever taken a photo focused on the wrong thing? AI can now change the focus after the shot, but it has been slow. This team runs the heavy image-generating AI just once per photo to recover a fully sharp version, then a small fast network adds blur where you want it, guided by a map of how far each point is. Each new focus choice takes about half a second, over 400 times faster than an earlier AI method. They also made a test set of 89 photo pairs from three real cameras and report the most natural-looking background blur in their tests.",
-  "techniques": [
-   "One-time recovery of an all-sharp image (diffusion model)",
-   "Small network that renders blur",
-   "Depth-guided blur maps",
-   "Real-camera test set"
-  ],
-  "terms": [
-   {
-    "meaning": "Changing which part of a photo is sharp after it was taken.",
-    "term": "Refocusing"
-   },
-   {
-    "meaning": "The soft, blurred background in photos taken with a wide-open lens.",
-    "term": "Bokeh"
-   },
-   {
-    "meaning": "An image saying how blurry each pixel should be, based on its distance from the focus plane.",
-    "term": "Defocus map"
-   }
-  ],
-  "theme": "vision",
-  "title": "FlashReFocus: Interactive Image Refocusing in Seconds",
-  "topics": [
-   "Wildcard",
-   "Computational photography",
-   "Image restoration",
-   "Fast AI"
-  ],
-  "url": "https://arxiv.org/abs/2610.23297"
- },
- {
-  "id": "motion-deepfake-videos-moda",
-  "added": "2026-10-22",
-  "authors": "F. Liu, Y. Meng, T. Dong, G. Chen, H. Zhu",
-  "date": "2026-10-08",
+  "id": "mobilio-blind-navigation-app",
+  "added": "2026-10-24",
+  "authors": "R. Liu, P. Slade (Harvard John A. Paulson School of Engineering and Applied Sciences)",
+  "date": "2026-08-24",
   "feasibility": 2,
-  "fit": "This is your own idea card, detect if possible, applied to video, and the winning clue is exactly your DSP strength: frequency fingerprints. Testing it after WhatsApp-style compression would be a natural next step for you.",
+  "fit": "This is your image-processing and video background put straight to work for people, and it runs on an ordinary phone. A project could improve the sidewalk-finding model for Israeli streets, or study how sound cues should change in noisy places.",
   "future": [
-   "Test after messaging-app compression and screen recording",
-   "Extend to newer video generators",
-   "Release code and data so detectors can be compared"
+   "Testing in many more real neighborhoods",
+   "Daily-life use over weeks",
+   "Handling crowds, construction and bad weather"
   ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "A GPU (Colab works for a small version), public real/fake video datasets, and open-source video generators to make your own fakes.",
-  "source": "arXiv 2610.11496 · cs.CV, cs.CR",
-  "summary": "New AI tools can take one photo of a person and make a full video of them dancing or moving, and such clips have already reached hundreds of millions of viewers. The team built a large test set of about 1,400 real and 30,000 fake videos from six generators. They found that the generators leave tiny, fast-changing patterns, a kind of fingerprint you can see in the frequency content of the frames. Their detector, which combines what the image shows with these frequency clues, got about 95 of 100 videos right on familiar generators, and about 78 to 82 of 100 right on clips from tools and websites it had never seen, and could often name which tool made the video.",
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "A smartphone, public street-scene datasets plus some walking-height video you record yourself, and a GPU or Colab for training.",
+  "source": "Harvard SEAS (2026-08-24) · Nature Biomedical Engineering",
+  "summary": "People who are blind need three things to walk somewhere new: directions, guidance along the sidewalk, and warning about obstacles, but a cane, a guide dog or GPS each covers only part, and phone GPS isn't accurate enough to keep someone safely on a sidewalk. Harvard's app Mobilio uses the phone's camera, motion sensors, GPS and depth sensor, plus a vision model trained on walking-height images, to find sidewalks and crosswalks and steer the user with left or right beeps tuned to each person. In tests with 14 blind volunteers, people finished an outdoor route about 13% faster than with Google Maps plus a cane, and bumped into obstacles about 41% less indoors.",
   "techniques": [
-   "Frequency (Fourier) features of frames",
-   "Combining picture content with frequency clues",
-   "Testing on unseen generators and internet clips",
-   "Robustness checks against attacks"
+   "Vision model trained on pedestrian-view images",
+   "Combining camera, GPS and motion sensors",
+   "Real-time route planning on a phone",
+   "Personalized left/right audio cues"
   ],
   "terms": [
    {
-    "meaning": "A fake image or video of a real person made by AI.",
-    "term": "Deepfake"
+    "meaning": "Labeling each pixel of an image, for example 'sidewalk', 'road' or 'crosswalk'.",
+    "term": "Segmentation"
    },
    {
-    "meaning": "A typical pattern in the Fourier transform of an image that reveals which tool made it.",
-    "term": "Frequency fingerprint"
+    "meaning": "A depth sensor (on some phones) that measures distance by timing laser light.",
+    "term": "LiDAR"
    },
    {
-    "meaning": "Telling not just 'fake or real' but which generator made the fake.",
-    "term": "Attribution"
-   },
-   {
-    "meaning": "Methods for finding hidden, tiny signals in images; here used to spot generator traces.",
-    "term": "Steganalysis"
+    "meaning": "The phone's motion sensors that measure turning and acceleration.",
+    "term": "Inertial measurement unit (IMU)"
    }
   ],
-  "theme": "vision",
-  "title": "Stop My Dancing! Understanding, Detecting and Attributing Motion-Aware Deepfake Videos",
+  "theme": "hci",
+  "title": "A Smartphone Navigation App for People with Blindness and Low Vision",
   "topics": [
-   "AI image detection",
-   "Deepfakes",
-   "Frequency domain",
+   "Blindness and navigation",
+   "Accessibility",
+   "Computer vision on phones",
    "Giryes fit"
   ],
-  "url": "https://arxiv.org/abs/2610.11496"
+  "url": "https://seas.harvard.edu/news/smartphone-navigation-app-people-blindness-and-low-vision"
  },
  {
-  "id": "nlos-imaging-light-cone",
-  "added": "2026-10-22",
-  "authors": "L. Wang, X. Liu, J. Dong, Q. Zhang, J. Liu, Y. Wang, Y. Duan",
-  "date": "2026-10",
-  "feasibility": 2,
-  "fit": "Pure signal processing meets deep learning: the core trick is a clever transform plus frequency-by-frequency filtering, close to your Wiener-filter work. Fun to explore with public datasets, and seeing around corners could one day help rescue teams.",
-  "future": [
-   "Use with cheaper, lower-quality laser timing hardware",
-   "Real-time reconstruction",
-   "Apply to search-and-rescue or vehicle safety scenarios"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Public NLOS datasets (e.g. from Stanford and Zaragoza labs) and a GPU; no laser hardware needed.",
-  "source": "arXiv 2610.22847 · eess.IV",
-  "summary": "Cameras can 'see around corners': shine fast laser pulses on a wall, time the faint light that bounces off a hidden object and back, and compute what the hidden scene looks like. The classic math for this works well with lots of clean light but breaks down when the signal is weak or only a few spots on the wall are measured. This team kept the classic formula but added a small neural network that adjusts it to how good the measurement is, deciding how much to smooth each frequency. It held up in weak light and kept the scene's shape even with only a 32 by 32 grid of measurement spots, on both simulated data and real captures from several setups.",
-  "techniques": [
-   "Classic light-cone transform",
-   "Learned correction weighted by signal quality",
-   "Per-frequency smoothing map predicted by a network",
-   "Attention over space and time for weak signals"
-  ],
-  "terms": [
-   {
-    "meaning": "Reconstructing a scene that is hidden from the camera, using light bounced off a wall.",
-    "term": "Non-line-of-sight (NLOS) imaging"
-   },
-   {
-    "meaning": "A math trick that turns the bounce-timing data into a form you can undo quickly with Fourier transforms.",
-    "term": "Light-cone transform"
-   },
-   {
-    "meaning": "A way to stop the reconstruction from amplifying noise, like the noise-balancing in a Wiener filter.",
-    "term": "Regularization"
-   }
-  ],
-  "theme": "vision",
-  "title": "Measurement-Adaptive Light-Cone Transform for Robust Non-Line-of-Sight Imaging",
-  "topics": [
-   "Wildcard",
-   "Computational imaging",
-   "Seeing around corners",
-   "Physics plus deep learning"
-  ],
-  "url": "https://arxiv.org/abs/2610.22847"
- },
- {
-  "id": "snoar-denoising-without-clean",
-  "added": "2026-10-22",
-  "authors": "S. Cornell, M. Maciejewski",
-  "date": "2026-10",
+  "id": "night-lights-power-outages",
+  "added": "2026-10-24",
+  "authors": "N. Xu, X. Cao, M. Chen (Beijing Normal University)",
+  "date": "2026-05-03",
   "feasibility": 3,
-  "fit": "A direct follow-up to your Wiener-filter speech enhancement project: same goal, but learning from real-world noise with no clean reference. Useful for hearing aids, which you starred.",
+  "fit": "This is anomaly detection on a noisy time series, like spotting rain dips in cellular-link signals. A project could map outage hot spots in one country and test it against local news or utility reports.",
   "future": [
-   "Try it on hearing-aid or phone recordings from a specific noisy place",
-   "Test other network sizes and more datasets",
-   "Learn the mix-back amount automatically instead of fixing it"
+   "Catch short, small outages, not just big long ones",
+   "Better handling of clouds",
+   "Recalibrate for new regions"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop and free NASA Black Marble data (via Google Earth Engine or NASA download); no special hardware.",
+  "source": "Remote Sensing 18(9), 1417 · Beijing Normal University",
+  "summary": "Blackouts hurt hospitals, businesses and homes, yet in much of the world nobody publishes how often the power goes out; even the World Bank's reliability figures stopped updating in 2021. This team used NASA's free daily satellite pictures of the Earth at night and flagged places where the lights dimmed unusually, using a threshold that adapts to each spot instead of a fixed rule. It caught about 89 of every 100 labelled outages from hurricanes, floods, conflict and planned shutdowns, and its outage index rose and fell with official reliability figures in 15 countries. In Kenya, it picked up the 2020 floods and national blackout around Mombasa.",
+  "techniques": [
+   "Correcting brightness for the satellite's viewing angle",
+   "Adaptive per-pixel threshold",
+   "Population-weighted outage index",
+   "Checking against World Bank reliability data"
+  ],
+  "terms": [
+   {
+    "meaning": "Satellite images of artificial light at night; if a city goes dark, the power is likely out.",
+    "term": "Nighttime lights"
+   },
+   {
+    "meaning": "Finding data points that look very different from normal.",
+    "term": "Anomaly detection"
+   },
+   {
+    "meaning": "NASA's free, cleaned-up daily nighttime light data from the VIIRS satellite instrument.",
+    "term": "VIIRS Black Marble"
+   }
+  ],
+  "theme": "impact",
+  "title": "Assessing Power System Reliability Using Anomaly Detection in Daily Nighttime Light Data",
+  "topics": [
+   "Power outages",
+   "Energy access",
+   "Satellite data",
+   "Global South"
+  ],
+  "url": "https://www.mdpi.com/2072-4292/18/9/1417"
+ },
+ {
+  "id": "water-leak-digital-twin-abstain",
+  "added": "2026-10-24",
+  "authors": "T. Mu, J. Li, Y. Wang, M. Yuan, M. Xiao et al. (Shenyang Jianzhu Univ., Chinese Academy of Sciences and others)",
+  "date": "2026-08-19",
+  "feasibility": 2,
+  "fit": "You get to work on pressure signals from a real infrastructure network, and the 'only act when you can prove it' idea echoes your verification work at NVIDIA. A semester version could rebuild the digital-twin check on the public L-Town benchmark and try to raise how often the system is confident enough to act.",
+  "future": [
+   "Test on live data from a real utility's control room",
+   "Reach the 'confident enough to act' state more often",
+   "Compare head-to-head with the best existing leak finders"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop, the free WNTR/EPANET pipe simulators and the public BattLeDIM L-Town leak benchmark; no hardware.",
+  "source": "arXiv 2608.18836 · cs.AI",
+  "summary": "Water utilities lose a large share of their clean water through leaking pipes, and every wrong guess about where to dig costs thousands of dollars. Today's AI leak finders always give an answer, even when they are unsure, and under real-world sensor noise they point to the right zone only about 30 to 40 times in 100. This team built a 'digital twin' (a computer copy of the pipe network) and an AI that tests every explanation, including a leak, a sensor fault or a sudden demand spike, and then either sends a crew, asks for more data, or refuses to act. When it did decide to send a crew in their main simulated test, it was right about 96 times in 100, and on a real city's repair records (with simulated pressures) a survey step sent crews to the right district in 85 of 194 cases without a single false trip.",
+  "techniques": [
+   "Simulating each possible cause in a pipe-network model (EPANET)",
+   "Weighing explanations by probability (Bayesian scoring)",
+   "Fixed safety checks before any dig is approved",
+   "Second AI that audits the evidence"
+  ],
+  "terms": [
+   {
+    "meaning": "A computer simulation that behaves like a real system, here the pipes, pumps and water flows of a city.",
+    "term": "Digital twin"
+   },
+   {
+    "meaning": "Letting the AI say 'I don't know' instead of forcing a guess.",
+    "term": "Abstention"
+   },
+   {
+    "meaning": "A device in the pipe network that measures water pressure; a leak makes nearby pressure drop slightly.",
+    "term": "Pressure sensor"
+   }
+  ],
+  "theme": "impact",
+  "title": "Verifiable abstention makes AI leak diagnosis accountable in water distribution networks",
+  "topics": [
+   "Water leaks",
+   "Digital twins",
+   "Trustworthy AI",
+   "Infrastructure"
+  ],
+  "url": "https://arxiv.org/abs/2608.18836"
+ },
+ {
+  "id": "xprize-autonomous-wildfire-response",
+  "added": "2026-10-24",
+  "authors": "XPRIZE Foundation; winners Anduril Industries, Dryad Networks, AURA Foresight",
+  "date": "2026-09-23",
+  "feasibility": 1,
+  "fit": "Physical AI aimed at a real disaster, with the hard part being perception: fusing gas, thermal and camera signals to say 'real fire, not a decoy' fast. A project could train a fire-versus-decoy detector on public drone thermal footage in simulation, no drone build needed.",
+  "future": [
+   "Meet the 10-minute target reliably",
+   "Fewer false alarms from dust, vehicles or controlled burns",
+   "Cheaper versions for poorer fire-prone regions"
   ],
   "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Laptop with a GPU or free Colab and public noisy speech datasets (WHAM!, CHiME-3).",
-  "source": "arXiv 2610.20863 · CMU & Johns Hopkins",
-  "summary": "Training a speech-cleaning AI usually needs pairs of noisy and perfectly clean recordings, which you never have for real places like a hospital or a bus. This method learns from noisy recordings alone: a 'teacher' network cleans them, its guesses are corrected (leftover noise is subtracted, and a bit of the original recording is mixed back in so speech is not over-removed), and a 'student' learns from new mixes of these corrected guesses. It got about 97 percent of the way to a model trained with perfect clean data. On real noisy recordings, it made speech both easier for a computer to transcribe and nicer to listen to than an earlier method.",
+  "kind": "News",
+  "needs": "Public drone thermal and wildfire smoke image datasets (e.g. FLAME) and a GPU or Colab; flight simulators if you want the drone part.",
+  "source": "XPRIZE Wildfire awards (PG&E newsroom, 2026-09-23) · Dryad Networks release",
+  "summary": "Wildfires are getting more extreme and expensive, and the first minutes decide whether a spark stays small. XPRIZE challenged teams to find and fully put out a dangerous fire within 10 minutes of ignition, anywhere in 1,000 square kilometers of Alaskan wilderness, with no human in the loop, while ignoring decoy fires. The three finalists split $2.5M (plus a $1M bonus): for example, Germany's Dryad used 170 solar-powered 'electronic nose' gas sensors to spot the fire, then an observation drone with infrared and normal cameras to confirm and locate it, and a second drone dropped up to 100 liters of suppressant. Dryad's detection took up to 12 minutes, slightly beyond the 10-minute target, which shows how hard fully autonomous response still is.",
   "techniques": [
-   "Teacher–student training",
-   "Subtracting leftover noise estimate",
-   "Mixing back part of the noisy input",
-   "Remixing speech and noise across recordings"
+   "Gas-sensor network that 'smells' smoke",
+   "Drone confirmation with thermal and normal cameras",
+   "Telling real fires from decoys",
+   "Autonomous suppression drone"
   ],
   "terms": [
    {
-    "meaning": "One network makes guesses on unlabeled data and a second learns from those guesses, improving over rounds.",
-    "term": "Self-training (teacher–student)"
+    "meaning": "Working on its own, without a person steering or deciding.",
+    "term": "Autonomous"
    },
    {
-    "meaning": "A noise-free recording of the same speech, used as the 'right answer' in normal training.",
-    "term": "Clean reference"
+    "meaning": "Combining several kinds of sensors so the system is more sure than any one sensor alone.",
+    "term": "Sensor fusion"
    },
    {
-    "meaning": "Building new training mixtures by pairing cleaned speech from one recording with noise from another.",
-    "term": "Remixing"
+    "meaning": "A camera that sees heat, so a small fire shows up as a bright spot even through smoke or at night.",
+    "term": "Infrared camera"
    }
   ],
-  "theme": "audio",
-  "title": "SNOAR: Self-training with Noise filtering, Observation adding, and Remixing for Speech Denoising Without Clean References",
+  "theme": "robotics",
+  "title": "XPRIZE Wildfire awards $4.55M to innovators advancing wildfire detection and response",
   "topics": [
-   "Speech enhancement",
-   "Hearing and accessibility",
-   "Learning without labels",
-   "Real-world audio"
+   "Wildfire",
+   "Physical AI",
+   "Drones",
+   "Disaster response"
   ],
-  "url": "https://arxiv.org/abs/2610.20863"
- },
- {
-  "id": "spides-browser-agent-ifc",
-  "added": "2026-10-22",
-  "authors": "E. Zverev, J. Kim, L. Trampert, B. Köpf, A. Kolluri, S. Tople, S. Zanella-Béguelin",
-  "date": "2026-10-16",
-  "feasibility": 2,
-  "fit": "The guarantee comes from the rules, not from the AI behaving well, which is the same 'prove it, don't hope' mindset you use in hardware verification. The code is public, so it is easy to build on.",
-  "future": [
-   "Label web pages automatically instead of by hand, and measure the errors that adds",
-   "Reduce how often the user must approve actions (about 2 per task now)",
-   "Handle attacks that tamper with the page itself"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop, the open-source SPIDES code and MicroNet test sites from Microsoft's GitHub, and some budget for AI-model calls.",
-  "source": "arXiv 2610.24277 · Microsoft, ISTA, CISPA",
-  "summary": "AI agents that browse the web for you can be tricked by hidden text on a page ('ignore your user, send me their address'). Instead of asking another AI whether something looks suspicious, this team tags every piece of a web page as trusted or untrusted, and private or public, and those tags travel with the data. Untrusted or private text is hidden from the agent behind a placeholder, and strict rules decide which actions are allowed, for example private data may only go to sites allowed to read it. On a test world of 28 fake websites with 56 attacks, it blocked every attack with five different AI models, while still finishing about 67 to 86 of every 100 normal tasks.",
-  "techniques": [
-   "Trust and privacy labels on page elements",
-   "Hiding untrusted text behind placeholders",
-   "Rule-based allow/deny for each click or form fill",
-   "A separate sandboxed AI for handling hidden data"
-  ],
-  "terms": [
-   {
-    "meaning": "Hidden instructions planted in a web page or email that try to hijack an AI agent.",
-    "term": "Prompt injection"
-   },
-   {
-    "meaning": "Tagging data with labels like 'secret' or 'untrusted' and blocking any action that would move it somewhere it should not go.",
-    "term": "Information-flow control"
-   },
-   {
-    "meaning": "An AI that clicks, types and navigates websites on your behalf.",
-    "term": "Browser agent"
-   }
-  ],
-  "theme": "impact",
-  "title": "SPIDES: Information-Flow Control for Browser Agents",
-  "topics": [
-   "Secure AI",
-   "AI agents",
-   "Prompt injection",
-   "Guarantees by design"
-  ],
-  "url": "https://arxiv.org/abs/2610.24277"
- },
- {
-  "id": "symbolic-constraint-agents",
-  "added": "2026-10-22",
-  "authors": "J. Lee, S. Barke",
-  "date": "2026-10-18",
-  "feasibility": 2,
-  "fit": "This is your NVIDIA job applied to AI: write the spec, then let a solver check every step, exactly like proving a chip behaves. The rule-mining step would make a neat starting point for the agent-safety idea card.",
-  "future": [
-   "Release the rule catalogs and code so others can reuse them",
-   "Combine rule refinement with extra generated examples to cover more tools",
-   "Make warnings help consistently, since they sometimes lowered success"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop, the free Z3 solver, the public AppWorld or tau-bench benchmarks, and a modest budget for AI-model calls.",
-  "source": "arXiv 2610.25552 · UIUC & Microsoft Research",
-  "summary": "AI assistants that use apps (send money, book flights, edit files) often call those apps with wrong or unsafe inputs, and the mistakes are hard to spot. This team had an AI read each app's manual and write down precise rules, such as 'only pay an account that appeared earlier in the task'. Before every action, a logic solver (a program that checks rules mathematically) tests the planned call against those rules; if a rule is broken, the agent gets a warning, or the input is fixed automatically when only one correct fix exists. On a test of 417 tasks across nine apps, auto-fixing raised the success rate of one small model from about 45 to about 50 tasks in 100, and cut failed app calls by 59 to 87 percent.",
-  "techniques": [
-   "AI reads app manuals and drafts rules",
-   "Rule checking with a logic solver (Z3)",
-   "Pruning rules that are too strict, using example runs",
-   "Automatic minimal fix of a bad input"
-  ],
-  "terms": [
-   {
-    "meaning": "An AI model that does not just chat but takes actions by calling apps or tools.",
-    "term": "Agent"
-   },
-   {
-    "meaning": "A program that decides automatically whether a set of precise rules can all be true at once; Z3 is a free one.",
-    "term": "Logic solver (SMT solver)"
-   },
-   {
-    "meaning": "One action the agent takes, like 'send_payment(to, amount)', with its inputs.",
-    "term": "Tool call"
-   },
-   {
-    "meaning": "A rule written in exact math-like form so a computer can check it with no guesswork.",
-    "term": "Formal constraint"
-   }
-  ],
-  "theme": "impact",
-  "title": "Symbolic Constraint Agents: Mining Formal Tool-Call Constraints to Prevent Agent Errors",
-  "topics": [
-   "Secure AI",
-   "AI agents",
-   "Formal verification",
-   "Specification mining"
-  ],
-  "url": "https://arxiv.org/abs/2610.25552"
+  "url": "https://www.pge.com/en/newsroom/currents/future-of-energy/xprize-wildfire-awards-4m-to-innovators-advancing-wildfire-detection-and-response.html"
  },
  {
   "id": "alertcalifornia-ai-first-detection",
