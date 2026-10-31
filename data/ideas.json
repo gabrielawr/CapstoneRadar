@@ -53,6 +53,23 @@
   "title": "Early warning for extreme weather from free signals: floods, strong winds and heat waves"
  },
  {
+  "id": "look-to-listen-hearing-glasses",
+  "createdAt": "2026-10-31T11:45:00Z",
+  "needs": "Laptop with GPU; the public EasyCom dataset (Meta: smart-glasses microphone array + wide-angle video + labels of who is talking to whom, recorded in a noisy restaurant-like room); open audio-visual speech enhancement code (RAVEN) and pretrained lip models; a webcam and USB microphone (or a phone) for the live demo. For listening tests, volunteers (and ideally hearing-aid users via an audiology clinic, with ethics approval).",
+  "novelty": "Her own idea (2026-10-31). Not a new algorithm: an end-to-end assistive system built from proven parts. (1) Decide who you're listening to from where your head/camera points (head direction as a simple stand-in for gaze), plus active-speaker detection from lips and faces. (2) Pull that voice out with existing audio-visual speech enhancement (lip-guided, e.g. the open RAVEN code) and/or a beamformer steered toward that person using the glasses' microphones. (3) Mix back a controlled, adjustable amount of the original room sound (residual background), so it sounds natural and you still notice your name or a warning; ideally keep the left/right cues so you can tell where sounds come from. Research shows listeners prefer different amounts of noise removal in different places, so a 'naturalness' slider (or automatic setting per environment) is a useful, testable feature. Fits her Wiener-filter speech enhancement, the hearing-aid paper she starred and her video-processing course.",
+  "problem": "People with hearing loss struggle most in noisy rooms with several people talking (restaurants, family dinners, classrooms). Difficulty with speech in noise is one of the top reasons people stop wearing their hearing aids. Ordinary hearing aids either amplify everything or reduce steady noise, but they can't tell which of several voices you want. Aggressive noise removal also makes the sound unnatural and tiring, so users often prefer some background to remain.",
+  "related": [
+   "Real-Time System for Audio-Visual Target Speech Enhancement (RAVEN)",
+   "The Visual Microphone: Passive Recovery of Sound from Video",
+   "EasyCom: An Augmented Reality Dataset to Support Algorithms for Easy Communication in Noisy Environments",
+   "Egocentric Auditory Attention Localization in Conversations (CVPR 2023)",
+   "Towards Environmental Preference Based Speech Enhancement For Individualised Multi-Modal Hearing Aids (2024)",
+   "Visually guided hearing aid (eye-gaze steered beamforming), Boston University / Eriksholm studies"
+  ],
+  "scope": "Two semesters. Semester 1 (pipeline on recorded data): set up EasyCom; build the 'who am I listening to?' block (head direction + existing active-speaker detection) and measure how often it picks the right person; run existing enhancement on the chosen speaker (lip-guided network and a steered beamformer, then both combined) and score clarity with standard measures of intelligibility and quality, including hearing-aid-specific ones. Semester 2 (make it usable): add the adjustable natural-background mix and keep left/right cues; make it run in near real time on a laptop/phone with a webcam and microphone; measure delay and lip-sync (too much delay is distracting); run a listening test with volunteers (and, if possible, hearing-aid users) comparing no processing, full noise removal and your natural mix, rating understanding, effort and naturalness. End with a live 'look at someone and hear them' demo.",
+  "title": "Look-to-listen: camera + microphones that boost the voice you're looking at, and keep the room sounding natural"
+ },
+ {
   "id": "scam-call-voice-guard",
   "createdAt": "2026-10-29T08:00:00Z",
   "needs": "Public fake-voice datasets (ASVspoof, RealComm benchmark), open-source speech codecs, one GPU. No hardware.",
