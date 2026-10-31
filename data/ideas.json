@@ -53,6 +53,18 @@
   "title": "Early warning for extreme weather from free signals: floods, strong winds and heat waves"
  },
  {
+  "id": "scam-call-voice-guard",
+  "createdAt": "2026-10-29T08:00:00Z",
+  "needs": "Public fake-voice datasets (ASVspoof, RealComm benchmark), open-source speech codecs, one GPU. No hardware.",
+  "novelty": "Most work tests detectors on clean recordings. This project treats the phone call itself as the enemy: model what the microphone, noise removal and network compression do to the voice, train the detector to survive it, and check it separately on older speakers' voices, which current detectors handle worse.",
+  "problem": "Scammers clone a family member's voice and call older people asking for urgent money. In 2025, people over 60 reported about 7.7 billion dollars in losses to the FBI, and most victims never report at all. Fake-voice detectors exist, but they are trained on clean audio files and get much worse once the voice has passed through a real phone call.",
+  "related": [
+   "RealComm: Benchmarking and Adapting Audio Deepfake Detection over Real Communication Channels"
+  ],
+  "scope": "Build a 'phone-call simulator' (band-limiting to phone quality, speech codecs, noise suppression, loudspeaker playback) to augment training data. Fine-tune an existing fake-voice detector with it, then measure the error rate on real call recordings (e.g. the RealComm benchmark) and by speaker age. Stretch goal: a light version that could run on a phone during a call. Would suit Prof. Giryes's group's strength in reliable neural networks.",
+  "title": "A fake-voice alarm that works on real phone calls"
+ },
+ {
   "id": "sign-language-israeli",
   "createdAt": "2026-10-08T06:30:00Z",
   "needs": "A laptop and a webcam, free hand-tracking software (MediaPipe), and time to collect videos. No special hardware. A contact in the deaf community or an ISL course would help a lot.",
@@ -65,5 +77,23 @@
   ],
   "scope": "Weeks 1–3: record or collect short videos of 30–50 common ISL signs (from volunteers or the Israeli deaf community's online dictionaries) and track hand points automatically. Weeks 4–8: train a small sequence model to recognize single signs, and test it on signers it never saw. Weeks 9–12: a live webcam demo that shows the recognized sign as text or speech, plus a short evaluation of what fails (lighting, fast signing, different hands).",
   "title": "A sign-language reader for Israeli Sign Language"
+ },
+ {
+  "id": "video-motion-for-health",
+  "createdAt": "2026-10-31T09:00:00Z",
+  "needs": "A laptop with a GPU (or Colab), public rPPG datasets and open magnification code; for the clinical step, a hospital partner or public surgical videos. A phone camera for your own tests.",
+  "novelty": "Your own direction (from your Video Processing course): combine motion estimation (magnification, optical flow, super-resolution, hyperlapse-style frame selection) with ML so the system picks which motion to magnify and turns it into a number. Core experiment: does magnification help machines, not just eyes? Test it as preprocessing for heart-rate and breathing estimation on public datasets with ground truth (UBFC-rPPG, PURE, rPPG-Toolbox), comparing classic phase-based, learned and your own frequency-aware magnifier. Then apply it to one real problem: neck-vein pressure for heart failure (AMPLIFY), Parkinson's tremor (4–6 Hz vs. 8–12 Hz normal tremor), pulsing vessels in surgical video (EndoControlMag), or plant water stress from leaf motion. Open problem to attack: learned magnifiers still confuse camera noise with real micro-motion (GeoDiffMM, Dec 2025). Likely Giryes fit.",
+  "problem": "Many warning signs are tiny movements: a pulsing neck vein in heart failure, an invisible Parkinson's tremor, a hidden vessel during surgery, a thirsty plant's drooping leaves. Motion magnification can make them visible, but it was built for human eyes. It also magnifies camera noise and unrelated motion, and doctors still have to judge the video themselves.",
+  "related": [
+   "A novel noninvasive method for remote heart failure monitoring: the AMPLIFY study (npj Digital Medicine 2019)",
+   "Seeing the unseen: could Eulerian video magnification aid clinician detection of subclinical Parkinson's tremor? (2020)",
+   "EndoControlMag: Robust Endoscopic Vascular Motion Magnification (2025)",
+   "GeoDiffMM: Geometry-Guided Conditional Diffusion for Motion Magnification (2025)",
+   "Learning-based Video Motion Magnification (Oh et al., ECCV 2018)",
+   "DeepMag: Source Specific Motion Magnification Using Gradient Ascent",
+   "Enhancing Morpho-Kinematic analysis for Plant Water Stress Classification through Leaf Movements (2025)"
+  ],
+  "scope": "Weeks 1–3: reproduce classic phase-based and one learned magnifier; set up rPPG-Toolbox on UBFC-rPPG and PURE. Weeks 4–7: measure heart-rate/breathing error with vs. without magnification, under added noise and motion; build a frequency-aware or noise-aware magnifier. Weeks 8–11: apply it to one application (surgical videos are public; tremor or neck-vein data via a partner or self-recorded). Weeks 12–13: results table, before/after videos, and a short 'when does magnification help?' guide.",
+  "title": "Seeing invisible motion: motion magnification + ML that measures, not just shows"
  }
 ]

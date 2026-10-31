@@ -1,5 +1,1185 @@
 [
  {
+  "id": "amplify-jvp-heart-failure",
+  "added": "2026-10-31",
+  "authors": "Abnousi F., Kang G., Giacomini J., Yeung A., Zarafshar S., Vesom N., Ashley E., Harrington R., Yong C.",
+  "date": "2019-08-21",
+  "feasibility": 2,
+  "fit": "Pure motion magnification on a real clinical sign, with an invasive gold standard to check against. Your step beyond the paper: instead of a doctor reading the magnified video, let a model find the top of the pulsing vein and output the pressure. Your Random Signals background helps separate the vein pulse from breathing and the artery next to it.",
+  "future": [
+   "Automatic measurement instead of a human reading the video",
+   "Phone-based self-check at home after hospital discharge",
+   "Larger, more diverse patient groups"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "No public dataset found; would need a hospital partner for neck videos with reference pressure, or start on public pulse/face video sets to build the method.",
+  "source": "npj Digital Medicine (2019) · Stanford, Palo Alto VA, Yale",
+  "summary": "Up to half of heart-failure patients are back in hospital within six months, often because fluid builds up unnoticed. Doctors judge fluid level by eye from how high a neck vein pulses, but that bedside check is unreliable, and implanted pressure sensors cost about $17,000. This team filmed the neck of 50 patients before a catheter test and magnified the vein's motion. With magnified video, serious disagreements with the catheter fell to 12 in 100, versus 25 with plain video and 27 with the bedside exam.",
+  "techniques": [
+   "Phase-based motion magnification",
+   "Comparison with an invasive catheter measurement",
+   "Clinician rating of magnified vs. plain video"
+  ],
+  "terms": [
+   {
+    "meaning": "How high the pulsing of the big neck vein reaches; a window on the pressure inside the heart.",
+    "term": "Jugular venous pressure (JVP)"
+   },
+   {
+    "meaning": "Video processing that exaggerates tiny movements so they become visible.",
+    "term": "Motion magnification"
+   },
+   {
+    "meaning": "An invasive test that threads a tube into the heart to measure pressure directly; the gold standard.",
+    "term": "Right heart catheterization"
+   }
+  ],
+  "theme": "imaging",
+  "title": "A novel noninvasive method for remote heart failure monitoring: the AMPLIFY study (Eulerian video magnification)",
+  "topics": [
+   "Heart failure",
+   "Motion magnification",
+   "Video processing",
+   "Remote monitoring"
+  ],
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6704101"
+ },
+ {
+  "id": "capsule-endoscopy-reading-time",
+  "added": "2026-10-31",
+  "authors": "Multicenter team (see paper)",
+  "date": "2022-07-01",
+  "feasibility": 3,
+  "fit": "The hyperlapse idea of keeping only the frames that matter and making long shaky footage watchable, applied to a real bottleneck for doctors. A project could combine motion-aware frame selection with a small lesion detector on public capsule videos and measure how much reading time it saves without missing findings.",
+  "future": [
+   "Full automatic reporting",
+   "Fewer missed small lesions",
+   "Use motion cues, not just per-frame appearance"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public capsule-endoscopy datasets (e.g. Kvasir-Capsule, KID) and one GPU.",
+  "source": "JAMA Network Open 5(7) (2022)",
+  "summary": "A swallowed camera pill films the whole gut over 8–11 hours, producing tens of thousands of images that a doctor must read, which is tedious and leads to misses. This study trained a neural network to keep only the frames worth looking at. The number of images to review per video fell from about 27,900 to about 780, and reading time fell from about 51 minutes to about 5, while the detection rate went up.",
+  "techniques": [
+   "Convolutional neural network frame screening",
+   "Video summarization",
+   "Multicenter validation"
+  ],
+  "terms": [
+   {
+    "meaning": "A pill-sized camera that photographs the digestive tract as it passes through.",
+    "term": "Capsule endoscopy"
+   },
+   {
+    "meaning": "Automatically picking the few frames or clips that matter from a long video.",
+    "term": "Video summarization"
+   },
+   {
+    "meaning": "Turning long, shaky video into a short, smooth one by choosing and stabilizing frames.",
+    "term": "Hyperlapse"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Development and Validation of an Artificial Intelligence Model for Small Bowel Capsule Endoscopy Video Review",
+  "topics": [
+   "Digestive disease",
+   "Video summarization",
+   "Medical video",
+   "Doctor workload"
+  ],
+  "url": "https://pubmed.ncbi.nlm.nih.gov/35834249/"
+ },
+ {
+  "id": "drone-triage-vital-signs",
+  "added": "2026-10-31",
+  "authors": "Tayfur İ., Şimşek P., Akgül E. C., Ateş Y. Ş., Gündüz A., Bal M. et al.",
+  "date": "2026-03-10",
+  "feasibility": 2,
+  "fit": "Physical AI on the perception side: the drone shakes, people are far away, and the signal is tiny. Stabilization (hyperlapse thinking), motion magnification and rPPG all meet here. A project could test how much stabilizing and magnifying shaky drone-like video helps breathing-rate estimates, working only on recorded video.",
+  "future": [
+   "Many casualties at once",
+   "Longer distances",
+   "Combine with pose and responsiveness checks"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public rPPG/respiration video sets plus simulated camera shake, or public drone footage; one GPU; no drone needed.",
+  "source": "Scientific Reports 16, 12847 (2026) · Karadeniz Technical University",
+  "summary": "In a mass-casualty disaster there are far more injured people than medics, so deciding who needs help first (triage) saves lives. This team measured vital signs from drone video: heart rate from tiny skin-color changes, breathing from temperature changes at the nose (thermal camera), and oxygen from a deep-learning model. On 37 people, heart rate was off by less than 1 beat per minute on average, but breathing rate was the weakest measure (about 83–85 in 100 accuracy).",
+  "techniques": [
+   "Remote photoplethysmography from RGB video",
+   "Thermal imaging of the nose region",
+   "Deep learning for oxygen level",
+   "Sliding 13–15 second windows"
+  ],
+  "terms": [
+   {
+    "meaning": "Sorting casualties by how urgently they need care.",
+    "term": "Triage"
+   },
+   {
+    "meaning": "An event with more injured people than local medical services can handle.",
+    "term": "Mass-casualty incident"
+   },
+   {
+    "meaning": "Measuring the pulse from how blood changes the color of skin.",
+    "term": "Photoplethysmography"
+   }
+  ],
+  "theme": "robotics",
+  "title": "Reliability of contactless vital sign measurement algorithms for use in drone-based mass casualty triage",
+  "topics": [
+   "Disaster response",
+   "Physical AI",
+   "Camera vital signs",
+   "Drones"
+  ],
+  "url": "https://pubmed.ncbi.nlm.nih.gov/41807583/"
+ },
+ {
+  "id": "endocontrolmag-surgical-vessels",
+  "added": "2026-10-31",
+  "authors": "EndoControlMag team (Hong Kong; see paper)",
+  "date": "2025-07",
+  "feasibility": 2,
+  "fit": "Magnifying only what matters is the core open problem in motion magnification. Here, that means pulsing vessels, not instruments, smoke or breathing. A learned, heartbeat-frequency-selective version of this training-free method would be a clear contribution, and it is a natural fit for Prof. Giryes's group (image restoration, reliable networks).",
+  "future": [
+   "Learned masks instead of hand-set ones",
+   "Real-time use in the operating room",
+   "Testing on many more surgery types"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public surgical videos (e.g. the Janatka UCL motion-magnification videos, public endoscopy datasets) and one GPU.",
+  "source": "arXiv 2507.15292",
+  "summary": "Cutting a hidden blood vessel is one of the most common complications in keyhole surgery, where surgeons cannot feel a pulse. Magnifying the tiny pulsing of vessels in the endoscope video could show where they are, but ordinary magnification also blows up camera motion, smoke and instruments. This framework needs no training: it magnifies motion only inside a vessel mask, regularly resets its reference frame, and softens the effect near moving tissue. It reports clearer vessel pulsation in complex surgical scenes.",
+  "techniques": [
+   "Lagrangian (tracking-based) motion magnification",
+   "Mask-conditioned magnification",
+   "Periodic reference resetting",
+   "Optical flow"
+  ],
+  "terms": [
+   {
+    "meaning": "Surgery through small cuts using a camera on a thin tube.",
+    "term": "Endoscopic surgery"
+   },
+   {
+    "meaning": "Tracking each moving point and exaggerating its path.",
+    "term": "Lagrangian magnification"
+   },
+   {
+    "meaning": "A map saying which pixels to process and which to leave alone.",
+    "term": "Mask"
+   }
+  ],
+  "theme": "imaging",
+  "title": "EndoControlMag: Robust Endoscopic Vascular Motion Magnification with Periodic Reference Resetting and Hierarchical Tissue-aware Dual-Mask Control",
+  "topics": [
+   "Surgical safety",
+   "Motion magnification",
+   "Giryes fit",
+   "Medical video"
+  ],
+  "url": "https://arxiv.org/html/2507.15292v4"
+ },
+ {
+  "id": "geodiffmm-motion-magnification",
+  "added": "2026-10-31",
+  "authors": "Xuedeng Liu et al.",
+  "date": "2025-12-09",
+  "feasibility": 3,
+  "fit": "This is the method engine behind every biomedical idea. A clean semester question: does magnifying a face or chest video first make heart-rate and breathing estimates better or worse? Public datasets have ground truth (UBFC-rPPG, PURE, via the open rPPG-Toolbox), so you get a real yes/no answer and room for your own noise-aware magnifier.",
+  "future": [
+   "Separate camera noise from true micro-motion",
+   "Faster models for phones",
+   "Use magnification as a preprocessing step for health measurement"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public rPPG datasets (UBFC-rPPG, PURE), the open rPPG-Toolbox and open magnification code; one GPU.",
+  "source": "arXiv 2512.08325 · cs.CV",
+  "summary": "Motion magnification can reveal a pulse, a breath or a vibrating machine, but at high magnification it also amplifies the camera's own pixel noise, so the output gets grainy and blurry. Learned methods improved things, yet still struggle to tell noise from true tiny motion. This paper guides a diffusion model with optical flow and trains it on noise-free synthetic motion fields, and reports better results than earlier methods on real and synthetic videos.",
+  "techniques": [
+   "Conditional diffusion model",
+   "Optical-flow guidance",
+   "Noise-free synthetic training motion"
+  ],
+  "terms": [
+   {
+    "meaning": "Random grain in camera pixels caused by the way light arrives.",
+    "term": "Photon noise"
+   },
+   {
+    "meaning": "A generative network that builds an image step by step from noise.",
+    "term": "Diffusion model"
+   },
+   {
+    "meaning": "Remote photoplethysmography: measuring pulse from tiny skin-color changes in video.",
+    "term": "rPPG"
+   }
+  ],
+  "theme": "vision",
+  "title": "GeoDiffMM: Geometry-Guided Conditional Diffusion for Motion Magnification",
+  "topics": [
+   "Camera vital signs",
+   "Motion magnification",
+   "Video processing",
+   "Denoising"
+  ],
+  "url": "https://arxiv.org/abs/2512.08325v1"
+ },
+ {
+  "id": "infant-gma-smartphone-cp",
+  "added": "2026-10-31",
+  "authors": "E. Passmore, A. L. Kwong, S. Greenstein, J. E. Olsen, A. L. Eeles, J. L. Y. Cheong, A. J. Spittle, G. Ball",
+  "date": "2024-02-22",
+  "feasibility": 2,
+  "fit": "Today's systems track 18 body points, which can miss the small, fine 'fidgety' movements experts look for. Adding motion features from optical flow or magnification on top of pose tracking is a clean video-processing question, and it serves a cause you care about: helping children early.",
+  "future": [
+   "Add fine-motion features beyond body-point tracking",
+   "Screen at home in low-resource regions",
+   "Test on more diverse families and phones"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Code is public (github.com/epassmore/infant-movements); the infant videos are not, so you would need a clinical partner or public infant-movement sets.",
+  "source": "PLOS Digital Health (2024) · Murdoch Children's Research Institute",
+  "summary": "Cerebral palsy is the most common physical disability in childhood (about 2 in 1,000 births), and early therapy helps most. A video test of a baby's spontaneous movements predicts it well, but needs trained assessors, and only half of affected babies have obvious risk factors at birth. This team used 503 videos filmed at home by parents with a phone app, tracked 18 body points with deep learning, corrected for camera movement and baby size, and trained a network to flag abnormal movements.",
+  "techniques": [
+   "Pose estimation (DeepLabCut)",
+   "Correcting for camera motion and infant size",
+   "Convolutional network on movement time series"
+  ],
+  "terms": [
+   {
+    "meaning": "An expert video check of a baby's spontaneous movements that predicts cerebral palsy.",
+    "term": "General Movements Assessment (GMA)"
+   },
+   {
+    "meaning": "Small, continuous movements healthy babies make at about 3–5 months; their absence is a warning sign.",
+    "term": "Fidgety movements"
+   },
+   {
+    "meaning": "Finding body joints in each video frame.",
+    "term": "Pose estimation"
+   }
+  ],
+  "theme": "vision",
+  "title": "Automated identification of abnormal infant movements from smart phone videos",
+  "topics": [
+   "Cerebral palsy",
+   "Infant health",
+   "Video analysis",
+   "Early screening"
+  ],
+  "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10883563/"
+ },
+ {
+  "id": "parkinson-subclinical-tremor-magnification",
+  "added": "2026-10-31",
+  "authors": "S. Williams, H. Fang, S. D. Relton, C. D. Graham, J. E. Alty",
+  "date": "2020-11",
+  "feasibility": 2,
+  "fit": "A DSP-first project: Parkinson's tremor (about 4–6 Hz) and normal tremor (about 8–12 Hz) sit in different frequency bands, so a frequency-selective magnifier plus a small classifier is a natural next step. The paper's honest weak result is the opening.",
+  "future": [
+   "Frequency-selective magnification that ignores normal tremor",
+   "Automatic tremor scoring instead of neurologist ratings",
+   "Larger studies of people before diagnosis"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Smartphone hand videos; public Parkinson's video sets are scarce, so you may need a clinic partner or start with self-recorded and synthetic tremor videos.",
+  "source": "Journal of Clinical Neuroscience 81 (2020) · Univ. of Leeds, Bradford, Tasmania",
+  "summary": "Parkinson's disease is often diagnosed years after the brain changes start, and an early, invisible tremor might be a warning sign. This team magnified ordinary iPhone videos of 48 hands that looked perfectly still (26 from people with Parkinson's, 22 from healthy people) and asked three movement-disorder neurologists to rate them. After magnification, Parkinson-like tremor appeared more often in the Parkinson's hands, but also in some healthy hands, so the gain for doctors was only slight.",
+  "techniques": [
+   "Eulerian video magnification",
+   "Expert rating before and after magnification",
+   "Smartphone video"
+  ],
+  "terms": [
+   {
+    "meaning": "Shaking too small to see with the naked eye.",
+    "term": "Subclinical tremor"
+   },
+   {
+    "meaning": "The tiny normal tremor everyone has, usually at a higher frequency than Parkinson's tremor.",
+    "term": "Physiological tremor"
+   },
+   {
+    "meaning": "Magnifying changes at each fixed pixel over time instead of tracking moving points.",
+    "term": "Eulerian magnification"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Seeing the unseen: could Eulerian video magnification aid clinician detection of subclinical Parkinson's tremor?",
+  "topics": [
+   "Parkinson's disease",
+   "Motion magnification",
+   "Smartphone health",
+   "Early screening"
+  ],
+  "url": "https://pure.qub.ac.uk/en/publications/seeing-the-unseen-could-eulerian-video-magnification-aid-clinicia/"
+ },
+ {
+  "id": "plant-leaf-motion-water-stress",
+  "added": "2026-10-31",
+  "authors": "Walter Polilli, Alessio Antonini, Cristiano Platani, Fabio Stagnari, Angelica Galieni",
+  "date": "2025-12",
+  "feasibility": 3,
+  "fit": "Plants move: leaves droop and turn as their water pressure changes. This paper reads that from cheap time-lapse cameras. Your twist is to add short-video motion magnification, which a 2023 Porto study used to reveal leaf motion invisible to the eye, so stress could be caught in minutes instead of days. Water for farming is a real problem in Israel and worldwide.",
+  "future": [
+   "Short magnified videos instead of long time-lapses",
+   "Field conditions with wind and changing light",
+   "Link to automatic irrigation"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public plant-motion videos (Pena et al. 2022 repository) or your own phone videos of potted plants; a laptop.",
+  "source": "arXiv 2512.11605 · Univ. of Teramo / CREA (Italy)",
+  "summary": "Farming uses most of the world's fresh water, and watering by timer or soil sensor wastes a lot of it. Plants signal thirst themselves: when water pressure in the leaves drops, they droop and change angle. This team tracked canopy movements from low-cost RGB time-lapse cameras and classified four watering treatments (well-watered, chronic stress, mild and severe sudden stress) with a balanced accuracy of about 93 in 100.",
+  "techniques": [
+   "Leaf-movement (morpho-kinematic) features from time-lapse",
+   "Ensemble classifiers",
+   "Low-cost RGB cameras"
+  ],
+  "terms": [
+   {
+    "meaning": "The water pressure inside plant cells that keeps leaves firm.",
+    "term": "Turgor pressure"
+   },
+   {
+    "meaning": "A plant movement triggered by a stimulus such as light or water stress.",
+    "term": "Nastic movement"
+   },
+   {
+    "meaning": "Accuracy averaged over classes, so rare classes count equally.",
+    "term": "Balanced accuracy"
+   }
+  ],
+  "theme": "vision",
+  "title": "Enhancing Morpho-Kinematic analysis for Plant Water Stress Classification through Leaf Movements",
+  "topics": [
+   "Water for farming",
+   "Plant behaviour",
+   "Motion analysis",
+   "Precision irrigation"
+  ],
+  "url": "https://arxiv.org/pdf/2512.11605v2"
+ },
+ {
+  "id": "raven-av-speech-hearing-aids",
+  "added": "2026-10-31",
+  "authors": "Teng Ma, Sile Yin, Li-Chia Yang, Shuo Zhang (Bose, Georgia Tech)",
+  "date": "2025-09",
+  "feasibility": 3,
+  "fit": "The practical meeting point of video and hearing aids is lip motion, not motion magnification. It builds directly on your Wiener-filter speech enhancement and on the hearing-aid paper you starred. A project could test whether lip-video features keep helping when the face is small, turned, or poorly lit, as in a real café.",
+  "future": [
+   "Run on glasses or a phone worn by the user",
+   "Robustness to side views and poor light",
+   "Listening tests with hearing-aid users"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public audio-visual speech sets (e.g. LRS3, VoxCeleb2, the AVSE challenge data), the released training code, a GPU.",
+  "source": "WASPAA 2025 demo · arXiv 2509.20741",
+  "summary": "People with hearing loss struggle most in noisy rooms, because ordinary hearing aids amplify everything, including the noise. Watching the speaker's lips helps the brain, and it can help a computer too. RAVEN crops the mouth from a webcam, turns lip movement into features with a pretrained model, and uses them to pull the target voice out of noise. It runs in real time on an ordinary CPU, and its training code is released.",
+  "techniques": [
+   "Audio-visual speech enhancement",
+   "Pretrained lip-movement embeddings",
+   "Mask-based spectrogram filtering (STFT)",
+   "Real-time CPU processing"
+  ],
+  "terms": [
+   {
+    "meaning": "Removing noise from recorded speech.",
+    "term": "Speech enhancement"
+   },
+   {
+    "meaning": "A map saying how much of each time-frequency cell to keep; like an adaptive Wiener filter.",
+    "term": "Spectrogram mask"
+   },
+   {
+    "meaning": "Seeing lips move changes what sound we think we heard.",
+    "term": "McGurk effect"
+   }
+  ],
+  "theme": "audio",
+  "title": "Real-Time System for Audio-Visual Target Speech Enhancement (RAVEN)",
+  "topics": [
+   "Hearing loss",
+   "Speech enhancement",
+   "Lip reading",
+   "Audio-visual AI"
+  ],
+  "url": "https://arxiv.org/html/2509.20741v1"
+ },
+ {
+  "id": "river-velocity-optical-flow",
+  "added": "2026-10-31",
+  "authors": "Walter Chen, Kieu Anh Nguyen, Bor-Shiun Lin",
+  "date": "2025-09-11",
+  "feasibility": 3,
+  "fit": "Motion estimation (your course) applied to floods, next to your rainfall work. A project could measure river speed from public river-camera videos with modern optical flow, handle night and rain, and turn it into an early-warning signal alongside cellular-link rain maps.",
+  "future": [
+   "Night-time video enhancement",
+   "Wider range of flow speeds",
+   "Real-time warnings"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public river-flow video sets or self-recorded stream videos, open optical-flow models (RAFT, SEA-RAFT), a laptop or small GPU.",
+  "source": "Sustainability 17(18) (2025) · MDPI",
+  "summary": "Knowing how fast a river is flowing is key to flood warnings, but flow gauges are expensive, get damaged in floods and are missing on many small rivers. A fixed camera is cheap. This study estimates surface speed from ordinary CCD camera video by combining dense optical flow with deep learning, tested on a real river in Taiwan. The authors see it as a low-cost, scalable way to monitor small rivers, and list night video and real-time use as the next steps.",
+  "techniques": [
+   "Dense optical flow",
+   "Deep learning on flow fields",
+   "Camera calibration to real-world units"
+  ],
+  "terms": [
+   {
+    "meaning": "The estimated motion of every pixel between two video frames.",
+    "term": "Optical flow"
+   },
+   {
+    "meaning": "How much water passes a point per second.",
+    "term": "Discharge"
+   },
+   {
+    "meaning": "A classic method that tracks floating patterns on the water surface to measure speed.",
+    "term": "LSPIV"
+   }
+  ],
+  "theme": "vision",
+  "title": "Deep Learning and Optical Flow for River Velocity Estimation: Insights from a Field Case Study",
+  "topics": [
+   "Floods",
+   "Early warning",
+   "Optical flow",
+   "Video processing"
+  ],
+  "url": "https://www.mdpi.com/2071-1050/17/18/8181"
+ },
+ {
+  "id": "smartphone-microscopy-malaria-tb",
+  "added": "2026-10-31",
+  "authors": "John A. Quinn, Rose Nakasi, Pius K. B. Mugagga, Patrick Byanyima, William Lubega, Alfred Andama",
+  "date": "2016-08",
+  "feasibility": 3,
+  "fit": "Phone cameras on microscopes produce blurry, distorted images; super-resolution and restoration (your iPhone image-enhancement work) can fix that before detection. A project could test whether restoring low-quality phone-microscope images improves parasite detection on these open datasets.",
+  "future": [
+   "Super-resolution before detection",
+   "Work on cheaper phones and microscopes",
+   "Field trials in clinics"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "The open annotated malaria, TB and parasite-egg image sets from this project; one GPU.",
+  "source": "arXiv 1608.02989 · Makerere University (Uganda)",
+  "summary": "In much of Uganda and other low-income countries, malaria and tuberculosis are misdiagnosed because there are too few trained microscope technicians. This team built a cheap 3D-printed adapter to put a smartphone on a microscope and trained networks to find malaria parasites, TB bacteria and intestinal-worm eggs. Detection quality was high (average precision 0.97 for malaria, 0.93 for TB and worm eggs), and the annotated image sets are public.",
+  "techniques": [
+   "Convolutional neural networks",
+   "Smartphone-microscope images",
+   "Object detection on sample images"
+  ],
+  "terms": [
+   {
+    "meaning": "A drop of blood spread on glass and stained to look for parasites.",
+    "term": "Blood smear"
+   },
+   {
+    "meaning": "A 0-to-1 score for how well a detector finds objects without false alarms.",
+    "term": "Average precision"
+   },
+   {
+    "meaning": "Testing done where the patient is, not in a central lab.",
+    "term": "Point-of-care"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Deep Convolutional Neural Networks for Microscopy-Based Point of Care Diagnostics",
+  "topics": [
+   "Malaria and TB in low-resource settings",
+   "Super-resolution",
+   "Open data",
+   "Image restoration"
+  ],
+  "url": "https://arxiv.org/pdf/1608.02989"
+ },
+ {
+  "id": "stb-vmm-bridge-health",
+  "added": "2026-10-31",
+  "authors": "Ricard Lado-Roigé, Marco A. Pérez et al. (IQS, Universitat Ramon Llull)",
+  "date": "2026-02-09",
+  "feasibility": 3,
+  "fit": "Learned motion magnification + vibration analysis, with everything public: data, trained models and code. A project could detect damage from video vibration signatures and test robustness to camera shake and lighting, using your spectral-analysis skills.",
+  "future": [
+   "Full-scale structures outdoors",
+   "Damage detection, not just vibration measurement",
+   "Robustness to wind, light and camera shake"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "The public Mendeley dataset with trained models and code (doi 10.17632/568gxcg5n3.1); a laptop or one GPU.",
+  "source": "Mendeley Data (2026) · IQS / Universitat Ramon Llull",
+  "summary": "Many bridges and buildings are aging, and installing sensors on each one is slow and costly, so problems are found late. A camera could measure how a structure vibrates from a distance, because damage changes those vibrations. This group uses a transformer-based motion magnification model (STB-VMM) to pull vibration signatures out of ordinary video, validated on lab structures and full-size ones, and has released the dataset, trained models and code.",
+  "techniques": [
+   "Swin-transformer motion magnification",
+   "Vibration frequency extraction from video",
+   "Damage detection from vibration signatures"
+  ],
+  "terms": [
+   {
+    "meaning": "Continuously checking a structure for damage.",
+    "term": "Structural health monitoring"
+   },
+   {
+    "meaning": "The rate at which a structure prefers to vibrate; damage shifts it.",
+    "term": "Natural frequency"
+   },
+   {
+    "meaning": "A neural network that weighs relations between all parts of its input.",
+    "term": "Transformer"
+   }
+  ],
+  "theme": "vision",
+  "title": "Transformer-Based Video Motion Magnification for Vision-Driven Structural Health Monitoring (dataset, models and code)",
+  "topics": [
+   "Aging infrastructure",
+   "Motion magnification",
+   "Vibration analysis",
+   "Open data"
+  ],
+  "url": "https://data.mendeley.com/datasets/568gxcg5n3"
+ },
+ {
+  "id": "superres-smallholder-field-boundaries",
+  "added": "2026-10-31",
+  "authors": "See abstract (American Association of Geographers)",
+  "date": "n.d.",
+  "feasibility": 3,
+  "fit": "Super-resolution from your course, aimed at food security. A project could compare 'super-resolve first, then segment' against segmenting directly at 10 m, on free satellite data, and check whether invented detail helps or hurts the field map. This is a reliability question the Giryes group would appreciate.",
+  "future": [
+   "Use several dates of free images instead of one",
+   "Check that super-resolved detail is real, not invented",
+   "Scale to whole countries"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Free Sentinel-2 images, public field-boundary labels (e.g. Fields of The World, AI4Boundaries), one GPU.",
+  "source": "AAG Annual Meeting abstract",
+  "summary": "Most farms in Africa are small family plots, and governments and aid programs need maps of each field to plan support and track harvests. The free Sentinel-2 satellite sees 10 m pixels, too coarse to separate small fields, and sharper imagery costs money. This work trains deep super-resolution models to turn 10 m images into 3 m images, learning from commercial PlanetScope imagery, and compares CNN, ResNet and GAN models and an ensemble to improve field-boundary mapping.",
+  "techniques": [
+   "Deep super-resolution (CNN, ResNet, GAN)",
+   "Ensemble of models",
+   "Field segmentation on super-resolved images"
+  ],
+  "terms": [
+   {
+    "meaning": "Creating a sharper image from a blurrier one.",
+    "term": "Super-resolution"
+   },
+   {
+    "meaning": "A small family farm, often under 2 hectares.",
+    "term": "Smallholder farm"
+   },
+   {
+    "meaning": "Free European satellites that photograph the whole Earth about every 5 days at 10 m detail.",
+    "term": "Sentinel-2"
+   }
+  ],
+  "theme": "vision",
+  "title": "Using Deep Learning-based Super-Resolution to Improve Maps of Smallholder Crop Field Boundaries",
+  "topics": [
+   "Food security",
+   "Super-resolution",
+   "Giryes fit",
+   "Satellite images"
+  ],
+  "url": "https://aag-amarchive.secure-platform.com:443/a/solicitations/13/sessiongallery/654/application/2664"
+ },
+ {
+  "id": "video-vibration-predictive-maintenance",
+  "added": "2026-10-31",
+  "authors": "Walid Gomaa, Abdelrahman Wael Ammar, Ismael Abbo, Mohamed Galal Nassef, Tetsuji Ogawa, Mohab Hossam",
+  "date": "2025",
+  "feasibility": 3,
+  "fit": "Magnification + optical flow + FFT + a classifier, which is exactly your DSP toolkit. A project could replace the hand-made features with a small learned model and test whether it still works on a different machine or camera.",
+  "future": [
+   "Generalize to unseen machines",
+   "Learned features instead of hand-made ones",
+   "Cheaper cameras"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "The public EJUST-PdM-1 video dataset (IEEE DataPort) and a laptop.",
+  "source": "ICPRAM/SciTePress 2025 · E-JUST (Egypt), Waseda",
+  "summary": "Pumps and motors that break without warning stop water supply, factories and power, and vibration sensors must be wired onto each machine. This team films the machine instead: Eulerian magnification plus dense optical flow turn the video into vibration signals, Fourier features summarize them, and a random forest names the problem. On a test rig with normal running, a bearing fault and two imbalance levels, it was right about 97 times in 100 using video alone.",
+  "techniques": [
+   "Eulerian motion magnification",
+   "Dense optical flow",
+   "Fourier features",
+   "Random forest classifier"
+  ],
+  "terms": [
+   {
+    "meaning": "Fixing a machine before it breaks, based on warning signs.",
+    "term": "Predictive maintenance"
+   },
+   {
+    "meaning": "Uneven weight on a spinning part that makes it shake.",
+    "term": "Imbalance"
+   },
+   {
+    "meaning": "Many decision trees voting on the answer.",
+    "term": "Random forest"
+   }
+  ],
+  "theme": "vision",
+  "title": "Video-Based Vibration Analysis for Predictive Maintenance: A Motion Magnification and Random Forest Approach",
+  "topics": [
+   "Machine breakdowns",
+   "Motion magnification",
+   "Fault detection",
+   "Open data"
+  ],
+  "url": "https://www.scitepress.org/PublishedPapers/2025/137159"
+ },
+ {
+  "id": "visual-microphone-sound-from-video",
+  "added": "2026-10-31",
+  "authors": "Abe Davis, Michael Rubinstein, Neal Wadhwa, Gautham J. Mysore, Frédo Durand, William T. Freeman",
+  "date": "2014-07",
+  "feasibility": 2,
+  "fit": "The direct link between motion magnification and sound: the same phase-based pyramids you study, turned into a microphone. For hearing, the realistic use is not hearing aids but measuring sound or vibration where microphones can't go (e.g. a machine or an eardrum model). Ordinary phone cameras are the hard part: compression and low frame rates erase the signal.",
+  "future": [
+   "Recover sound from regular frame-rate video",
+   "Learned recovery that handles compression",
+   "Privacy safeguards against eavesdropping"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Open visual-microphone code and sample videos; a high-frame-rate phone mode for your own tests.",
+  "source": "ACM SIGGRAPH / Transactions on Graphics (2014) · MIT, Microsoft, Adobe",
+  "summary": "Sound makes nearby objects vibrate by tiny amounts. Using only high-speed video and the same phase-based tools behind motion magnification, this team recovered music from the leaves of a potted plant and speech from a crisp packet. They also used the rolling shutter of ordinary cameras to recover sound from standard frame-rate video. It is a classic paper that started the field, and it raises obvious privacy concerns.",
+  "techniques": [
+   "Complex steerable pyramid (phase-based)",
+   "Rolling-shutter exploitation",
+   "Sound quality metrics (intelligibility, SNR)"
+  ],
+  "terms": [
+   {
+    "meaning": "Splitting an image into scales and orientations so local motion shows up as phase changes.",
+    "term": "Steerable pyramid"
+   },
+   {
+    "meaning": "A camera that reads its sensor row by row, so each row is captured at a slightly different time.",
+    "term": "Rolling shutter"
+   },
+   {
+    "meaning": "Signal-to-noise ratio: how strong the wanted signal is compared with noise.",
+    "term": "SNR"
+   }
+  ],
+  "theme": "audio",
+  "title": "The Visual Microphone: Passive Recovery of Sound from Video",
+  "topics": [
+   "Sound from video",
+   "Motion magnification",
+   "Phase-based processing",
+   "Privacy"
+  ],
+  "url": "https://dspace.mit.edu/handle/1721.1/100023"
+ },
+ {
+  "id": "drinking-water-pathogen-ml",
+  "added": "2026-10-29",
+  "authors": "Guo B., Changzheng Cui et al.",
+  "date": "2026-10-12",
+  "feasibility": 3,
+  "fit": "This is a small, honest machine-learning problem on real sensor readings, with a clear public-health payoff. A semester project could rebuild the approach on public water-quality and weather data from another region and test whether it still holds.",
+  "future": [
+   "Validate in other cities, seasons and treatment plants",
+   "Real-time warnings from online sensors",
+   "Better prediction of viruses"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "Public water-quality and weather records (e.g. US Water Quality Portal) and a laptop.",
+  "source": "News-Medical · Biocontaminant (2026), East China Univ. of Science and Technology",
+  "summary": "Germs in drinking-water sources make people sick, but testing for specific germs takes days in a lab or needs expensive gene-testing equipment, so most utilities only check cheap stand-in bacteria. This team asked whether routine, cheap measurements (water cloudiness, temperature, dissolved oxygen, plus weather) can predict the dangerous germs directly. Using 95 samples from two drinking-water sources in a Chinese city, simple models such as decision trees predicted several germs well (one with a fit score above 0.9 on a 0-to-1 scale), and cloudiness was the strongest clue. Links with viruses were weaker, and the results come from a single city.",
+  "techniques": [
+   "Decision trees and random forests",
+   "Cross-validation that keeps each sampling day together",
+   "Explaining which inputs matter (SHAP)",
+   "Monte Carlo health-risk estimate"
+  ],
+  "terms": [
+   {
+    "meaning": "A germ (bacteria or virus) that causes disease.",
+    "term": "Pathogen"
+   },
+   {
+    "meaning": "How cloudy the water is, measured by how much light it scatters.",
+    "term": "Turbidity"
+   },
+   {
+    "meaning": "Models that make predictions through a series of yes/no questions on the inputs.",
+    "term": "Decision tree / random forest"
+   },
+   {
+    "meaning": "A 0-to-1 score of how much of the variation the model explains; 1 is perfect.",
+    "term": "R²"
+   }
+  ],
+  "theme": "impact",
+  "title": "Machine learning models predict pathogen risk in drinking water",
+  "topics": [
+   "Unsafe drinking water",
+   "Public health",
+   "Tabular machine learning",
+   "Early warning"
+  ],
+  "url": "https://news-medical.net/news/20261012/Machine-learning-models-predict-pathogen-risk-in-drinking-water.aspx"
+ },
+ {
+  "id": "fallnest-wearable-fall-detection",
+  "added": "2026-10-29",
+  "authors": "Rashi Niyas P, Ritika Jain, Hitika Tiwari",
+  "date": "2026-10-13",
+  "feasibility": 3,
+  "fit": "The motion recordings are ordinary time signals, and the method mixes time and frequency views (Fourier) that you already know. A semester project could compare this with simple filter-plus-features baselines and test on real-world falls from older adults, all with public recordings.",
+  "future": [
+   "Test on real-world falls from older adults, not only acted falls by young volunteers",
+   "Run on a smartwatch with low battery use",
+   "Combine with a camera-free room sensor such as Wi-Fi"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public motion datasets (SisFall, KFall, MobiFall) and a laptop or small GPU.",
+  "source": "arXiv 2610.18260",
+  "summary": "Falls are a leading cause of injury for older people living alone, and a fall alarm worn on the body only helps if it catches real falls without constant false alarms. The trouble is data: real falls are rare, so training sets are huge piles of everyday movement with very few falls. This team squeezes such a dataset into a tiny, balanced set of made-up training examples, about 1 in 100 of the original size. A very small network trained only on that tiny set still recognized falls correctly about 94–96 times in 100 on three public datasets, tested on people it had never seen.",
+  "techniques": [
+   "Shrinking a dataset into a few synthetic examples",
+   "Time-domain and frequency-domain (Fourier) views",
+   "Class-balanced starting points (K-means)",
+   "Tiny image-style network (TinyCNN) on motion signals"
+  ],
+  "terms": [
+   {
+    "meaning": "A tiny motion sensor (accelerometer and gyroscope) like the one in a phone or smartwatch.",
+    "term": "IMU"
+   },
+   {
+    "meaning": "Creating a small set of synthetic examples that teaches a model almost as well as the full dataset.",
+    "term": "Dataset condensation"
+   },
+   {
+    "meaning": "When one class (here, falls) is much rarer than the others.",
+    "term": "Imbalanced data"
+   }
+  ],
+  "theme": "impact",
+  "title": "FALLNEST: Dual-Domain Dataset Condensation of Imbalanced IMU Data for Wearable Fall Detection",
+  "topics": [
+   "Falls in older adults",
+   "Elderly care",
+   "Wearables",
+   "Small data"
+  ],
+  "url": "https://arxiv.org/abs/2610.18260"
+ },
+ {
+  "id": "gfw-fishing-ai-upgrade-2026",
+  "added": "2026-10-29",
+  "authors": "Global Fishing Watch (reported by Tech Times)",
+  "date": "2026-10-22",
+  "feasibility": 3,
+  "fit": "Ship tracks are time series and satellite radar pictures are images, both in your comfort zone. A semester project could use the free Global Fishing Watch data to build a classifier for 'fishing vs. sailing' from movement tracks, or match radar-image boat detections against broadcast positions to flag 'dark' boats.",
+  "future": [
+   "Detect the 'dark' boats that never broadcast, using radar and optical satellite images",
+   "AI agents that watch marine reserves (planned with Ai2 and Skylight)",
+   "Better coverage in regions with poor data such as the Bay of Bengal"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "Free Global Fishing Watch API and datasets (non-commercial use) plus a laptop; optional free Sentinel-1 radar images.",
+  "source": "Tech Times · Global Fishing Watch",
+  "summary": "Illegal and hidden fishing empties coastal waters that poor communities depend on, especially around Africa and South Asia. Global Fishing Watch, a free public ocean map, uses AI to read ships' position broadcasts and decide when a boat is actually fishing and what kind of ship it is. On 21 October it released its biggest model upgrade since 2016, trained on over 1,000 expert-checked examples, mainly to cut false alarms like boats slowing near ports. The hard part remains: an earlier satellite-radar study found about 3 of every 4 industrial fishing boats do not broadcast their position at all.",
+  "techniques": [
+   "Classifying fishing activity from speed and turning patterns",
+   "Ship-type classification from movement and identity data",
+   "Expert-labelled training examples",
+   "Matching radar-image detections to position broadcasts"
+  ],
+  "terms": [
+   {
+    "meaning": "A radio beacon on ships that broadcasts their position, speed and identity every few seconds.",
+    "term": "AIS"
+   },
+   {
+    "meaning": "A boat that turns off or never uses its position beacon, so it is invisible on tracking maps.",
+    "term": "Dark vessel"
+   },
+   {
+    "meaning": "A satellite that sends radio pulses and builds an image from the echoes, working through clouds and at night.",
+    "term": "Satellite radar (SAR)"
+   }
+  ],
+  "theme": "impact",
+  "title": "Global Fishing Watch Launches First AI Model Overhaul: 75% of Fleet Still Dark",
+  "topics": [
+   "Illegal fishing",
+   "Oceans",
+   "Satellite data",
+   "Time-series classification"
+  ],
+  "url": "https://www.techtimes.com/articles/329355/20261022/global-fishing-watch-launches-first-ai-model-overhaul-75-fleet-still-dark.htm"
+ },
+ {
+  "id": "lemon-aid-youth-psychosis-speech",
+  "added": "2026-10-29",
+  "authors": "Matheus Calvin Lokadjaja, Wilson Goh, Jimmy Lee (NTU Singapore & Institute of Mental Health)",
+  "date": "2026-10-13",
+  "feasibility": 2,
+  "fit": "So far it uses only the words; the team's next step is adding the voice itself (pitch, rhythm), which is exactly your audio feature skill set from the MFCC genre classifier. A semester project could test whether simple voice features add to text-based screening on a public speech-and-mental-health dataset.",
+  "future": [
+   "Add voice pitch, speech rhythm and facial expressions",
+   "Follow how patterns change as illness develops",
+   "Test in real clinics"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "A public speech dataset with mental-health labels (e.g. DAIC-WOZ, on request) and a laptop with a GPU.",
+  "source": "NTU Singapore news · npj Mental Health Research",
+  "summary": "Serious mental illnesses such as psychosis usually start in the teens or early twenties, and young people rarely say directly that they are struggling, so help often comes late. This team used 45-second recordings of 429 young people (aged 14–29) speaking freely in answer to a neutral question, turned into text. Asking a chatbot-style AI directly was no better than a coin flip; their method first measures the emotions in what was said (joy, trust, fear, sadness) and then feeds that to a classic classifier. It caught up to 93 of every 100 at-risk youths, with about 67 of 100 overall answers right, and explains each decision in plain words.",
+  "techniques": [
+   "Emotion profiles extracted from transcribed speech",
+   "Combining emotion scores with a classic classifier",
+   "Plain-language explanations for each prediction",
+   "Comparison with direct chatbot prompting"
+  ],
+  "terms": [
+   {
+    "meaning": "A mental health condition where a person loses touch with reality, for example hearing voices.",
+    "term": "Psychosis"
+   },
+   {
+    "meaning": "A chatbot-style AI trained on huge amounts of text.",
+    "term": "Large language model (LLM)"
+   },
+   {
+    "meaning": "A quick check to decide who should see a specialist, not a diagnosis.",
+    "term": "Screening"
+   }
+  ],
+  "theme": "audio",
+  "title": "NTU and IMH researchers harness AI to spot early signs of psychosis in youths",
+  "topics": [
+   "Youth mental health",
+   "Speech analysis",
+   "Explainable AI",
+   "Early screening"
+  ],
+  "url": "https://www.ntu.edu.sg/news/detail/ntu-and-imh-researchers-harness-ai-to-spot-early-signs-of-psychosis-in-youths"
+ },
+ {
+  "id": "mld-crop-disease-cross-region",
+  "added": "2026-10-29",
+  "authors": "Rosemary Nalwanga, Sebastian Bunda, Godliver Owomugisha, Luuk Spreeuwers, Estefania Talavera Martinez",
+  "date": "2026-10-03",
+  "feasibility": 3,
+  "fit": "This is exactly the 'works in the lab, fails in the world' problem that Prof. Giryes's group studies under reliable neural networks. A semester project could try simple ways to close the gap (background removal, style randomization, test-time adaptation) and measure the gain on the field photos.",
+  "future": [
+   "Collect more real field photos from African farms",
+   "Teach models to ignore background and lighting",
+   "Adapt a model on the farmer's phone with a few local photos"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public datasets (PlantVillage, PlantDoc and the others in the paper) and one GPU; no field work needed.",
+  "source": "arXiv 2610.04456 (Univ. of Twente / Makerere Univ.)",
+  "summary": "Small farmers lose harvests to plant diseases they spot too late, and many phone apps promise to diagnose a sick leaf from a photo. The catch: those models are usually trained on neat lab photos and reach almost perfect scores there, but fail on real field photos from another country. This team merged six public datasets from the USA, Asia and Africa (about 167,000 photos, 18 crops, 56 disease classes) and tested what happens across regions. A model with about 99 of 100 right on lab photos fell to about 13 of 100 on field photos; training on the mixed collection lifted that to about 40, showing that varied data matters more than a fancier network.",
+  "techniques": [
+   "Merging six public datasets under one label list",
+   "Train-on-one-region, test-on-another evaluation",
+   "Crop-then-disease two-step classifier (HiLeaD)",
+   "Image-recognition networks (CNNs and transformers)"
+  ],
+  "terms": [
+   {
+    "meaning": "When test photos look different (light, background, camera) from the training photos, so the model gets confused.",
+    "term": "Domain shift"
+   },
+   {
+    "meaning": "A shared dataset and test rules so different methods can be compared fairly.",
+    "term": "Benchmark"
+   },
+   {
+    "meaning": "A single grade from 0 to 100 that balances missed cases and false alarms.",
+    "term": "F1 score"
+   },
+   {
+    "meaning": "A model that first guesses the crop, then the disease for that crop.",
+    "term": "Hierarchical model"
+   }
+  ],
+  "theme": "vision",
+  "title": "Multi-Crop Leaf Disease Recognition: A Unified Benchmark and Cross-Region Study",
+  "topics": [
+   "Crop disease",
+   "Giryes fit",
+   "Food security",
+   "Image classification"
+  ],
+  "url": "https://arxiv.org/abs/2610.04456"
+ },
+ {
+  "id": "realcomm-phone-deepfake-detection",
+  "added": "2026-10-29",
+  "authors": "Li Wang, Jindong Wang, … Haizhou Li, Zhizheng Wu",
+  "date": "2026-10-20",
+  "feasibility": 3,
+  "fit": "This is pure speech signal processing, close to your Wiener-filter work: you know how filtering and compression change a voice. A semester project could build a 'phone call simulator' (band-limiting, codecs, noise removal) as training augmentation and test whether a fake-voice detector survives it.",
+  "future": [
+   "Test detectors on real scam calls, not only lab recordings",
+   "Run detection live on the phone during a call",
+   "Check how well detectors work on older speakers' voices"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public fake-voice datasets (e.g. ASVspoof) plus the RealComm benchmark; a GPU for fine-tuning; no hardware needed.",
+  "source": "arXiv 2610.27459 · submitted to IEEE TASLP",
+  "summary": "Scammers now clone a relative's voice and call older people asking for money. Detectors that spot fake voices are trained on clean audio files, but a real phone call changes the sound: the phone's microphone, its noise removal and the network compression all reshape it. This team recorded the same real and fake sentences both as clean files and after sending them through real mobile calls (handset, speakerphone, played aloud into the phone). Today's detectors got much worse after the call; one detector's error rate dropped from about 38 in 100 to about 22 in 100 once it was trained with both simulated call effects and real call recordings.",
+  "techniques": [
+   "Paired clean vs. real-call recordings",
+   "Simulated phone-channel effects as augmentation (RealComm-Aug)",
+   "Fine-tuning fake-voice detectors on real call audio",
+   "Comparing handset, speakerphone and acoustic playback"
+  ],
+  "terms": [
+   {
+    "meaning": "A computer-generated voice made to sound like a specific real person.",
+    "term": "Deepfake voice"
+   },
+   {
+    "meaning": "The compression method a phone network uses to squeeze speech into fewer bits.",
+    "term": "Codec"
+   },
+   {
+    "meaning": "The point where the detector wrongly accepts fakes as often as it wrongly rejects real voices; lower is better.",
+    "term": "Error rate (EER)"
+   },
+   {
+    "meaning": "Artificially changing training recordings so the model sees more realistic variety.",
+    "term": "Augmentation"
+   }
+  ],
+  "theme": "audio",
+  "title": "RealComm: Benchmarking and Adapting Audio Deepfake Detection over Real Communication Channels",
+  "topics": [
+   "Phone scams",
+   "Voice cloning",
+   "Speech processing",
+   "Older adults"
+  ],
+  "url": "https://arxiv.org/abs/2610.27459"
+ },
+ {
+  "id": "sinew-sinkhole-early-warning",
+  "added": "2026-10-29",
+  "authors": "Christelle Nadine Abadie, Talia da Silva Burke, Sivasakthy Selvakumaran, … Emilio Bilotta",
+  "date": "2026-07-03",
+  "feasibility": 2,
+  "fit": "Satellite radar and fiber cables used as sensors match your interest in infrastructure as a sensor. A semester project could take free Sentinel-1 ground-movement time series and build an automatic 'unusual sinking' detector, then test it on known collapses.",
+  "future": [
+   "Test both methods together on a fully instrumented site",
+   "Faster, automatic anomaly detection",
+   "Use existing telecom fiber cables"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Free Sentinel-1 ground-movement products (e.g. European Ground Motion Service) and a laptop; no sensors to build.",
+  "source": "Journal of Rock Mechanics and Geotechnical Engineering (in press)",
+  "summary": "Sinkholes can swallow roads, pipes and buildings with almost no warning; in Naples in January 2021 a car park collapsed into a hole about 20 m deep. This project tests two ways to see the ground sinking early: fiber-optic cables buried along roads or pipes that feel tiny stretching, and satellite radar that measures millimetre-scale ground movement from space. Looking back at old satellite images of Naples, the team found clear signs of sinking about a year before the collapse. They suggest machine learning to flag abnormal sinking automatically, but note it is still slow and partly manual.",
+  "techniques": [
+   "Satellite radar ground-movement time series (MT-InSAR)",
+   "Fiber-optic strain measurement",
+   "Lab tests and computer simulations of a collapse",
+   "Machine-learning anomaly flags"
+  ],
+  "terms": [
+   {
+    "meaning": "Sending light through a glass cable and reading the echoes to measure stretch or vibration along it.",
+    "term": "Fiber-optic sensing"
+   },
+   {
+    "meaning": "Comparing satellite radar images taken at different times to measure ground movement of a few millimetres.",
+    "term": "InSAR"
+   },
+   {
+    "meaning": "The ground slowly sinking.",
+    "term": "Subsidence"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Towards early warning of catastrophic ground subsidence through integrated fibre-optic sensing and satellite radar imaging",
+  "topics": [
+   "Sinkholes and ground collapse",
+   "Infrastructure",
+   "Satellite radar",
+   "Anomaly detection"
+  ],
+  "url": "https://www.sciencedirect.com/science/article/pii/S1674775526003999"
+ },
+ {
+  "id": "smartphone-mic-fetal-heart",
+  "added": "2026-10-29",
+  "authors": "Muhammad Mahboob Ur Rahman",
+  "date": "2026-10-17",
+  "feasibility": 3,
+  "fit": "This is classic DSP on a real audio signal: band-splitting, envelopes and rate estimation, very close to your speech-enhancement work. A semester project could use public heart-sound recordings to build and test a cleaner separation of the two heartbeats, with proper reference measurements.",
+  "future": [
+   "Validate against a hospital fetal monitor on many women",
+   "Longer, quieter recordings to measure beat-to-beat changes",
+   "Better separation of the mother's heartbeat"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public heart-sound and fetal heart-sound datasets (e.g. on PhysioNet) and a laptop; a phone for optional test recordings.",
+  "source": "arXiv 2610.24578 · eess.SP",
+  "summary": "Most deaths of mothers and newborns happen in low- and middle-income countries, where many pregnant women never get their baby's heartbeat checked. This study asks a simple question: can an ordinary phone microphone, pressed on the lower belly with no extra hardware, pick up both the baby's and the mother's heartbeat? Over the last five weeks of one pregnancy, 28 short home recordings were split by frequency, since the baby's heart beats much faster than the mother's. The fast, regular baby heartbeat was found in most recordings; the mother's heartbeat was harder to pull out, and the author openly reports what did not work.",
+  "techniques": [
+   "Energy envelope of the sound (Shannon energy)",
+   "Splitting into two heart-rate frequency bands",
+   "Peak picking to estimate beats per minute",
+   "Breathing-rate band as an activity check"
+  ],
+  "terms": [
+   {
+    "meaning": "Recording the sound of the heart beating, like a digital stethoscope.",
+    "term": "Phonocardiography"
+   },
+   {
+    "meaning": "A smooth curve that follows how loud a signal is over time, so beats show up as bumps.",
+    "term": "Energy envelope"
+   },
+   {
+    "meaning": "A trusted reference measurement used to check whether a method is right.",
+    "term": "Ground truth"
+   }
+  ],
+  "theme": "audio",
+  "title": "Passive Smartphone-Microphone Phonocardiography for Joint Maternal-Fetal Cardiac Well-Being Monitoring: A Longitudinal Self-Recorded Case Study in Late Pregnancy",
+  "topics": [
+   "Pregnancy care in low-resource areas",
+   "Heart sounds",
+   "Smartphone audio",
+   "Signal separation"
+  ],
+  "url": "https://arxiv.org/abs/2610.24578"
+ },
+ {
+  "id": "suland-v2-landmine-detection",
+  "added": "2026-10-29",
+  "authors": "Sagar Lekhak, Prasanna Reddy Pulakurthi, Lalit Joshi, Ramesh Bhatta, Emmett J. Ientilucci",
+  "date": "2026-07-31",
+  "feasibility": 3,
+  "fit": "Physical AI where the hard part is the vision: small objects, changing grass and soil, and models that must not fail on a new field. That robustness question is a Giryes-group strength. A semester project could train detectors on this public data and try tricks that help on unseen terrain, all on recorded images.",
+  "future": [
+   "Combine color cameras with thermal or hyperspectral images",
+   "Test on more terrains and seasons",
+   "Run detectors on the drone in real time"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "The public SULAND dataset and a GPU; all work on recorded images, no drone or robot needed.",
+  "source": "arXiv 2607.28996 · cs.CV (Rochester Institute of Technology)",
+  "summary": "Landmines left after wars keep killing and maiming civilians and farmers for decades, and Ukraine is now one of the most mined countries in the world. Drones and ground robots with ordinary cameras are a cheap way to scan fields for mines lying on the surface, but detectors need clean training data. This team fixed many wrong or missing labels in a public set of about 34,000 drone and robot photos, then tested 35 detectors. Fixing the labels alone added 15–20 points to detection scores, and the model that was best on familiar scenes was not the best on new terrain (about 80 of 100 mines found there by the most robust one).",
+  "techniques": [
+   "Careful re-labelling of a public dataset",
+   "Comparing 35 detectors from nine families (YOLO, DETR)",
+   "Testing on familiar vs. unfamiliar terrain",
+   "Drone and ground-robot RGB cameras"
+  ],
+  "terms": [
+   {
+    "meaning": "A flying drone / a small ground robot vehicle.",
+    "term": "UAV / UGV"
+   },
+   {
+    "meaning": "A network that draws a box around each object it finds in a photo.",
+    "term": "Object detector"
+   },
+   {
+    "meaning": "A detection grade from 0 to 1: how well the boxes match the true objects.",
+    "term": "mAP@50"
+   },
+   {
+    "meaning": "Test scenes unlike anything in training, such as a new field or season.",
+    "term": "Out-of-distribution (OOD)"
+   }
+  ],
+  "theme": "robotics",
+  "title": "SULAND v2: A Refined RGB Dataset and Deep Learning Object Detection Benchmark for UAV/UGV-Based SUrface LANDmine Detection Under Domain Shift",
+  "topics": [
+   "Landmines",
+   "Physical AI",
+   "Giryes fit",
+   "Object detection"
+  ],
+  "url": "https://arxiv.org/abs/2607.28996"
+ },
+ {
+  "id": "umaine-ai-drones-search-rescue",
+  "added": "2026-10-29",
+  "authors": "Connor Magliozzi (WABI); Xingda Chen (UMass Amherst), Vinal Applebee (DEEMI)",
+  "date": "2026-10-08",
+  "feasibility": 3,
+  "fit": "This is physical AI on the perception side: finding a tiny person in big aerial photos, a computer-vision problem you would enjoy. A semester project could work entirely on public drone search-and-rescue photo sets, building a 'find the person in the red jacket' detector, with no drone to build.",
+  "future": [
+   "Make it operational by end of 2026, as the team hopes",
+   "Add thermal cameras for night searches",
+   "Measure accuracy on real rescues"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "Public aerial search-and-rescue image sets (e.g. SARD, HERIDAL) and a GPU; no drone needed.",
+  "source": "WABI TV (Maine) · DEEMI, UMaine, UMass Amherst",
+  "summary": "When someone goes missing outdoors, every hour counts, yet today a search drone takes several hundred photos that people must zoom through one by one. A team from the University of Maine, UMass Amherst and the drone group DEEMI is training an AI that is told what the person wore (for example, a red jacket) and flags only the few photos likely to show them. Rescuers then check a handful of images instead of hundreds. Their stated goal is to cut the time from launch to finding the person from about 72 hours to about 7 minutes; it is still being trained in the field.",
+  "techniques": [
+   "Aerial photo surveys in a back-and-forth pattern",
+   "Flagging photos that match a description",
+   "Human review of only the flagged photos",
+   "Always-on server processing"
+  ],
+  "terms": [
+   {
+    "meaning": "AI that senses and acts in the real world, here a drone that looks for people.",
+    "term": "Physical AI"
+   },
+   {
+    "meaning": "Finding things that cover only a few pixels in a large photo.",
+    "term": "Small-object detection"
+   },
+   {
+    "meaning": "Telling the model in words what to look for, like 'person in a red jacket'.",
+    "term": "Text-guided search"
+   }
+  ],
+  "theme": "robotics",
+  "title": "AI powered drones are being developed for search and rescue operations",
+  "topics": [
+   "Missing persons and search and rescue",
+   "Physical AI",
+   "Drones",
+   "Computer vision"
+  ],
+  "url": "https://www.wagmtv.com/2026/10/08/ai-powered-drones-are-being-developed-search-rescue-operations/"
+ },
+ {
   "id": "acoustic-deforestation-guatemala",
   "added": "2026-10-24",
   "authors": "Wildlife Conservation Society; Cornell Lab of Ornithology; Chemnitz University of Technology; Federal University of Mato Grosso do Sul",
@@ -420,6 +1600,57 @@
   "url": "https://www.pge.com/en/newsroom/currents/future-of-energy/xprize-wildfire-awards-4m-to-innovators-advancing-wildfire-detection-and-response.html"
  },
  {
+  "id": "agent-runtime-temporal-monitor",
+  "added": "2026-10-15",
+  "authors": "N. Kekatos, S. Basagiannis, … P. Katsaros",
+  "date": "2026-10-07",
+  "feasibility": 3,
+  "fit": "This is the same 'write the rule, then check it automatically' job you do on hardware at NVIDIA, applied to AI assistants. It plugs straight into your 'safety layer for AI agents' idea card and uses the same public benchmark.",
+  "future": [
+   "Record timestamps and user approvals in assistant logs so time-based rules can work",
+   "Use the authors' proposed 12-field log format",
+   "Run the checker live, blocking bad actions before they happen"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "A laptop, the public AgentDojo and STAC recorded sessions, and the free MonPoly checker; no AI-model budget needed for offline replay.",
+  "source": "arXiv 2610.09793 · cs.CR",
+  "summary": "AI assistants that can send emails or move money can be tricked by hidden instructions inside what they read. This team tested a 'watchman' that checks every action the assistant takes against rules written in a precise logic language, instead of asking another AI whether things look okay. They replayed thousands of recorded assistant sessions from public attack benchmarks. Five simple rules caught about 7 in 10 attacks, but also raised a false alarm on about 3 in 10 normal sessions. They found that the logs lack timestamps and approvals, which is why the rules were so blunt, and they show how a single planted line can fool a naive check and how to fix it.",
+  "techniques": [
+   "Rules written in a time-aware logic (temporal logic)",
+   "An off-the-shelf rule checker (MonPoly)",
+   "Replaying recorded assistant sessions",
+   "Tracking where each piece of data came from"
+  ],
+  "terms": [
+   {
+    "meaning": "Checking a system's behaviour against written rules while it runs (or on its recorded log), instead of proving it correct beforehand.",
+    "term": "Runtime verification"
+   },
+   {
+    "meaning": "A precise language for rules about order and time, like 'never pay before the user approves'.",
+    "term": "Temporal logic"
+   },
+   {
+    "meaning": "Hiding instructions inside a web page or email so an AI assistant obeys the attacker instead of the user.",
+    "term": "Prompt injection"
+   },
+   {
+    "meaning": "Where a piece of information came from, e.g. which lookup produced an email address.",
+    "term": "Provenance"
+   }
+  ],
+  "theme": "impact",
+  "title": "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Runtime verification",
+   "Prompt injection"
+  ],
+  "url": "https://arxiv.org/abs/2610.09793"
+ },
+ {
   "id": "alertcalifornia-ai-first-detection",
   "added": "2026-10-15",
   "authors": "ALERTCalifornia, UC San Diego (dir. N. Driscoll)",
@@ -460,6 +1691,237 @@
    "Smoke detection"
   ],
   "url": "https://en.sedaily.com/international/2026/10/14/ai-spots-more-than-half-of-california-wildfires-first"
+ },
+ {
+  "id": "cml-air-temperature-proxy",
+  "added": "2026-10-15",
+  "authors": "P. Musil, M. Ištvánek, Š. Miklánek, J. Hejna, P. Mlýnek",
+  "date": "2026-08-14",
+  "feasibility": 3,
+  "fit": "This is the heat-wave half of your multi-hazard early-warning card, from the same cellular-link data you know from CellEnMon. The public dataset means you could try it without asking an operator.",
+  "future": [
+   "Scale to large, mixed networks of links",
+   "Use links at different heights to map city heat",
+   "Turn the temperature proxy into heat-wave warnings"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop; the public Zenodo dataset (CC BY, about 62 MB) and nearby weather-station data.",
+  "source": "EGUsphere preprint egusphere-2026-3888 · in open review",
+  "summary": "The radio links between cell towers already report rain through signal loss. This team asked whether the same equipment can also watch heat. Each link unit logs its own internal temperature for maintenance, and that reading follows the outside air closely but runs about 25 °C too hot because of its own electronics and the sun. Once each unit's personal offset is removed, the error drops to about 2 °C, and a small learning model brings it to about 1.7 °C. Reviewers (comments posted in late September) question how freely operators share such data.",
+  "techniques": [
+   "Removing each unit's personal offset",
+   "Ranking which logged values help most (feature selection)",
+   "Small regression and time-series models",
+   "Testing on rooftops the model never saw"
+  ],
+  "terms": [
+   {
+    "meaning": "The point-to-point radio connection between two cell towers; rain and heat change its readings.",
+    "term": "Commercial microwave link (CML)"
+   },
+   {
+    "meaning": "A steady error, like a thermometer that always reads 25 degrees too high.",
+    "term": "Offset"
+   },
+   {
+    "meaning": "Something that is not the thing you want but moves together with it, so you can use it instead.",
+    "term": "Proxy"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Feasibility and limits of commercial microwave links for opportunistic air-temperature monitoring",
+  "topics": [
+   "Early warning",
+   "Heat waves",
+   "Cellular links as sensors",
+   "Machine learning"
+  ],
+  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3888/"
+ },
+ {
+  "id": "dysarthric-asr-artificial-conversations",
+  "added": "2026-10-15",
+  "authors": "D. Nadrchal, M. Swain, F. Schmid, G. Widmer, P. Primus",
+  "date": "2026-10-02",
+  "feasibility": 3,
+  "fit": "Speech processing that directly gives someone their voice back, close to your Wiener-filter speech work. A project could copy the three-step recipe for a Hebrew speaker or test how few hours are really needed.",
+  "future": [
+   "Test on more speakers and larger models",
+   "Measure how much personal data is really needed",
+   "Try a Hebrew version"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Laptop with a GPU or Colab; the released 33-hour dataset and open Whisper models.",
+  "source": "arXiv 2610.03017 · eess.AS",
+  "summary": "One Czech man breathes through an opening in his neck and has a muscle condition that makes his speech very hard for strangers to understand. This team built a speech-to-text system just for him. They recorded 33 hours of his speech using playful made-up conversations to keep sessions natural, and they released the recordings. They trained an open speech recognizer in three steps: normal Czech, then simulated speech of this kind, then his own voice. It made about half as many mistakes as the starting model, beat human helpers on single sentences, and he said it helps him.",
+  "techniques": [
+   "Open speech recognizer (Whisper) fine-tuned in three stages",
+   "Simulating the sound of this type of voice",
+   "Collecting data through scripted 'artificial conversations'",
+   "Testing in near real-time dialogue"
+  ],
+  "terms": [
+   {
+    "meaning": "Slurred or unclear speech caused by weak or poorly controlled speech muscles.",
+    "term": "Dysarthria"
+   },
+   {
+    "meaning": "A surgical opening in the neck for breathing, which changes how the voice sounds.",
+    "term": "Tracheostomy"
+   },
+   {
+    "meaning": "Taking a model trained on lots of general data and training it a bit more on your own small dataset.",
+    "term": "Fine-tuning"
+   }
+  ],
+  "theme": "audio",
+  "title": "Personalized Automatic Speech Recognition for a Dysarthric and Tracheostomic Speaker using Artificial Conversations",
+  "topics": [
+   "Accessibility",
+   "Speech recognition",
+   "Personalization",
+   "Assistive communication"
+  ],
+  "url": "https://arxiv.org/abs/2610.03017"
+ },
+ {
+  "id": "global-forecast-inequality",
+  "added": "2026-10-15",
+  "authors": "M. Linsenmeier, J. G. Shrader",
+  "date": "2026-09-14",
+  "feasibility": 3,
+  "fit": "This is the 'why' behind your early-warning card: it measures exactly the gap that free signals like cellular links could help fill. Good for your project's opening slide.",
+  "future": [
+   "Test whether adding cheap or opportunistic data closes the gap in one country",
+   "Repeat the study for rain and wind, not only temperature",
+   "Focus on extreme days rather than average days"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Open-access paper; public forecast archives (e.g. ECMWF/WMO) and station lists if you want to reproduce a slice of it.",
+  "source": "Nature Communications 17, 10792",
+  "summary": "Good warnings for heat waves and cold snaps need good forecasts, but not everyone gets them. This study compared temperature forecasts across the world since 1985. A 7-day forecast in a rich country is about as accurate as a 1-day forecast in a poor one, and poor countries are roughly 17 years behind. Poorer countries have fewer weather stations, their stations report less often, and only about 1 in 5 send an official city forecast to the UN weather agency, compared with 3 in 4 rich countries.",
+  "techniques": [
+   "Comparing forecasts with what happened, country by country",
+   "Statistics over 40 years of data",
+   "Linking accuracy to station density"
+  ],
+  "terms": [
+   {
+    "meaning": "How closely a forecast matches what actually happened, compared with just guessing the usual weather.",
+    "term": "Forecast skill"
+   },
+   {
+    "meaning": "A balloon carrying sensors up through the air to measure temperature and wind at different heights.",
+    "term": "Weather balloon (radiosonde)"
+   }
+  ],
+  "theme": "impact",
+  "title": "Global inequalities in weather forecasts",
+  "topics": [
+   "Early warning",
+   "Heat waves",
+   "Global South",
+   "Weather data gaps"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-77630-w"
+ },
+ {
+  "id": "grdisaster-crowd-photos",
+  "added": "2026-10-15",
+  "authors": "W. Yin, … X. X. Zhu, H. Li",
+  "date": "2026-10",
+  "feasibility": 2,
+  "fit": "Fits Prof. Giryes's group's 3D and multi-view vision strengths and tackles disaster response. A semester project could improve the weak step, matching a messy phone photo to a satellite view.",
+  "future": [
+   "Use before-and-after images of the same place",
+   "Add road maps, elevation and weather data",
+   "Give a confidence score and flag 'not enough evidence'",
+   "Build lighter models for field use"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "One GPU; the PhotoMappers-based triplets if released, or public street-view and satellite tiles; free open AI models.",
+  "source": "arXiv 2610.00302 · cs.CV",
+  "summary": "After a hurricane or flood, people post thousands of photos, but rescuers need to know where each was taken and how bad the damage is. This team built a set of about 26,000 photos, each matched to a street-view image and a satellite image of the same spot. They then asked AI models to find each photo's location by comparing it with the satellite view, and to rate the damage. Matching street-view photos to satellite images worked about 9 times in 10, but random phone photos only about 4 times in 10. The best AI damage ratings agreed with the reference fairly well (about 74 in 100).",
+  "techniques": [
+   "Matching ground photos to satellite images (cross-view retrieval)",
+   "Image features from a large pretrained network (DINOv3)",
+   "Asking AI models to rate damage on a checklist",
+   "Comparing AI answers with experts"
+  ],
+  "terms": [
+   {
+    "meaning": "Photos taken and shared by ordinary people rather than by professionals.",
+    "term": "Crowdsourced imagery"
+   },
+   {
+    "meaning": "An AI that looks at an image and answers questions about it in words.",
+    "term": "Vision-language model (VLM)"
+   },
+   {
+    "meaning": "Finding the same place in pictures taken from very different angles, like from the ground and from space.",
+    "term": "Cross-view matching"
+   }
+  ],
+  "theme": "impact",
+  "title": "Decoding the Disaster: Multi-Task Geospatial Reasoning with Vision-Language Models and Crowdsourced Imagery for Disaster Mapping",
+  "topics": [
+   "Giryes fit",
+   "Disaster response",
+   "Geolocation",
+   "Vision-language models"
+  ],
+  "url": "https://arxiv.org/abs/2610.00302"
+ },
+ {
+  "id": "latent-frequency-watermark-attack",
+  "added": "2026-10-15",
+  "authors": "K. Aistov, … D. Vatolin, A. Antsiferova",
+  "date": "2026-10-01",
+  "feasibility": 3,
+  "fit": "This is Path B of your idea (stamp if detection fails) seen from the attacker's side, and it is pure Fourier thinking, your DSP home turf. Removing or protecting a stamp is an image-restoration problem, a core strength of Prof. Giryes's group.",
+  "future": [
+   "Test watermarks against this attack as a standard check",
+   "Design stamps spread across frequencies the attack doesn't touch",
+   "Measure how often the attack forges a stamp instead of removing it"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "One GPU or Colab, open-source Stable Diffusion and open watermarking code (e.g. Tree-Ring, Stable Signature), prompts from public sets.",
+  "source": "arXiv 2610.02010 · cs.CV / cs.MM",
+  "summary": "If we cannot always detect AI images, one plan is to hide an invisible 'stamp' in every image a generator makes. This team asked how easy it is to erase such stamps. Their trick: squeeze the image into the compact code an AI image model works with, take a Fourier transform of that code, swap out a chosen set of frequencies with noise, and rebuild the picture. Against six stamping methods it erased or badly weakened several of them, kept the image looking the same, and ran faster than earlier attacks.",
+  "techniques": [
+   "Fourier transform of the model's internal code",
+   "Replacing chosen frequencies with noise",
+   "AI re-drawing to keep the image natural",
+   "Measuring watermark survival and image quality"
+  ],
+  "terms": [
+   {
+    "meaning": "A hidden pattern added to an image that people can't see but a program can read.",
+    "term": "Invisible watermark"
+   },
+   {
+    "meaning": "The compact numbers an AI image model uses to represent a picture internally, a bit like a zip file of the image.",
+    "term": "Latent code"
+   },
+   {
+    "meaning": "The type of AI that makes images by starting from noise and cleaning it up step by step.",
+    "term": "Diffusion model"
+   }
+  ],
+  "theme": "vision",
+  "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+  "topics": [
+   "AI image detection",
+   "Giryes fit",
+   "Watermarks",
+   "Frequency domain"
+  ],
+  "url": "https://arxiv.org/abs/2610.02010"
  },
  {
   "id": "relative-patch-ai-image-detector",
@@ -513,6 +1975,49 @@
   "url": "https://arxiv.org/abs/2610.11876"
  },
  {
+  "id": "wildcard-etruscan-tomb-acoustics",
+  "added": "2026-10-15",
+  "authors": "M. Forte, J. Ortoleva",
+  "date": "2026-09-05",
+  "feasibility": 2,
+  "fit": "Wildcard: room acoustics is pure signal processing (an impulse response from a hand clap). Fun to explore: simulate how a space sounds from a 3D model, or 'hear' an ancient room from its measured echo.",
+  "future": [
+   "Measure more tombs to see if this was a tradition",
+   "Rebuild what a ritual sounded like inside",
+   "Compare intended vs accidental acoustic effects"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "Laptop; free room-acoustics simulators (e.g. pyroomacoustics) and public room impulse-response datasets.",
+  "source": "Archaeology News Online · J. Archaeological Method and Theory",
+  "summary": "Two painted tombs in Italy, about 2,400 years old, may have been built to play with the senses of mourners. Researchers clapped their hands at different spots to measure how long the sound lingered, built 3D models, used AI to study the paintings, and simulated people walking through by candlelight. In the small tomb, sound died quickly, keeping visitors calm and focused. In the large one, sound lingered and deep tones could be felt in the body, which together with flickering light may have caused a dizzy, trance-like feeling.",
+  "techniques": [
+   "Hand-clap echo measurements",
+   "3D models of the rooms",
+   "AI analysis of the wall paintings",
+   "Simulated walk-throughs with candlelight"
+  ],
+  "terms": [
+   {
+    "meaning": "How long a sound keeps bouncing around a room after it stops.",
+    "term": "Reverberation"
+   },
+   {
+    "meaning": "A room's 'fingerprint': what you record after a short sharp sound like a clap.",
+    "term": "Impulse response"
+   }
+  ],
+  "theme": "audio",
+  "title": "Etruscan tombs were designed to shape how mourners saw, heard and felt",
+  "topics": [
+   "Wildcard",
+   "Room acoustics",
+   "Archaeology",
+   "Art and heritage"
+  ],
+  "url": "https://archaeologymag.com/2026/09/etruscan-tombs-were-designed-to-shape-how-mourners-saw-heard-and-felt/"
+ },
+ {
   "id": "wildcard-singing-pitch-correction",
   "added": "2026-10-15",
   "authors": "B. Dong, … J. Han, Y. He",
@@ -557,57 +2062,6 @@
    "Audio editing"
   ],
   "url": "https://arxiv.org/abs/2610.11524"
- },
- {
-  "id": "agent-runtime-temporal-monitor",
-  "added": "2026-10-15",
-  "authors": "N. Kekatos, S. Basagiannis, … P. Katsaros",
-  "date": "2026-10-07",
-  "feasibility": 3,
-  "fit": "This is the same 'write the rule, then check it automatically' job you do on hardware at NVIDIA, applied to AI assistants. It plugs straight into your 'safety layer for AI agents' idea card and uses the same public benchmark.",
-  "future": [
-   "Record timestamps and user approvals in assistant logs so time-based rules can work",
-   "Use the authors' proposed 12-field log format",
-   "Run the checker live, blocking bad actions before they happen"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "A laptop, the public AgentDojo and STAC recorded sessions, and the free MonPoly checker; no AI-model budget needed for offline replay.",
-  "source": "arXiv 2610.09793 · cs.CR",
-  "summary": "AI assistants that can send emails or move money can be tricked by hidden instructions inside what they read. This team tested a 'watchman' that checks every action the assistant takes against rules written in a precise logic language, instead of asking another AI whether things look okay. They replayed thousands of recorded assistant sessions from public attack benchmarks. Five simple rules caught about 7 in 10 attacks, but also raised a false alarm on about 3 in 10 normal sessions. They found that the logs lack timestamps and approvals, which is why the rules were so blunt, and they show how a single planted line can fool a naive check and how to fix it.",
-  "techniques": [
-   "Rules written in a time-aware logic (temporal logic)",
-   "An off-the-shelf rule checker (MonPoly)",
-   "Replaying recorded assistant sessions",
-   "Tracking where each piece of data came from"
-  ],
-  "terms": [
-   {
-    "meaning": "Checking a system's behaviour against written rules while it runs (or on its recorded log), instead of proving it correct beforehand.",
-    "term": "Runtime verification"
-   },
-   {
-    "meaning": "A precise language for rules about order and time, like 'never pay before the user approves'.",
-    "term": "Temporal logic"
-   },
-   {
-    "meaning": "Hiding instructions inside a web page or email so an AI assistant obeys the attacker instead of the user.",
-    "term": "Prompt injection"
-   },
-   {
-    "meaning": "Where a piece of information came from, e.g. which lookup produced an email address.",
-    "term": "Provenance"
-   }
-  ],
-  "theme": "impact",
-  "title": "Formal Runtime Verification for Tool-Using LLM Agents: An Offline Same-Benchmark Study on AgentDojo and STAC",
-  "topics": [
-   "Secure AI",
-   "AI agents",
-   "Runtime verification",
-   "Prompt injection"
-  ],
-  "url": "https://arxiv.org/abs/2610.09793"
  },
  {
   "id": "wildcard-titan-radar-terrain",
@@ -657,278 +2111,98 @@
   "url": "https://arxiv.org/abs/2610.07576"
  },
  {
-  "id": "dysarthric-asr-artificial-conversations",
-  "added": "2026-10-15",
-  "authors": "D. Nadrchal, M. Swain, F. Schmid, G. Widmer, P. Primus",
-  "date": "2026-10-02",
+  "id": "ai-weather-africa-rainfall",
+  "added": "2026-10-10",
+  "authors": "S. Nath, D. Sow, … F. Pappenberger, R. Mbuvha",
+  "date": "2026-09-24",
   "feasibility": 3,
-  "fit": "Speech processing that directly gives someone their voice back, close to your Wiener-filter speech work. A project could copy the three-step recipe for a Hebrew speaker or test how few hours are really needed.",
+  "fit": "A fair, careful comparison on public data is a very doable first step towards a cheap warning system, and you could extend it to check how well the AI models catch the heavy-rain days that cause floods.",
   "future": [
-   "Test on more speakers and larger models",
-   "Measure how much personal data is really needed",
-   "Try a Hebrew version"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Laptop with a GPU or Colab; the released 33-hour dataset and open Whisper models.",
-  "source": "arXiv 2610.03017 · eess.AS",
-  "summary": "One Czech man breathes through an opening in his neck and has a muscle condition that makes his speech very hard for strangers to understand. This team built a speech-to-text system just for him. They recorded 33 hours of his speech using playful made-up conversations to keep sessions natural, and they released the recordings. They trained an open speech recognizer in three steps: normal Czech, then simulated speech of this kind, then his own voice. It made about half as many mistakes as the starting model, beat human helpers on single sentences, and he said it helps him.",
-  "techniques": [
-   "Open speech recognizer (Whisper) fine-tuned in three stages",
-   "Simulating the sound of this type of voice",
-   "Collecting data through scripted 'artificial conversations'",
-   "Testing in near real-time dialogue"
-  ],
-  "terms": [
-   {
-    "meaning": "Slurred or unclear speech caused by weak or poorly controlled speech muscles.",
-    "term": "Dysarthria"
-   },
-   {
-    "meaning": "A surgical opening in the neck for breathing, which changes how the voice sounds.",
-    "term": "Tracheostomy"
-   },
-   {
-    "meaning": "Taking a model trained on lots of general data and training it a bit more on your own small dataset.",
-    "term": "Fine-tuning"
-   }
-  ],
-  "theme": "audio",
-  "title": "Personalized Automatic Speech Recognition for a Dysarthric and Tracheostomic Speaker using Artificial Conversations",
-  "topics": [
-   "Accessibility",
-   "Speech recognition",
-   "Personalization",
-   "Assistive communication"
-  ],
-  "url": "https://arxiv.org/abs/2610.03017"
- },
- {
-  "id": "latent-frequency-watermark-attack",
-  "added": "2026-10-15",
-  "authors": "K. Aistov, … D. Vatolin, A. Antsiferova",
-  "date": "2026-10-01",
-  "feasibility": 3,
-  "fit": "This is Path B of your idea (stamp if detection fails) seen from the attacker's side, and it is pure Fourier thinking, your DSP home turf. Removing or protecting a stamp is an image-restoration problem, a core strength of Prof. Giryes's group.",
-  "future": [
-   "Test watermarks against this attack as a standard check",
-   "Design stamps spread across frequencies the attack doesn't touch",
-   "Measure how often the attack forges a stamp instead of removing it"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "One GPU or Colab, open-source Stable Diffusion and open watermarking code (e.g. Tree-Ring, Stable Signature), prompts from public sets.",
-  "source": "arXiv 2610.02010 · cs.CV / cs.MM",
-  "summary": "If we cannot always detect AI images, one plan is to hide an invisible 'stamp' in every image a generator makes. This team asked how easy it is to erase such stamps. Their trick: squeeze the image into the compact code an AI image model works with, take a Fourier transform of that code, swap out a chosen set of frequencies with noise, and rebuild the picture. Against six stamping methods it erased or badly weakened several of them, kept the image looking the same, and ran faster than earlier attacks.",
-  "techniques": [
-   "Fourier transform of the model's internal code",
-   "Replacing chosen frequencies with noise",
-   "AI re-drawing to keep the image natural",
-   "Measuring watermark survival and image quality"
-  ],
-  "terms": [
-   {
-    "meaning": "A hidden pattern added to an image that people can't see but a program can read.",
-    "term": "Invisible watermark"
-   },
-   {
-    "meaning": "The compact numbers an AI image model uses to represent a picture internally, a bit like a zip file of the image.",
-    "term": "Latent code"
-   },
-   {
-    "meaning": "The type of AI that makes images by starting from noise and cleaning it up step by step.",
-    "term": "Diffusion model"
-   }
-  ],
-  "theme": "vision",
-  "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
-  "topics": [
-   "AI image detection",
-   "Giryes fit",
-   "Watermarks",
-   "Frequency domain"
-  ],
-  "url": "https://arxiv.org/abs/2610.02010"
- },
- {
-  "id": "grdisaster-crowd-photos",
-  "added": "2026-10-15",
-  "authors": "W. Yin, … X. X. Zhu, H. Li",
-  "date": "2026-10",
-  "feasibility": 2,
-  "fit": "Fits Prof. Giryes's group's 3D and multi-view vision strengths and tackles disaster response. A semester project could improve the weak step, matching a messy phone photo to a satellite view.",
-  "future": [
-   "Use before-and-after images of the same place",
-   "Add road maps, elevation and weather data",
-   "Give a confidence score and flag 'not enough evidence'",
-   "Build lighter models for field use"
+   "Focus the scores on extreme rain, not average days",
+   "Test in real time at African forecast centres",
+   "Look at spatial patterns, not single points"
   ],
   "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "One GPU; the PhotoMappers-based triplets if released, or public street-view and satellite tiles; free open AI models.",
-  "source": "arXiv 2610.00302 · cs.CV",
-  "summary": "After a hurricane or flood, people post thousands of photos, but rescuers need to know where each was taken and how bad the damage is. This team built a set of about 26,000 photos, each matched to a street-view image and a satellite image of the same spot. They then asked AI models to find each photo's location by comparing it with the satellite view, and to rate the damage. Matching street-view photos to satellite images worked about 9 times in 10, but random phone photos only about 4 times in 10. The best AI damage ratings agreed with the reference fairly well (about 74 in 100).",
+  "needs": "Public AI forecast models and free satellite rainfall data (IMERG, CHIRPS); a laptop or free cloud GPU.",
+  "source": "arXiv 2609.31775 · AfriClimate AI, ECMWF, Oxford",
+  "summary": "Many African weather services cannot afford to run big physics-based forecast models, but new AI forecast models run on a single computer. This team asked whether the AI models are actually good enough for rainfall in Africa. They compared three Google DeepMind AI models with Europe's top physics model over 2020–2025, checking 1 to 9 days ahead against free satellite rainfall maps. The AI models were about 5% better on typical cases, up to 15% better near Cameroon and Gabon one day ahead, but worse in dry highland areas.",
   "techniques": [
-   "Matching ground photos to satellite images (cross-view retrieval)",
-   "Image features from a large pretrained network (DINOv3)",
-   "Asking AI models to rate damage on a checklist",
-   "Comparing AI answers with experts"
+   "Comparing forecasts against satellite rain maps",
+   "Correcting forecast bias per climate zone",
+   "Probabilistic forecast scores",
+   "Statistical significance tests"
   ],
   "terms": [
    {
-    "meaning": "Photos taken and shared by ordinary people rather than by professionals.",
-    "term": "Crowdsourced imagery"
+    "meaning": "Forecasting by simulating the physics of the atmosphere on a supercomputer.",
+    "term": "Numerical weather prediction (NWP)"
    },
    {
-    "meaning": "An AI that looks at an image and answers questions about it in words.",
-    "term": "Vision-language model (VLM)"
+    "meaning": "How far ahead the forecast is made, e.g. 3 days before the rain.",
+    "term": "Lead time"
    },
    {
-    "meaning": "Finding the same place in pictures taken from very different angles, like from the ground and from space.",
-    "term": "Cross-view matching"
+    "meaning": "Adjusting a forecast so that '70% chance of rain' really means rain about 7 times out of 10.",
+    "term": "Calibration"
    }
   ],
   "theme": "impact",
-  "title": "Decoding the Disaster: Multi-Task Geospatial Reasoning with Vision-Language Models and Crowdsourced Imagery for Disaster Mapping",
-  "topics": [
-   "Giryes fit",
-   "Disaster response",
-   "Geolocation",
-   "Vision-language models"
-  ],
-  "url": "https://arxiv.org/abs/2610.00302"
- },
- {
-  "id": "global-forecast-inequality",
-  "added": "2026-10-15",
-  "authors": "M. Linsenmeier, J. G. Shrader",
-  "date": "2026-09-14",
-  "feasibility": 3,
-  "fit": "This is the 'why' behind your early-warning card: it measures exactly the gap that free signals like cellular links could help fill. Good for your project's opening slide.",
-  "future": [
-   "Test whether adding cheap or opportunistic data closes the gap in one country",
-   "Repeat the study for rain and wind, not only temperature",
-   "Focus on extreme days rather than average days"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Open-access paper; public forecast archives (e.g. ECMWF/WMO) and station lists if you want to reproduce a slice of it.",
-  "source": "Nature Communications 17, 10792",
-  "summary": "Good warnings for heat waves and cold snaps need good forecasts, but not everyone gets them. This study compared temperature forecasts across the world since 1985. A 7-day forecast in a rich country is about as accurate as a 1-day forecast in a poor one, and poor countries are roughly 17 years behind. Poorer countries have fewer weather stations, their stations report less often, and only about 1 in 5 send an official city forecast to the UN weather agency, compared with 3 in 4 rich countries.",
-  "techniques": [
-   "Comparing forecasts with what happened, country by country",
-   "Statistics over 40 years of data",
-   "Linking accuracy to station density"
-  ],
-  "terms": [
-   {
-    "meaning": "How closely a forecast matches what actually happened, compared with just guessing the usual weather.",
-    "term": "Forecast skill"
-   },
-   {
-    "meaning": "A balloon carrying sensors up through the air to measure temperature and wind at different heights.",
-    "term": "Weather balloon (radiosonde)"
-   }
-  ],
-  "theme": "impact",
-  "title": "Global inequalities in weather forecasts",
+  "title": "Suitable Measures for the Potential Operational Utility of AI NWP Rainfall Forecasts Over Africa",
   "topics": [
    "Early warning",
-   "Heat waves",
-   "Global South",
-   "Weather data gaps"
+   "Africa",
+   "AI weather models",
+   "Satellite rainfall"
   ],
-  "url": "https://www.nature.com/articles/s41467-026-77630-w"
+  "url": "https://arxiv.org/abs/2609.31775"
  },
  {
-  "id": "wildcard-etruscan-tomb-acoustics",
-  "added": "2026-10-15",
-  "authors": "M. Forte, J. Ortoleva",
-  "date": "2026-09-05",
-  "feasibility": 2,
-  "fit": "Wildcard: room acoustics is pure signal processing (an impulse response from a hand clap). Fun to explore: simulate how a space sounds from a 3D model, or 'hear' an ancient room from its measured echo.",
+  "id": "audio-sports-highlights",
+  "added": "2026-10-10",
+  "authors": "H. Xu, M. Sarkar, V. Raj, D. Gunawan (Deakin / Dolby)",
+  "date": "2026-09-15",
+  "feasibility": 3,
+  "fit": "It is your music-genre classifier skill set (spectrograms, embeddings, a small sequence model) on a fun, very visible problem; a great semester demo.",
   "future": [
-   "Measure more tombs to see if this was a tradition",
-   "Rebuild what a ritual sounded like inside",
-   "Compare intended vs accidental acoustic effects"
+   "Make predictions smoother over time instead of jumpy",
+   "Try it on Israeli football or basketball broadcasts",
+   "Better voice/background splitting"
   ],
-  "futureFrom": "paper",
-  "kind": "News",
-  "needs": "Laptop; free room-acoustics simulators (e.g. pyroomacoustics) and public room impulse-response datasets.",
-  "source": "Archaeology News Online · J. Archaeological Method and Theory",
-  "summary": "Two painted tombs in Italy, about 2,400 years old, may have been built to play with the senses of mourners. Researchers clapped their hands at different spots to measure how long the sound lingered, built 3D models, used AI to study the paintings, and simulated people walking through by candlelight. In the small tomb, sound died quickly, keeping visitors calm and focused. In the large one, sound lingered and deep tones could be felt in the body, which together with flickering light may have caused a dizzy, trance-like feeling.",
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public SV-Highlights dataset (YouTube videos) and free pretrained audio models; one GPU.",
+  "source": "arXiv 2609.17923 · MMSports '26",
+  "summary": "Finding the exciting moments in a two-hour match is usually done by big video AI models. This team asked how far you get by just listening: commentary, crowd roar and whistles. Using 317 match videos across 8 sports, a sound-only model beat a picture-only model and every earlier audio-plus-video method they tried, and simply combining sound and picture did best. Splitting out the commentator's voice showed it carries more of the signal than the crowd, but you need both.",
   "techniques": [
-   "Hand-clap echo measurements",
-   "3D models of the rooms",
-   "AI analysis of the wall paintings",
-   "Simulated walk-throughs with candlelight"
+   "Pretrained audio network (AST) features",
+   "Small sequence model (GRU)",
+   "Voice/background separation (Demucs)",
+   "Late fusion with video features"
   ],
   "terms": [
    {
-    "meaning": "How long a sound keeps bouncing around a room after it stops.",
-    "term": "Reverberation"
+    "meaning": "A picture of sound showing which frequencies are loud at each moment.",
+    "term": "Spectrogram"
    },
    {
-    "meaning": "A room's 'fingerprint': what you record after a short sharp sound like a clap.",
-    "term": "Impulse response"
+    "meaning": "A list of numbers a pretrained network produces to summarise a short clip.",
+    "term": "Embedding"
+   },
+   {
+    "meaning": "Splitting a mixed recording into parts, such as voice and background.",
+    "term": "Source separation"
    }
   ],
   "theme": "audio",
-  "title": "Etruscan tombs were designed to shape how mourners saw, heard and felt",
+  "title": "Audio for Sports Highlight Detection: A Comparative Empirical Study",
   "topics": [
    "Wildcard",
-   "Room acoustics",
-   "Archaeology",
-   "Art and heritage"
+   "Sports",
+   "Audio event detection",
+   "Multimodal"
   ],
-  "url": "https://archaeologymag.com/2026/09/etruscan-tombs-were-designed-to-shape-how-mourners-saw-heard-and-felt/"
- },
- {
-  "id": "cml-air-temperature-proxy",
-  "added": "2026-10-15",
-  "authors": "P. Musil, M. Ištvánek, Š. Miklánek, J. Hejna, P. Mlýnek",
-  "date": "2026-08-14",
-  "feasibility": 3,
-  "fit": "This is the heat-wave half of your multi-hazard early-warning card, from the same cellular-link data you know from CellEnMon. The public dataset means you could try it without asking an operator.",
-  "future": [
-   "Scale to large, mixed networks of links",
-   "Use links at different heights to map city heat",
-   "Turn the temperature proxy into heat-wave warnings"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop; the public Zenodo dataset (CC BY, about 62 MB) and nearby weather-station data.",
-  "source": "EGUsphere preprint egusphere-2026-3888 · in open review",
-  "summary": "The radio links between cell towers already report rain through signal loss. This team asked whether the same equipment can also watch heat. Each link unit logs its own internal temperature for maintenance, and that reading follows the outside air closely but runs about 25 °C too hot because of its own electronics and the sun. Once each unit's personal offset is removed, the error drops to about 2 °C, and a small learning model brings it to about 1.7 °C. Reviewers (comments posted in late September) question how freely operators share such data.",
-  "techniques": [
-   "Removing each unit's personal offset",
-   "Ranking which logged values help most (feature selection)",
-   "Small regression and time-series models",
-   "Testing on rooftops the model never saw"
-  ],
-  "terms": [
-   {
-    "meaning": "The point-to-point radio connection between two cell towers; rain and heat change its readings.",
-    "term": "Commercial microwave link (CML)"
-   },
-   {
-    "meaning": "A steady error, like a thermometer that always reads 25 degrees too high.",
-    "term": "Offset"
-   },
-   {
-    "meaning": "Something that is not the thing you want but moves together with it, so you can use it instead.",
-    "term": "Proxy"
-   }
-  ],
-  "theme": "wireless",
-  "title": "Feasibility and limits of commercial microwave links for opportunistic air-temperature monitoring",
-  "topics": [
-   "Early warning",
-   "Heat waves",
-   "Cellular links as sensors",
-   "Machine learning"
-  ],
-  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3888/"
+  "url": "https://arxiv.org/abs/2609.17923"
  },
  {
   "id": "av-neuroamp-hearing-aid",
@@ -976,6 +2250,198 @@
    "Accessibility"
   ],
   "url": "https://arxiv.org/abs/2610.08579"
+ },
+ {
+  "id": "camelot-agent-model-checking",
+  "added": "2026-10-10",
+  "authors": "E. Nikolaou, M. W. Eckhoff, … D. Aspinall",
+  "date": "2026-09-16",
+  "feasibility": 2,
+  "fit": "This is your NVIDIA work pointed at AI software: same model checker, same 'prove it can never happen' mindset, but the design under test is an AI agent's plan instead of a circuit.",
+  "future": [
+   "Cut false alarms where safe plans get blocked (loops are over-approximated)",
+   "Handle rules that depend on data only known at run time",
+   "Support privacy rules about who may read which data"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Laptop, the authors' public code and the public AgentDojo test suite, plus a small budget for calls to an AI model.",
+  "source": "arXiv 2609.18674 · cs.CR, cs.LO",
+  "summary": "AI assistants that can send emails, pay bills or book travel can be tricked by hidden instructions planted in a web page or a message. This team checks the assistant's whole plan before it is allowed to touch anything. They turn the plan into a small state machine and use a model checker, the same kind of tool used to prove chips correct, to test it against written safety rules. On a standard test suite, their rules fully covered 22 of 28 security policies, and when a plan fails the check, the tool shows the assistant exactly why so it can fix the plan.",
+  "techniques": [
+   "Turning code into a state machine",
+   "Rules written in temporal logic (CTL)",
+   "Off-the-shelf model checker (nuXmv)",
+   "Feeding the failure trace back to the AI to repair its plan"
+  ],
+  "terms": [
+   {
+    "meaning": "A program that explores every possible step of a system to prove a rule always holds, or to find a case where it breaks.",
+    "term": "Model checker"
+   },
+   {
+    "meaning": "A precise way to write rules about order in time, like 'money is never sent before the user approves'.",
+    "term": "Temporal logic"
+   },
+   {
+    "meaning": "Hiding instructions inside text an AI reads, so it does something the user never asked for.",
+    "term": "Prompt injection"
+   },
+   {
+    "meaning": "A concrete step-by-step trace showing how a rule can be broken.",
+    "term": "Counterexample"
+   }
+  ],
+  "theme": "impact",
+  "title": "CaMeLoT: CaMeL orchestrated with Temporal logic for static verification and liveness",
+  "topics": [
+   "Secure AI",
+   "AI agents",
+   "Model checking",
+   "Prompt injection"
+  ],
+  "url": "https://arxiv.org/abs/2609.18674"
+ },
+ {
+  "id": "coralscapes-v2-reefs",
+  "added": "2026-10-10",
+  "authors": "J. Sauder, T. Ruckli, … D. Tuia, G. Banc-Prandi",
+  "date": "2026-09",
+  "feasibility": 3,
+  "fit": "A climate-and-ocean problem right next door in the Red Sea, solved with the image segmentation you know; underwater colour and blur also give your image-enhancement background a role.",
+  "future": [
+   "Run the models on underwater robots doing surveys",
+   "Track fish behaviour over time",
+   "Handle dense fish schools"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Coralscapes data (version 1 is public; check V2 release) and one GPU.",
+  "source": "arXiv 2609.12826 · EPFL, MIT, Red Sea partners",
+  "summary": "Coral reefs are dying from heat, and divers cannot survey them fast enough by eye. This team labelled 2,433 underwater video frames from 45 Red Sea sites, pixel by pixel, into 95 classes, including healthy, bleached and dead coral, and outlined every one of about 65,000 fish. The best network labelled about 80 of every 100 pixels correctly, and the new data improved every model they tested. It is the closest thing reefs have to a self-driving-car street dataset.",
+  "techniques": [
+   "Pixel-level labelling network (SegFormer)",
+   "Large pretrained vision models with light fine-tuning (LoRA)",
+   "Video-based fish outlining",
+   "Keeping test sites separate from training sites"
+  ],
+  "terms": [
+   {
+    "meaning": "Labelling every pixel in an image with what it shows.",
+    "term": "Segmentation"
+   },
+   {
+    "meaning": "Labelling every pixel and also telling apart individual objects, like fish number 1 versus fish number 2.",
+    "term": "Panoptic"
+   },
+   {
+    "meaning": "Corals turning white when hot water makes them lose the algae that feed them.",
+    "term": "Coral bleaching"
+   }
+  ],
+  "theme": "vision",
+  "title": "Coralscapes V2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs",
+  "topics": [
+   "Wildcard",
+   "Ocean",
+   "Climate",
+   "Segmentation"
+  ],
+  "url": "https://arxiv.org/abs/2609.12826"
+ },
+ {
+  "id": "das-fiber-urban-traffic",
+  "added": "2026-10-10",
+  "authors": "H. Tian, H. Cai, X. Chen, Y. Yang",
+  "date": "2026-09-23",
+  "feasibility": 2,
+  "fit": "Exactly the 'communication cable as a sensor' idea you like, and the core is image processing on the vibration pictures, not hardware.",
+  "future": [
+   "Check speeds against GPS or cameras",
+   "Handle heavy congestion and two-way traffic",
+   "Use less hand labelling (self-supervised learning)"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public DAS recordings (several open datasets exist, e.g. from Stanford or PubDAS); the paper's own data is not public. One GPU.",
+  "source": "arXiv 2609.28793 · cs.LG",
+  "summary": "Cities need traffic data, but cameras and road sensors are costly. This team used 23 km of internet fiber already buried under a university campus: laser pulses sent down the fiber pick up tiny vibrations from passing cars. They turned the vibrations into space-time images, where each car draws a line, and trained an object detector to find the lines, first on fake images and then on real ones. Their counts matched manual counts very closely (correlation 0.93), 50 times faster than the old method, and showed traffic up 34% on a football gameday.",
+  "techniques": [
+   "Band-pass filtering and envelope detection",
+   "Object detector on space-time images (YOLO)",
+   "Training on simulated then real data",
+   "Speed from line slope (PCA)"
+  ],
+  "terms": [
+   {
+    "meaning": "Sending laser pulses down an ordinary fiber-optic cable and reading the light bounced back to feel vibrations every few metres.",
+    "term": "Distributed acoustic sensing (DAS)"
+   },
+   {
+    "meaning": "A picture where one axis is position along the cable and the other is time, so a moving car shows up as a slanted line.",
+    "term": "Space-time image"
+   },
+   {
+    "meaning": "Fake but realistic training examples made by simulation.",
+    "term": "Synthetic data"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Monitoring Urban Traffic Dynamics at Fine Spatiotemporal Resolution Using Distributed Acoustic Sensing and Deep Learning",
+  "topics": [
+   "Fiber as a sensor",
+   "Traffic",
+   "Object detection",
+   "Smart cities"
+  ],
+  "url": "https://arxiv.org/abs/2609.28793"
+ },
+ {
+  "id": "holography-pollen-low-cost",
+  "added": "2026-10-10",
+  "authors": "S. Warshaneyan, J. Danyal, B. Cugmas, … R. Kadiķis",
+  "date": "2026-09-19",
+  "feasibility": 2,
+  "fit": "Matches Prof. Giryes's group's strength in combining optics and neural networks and in testing whether networks are reliable; the real problem is making lab diagnosis affordable where microscopes are scarce.",
+  "future": [
+   "Train a network to do the image rebuilding so lens-free closes the gap to the microscope",
+   "Make the detector less fragile to small disturbances",
+   "Try other samples such as blood or parasites"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public hologram simulations or an existing lens-free dataset; data from this paper is not listed as public, so check with the authors. One GPU.",
+  "source": "arXiv 2609.23017 · cs.CV",
+  "summary": "Microscopes are expensive, so the team tried a cheap lens-free setup: a light source shines through the sample onto a camera chip, and software turns the blurry pattern into an image. They imaged six pollen types both ways and trained the same detector and classifier on each. The normal microscope sorted pollen about 97 of 100 times; the best software-rebuilt lens-free images about 77 of 100, and raw patterns far worse. They also found that the 'heat maps' meant to explain the network's decisions became close to random on lens-free images unless smoothed.",
+  "techniques": [
+   "Rebuilding images from holograms",
+   "Object detector (YOLO)",
+   "Small image classifier (MobileNet)",
+   "Testing how trustworthy explanations are"
+  ],
+  "terms": [
+   {
+    "meaning": "Imaging with no lens: the camera records an interference pattern and software rebuilds the picture from it.",
+    "term": "Lens-free holography"
+   },
+   {
+    "meaning": "Recovering the missing part of a light wave so a sharp image can be rebuilt from the recorded pattern.",
+    "term": "Phase retrieval"
+   },
+   {
+    "meaning": "A picture that shows which pixels a network relied on for its answer.",
+    "term": "Explanation heat map"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Reconstructed holograms and explanation-aware evaluation for low-cost computational pollen analysis in veterinary cytology",
+  "topics": [
+   "Giryes fit",
+   "Computational imaging",
+   "Low-cost diagnosis",
+   "Explainable AI"
+  ],
+  "url": "https://arxiv.org/abs/2609.23017"
  },
  {
   "id": "lung-ultrasound-tb-screening",
@@ -1123,147 +2589,6 @@
   "url": "https://arxiv.org/abs/2609.35966"
  },
  {
-  "id": "ai-weather-africa-rainfall",
-  "added": "2026-10-10",
-  "authors": "S. Nath, D. Sow, … F. Pappenberger, R. Mbuvha",
-  "date": "2026-09-24",
-  "feasibility": 3,
-  "fit": "A fair, careful comparison on public data is a very doable first step towards a cheap warning system, and you could extend it to check how well the AI models catch the heavy-rain days that cause floods.",
-  "future": [
-   "Focus the scores on extreme rain, not average days",
-   "Test in real time at African forecast centres",
-   "Look at spatial patterns, not single points"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Public AI forecast models and free satellite rainfall data (IMERG, CHIRPS); a laptop or free cloud GPU.",
-  "source": "arXiv 2609.31775 · AfriClimate AI, ECMWF, Oxford",
-  "summary": "Many African weather services cannot afford to run big physics-based forecast models, but new AI forecast models run on a single computer. This team asked whether the AI models are actually good enough for rainfall in Africa. They compared three Google DeepMind AI models with Europe's top physics model over 2020–2025, checking 1 to 9 days ahead against free satellite rainfall maps. The AI models were about 5% better on typical cases, up to 15% better near Cameroon and Gabon one day ahead, but worse in dry highland areas.",
-  "techniques": [
-   "Comparing forecasts against satellite rain maps",
-   "Correcting forecast bias per climate zone",
-   "Probabilistic forecast scores",
-   "Statistical significance tests"
-  ],
-  "terms": [
-   {
-    "meaning": "Forecasting by simulating the physics of the atmosphere on a supercomputer.",
-    "term": "Numerical weather prediction (NWP)"
-   },
-   {
-    "meaning": "How far ahead the forecast is made, e.g. 3 days before the rain.",
-    "term": "Lead time"
-   },
-   {
-    "meaning": "Adjusting a forecast so that '70% chance of rain' really means rain about 7 times out of 10.",
-    "term": "Calibration"
-   }
-  ],
-  "theme": "impact",
-  "title": "Suitable Measures for the Potential Operational Utility of AI NWP Rainfall Forecasts Over Africa",
-  "topics": [
-   "Early warning",
-   "Africa",
-   "AI weather models",
-   "Satellite rainfall"
-  ],
-  "url": "https://arxiv.org/abs/2609.31775"
- },
- {
-  "id": "das-fiber-urban-traffic",
-  "added": "2026-10-10",
-  "authors": "H. Tian, H. Cai, X. Chen, Y. Yang",
-  "date": "2026-09-23",
-  "feasibility": 2,
-  "fit": "Exactly the 'communication cable as a sensor' idea you like, and the core is image processing on the vibration pictures, not hardware.",
-  "future": [
-   "Check speeds against GPS or cameras",
-   "Handle heavy congestion and two-way traffic",
-   "Use less hand labelling (self-supervised learning)"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Public DAS recordings (several open datasets exist, e.g. from Stanford or PubDAS); the paper's own data is not public. One GPU.",
-  "source": "arXiv 2609.28793 · cs.LG",
-  "summary": "Cities need traffic data, but cameras and road sensors are costly. This team used 23 km of internet fiber already buried under a university campus: laser pulses sent down the fiber pick up tiny vibrations from passing cars. They turned the vibrations into space-time images, where each car draws a line, and trained an object detector to find the lines, first on fake images and then on real ones. Their counts matched manual counts very closely (correlation 0.93), 50 times faster than the old method, and showed traffic up 34% on a football gameday.",
-  "techniques": [
-   "Band-pass filtering and envelope detection",
-   "Object detector on space-time images (YOLO)",
-   "Training on simulated then real data",
-   "Speed from line slope (PCA)"
-  ],
-  "terms": [
-   {
-    "meaning": "Sending laser pulses down an ordinary fiber-optic cable and reading the light bounced back to feel vibrations every few metres.",
-    "term": "Distributed acoustic sensing (DAS)"
-   },
-   {
-    "meaning": "A picture where one axis is position along the cable and the other is time, so a moving car shows up as a slanted line.",
-    "term": "Space-time image"
-   },
-   {
-    "meaning": "Fake but realistic training examples made by simulation.",
-    "term": "Synthetic data"
-   }
-  ],
-  "theme": "wireless",
-  "title": "Monitoring Urban Traffic Dynamics at Fine Spatiotemporal Resolution Using Distributed Acoustic Sensing and Deep Learning",
-  "topics": [
-   "Fiber as a sensor",
-   "Traffic",
-   "Object detection",
-   "Smart cities"
-  ],
-  "url": "https://arxiv.org/abs/2609.28793"
- },
- {
-  "id": "holography-pollen-low-cost",
-  "added": "2026-10-10",
-  "authors": "S. Warshaneyan, J. Danyal, B. Cugmas, … R. Kadiķis",
-  "date": "2026-09-19",
-  "feasibility": 2,
-  "fit": "Matches Prof. Giryes's group's strength in combining optics and neural networks and in testing whether networks are reliable; the real problem is making lab diagnosis affordable where microscopes are scarce.",
-  "future": [
-   "Train a network to do the image rebuilding so lens-free closes the gap to the microscope",
-   "Make the detector less fragile to small disturbances",
-   "Try other samples such as blood or parasites"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Public hologram simulations or an existing lens-free dataset; data from this paper is not listed as public, so check with the authors. One GPU.",
-  "source": "arXiv 2609.23017 · cs.CV",
-  "summary": "Microscopes are expensive, so the team tried a cheap lens-free setup: a light source shines through the sample onto a camera chip, and software turns the blurry pattern into an image. They imaged six pollen types both ways and trained the same detector and classifier on each. The normal microscope sorted pollen about 97 of 100 times; the best software-rebuilt lens-free images about 77 of 100, and raw patterns far worse. They also found that the 'heat maps' meant to explain the network's decisions became close to random on lens-free images unless smoothed.",
-  "techniques": [
-   "Rebuilding images from holograms",
-   "Object detector (YOLO)",
-   "Small image classifier (MobileNet)",
-   "Testing how trustworthy explanations are"
-  ],
-  "terms": [
-   {
-    "meaning": "Imaging with no lens: the camera records an interference pattern and software rebuilds the picture from it.",
-    "term": "Lens-free holography"
-   },
-   {
-    "meaning": "Recovering the missing part of a light wave so a sharp image can be rebuilt from the recorded pattern.",
-    "term": "Phase retrieval"
-   },
-   {
-    "meaning": "A picture that shows which pixels a network relied on for its answer.",
-    "term": "Explanation heat map"
-   }
-  ],
-  "theme": "imaging",
-  "title": "Reconstructed holograms and explanation-aware evaluation for low-cost computational pollen analysis in veterinary cytology",
-  "topics": [
-   "Giryes fit",
-   "Computational imaging",
-   "Low-cost diagnosis",
-   "Explainable AI"
-  ],
-  "url": "https://arxiv.org/abs/2609.23017"
- },
- {
   "id": "tacls-gnss-flash-flood",
   "added": "2026-10-10",
   "authors": "Y. Bock (Scripps), NASA JPL, NOAA NWS",
@@ -1311,149 +2636,200 @@
   "url": "https://www.zetik.com/news/article/story_id-p008-216314"
  },
  {
-  "id": "camelot-agent-model-checking",
-  "added": "2026-10-10",
-  "authors": "E. Nikolaou, M. W. Eckhoff, … D. Aspinall",
-  "date": "2026-09-16",
-  "feasibility": 2,
-  "fit": "This is your NVIDIA work pointed at AI software: same model checker, same 'prove it can never happen' mindset, but the design under test is an AI agent's plan instead of a circuit.",
-  "future": [
-   "Cut false alarms where safe plans get blocked (loops are over-approximated)",
-   "Handle rules that depend on data only known at run time",
-   "Support privacy rules about who may read which data"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop, the authors' public code and the public AgentDojo test suite, plus a small budget for calls to an AI model.",
-  "source": "arXiv 2609.18674 · cs.CR, cs.LO",
-  "summary": "AI assistants that can send emails, pay bills or book travel can be tricked by hidden instructions planted in a web page or a message. This team checks the assistant's whole plan before it is allowed to touch anything. They turn the plan into a small state machine and use a model checker, the same kind of tool used to prove chips correct, to test it against written safety rules. On a standard test suite, their rules fully covered 22 of 28 security policies, and when a plan fails the check, the tool shows the assistant exactly why so it can fix the plan.",
-  "techniques": [
-   "Turning code into a state machine",
-   "Rules written in temporal logic (CTL)",
-   "Off-the-shelf model checker (nuXmv)",
-   "Feeding the failure trace back to the AI to repair its plan"
-  ],
-  "terms": [
-   {
-    "meaning": "A program that explores every possible step of a system to prove a rule always holds, or to find a case where it breaks.",
-    "term": "Model checker"
-   },
-   {
-    "meaning": "A precise way to write rules about order in time, like 'money is never sent before the user approves'.",
-    "term": "Temporal logic"
-   },
-   {
-    "meaning": "Hiding instructions inside text an AI reads, so it does something the user never asked for.",
-    "term": "Prompt injection"
-   },
-   {
-    "meaning": "A concrete step-by-step trace showing how a rule can be broken.",
-    "term": "Counterexample"
-   }
-  ],
-  "theme": "impact",
-  "title": "CaMeLoT: CaMeL orchestrated with Temporal logic for static verification and liveness",
-  "topics": [
-   "Secure AI",
-   "AI agents",
-   "Model checking",
-   "Prompt injection"
-  ],
-  "url": "https://arxiv.org/abs/2609.18674"
- },
- {
-  "id": "audio-sports-highlights",
-  "added": "2026-10-10",
-  "authors": "H. Xu, M. Sarkar, V. Raj, D. Gunawan (Deakin / Dolby)",
-  "date": "2026-09-15",
+  "id": "cml-satellite-rain-fusion",
+  "added": "2026-10-08",
+  "authors": "T. Shit, M. Fencl, C. Chwala, V. Bareš",
+  "date": "2026-08-17",
   "feasibility": 3,
-  "fit": "It is your music-genre classifier skill set (spectrograms, embeddings, a small sequence model) on a fun, very visible problem; a great semester demo.",
+  "fit": "This is almost exactly your Columbia and CellEnMon topic, rain from cellular microwave links, with one smart extra input. A capstone could reproduce it on Israeli link data if your old lab can share it.",
   "future": [
-   "Make predictions smoother over time instead of jumpy",
-   "Try it on Israeli football or basketball broadcasts",
-   "Better voice/background splitting"
+   "Use the better rain/no-rain decisions to improve rain amount estimates",
+   "Try it in regions with few rain gauges, such as Africa",
+   "Add newer satellite products with finer detail"
   ],
   "futureFrom": "inferred",
   "kind": "Paper",
-  "needs": "Public SV-Highlights dataset (YouTube videos) and free pretrained audio models; one GPU.",
-  "source": "arXiv 2609.17923 · MMSports '26",
-  "summary": "Finding the exciting moments in a two-hour match is usually done by big video AI models. This team asked how far you get by just listening: commentary, crowd roar and whistles. Using 317 match videos across 8 sports, a sound-only model beat a picture-only model and every earlier audio-plus-video method they tried, and simply combining sound and picture did best. Splitting out the commentator's voice showed it carries more of the signal than the crowd, but you need both.",
+  "needs": "Public microwave-link datasets (e.g. OpenMRG from Sweden) plus free satellite cloud products; a laptop or one GPU.",
+  "source": "EGUsphere preprint · CTU Prague & KIT",
+  "summary": "The microwave links between cell towers lose signal when it rains, so they can act as free rain gauges. The hard part is telling 'rain' from 'dry but noisy' on each link. This team fed a neural network both the link's signal loss and what a weather satellite saw in the clouds above it every 15 minutes. Using the link alone, the model caught only about half of the rain; adding the satellite cloud data raised that to about 9 out of 10, with few false alarms, across 5,000 links in Germany and Czechia.",
   "techniques": [
-   "Pretrained audio network (AST) features",
-   "Small sequence model (GRU)",
-   "Voice/background separation (Demucs)",
-   "Late fusion with video features"
+   "Measuring rain from signal loss on tower-to-tower links",
+   "Adding satellite cloud maps as a second input (data fusion)",
+   "Small neural network for rain / no rain (CNN)",
+   "Testing in one country after training in another"
   ],
   "terms": [
    {
-    "meaning": "A picture of sound showing which frequencies are loud at each moment.",
-    "term": "Spectrogram"
+    "meaning": "The point-to-point radio beam that connects two cell towers; rain along the path weakens it.",
+    "term": "Commercial microwave link (CML)"
    },
    {
-    "meaning": "A list of numbers a pretrained network produces to summarise a short clip.",
-    "term": "Embedding"
+    "meaning": "A weather satellite that stays above the same spot and photographs clouds every few minutes.",
+    "term": "Geostationary satellite"
    },
    {
-    "meaning": "Splitting a mixed recording into parts, such as voice and background.",
-    "term": "Source separation"
+    "meaning": "A neural network that learns patterns by sliding small filters over the data.",
+    "term": "CNN"
    }
   ],
-  "theme": "audio",
-  "title": "Audio for Sports Highlight Detection: A Comparative Empirical Study",
+  "theme": "wireless",
+  "title": "Fusing geostationary satellite cloud properties with signal attenuation from microwave links for rain detection",
   "topics": [
-   "Wildcard",
-   "Sports",
-   "Audio event detection",
-   "Multimodal"
+   "Rain detection",
+   "Microwave links",
+   "Satellite data",
+   "Data fusion"
   ],
-  "url": "https://arxiv.org/abs/2609.17923"
+  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3905/"
  },
  {
-  "id": "coralscapes-v2-reefs",
-  "added": "2026-10-10",
-  "authors": "J. Sauder, T. Ruckli, … D. Tuia, G. Banc-Prandi",
-  "date": "2026-09",
-  "feasibility": 3,
-  "fit": "A climate-and-ocean problem right next door in the Red Sea, solved with the image segmentation you know; underwater colour and blur also give your image-enhancement background a role.",
+  "id": "frequency-traffic-detector",
+  "added": "2026-10-08",
+  "authors": "Z. Li, T. Gao, … T. Lei",
+  "date": "2026-09-14",
+  "feasibility": 2,
+  "fit": "This is your filters course inside a neural network: low-pass and high-pass filters that the network learns and adapts per pixel. A great bridge from classic image processing to modern vision.",
   "future": [
-   "Run the models on underwater robots doing surveys",
-   "Track fish behaviour over time",
-   "Handle dense fish schools"
+   "Combine the camera with other sensors such as radar",
+   "Make the frequency steps cheaper for tiny devices",
+   "Improve results in bad weather and extreme lighting"
   ],
   "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "Coralscapes data (version 1 is public; check V2 release) and one GPU.",
-  "source": "arXiv 2609.12826 · EPFL, MIT, Red Sea partners",
-  "summary": "Coral reefs are dying from heat, and divers cannot survey them fast enough by eye. This team labelled 2,433 underwater video frames from 45 Red Sea sites, pixel by pixel, into 95 classes, including healthy, bleached and dead coral, and outlined every one of about 65,000 fish. The best network labelled about 80 of every 100 pixels correctly, and the new data improved every model they tested. It is the closest thing reefs have to a self-driving-car street dataset.",
+  "needs": "Public driving datasets (KITTI, BDD100K) and one GPU; an edge board is optional.",
+  "source": "Nature Communications · Shaanxi Univ. of Sci. & Tech.",
+  "summary": "A car's camera must find people, cars and bikes in busy street scenes, fast, on a small onboard computer. This team built object spotting around an old DSP idea: split the image into smooth parts (low frequencies) and sharp edges (high frequencies), and treat them differently. Near edges the network looks at fine detail; in smooth areas it looks wider. The model is small, runs about 35 frames per second on a car-grade chip, and beat popular detectors on four driving datasets.",
   "techniques": [
-   "Pixel-level labelling network (SegFormer)",
-   "Large pretrained vision models with light fine-tuning (LoRA)",
-   "Video-based fish outlining",
-   "Keeping test sites separate from training sites"
+   "Learned low-pass and high-pass filters",
+   "Adapting each filter's reach per pixel (adaptive dilation)",
+   "Combining features from several image scales",
+   "Running on a small car-grade chip"
   ],
   "terms": [
    {
-    "meaning": "Labelling every pixel in an image with what it shows.",
-    "term": "Segmentation"
+    "meaning": "Drawing a labelled box around each object in an image.",
+    "term": "Object detection"
    },
    {
-    "meaning": "Labelling every pixel and also telling apart individual objects, like fish number 1 versus fish number 2.",
-    "term": "Panoptic"
+    "meaning": "Smooth, slowly changing areas versus sharp edges and fine texture.",
+    "term": "Low / high frequencies (in images)"
    },
    {
-    "meaning": "Corals turning white when hot water makes them lose the algae that feed them.",
-    "term": "Coral bleaching"
+    "meaning": "Spreading a filter's taps apart so it sees a wider area without extra cost.",
+    "term": "Dilation"
+   },
+   {
+    "meaning": "The standard accuracy score for object detection; higher is better.",
+    "term": "mAP"
    }
   ],
   "theme": "vision",
-  "title": "Coralscapes V2: Panoptic and Fine-Grained Visual Scene Understanding in Coral Reefs",
+  "title": "Frequency-oriented adaptive real-time object detector for cluttered traffic scenes",
   "topics": [
-   "Wildcard",
-   "Ocean",
-   "Climate",
-   "Segmentation"
+   "Self-driving",
+   "Object detection",
+   "Frequency-domain processing",
+   "Real-time vision"
   ],
-  "url": "https://arxiv.org/abs/2609.12826"
+  "url": "https://www.nature.com/articles/s41467-026-76346-1"
+ },
+ {
+  "id": "lte-wifi-rain-doppler",
+  "added": "2026-10-08",
+  "authors": "Z. Wang, J. A. Zhang, K. Wu, Y. J. Guo",
+  "date": "2026-08-17",
+  "feasibility": 2,
+  "fit": "This is the next step after your cellular-link rainfall research: same goal, but using frequency changes instead of signal loss. It is a classic DSP story (cleaning up timing errors, then a time-frequency view) followed by a small classifier, like your genre project.",
+  "future": [
+   "Prove the flicker comes from rain and not from wind or swaying trees",
+   "Test at more sites and in more seasons",
+   "Combine with signal-loss methods from longer microwave links"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "A Wi-Fi card that exposes signal measurements (e.g. ESP32 or Intel 5300 tools), a rain gauge for ground truth, and a rainy season; a laptop is enough for the processing.",
+  "source": "arXiv 2608.16088 · UTS Sydney",
+  "summary": "Rain gauges and weather radars are expensive and spread thin, so many places have poor rain data. Phone networks are everywhere, but at ordinary phone frequencies rain barely weakens the signal, so the usual trick of measuring signal loss fails. This team listened for something else: falling drops make the radio signal flicker slightly in frequency (a Doppler effect). Using that flicker, they told no rain, light rain and heavy rain apart about 95 times out of 100 on Wi-Fi, and estimated rain rate from real 4G towers to within about a quarter of a millimetre per hour.",
+  "techniques": [
+   "Correcting timing and phase errors in the received signal",
+   "Time-frequency analysis of signal flicker (Doppler spectrum)",
+   "Decision-tree voting classifier (random forest)",
+   "Small 1D neural network for rain rate (1D CNN)"
+  ],
+  "terms": [
+   {
+    "meaning": "Moving objects shift the frequency of waves bouncing off them, like a passing siren changing pitch.",
+    "term": "Doppler effect"
+   },
+   {
+    "meaning": "A detailed measurement a Wi-Fi or 4G receiver makes of how the signal arrived on each frequency.",
+    "term": "CSI (channel state information)"
+   },
+   {
+    "meaning": "The ordinary mobile phone network.",
+    "term": "4G / LTE"
+   },
+   {
+    "meaning": "A classifier that lets many simple decision trees vote.",
+    "term": "Random forest"
+   }
+  ],
+  "theme": "wireless",
+  "title": "Rainfall Sensing via Mobile Communication Signals",
+  "topics": [
+   "Rain sensing",
+   "Cellular signals",
+   "Wi-Fi sensing",
+   "Environment"
+  ],
+  "url": "https://arxiv.org/abs/2608.16088"
+ },
+ {
+  "id": "optical-deepfake-detector",
+  "added": "2026-10-08",
+  "authors": "P. G. Kashani, S. Chen, A. Ozcan (UCLA)",
+  "date": "2026-10-01",
+  "feasibility": 2,
+  "fit": "The digital front end is exactly your kind of work: turn video into compact spatial, frequency and time features. A capstone could build only that software part and test which features best separate real from fake.",
+  "future": [
+   "Use it as a fast first filter before a heavier digital check",
+   "Keep up with new video generators",
+   "Reduce the false alarms on real videos"
+  ],
+  "futureFrom": "paper",
+  "kind": "News",
+  "needs": "The optics are out of scope; the software side needs public datasets (Celeb-DF) and one GPU.",
+  "source": "eLight · UCLA (via ScienceDaily)",
+  "summary": "Fake videos made by AI are everywhere, and checking each one with a big computer model costs time and energy. The UCLA team lets light do much of the work. A small program squeezes each video into a short summary of its picture, colour and motion patterns, and that summary is shown on a tiny programmable screen; light passing through it and some fixed glass-like layers produces a real-or-fake score. It checked 15 videos at once and got about 98 of every 100 right, and still did well on videos from a new AI video generator after a little retraining.",
+  "techniques": [
+   "Compact video features (picture, frequency and motion)",
+   "Light-based classifier",
+   "Checking many videos in one pass",
+   "Robustness tests against blur, noise and compression"
+  ],
+  "terms": [
+   {
+    "meaning": "A fake video made by AI to look real.",
+    "term": "Deepfake"
+   },
+   {
+    "meaning": "A tiny screen that shapes a light beam pixel by pixel.",
+    "term": "Spatial light modulator"
+   },
+   {
+    "meaning": "A patterned clear sheet that bends light in a planned way, acting like a fixed neural-network layer.",
+    "term": "Diffractive layer"
+   }
+  ],
+  "theme": "vision",
+  "title": "Scalable, energy-efficient optical-neural architecture for multiplexed deepfake video detection",
+  "topics": [
+   "Deepfake detection",
+   "Video features",
+   "Optical computing",
+   "Media trust"
+  ],
+  "url": "https://www.sciencedaily.com/releases/2026/09/260929053534.htm"
  },
  {
   "id": "pv-thermal-defect-seg",
@@ -1501,6 +2877,53 @@
    "Segmentation"
   ],
   "url": "https://www.nature.com/articles/s41598-026-71340-5"
+ },
+ {
+  "id": "topcap-speech-topology",
+  "added": "2026-10-08",
+  "authors": "P. Feng, Q. Qu, … Y. Zhu",
+  "date": "2026-09-16",
+  "feasibility": 3,
+  "fit": "A fresh kind of hand-made feature to set beside the MFCCs you used for genre classification. Comparing the two on a small speech or music task would make a tidy, original capstone.",
+  "future": [
+   "Try other sound tasks, such as music or heart sounds",
+   "Test with more kinds of real-world noise",
+   "Compare against standard speech features"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Public speech datasets (e.g. TIMIT-like corpora) and free libraries for shape analysis (giotto-tda, ripser); a laptop.",
+  "source": "Nature Communications · SUSTech Shenzhen",
+  "summary": "Neural networks for speech work well but are hard to understand, and they can stumble on noise. This team describes the overall shape of a short piece of sound wave instead, using a branch of math called topology that captures how the wave repeats and vibrates. These shape features alone sorted 'voiced' sounds (like z) from 'voiceless' ones (like s) about as well as neural networks. Adding them to a neural network made it more accurate, more stable and less hurt by noise.",
+  "techniques": [
+   "Describing the shape of a short signal piece (topological data analysis)",
+   "Shape features fed to simple classifiers",
+   "Adding shape features to a neural network",
+   "Noise-robustness tests"
+  ],
+  "terms": [
+   {
+    "meaning": "The math of shape that cares about loops and connections, not exact sizes.",
+    "term": "Topology"
+   },
+   {
+    "meaning": "Whether your vocal cords buzz when making the sound, like z versus s.",
+    "term": "Voiced vs voiceless"
+   },
+   {
+    "meaning": "A model whose decisions a person can follow and explain.",
+    "term": "Interpretable"
+   }
+  ],
+  "theme": "audio",
+  "title": "Topology-enhanced machine learning for speech signal processing",
+  "topics": [
+   "Speech features",
+   "Interpretable ML",
+   "Noise robustness",
+   "Topology"
+  ],
+  "url": "https://www.nature.com/articles/s41467-026-77649-z"
  },
  {
   "id": "vitalfr3-vital-signs",
@@ -1552,53 +2975,6 @@
    "Breathing and heart rate"
   ],
   "url": "https://arxiv.org/abs/2610.04213"
- },
- {
-  "id": "optical-deepfake-detector",
-  "added": "2026-10-08",
-  "authors": "P. G. Kashani, S. Chen, A. Ozcan (UCLA)",
-  "date": "2026-10-01",
-  "feasibility": 2,
-  "fit": "The digital front end is exactly your kind of work: turn video into compact spatial, frequency and time features. A capstone could build only that software part and test which features best separate real from fake.",
-  "future": [
-   "Use it as a fast first filter before a heavier digital check",
-   "Keep up with new video generators",
-   "Reduce the false alarms on real videos"
-  ],
-  "futureFrom": "paper",
-  "kind": "News",
-  "needs": "The optics are out of scope; the software side needs public datasets (Celeb-DF) and one GPU.",
-  "source": "eLight · UCLA (via ScienceDaily)",
-  "summary": "Fake videos made by AI are everywhere, and checking each one with a big computer model costs time and energy. The UCLA team lets light do much of the work. A small program squeezes each video into a short summary of its picture, colour and motion patterns, and that summary is shown on a tiny programmable screen; light passing through it and some fixed glass-like layers produces a real-or-fake score. It checked 15 videos at once and got about 98 of every 100 right, and still did well on videos from a new AI video generator after a little retraining.",
-  "techniques": [
-   "Compact video features (picture, frequency and motion)",
-   "Light-based classifier",
-   "Checking many videos in one pass",
-   "Robustness tests against blur, noise and compression"
-  ],
-  "terms": [
-   {
-    "meaning": "A fake video made by AI to look real.",
-    "term": "Deepfake"
-   },
-   {
-    "meaning": "A tiny screen that shapes a light beam pixel by pixel.",
-    "term": "Spatial light modulator"
-   },
-   {
-    "meaning": "A patterned clear sheet that bends light in a planned way, acting like a fixed neural-network layer.",
-    "term": "Diffractive layer"
-   }
-  ],
-  "theme": "vision",
-  "title": "Scalable, energy-efficient optical-neural architecture for multiplexed deepfake video detection",
-  "topics": [
-   "Deepfake detection",
-   "Video features",
-   "Optical computing",
-   "Media trust"
-  ],
-  "url": "https://www.sciencedaily.com/releases/2026/09/260929053534.htm"
  },
  {
   "id": "voice-diabetes-screening",
@@ -1741,200 +3117,229 @@
   "url": "https://news.mit.edu/2026/new-ai-technique-could-make-minimally-invasive-surgeries-safer-more-precise-0916"
  },
  {
-  "id": "topcap-speech-topology",
-  "added": "2026-10-08",
-  "authors": "P. Feng, Q. Qu, … Y. Zhu",
-  "date": "2026-09-16",
+  "id": "adage-flood-xai",
+  "added": "2026-10-05",
+  "authors": "H. Lee, W. Li",
+  "date": "2026-07-31",
   "feasibility": 3,
-  "fit": "A fresh kind of hand-made feature to set beside the MFCCs you used for genre classification. Comparing the two on a small speech or music task would make a tidy, original capstone.",
+  "fit": "Closest to your rainfall research: remote sensing, physical knowledge about which signal should matter, and checking against ground truth. You could ask the same question of rainfall maps made from cellular links.",
   "future": [
-   "Try other sound tasks, such as music or heart sounds",
-   "Test with more kinds of real-world noise",
-   "Compare against standard speech features"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Public speech datasets (e.g. TIMIT-like corpora) and free libraries for shape analysis (giotto-tda, ripser); a laptop.",
-  "source": "Nature Communications · SUSTech Shenzhen",
-  "summary": "Neural networks for speech work well but are hard to understand, and they can stumble on noise. This team describes the overall shape of a short piece of sound wave instead, using a branch of math called topology that captures how the wave repeats and vibrates. These shape features alone sorted 'voiced' sounds (like z) from 'voiceless' ones (like s) about as well as neural networks. Adding them to a neural network made it more accurate, more stable and less hurt by noise.",
-  "techniques": [
-   "Describing the shape of a short signal piece (topological data analysis)",
-   "Shape features fed to simple classifiers",
-   "Adding shape features to a neural network",
-   "Noise-robustness tests"
-  ],
-  "terms": [
-   {
-    "meaning": "The math of shape that cares about loops and connections, not exact sizes.",
-    "term": "Topology"
-   },
-   {
-    "meaning": "Whether your vocal cords buzz when making the sound, like z versus s.",
-    "term": "Voiced vs voiceless"
-   },
-   {
-    "meaning": "A model whose decisions a person can follow and explain.",
-    "term": "Interpretable"
-   }
-  ],
-  "theme": "audio",
-  "title": "Topology-enhanced machine learning for speech signal processing",
-  "topics": [
-   "Speech features",
-   "Interpretable ML",
-   "Noise robustness",
-   "Topology"
-  ],
-  "url": "https://www.nature.com/articles/s41467-026-77649-z"
- },
- {
-  "id": "frequency-traffic-detector",
-  "added": "2026-10-08",
-  "authors": "Z. Li, T. Gao, … T. Lei",
-  "date": "2026-09-14",
-  "feasibility": 2,
-  "fit": "This is your filters course inside a neural network: low-pass and high-pass filters that the network learns and adapts per pixel. A great bridge from classic image processing to modern vision.",
-  "future": [
-   "Combine the camera with other sensors such as radar",
-   "Make the frequency steps cheaper for tiny devices",
-   "Improve results in bad weather and extreme lighting"
+   "Apply it to wildfire and landslide maps",
+   "Add knowledge about how things change over time",
+   "Use the mismatches to retrain or correct models"
   ],
   "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "Public driving datasets (KITTI, BDD100K) and one GPU; an edge board is optional.",
-  "source": "Nature Communications · Shaanxi Univ. of Sci. & Tech.",
-  "summary": "A car's camera must find people, cars and bikes in busy street scenes, fast, on a small onboard computer. This team built object spotting around an old DSP idea: split the image into smooth parts (low frequencies) and sharp edges (high frequencies), and treat them differently. Near edges the network looks at fine detail; in smooth areas it looks wider. The model is small, runs about 35 frames per second on a car-grade chip, and beat popular detectors on four driving datasets.",
+  "needs": "Public datasets (C2S-MS Floods, UrbanSARFloods); one GPU.",
+  "source": "arXiv 2604.26051 · ASU",
+  "summary": "AI models that map floods from satellite images can score well while looking at the wrong things. Radar sees through clouds and ordinary cameras don't, so under clouds a good model should rely on the radar. This paper measures how much each type of satellite input drives each decision and checks that against what experts know. Models with the same accuracy reasoned very differently, and some relied on camera images under thick clouds, a sign they had learned a shortcut.",
   "techniques": [
-   "Learned low-pass and high-pass filters",
-   "Adapting each filter's reach per pixel (adaptive dilation)",
-   "Combining features from several image scales",
-   "Running on a small car-grade chip"
+   "Labeling every pixel as flood or not (segmentation)",
+   "Measuring how much each input matters (SHAP)",
+   "Combining radar and camera satellite images"
   ],
   "terms": [
    {
-    "meaning": "Drawing a labelled box around each object in an image.",
-    "term": "Object detection"
+    "meaning": "Satellite radar that works through clouds and at night.",
+    "term": "SAR"
    },
    {
-    "meaning": "Smooth, slowly changing areas versus sharp edges and fine texture.",
-    "term": "Low / high frequencies (in images)"
+    "meaning": "Methods that show why a model made a decision.",
+    "term": "Explainable AI"
    },
    {
-    "meaning": "Spreading a filter's taps apart so it sees a wider area without extra cost.",
-    "term": "Dilation"
+    "meaning": "When a model gets the right answer for the wrong reason.",
+    "term": "Shortcut learning"
    },
    {
-    "meaning": "The standard accuracy score for object detection; higher is better.",
-    "term": "mAP"
+    "meaning": "Labeling each pixel of an image.",
+    "term": "Segmentation"
    }
   ],
-  "theme": "vision",
-  "title": "Frequency-oriented adaptive real-time object detector for cluttered traffic scenes",
+  "theme": "impact",
+  "title": "Evaluating the Alignment Between GeoAI Explanations and Domain Knowledge in Satellite Flood Mapping",
   "topics": [
-   "Self-driving",
-   "Object detection",
-   "Frequency-domain processing",
-   "Real-time vision"
+   "Flood mapping",
+   "Explainable AI",
+   "Remote sensing",
+   "Disaster response"
   ],
-  "url": "https://www.nature.com/articles/s41467-026-76346-1"
+  "url": "https://arxiv.org/abs/2604.26051"
  },
  {
-  "id": "lte-wifi-rain-doppler",
-  "added": "2026-10-08",
-  "authors": "Z. Wang, J. A. Zhang, K. Wu, Y. J. Guo",
-  "date": "2026-08-17",
+  "id": "attnsign",
+  "added": "2026-10-05",
+  "authors": "M. Hu, G. Sun, A. D. Ross, S. Li, Z. Tao",
+  "date": "2026-07-31",
   "feasibility": 2,
-  "fit": "This is the next step after your cellular-link rainfall research: same goal, but using frequency changes instead of signal loss. It is a classic DSP story (cleaning up timing errors, then a time-frequency view) followed by a small classifier, like your genre project.",
+  "fit": "A video-understanding problem with clear social value, and a good way into how large AI models can be guided.",
   "future": [
-   "Prove the flicker comes from rain and not from wind or swaying trees",
-   "Test at more sites and in more seasons",
-   "Combine with signal-loss methods from longer microwave links"
+   "Guide the model with cheap hints, like hand positions, instead of retraining",
+   "Test on sign languages with little data"
   ],
   "futureFrom": "inferred",
   "kind": "Paper",
-  "needs": "A Wi-Fi card that exposes signal measurements (e.g. ESP32 or Intel 5300 tools), a rain gauge for ground truth, and a rainy season; a laptop is enough for the processing.",
-  "source": "arXiv 2608.16088 · UTS Sydney",
-  "summary": "Rain gauges and weather radars are expensive and spread thin, so many places have poor rain data. Phone networks are everywhere, but at ordinary phone frequencies rain barely weakens the signal, so the usual trick of measuring signal loss fails. This team listened for something else: falling drops make the radio signal flicker slightly in frequency (a Doppler effect). Using that flicker, they told no rain, light rain and heavy rain apart about 95 times out of 100 on Wi-Fi, and estimated rain rate from real 4G towers to within about a quarter of a millimetre per hour.",
+  "needs": "GPU for VLM inference; public sign-language corpora.",
+  "source": "arXiv 2608.00235",
+  "summary": "Large AI models that understand images and text are bad at translating sign language, because they don't look at the hands and face at the right moments. This work guides the model's attention toward the signer's hands and face over time, which improves translation.",
   "techniques": [
-   "Correcting timing and phase errors in the received signal",
-   "Time-frequency analysis of signal flicker (Doppler spectrum)",
-   "Decision-tree voting classifier (random forest)",
-   "Small 1D neural network for rain rate (1D CNN)"
+   "Guiding where the model looks",
+   "Following the hands over time",
+   "Translation without word-by-word labels"
   ],
   "terms": [
    {
-    "meaning": "Moving objects shift the frequency of waves bouncing off them, like a passing siren changing pitch.",
-    "term": "Doppler effect"
+    "meaning": "AI that understands both images and text.",
+    "term": "Vision-language model"
    },
    {
-    "meaning": "A detailed measurement a Wi-Fi or 4G receiver makes of how the signal arrived on each frequency.",
-    "term": "CSI (channel state information)"
+    "meaning": "Which parts of the input a model focuses on.",
+    "term": "Attention"
    },
    {
-    "meaning": "The ordinary mobile phone network.",
-    "term": "4G / LTE"
-   },
-   {
-    "meaning": "A classifier that lets many simple decision trees vote.",
-    "term": "Random forest"
+    "meaning": "A word-by-word written label for each sign. 'Gloss-free' means no such labels are needed.",
+    "term": "Gloss"
    }
   ],
-  "theme": "wireless",
-  "title": "Rainfall Sensing via Mobile Communication Signals",
+  "theme": "hci",
+  "title": "Attention-Steered Vision-Language Models for Sign Language Translation",
   "topics": [
-   "Rain sensing",
-   "Cellular signals",
-   "Wi-Fi sensing",
-   "Environment"
+   "Sign language translation",
+   "Vision-language models",
+   "Video grounding"
   ],
-  "url": "https://arxiv.org/abs/2608.16088"
+  "url": "https://arxiv.org/abs/2608.00235"
  },
  {
-  "id": "cml-satellite-rain-fusion",
-  "added": "2026-10-08",
-  "authors": "T. Shit, M. Fencl, C. Chwala, V. Bareš",
-  "date": "2026-08-17",
+  "id": "bacpipe-bioacoustics",
+  "added": "2026-10-05",
+  "authors": "V. S. Kather, S. Haupert, B. Ghani, D. Stowell",
+  "date": "2026-04",
   "feasibility": 3,
-  "fit": "This is almost exactly your Columbia and CellEnMon topic, rain from cellular microwave links, with one smart extra input. A capstone could reproduce it on Israeli link data if your old lab can share it.",
+  "fit": "Audio AI for nature conservation, very close to your music-genre classifier but with real ecological data. Because the toolkit already exists, a project can focus on a new question.",
   "future": [
-   "Use the better rain/no-rain decisions to improve rain amount estimates",
-   "Try it in regions with few rain gauges, such as Africa",
-   "Add newer satellite products with finer detail"
+   "Work better on noisy recordings with many animals at once",
+   "Organize recordings beyond a fixed list of species"
   ],
-  "futureFrom": "inferred",
+  "futureFrom": "paper",
   "kind": "Paper",
-  "needs": "Public microwave-link datasets (e.g. OpenMRG from Sweden) plus free satellite cloud products; a laptop or one GPU.",
-  "source": "EGUsphere preprint · CTU Prague & KIT",
-  "summary": "The microwave links between cell towers lose signal when it rains, so they can act as free rain gauges. The hard part is telling 'rain' from 'dry but noisy' on each link. This team fed a neural network both the link's signal loss and what a weather satellite saw in the clouds above it every 15 minutes. Using the link alone, the model caught only about half of the rain; adding the satellite cloud data raised that to about 9 out of 10, with few false alarms, across 5,000 links in Germany and Czechia.",
+  "needs": "Laptop; public recordings or a cheap AudioMoth recorder for local data.",
+  "source": "arXiv 2604.11560 · Naturalis",
+  "summary": "Researchers have millions of hours of wildlife recordings that nobody has listened to. bacpipe puts more than 20 animal-sound AI models into one Python package with a visual dashboard. You can group similar sounds, train a quick classifier for a new species, and click a point to hear the sound behind it.",
   "techniques": [
-   "Measuring rain from signal loss on tower-to-tower links",
-   "Adding satellite cloud maps as a second input (data fusion)",
-   "Small neural network for rain / no rain (CNN)",
-   "Testing in one country after training in another"
+   "Pre-trained animal-sound models",
+   "Mapping sounds so similar ones sit close together (UMAP)",
+   "Grouping similar sounds (clustering)",
+   "Quick classifiers on top"
   ],
   "terms": [
    {
-    "meaning": "The point-to-point radio beam that connects two cell towers; rain along the path weakens it.",
-    "term": "Commercial microwave link (CML)"
+    "meaning": "Leaving recorders in nature and analyzing the sound later.",
+    "term": "Passive acoustic monitoring"
    },
    {
-    "meaning": "A weather satellite that stays above the same spot and photographs clouds every few minutes.",
-    "term": "Geostationary satellite"
+    "meaning": "A list of numbers summarizing a sound, where similar sounds get similar numbers.",
+    "term": "Embedding"
    },
    {
-    "meaning": "A neural network that learns patterns by sliding small filters over the data.",
-    "term": "CNN"
+    "meaning": "Automatically grouping similar items.",
+    "term": "Clustering"
    }
   ],
-  "theme": "wireless",
-  "title": "Fusing geostationary satellite cloud properties with signal attenuation from microwave links for rain detection",
+  "theme": "impact",
+  "title": "bacpipe: Making Bioacoustic Deep Learning Models Accessible",
   "topics": [
-   "Rain detection",
-   "Microwave links",
-   "Satellite data",
-   "Data fusion"
+   "Biodiversity monitoring",
+   "Passive acoustic monitoring",
+   "Audio embeddings"
   ],
-  "url": "https://egusphere.copernicus.org/preprints/2026/egusphere-2026-3905/"
+  "url": "https://github.com/bioacoustic-ai/bacpipe"
+ },
+ {
+  "id": "coadaptive-neural-interfaces",
+  "added": "2026-10-05",
+  "date": "2026-04",
+  "feasibility": 2,
+  "fit": "It joins control and signal processing with a person in the loop. A small, testable question for a project: does how fast the computer adapts change how fast people learn?",
+  "future": [
+   "Compare how fast the decoder should adapt, using a simple cursor task",
+   "Use the idea to shorten setup time for brain-computer interfaces"
+  ],
+  "futureFrom": "inferred",
+  "kind": "News",
+  "needs": "A few-channel EMG board (or a simulated user) and a cursor task.",
+  "source": "TechXplore · UW ECE",
+  "summary": "When a person controls a cursor with muscle signals, both sides are learning: the person adjusts how they move, and the computer adjusts how it reads them. University of Washington researchers used game theory to model this back-and-forth. In experiments where an electrode strip on the forearm moved an on-screen cursor, the model predicted and shaped how both sides changed.",
+  "techniques": [
+   "Game theory",
+   "A decoder that keeps updating itself",
+   "Live cursor-control experiments"
+  ],
+  "terms": [
+   {
+    "meaning": "The algorithm that turns body signals into commands.",
+    "term": "Decoder"
+   },
+   {
+    "meaning": "The person and the decoder both change over time in response to each other.",
+    "term": "Co-adaptation"
+   },
+   {
+    "meaning": "The person sees the result immediately and corrects themselves.",
+    "term": "Closed loop"
+   }
+  ],
+  "theme": "neural",
+  "title": "Neural interfaces that adapt to you: game theory for wearables and implants",
+  "topics": [
+   "Co-adaptive decoders",
+   "Human-in-the-loop control",
+   "EMG cursor control"
+  ],
+  "url": "https://techxplore.com/news/2026-04-neural-interfaces-game-theory-wearables.html"
+ },
+ {
+  "id": "differentiable-auditory-loop",
+  "added": "2026-10-05",
+  "authors": "A. Ballesta Rosen, … R. F. Lyon, S. Carlile",
+  "date": "2026-06-02",
+  "feasibility": 2,
+  "fit": "Signal processing meets biology: a model of how the ear works is used to judge the output. Unusual territory for a student project, with open code to start from.",
+  "future": [
+   "Run it on real hearing-aid hardware and test with patients"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "GPU; open-source code. Listening tests with volunteers are optional.",
+  "source": "arXiv 2606.04103",
+  "summary": "Normal hearing aids just make some frequencies louder. This project uses a computer model of the inner ear to train a hearing-aid network: it adjusts the sound until a model of the damaged ear responds the way a healthy ear would. It beat a standard hearing-aid baseline in the authors' tests, and the code is open.",
+  "techniques": [
+   "Computer model of the inner ear (CARFAC)",
+   "Network that turns audio into improved audio",
+   "Tuning to each person's hearing loss"
+  ],
+  "terms": [
+   {
+    "meaning": "The spiral part of the inner ear that turns sound into nerve signals.",
+    "term": "Cochlea"
+   },
+   {
+    "meaning": "A model you can train through with standard AI methods.",
+    "term": "Differentiable model"
+   },
+   {
+    "meaning": "Tuning a hearing aid to one person's hearing test.",
+    "term": "Fitting"
+   }
+  ],
+  "theme": "audio",
+  "title": "The Differentiable Auditory Loop (DAL): Hyper-Personalized Hearing Aids",
+  "topics": [
+   "Hearing loss",
+   "Personalized audio",
+   "Computational auditory models"
+  ],
+  "url": "https://arxiv.org/abs/2606.04103"
  },
  {
   "id": "eeg-imagined-speech",
@@ -1988,269 +3393,6 @@
   "url": "https://arxiv.org/abs/2609.29820"
  },
  {
-  "id": "surgical-vr-digital-twin",
-  "added": "2026-10-05",
-  "date": "2026-09-22",
-  "feasibility": 1,
-  "fit": "3D computer vision and user interfaces in a medical setting. A smaller version, like rebuilding a tabletop scene for remote control, is realistic for a project.",
-  "future": [
-   "Measure delay and accuracy of the 3D model compared with plain video",
-   "Test whether extra viewing angles really help people judge depth"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Depth cameras and a VR headset; a surgical robot is out of reach, so use a tabletop analogue.",
-  "source": "arXiv 2609.25527 · IROS 2026",
-  "summary": "In robotic surgery, the surgeon sees inside the body through one 3D camera and controls the instruments from a console. This system rebuilds a 3D model of the scene from cameras and shows it in a VR headset, so the surgeon can look from other angles and judge depth better.",
-  "techniques": [
-   "Tracking instruments without markers",
-   "Live 3D model of the scene (digital twin)",
-   "Multiple cameras",
-   "VR headset display"
-  ],
-  "terms": [
-   {
-    "meaning": "Controlling a robot remotely.",
-    "term": "Teleoperation"
-   },
-   {
-    "meaning": "A live 3D computer model that mirrors a real scene.",
-    "term": "Digital twin"
-   },
-   {
-    "meaning": "A thin camera inserted into the body.",
-    "term": "Endoscope"
-   }
-  ],
-  "theme": "robotics",
-  "title": "Digital Twin-Driven VR Teleoperation with Multi-View Spatial Perception for Surgical Robots",
-  "topics": [
-   "Surgical robotics",
-   "Teleoperation",
-   "3D scene reconstruction",
-   "VR interfaces"
-  ],
-  "url": "https://arxiv.org/abs/2609.25527"
- },
- {
-  "id": "hearing-aid-directivity",
-  "added": "2026-10-05",
-  "authors": "L. Uphaus, A. Merboldt, M. Hofbauer, T. Gerkmann",
-  "date": "2026-09-14",
-  "feasibility": 2,
-  "fit": "A direct sequel to your Wiener filter project: the same short-time frequency processing, now with several microphones and a neural network you can steer.",
-  "future": [
-   "Try newer sequence models (Mamba) for better quality at low delay"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "GPU; public multichannel datasets and hearing-aid transfer functions.",
-  "source": "arXiv 2609.15760 · IWAENC 2026",
-  "summary": "In a noisy room, hearing-aid users want to focus on one person. This method uses the hearing aid's microphones to keep sound from one chosen direction and lets the user steer that direction. It adds only 10 milliseconds of delay, short enough not to feel out of sync, and still matches slower methods in quality.",
-  "techniques": [
-   "Short-time Fourier transform (STFT)",
-   "Combining several microphones",
-   "Neural network you can point at a direction"
-  ],
-  "terms": [
-   {
-    "meaning": "The delay between sound entering and leaving the device.",
-    "term": "Latency"
-   },
-   {
-    "meaning": "Combining microphones so sound from one direction is kept and the rest reduced. Also called beamforming.",
-    "term": "Directional filtering"
-   },
-   {
-    "meaning": "Splitting audio into short overlapping slices and looking at the frequencies in each.",
-    "term": "STFT"
-   }
-  ],
-  "theme": "audio",
-  "title": "Directivity-Conditioned Low-Latency Neural Filtering for Speech Enhancement in Hearing Aids",
-  "topics": [
-   "Hearing aids",
-   "Multichannel speech enhancement",
-   "Spatial filtering"
-  ],
-  "url": "https://arxiv.org/abs/2609.15760"
- },
- {
-  "id": "vbts-tactile-review",
-  "added": "2026-10-05",
-  "authors": "P. Zhou + 14 authors",
-  "date": "2026-08-16",
-  "feasibility": 2,
-  "fit": "Touch as an image is exactly where your image-processing background meets robotics, and you can build one of these sensors yourself for little money.",
-  "future": [
-   "Make models trained in simulation work on real sensors",
-   "Make one model work across different sensor builds",
-   "Add touch to AI models that control robots from camera and language"
-  ],
-  "futureFrom": "paper",
-  "kind": "Review",
-  "needs": "A DIY GelSight-style sensor costs tens of dollars; otherwise public tactile datasets.",
-  "source": "arXiv 2608.15490",
-  "summary": "Some robot touch sensors are a small camera looking at the inside of a soft rubber skin. When the skin presses against something, the camera sees it deform, so touch becomes an image. This review explains the types of these sensors, how AI reads their images, and the simulators and datasets researchers use.",
-  "techniques": [
-   "Camera behind a soft skin (GelSight-style)",
-   "Tracking dots printed on the skin",
-   "Training in simulation, then on a real robot"
-  ],
-  "terms": [
-   {
-    "meaning": "A sensor that gives a robot a sense of touch.",
-    "term": "Tactile sensor"
-   },
-   {
-    "meaning": "Training in a computer simulation, then making it work on a real robot.",
-    "term": "Sim-to-real"
-   },
-   {
-    "meaning": "Robots picking up, moving and handling objects.",
-    "term": "Manipulation"
-   }
-  ],
-  "theme": "robotics",
-  "title": "Vision-Based Tactile Intelligence for Robotics: Sensing, Learning, and Embodied Manipulation",
-  "topics": [
-   "Tactile sensing",
-   "Contact-rich manipulation",
-   "Visuo-tactile learning"
-  ],
-  "url": "https://arxiv.org/abs/2608.15490"
- },
- {
-  "id": "attnsign",
-  "added": "2026-10-05",
-  "authors": "M. Hu, G. Sun, A. D. Ross, S. Li, Z. Tao",
-  "date": "2026-07-31",
-  "feasibility": 2,
-  "fit": "A video-understanding problem with clear social value, and a good way into how large AI models can be guided.",
-  "future": [
-   "Guide the model with cheap hints, like hand positions, instead of retraining",
-   "Test on sign languages with little data"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "GPU for VLM inference; public sign-language corpora.",
-  "source": "arXiv 2608.00235",
-  "summary": "Large AI models that understand images and text are bad at translating sign language, because they don't look at the hands and face at the right moments. This work guides the model's attention toward the signer's hands and face over time, which improves translation.",
-  "techniques": [
-   "Guiding where the model looks",
-   "Following the hands over time",
-   "Translation without word-by-word labels"
-  ],
-  "terms": [
-   {
-    "meaning": "AI that understands both images and text.",
-    "term": "Vision-language model"
-   },
-   {
-    "meaning": "Which parts of the input a model focuses on.",
-    "term": "Attention"
-   },
-   {
-    "meaning": "A word-by-word written label for each sign. 'Gloss-free' means no such labels are needed.",
-    "term": "Gloss"
-   }
-  ],
-  "theme": "hci",
-  "title": "Attention-Steered Vision-Language Models for Sign Language Translation",
-  "topics": [
-   "Sign language translation",
-   "Vision-language models",
-   "Video grounding"
-  ],
-  "url": "https://arxiv.org/abs/2608.00235"
- },
- {
-  "id": "adage-flood-xai",
-  "added": "2026-10-05",
-  "authors": "H. Lee, W. Li",
-  "date": "2026-07-31",
-  "feasibility": 3,
-  "fit": "Closest to your rainfall research: remote sensing, physical knowledge about which signal should matter, and checking against ground truth. You could ask the same question of rainfall maps made from cellular links.",
-  "future": [
-   "Apply it to wildfire and landslide maps",
-   "Add knowledge about how things change over time",
-   "Use the mismatches to retrain or correct models"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Public datasets (C2S-MS Floods, UrbanSARFloods); one GPU.",
-  "source": "arXiv 2604.26051 · ASU",
-  "summary": "AI models that map floods from satellite images can score well while looking at the wrong things. Radar sees through clouds and ordinary cameras don't, so under clouds a good model should rely on the radar. This paper measures how much each type of satellite input drives each decision and checks that against what experts know. Models with the same accuracy reasoned very differently, and some relied on camera images under thick clouds, a sign they had learned a shortcut.",
-  "techniques": [
-   "Labeling every pixel as flood or not (segmentation)",
-   "Measuring how much each input matters (SHAP)",
-   "Combining radar and camera satellite images"
-  ],
-  "terms": [
-   {
-    "meaning": "Satellite radar that works through clouds and at night.",
-    "term": "SAR"
-   },
-   {
-    "meaning": "Methods that show why a model made a decision.",
-    "term": "Explainable AI"
-   },
-   {
-    "meaning": "When a model gets the right answer for the wrong reason.",
-    "term": "Shortcut learning"
-   },
-   {
-    "meaning": "Labeling each pixel of an image.",
-    "term": "Segmentation"
-   }
-  ],
-  "theme": "impact",
-  "title": "Evaluating the Alignment Between GeoAI Explanations and Domain Knowledge in Satellite Flood Mapping",
-  "topics": [
-   "Flood mapping",
-   "Explainable AI",
-   "Remote sensing",
-   "Disaster response"
-  ],
-  "url": "https://arxiv.org/abs/2604.26051"
- },
- {
-  "id": "sign-to-voice-emergency",
-  "added": "2026-10-05",
-  "authors": "V. K. R. Gajjala et al.",
-  "date": "2026-07-08",
-  "feasibility": 3,
-  "fit": "Shows the full path from camera to speech. Useful as a starting point if you go the sign-language route.",
-  "future": [
-   "Make it work in real emergency-room conditions",
-   "Make it two-way, turning speech back into text or signs"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Webcam and laptop.",
-  "source": "Scientific Reports",
-  "summary": "A camera recognizes hand signs and the system speaks them aloud in real time. It's aimed at deaf or speech-impaired people in emergencies, when no interpreter is around.",
-  "techniques": [
-   "Image cleanup",
-   "Image-recognition network",
-   "Text-to-speech"
-  ],
-  "terms": [
-   {
-    "meaning": "Turning written text into spoken audio.",
-    "term": "Text-to-speech"
-   }
-  ],
-  "theme": "hci",
-  "title": "A vision-based sign language recognition and voice conversion system for inclusive communication",
-  "topics": [
-   "Assistive communication",
-   "Gesture recognition",
-   "Emergency access"
-  ],
-  "url": "https://pubmed.ncbi.nlm.nih.gov/42420290/"
- },
- {
   "id": "eeg-riemannian-attention",
   "added": "2026-10-05",
   "authors": "S. Jin, T. Zhou, … J. Kittler",
@@ -2301,133 +3443,6 @@
   "url": "https://arxiv.org/abs/2606.25456"
  },
  {
-  "id": "signvla",
-  "added": "2026-10-05",
-  "authors": "N. Bai, … Z. Tang",
-  "date": "2026-06-18",
-  "feasibility": 3,
-  "fit": "An accessibility tool built from a small, well-understood model. A project could extend it to full sentences or to Israeli Sign Language, which has very little software support.",
-  "future": [
-   "Recognize full signed sentences, not just single signs",
-   "Support sign languages with little data",
-   "Work across different signers and lighting"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Webcam, MediaPipe hand landmarks, laptop; a robot arm is optional.",
-  "source": "arXiv 2606.20857",
-  "summary": "Robots that follow instructions usually expect speech or typed text, which leaves out deaf and speech-impaired people. SignVLA watches the user's hands on video, tracks points on the fingers, and recognizes sign-language letters and commands. It then passes the instruction to a robot that carries it out.",
-  "techniques": [
-   "Tracking points on the hand from video",
-   "Sequence model (LSTM) for gestures",
-   "Smoothing predictions over time"
-  ],
-  "terms": [
-   {
-    "meaning": "About 20 points on the fingers and wrist, found automatically in video.",
-    "term": "Hand landmarks"
-   },
-   {
-    "meaning": "A neural network for sequences, such as a gesture unfolding over time.",
-    "term": "LSTM"
-   },
-   {
-    "meaning": "AI that takes what a robot sees plus an instruction and outputs robot actions.",
-    "term": "VLA model"
-   }
-  ],
-  "theme": "hci",
-  "title": "SignVLA: Real-Time Sign Language-Guided Robotic Manipulation",
-  "topics": [
-   "Sign language recognition",
-   "Accessible HRI",
-   "Vision-language-action models"
-  ],
-  "url": "https://arxiv.org/abs/2606.20857"
- },
- {
-  "id": "differentiable-auditory-loop",
-  "added": "2026-10-05",
-  "authors": "A. Ballesta Rosen, … R. F. Lyon, S. Carlile",
-  "date": "2026-06-02",
-  "feasibility": 2,
-  "fit": "Signal processing meets biology: a model of how the ear works is used to judge the output. Unusual territory for a student project, with open code to start from.",
-  "future": [
-   "Run it on real hearing-aid hardware and test with patients"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "GPU; open-source code. Listening tests with volunteers are optional.",
-  "source": "arXiv 2606.04103",
-  "summary": "Normal hearing aids just make some frequencies louder. This project uses a computer model of the inner ear to train a hearing-aid network: it adjusts the sound until a model of the damaged ear responds the way a healthy ear would. It beat a standard hearing-aid baseline in the authors' tests, and the code is open.",
-  "techniques": [
-   "Computer model of the inner ear (CARFAC)",
-   "Network that turns audio into improved audio",
-   "Tuning to each person's hearing loss"
-  ],
-  "terms": [
-   {
-    "meaning": "The spiral part of the inner ear that turns sound into nerve signals.",
-    "term": "Cochlea"
-   },
-   {
-    "meaning": "A model you can train through with standard AI methods.",
-    "term": "Differentiable model"
-   },
-   {
-    "meaning": "Tuning a hearing aid to one person's hearing test.",
-    "term": "Fitting"
-   }
-  ],
-  "theme": "audio",
-  "title": "The Differentiable Auditory Loop (DAL): Hyper-Personalized Hearing Aids",
-  "topics": [
-   "Hearing loss",
-   "Personalized audio",
-   "Computational auditory models"
-  ],
-  "url": "https://arxiv.org/abs/2606.04103"
- },
- {
-  "id": "semg-wrist-thinnet",
-  "added": "2026-10-05",
-  "date": "2026-05",
-  "feasibility": 3,
-  "fit": "A complete working example of a wrist gesture interface. The hardware is only a means here; the interesting part is getting good accuracy from a small model.",
-  "future": [
-   "Work for new users without recalibrating",
-   "Combine wrist signals with a camera"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Off-the-shelf EMG band (e.g. Myo-style or OpenBCI) or public datasets such as NinaPro.",
-  "source": "PMC · open access",
-  "summary": "The authors built a wristband that records muscle signals and a small, fast neural network, ThinNet, that recognizes hand gestures from them. To avoid false alarms, it only reports a gesture when three readings in a row agree.",
-  "techniques": [
-   "Recording muscle signals at the wrist",
-   "Small neural network",
-   "Voting over consecutive readings"
-  ],
-  "terms": [
-   {
-    "meaning": "Recognizing hand poses or movements.",
-    "term": "Gesture recognition"
-   },
-   {
-    "meaning": "A neural network small enough to run on a cheap chip.",
-    "term": "Lightweight network"
-   }
-  ],
-  "theme": "neural",
-  "title": "Wrist-Wearable sEMG Gesture Recognition System Based on the ThinNet Lightweight Network",
-  "topics": [
-   "Gesture recognition",
-   "Wearables",
-   "Edge ML"
-  ],
-  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13296126/"
- },
- {
   "id": "flexitac",
   "added": "2026-10-05",
   "authors": "B. Huang, Y. Li",
@@ -2474,92 +3489,43 @@
   "url": "https://flexitac.github.io/"
  },
  {
-  "id": "coadaptive-neural-interfaces",
+  "id": "generative-emg-sparse",
   "added": "2026-10-05",
-  "date": "2026-04",
+  "date": "2025-12",
   "feasibility": 2,
-  "fit": "It joins control and signal processing with a person in the loop. A small, testable question for a project: does how fast the computer adapts change how fast people learn?",
+  "fit": "It's a 'fill in the gaps' problem, close in spirit to estimating rainfall between sparse cellular links in your research.",
   "future": [
-   "Compare how fast the decoder should adapt, using a simple cursor task",
-   "Use the idea to shorten setup time for brain-computer interfaces"
+   "Find the fewest sensors that still work, and where to place them",
+   "Try the same idea on brain signals with few electrodes"
   ],
   "futureFrom": "inferred",
-  "kind": "News",
-  "needs": "A few-channel EMG board (or a simulated user) and a cursor task.",
-  "source": "TechXplore · UW ECE",
-  "summary": "When a person controls a cursor with muscle signals, both sides are learning: the person adjusts how they move, and the computer adjusts how it reads them. University of Washington researchers used game theory to model this back-and-forth. In experiments where an electrode strip on the forearm moved an on-screen cursor, the model predicted and shaped how both sides changed.",
+  "kind": "Paper",
+  "needs": "Public HD-EMG datasets (e.g. CSL-HDEMG); GPU.",
+  "source": "Nature Sensors",
+  "summary": "Detailed muscle maps normally need dozens of electrodes, which makes devices bulky. This team trained an AI model to fill in what the missing electrodes would have measured, so a compact device with only a few sensors works almost as well as a dense grid. They used it to recognize hand gestures and predict walking movements.",
   "techniques": [
-   "Game theory",
-   "A decoder that keeps updating itself",
-   "Live cursor-control experiments"
+   "AI model that reconstructs missing sensor signals",
+   "Gesture and walking prediction",
+   "Stretchable skin sensors"
   ],
   "terms": [
    {
-    "meaning": "The algorithm that turns body signals into commands.",
-    "term": "Decoder"
+    "meaning": "AI that produces new data, here the signals the missing electrodes would have recorded.",
+    "term": "Generative model"
    },
    {
-    "meaning": "The person and the decoder both change over time in response to each other.",
-    "term": "Co-adaptation"
-   },
-   {
-    "meaning": "The person sees the result immediately and corrects themselves.",
-    "term": "Closed loop"
+    "meaning": "The pattern of how someone walks.",
+    "term": "Gait"
    }
   ],
   "theme": "neural",
-  "title": "Neural interfaces that adapt to you: game theory for wearables and implants",
+  "title": "A simplified wearable powered by a generative EMG network for hand gestures and gait",
   "topics": [
-   "Co-adaptive decoders",
-   "Human-in-the-loop control",
-   "EMG cursor control"
+   "Sparse sensing",
+   "Gesture & gait prediction",
+   "Wearables"
   ],
-  "url": "https://techxplore.com/news/2026-04-neural-interfaces-game-theory-wearables.html"
- },
- {
-  "id": "bacpipe-bioacoustics",
-  "added": "2026-10-05",
-  "authors": "V. S. Kather, S. Haupert, B. Ghani, D. Stowell",
-  "date": "2026-04",
-  "feasibility": 3,
-  "fit": "Audio AI for nature conservation, very close to your music-genre classifier but with real ecological data. Because the toolkit already exists, a project can focus on a new question.",
-  "future": [
-   "Work better on noisy recordings with many animals at once",
-   "Organize recordings beyond a fixed list of species"
-  ],
-  "futureFrom": "paper",
-  "kind": "Paper",
-  "needs": "Laptop; public recordings or a cheap AudioMoth recorder for local data.",
-  "source": "arXiv 2604.11560 · Naturalis",
-  "summary": "Researchers have millions of hours of wildlife recordings that nobody has listened to. bacpipe puts more than 20 animal-sound AI models into one Python package with a visual dashboard. You can group similar sounds, train a quick classifier for a new species, and click a point to hear the sound behind it.",
-  "techniques": [
-   "Pre-trained animal-sound models",
-   "Mapping sounds so similar ones sit close together (UMAP)",
-   "Grouping similar sounds (clustering)",
-   "Quick classifiers on top"
-  ],
-  "terms": [
-   {
-    "meaning": "Leaving recorders in nature and analyzing the sound later.",
-    "term": "Passive acoustic monitoring"
-   },
-   {
-    "meaning": "A list of numbers summarizing a sound, where similar sounds get similar numbers.",
-    "term": "Embedding"
-   },
-   {
-    "meaning": "Automatically grouping similar items.",
-    "term": "Clustering"
-   }
-  ],
-  "theme": "impact",
-  "title": "bacpipe: Making Bioacoustic Deep Learning Models Accessible",
-  "topics": [
-   "Biodiversity monitoring",
-   "Passive acoustic monitoring",
-   "Audio embeddings"
-  ],
-  "url": "https://github.com/bioacoustic-ai/bacpipe"
+  "url": "https://www.nature.com/articles/s44460-025-00002-2"
  },
  {
   "id": "hdemg-quadriplegia-robot",
@@ -2616,6 +3582,92 @@
    "Shared autonomy"
   ],
   "url": "https://arxiv.org/abs/2602.02773"
+ },
+ {
+  "id": "hearing-aid-directivity",
+  "added": "2026-10-05",
+  "authors": "L. Uphaus, A. Merboldt, M. Hofbauer, T. Gerkmann",
+  "date": "2026-09-14",
+  "feasibility": 2,
+  "fit": "A direct sequel to your Wiener filter project: the same short-time frequency processing, now with several microphones and a neural network you can steer.",
+  "future": [
+   "Try newer sequence models (Mamba) for better quality at low delay"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "GPU; public multichannel datasets and hearing-aid transfer functions.",
+  "source": "arXiv 2609.15760 · IWAENC 2026",
+  "summary": "In a noisy room, hearing-aid users want to focus on one person. This method uses the hearing aid's microphones to keep sound from one chosen direction and lets the user steer that direction. It adds only 10 milliseconds of delay, short enough not to feel out of sync, and still matches slower methods in quality.",
+  "techniques": [
+   "Short-time Fourier transform (STFT)",
+   "Combining several microphones",
+   "Neural network you can point at a direction"
+  ],
+  "terms": [
+   {
+    "meaning": "The delay between sound entering and leaving the device.",
+    "term": "Latency"
+   },
+   {
+    "meaning": "Combining microphones so sound from one direction is kept and the rest reduced. Also called beamforming.",
+    "term": "Directional filtering"
+   },
+   {
+    "meaning": "Splitting audio into short overlapping slices and looking at the frequencies in each.",
+    "term": "STFT"
+   }
+  ],
+  "theme": "audio",
+  "title": "Directivity-Conditioned Low-Latency Neural Filtering for Speech Enhancement in Hearing Aids",
+  "topics": [
+   "Hearing aids",
+   "Multichannel speech enhancement",
+   "Spatial filtering"
+  ],
+  "url": "https://arxiv.org/abs/2609.15760"
+ },
+ {
+  "id": "malaria-continual-learning",
+  "added": "2026-10-05",
+  "date": "2025-07",
+  "feasibility": 3,
+  "fit": "Image processing where the main challenge is that conditions change from place to place, like the differences between cellular links in your rainfall work. The impact is direct and measurable.",
+  "future": [
+   "Run the model on the phone itself, in the field",
+   "Need fewer labeled images for each new clinic"
+  ],
+  "futureFrom": "paper",
+  "kind": "Paper",
+  "needs": "Public malaria smear datasets; laptop GPU.",
+  "source": "arXiv 2507.23648",
+  "summary": "To diagnose malaria, a technician looks at a blood sample under a microscope. AI can help, but a model trained at one hospital often fails at another, because microscopes, stains and lighting differ. The authors use continual learning, which lets the model learn each new clinic without forgetting the old ones, on photos taken with a phone attached to a microscope.",
+  "techniques": [
+   "Finding parasites in images (object detection)",
+   "Continual learning",
+   "Phone camera on a microscope"
+  ],
+  "terms": [
+   {
+    "meaning": "A thin layer of blood on a glass slide, viewed under a microscope.",
+    "term": "Blood smear"
+   },
+   {
+    "meaning": "When new data looks different from the training data.",
+    "term": "Domain shift"
+   },
+   {
+    "meaning": "Training a model on new data without it forgetting what it learned before.",
+    "term": "Continual learning"
+   }
+  ],
+  "theme": "imaging",
+  "title": "Towards Field-Ready AI-based Malaria Diagnosis: A Continual Learning Approach",
+  "topics": [
+   "Global health",
+   "Microscopy",
+   "Domain shift"
+  ],
+  "url": "https://arxiv.org/abs/2507.23648"
  },
  {
   "id": "myotext-semg-typing",
@@ -2713,45 +3765,6 @@
   "url": "https://doi.org/10.3390/robotics15010022"
  },
  {
-  "id": "generative-emg-sparse",
-  "added": "2026-10-05",
-  "date": "2025-12",
-  "feasibility": 2,
-  "fit": "It's a 'fill in the gaps' problem, close in spirit to estimating rainfall between sparse cellular links in your research.",
-  "future": [
-   "Find the fewest sensors that still work, and where to place them",
-   "Try the same idea on brain signals with few electrodes"
-  ],
-  "futureFrom": "inferred",
-  "kind": "Paper",
-  "needs": "Public HD-EMG datasets (e.g. CSL-HDEMG); GPU.",
-  "source": "Nature Sensors",
-  "summary": "Detailed muscle maps normally need dozens of electrodes, which makes devices bulky. This team trained an AI model to fill in what the missing electrodes would have measured, so a compact device with only a few sensors works almost as well as a dense grid. They used it to recognize hand gestures and predict walking movements.",
-  "techniques": [
-   "AI model that reconstructs missing sensor signals",
-   "Gesture and walking prediction",
-   "Stretchable skin sensors"
-  ],
-  "terms": [
-   {
-    "meaning": "AI that produces new data, here the signals the missing electrodes would have recorded.",
-    "term": "Generative model"
-   },
-   {
-    "meaning": "The pattern of how someone walks.",
-    "term": "Gait"
-   }
-  ],
-  "theme": "neural",
-  "title": "A simplified wearable powered by a generative EMG network for hand gestures and gait",
-  "topics": [
-   "Sparse sensing",
-   "Gesture & gait prediction",
-   "Wearables"
-  ],
-  "url": "https://www.nature.com/articles/s44460-025-00002-2"
- },
- {
   "id": "reglove-vision-orthosis",
   "added": "2026-10-05",
   "authors": "R. Ho, J. Zhang (Columbia students)",
@@ -2798,46 +3811,213 @@
   "url": "https://arxiv.org/abs/2512.11824"
  },
  {
-  "id": "malaria-continual-learning",
+  "id": "semg-wrist-thinnet",
   "added": "2026-10-05",
-  "date": "2025-07",
+  "date": "2026-05",
   "feasibility": 3,
-  "fit": "Image processing where the main challenge is that conditions change from place to place, like the differences between cellular links in your rainfall work. The impact is direct and measurable.",
+  "fit": "A complete working example of a wrist gesture interface. The hardware is only a means here; the interesting part is getting good accuracy from a small model.",
   "future": [
-   "Run the model on the phone itself, in the field",
-   "Need fewer labeled images for each new clinic"
+   "Work for new users without recalibrating",
+   "Combine wrist signals with a camera"
   ],
-  "futureFrom": "paper",
+  "futureFrom": "inferred",
   "kind": "Paper",
-  "needs": "Public malaria smear datasets; laptop GPU.",
-  "source": "arXiv 2507.23648",
-  "summary": "To diagnose malaria, a technician looks at a blood sample under a microscope. AI can help, but a model trained at one hospital often fails at another, because microscopes, stains and lighting differ. The authors use continual learning, which lets the model learn each new clinic without forgetting the old ones, on photos taken with a phone attached to a microscope.",
+  "needs": "Off-the-shelf EMG band (e.g. Myo-style or OpenBCI) or public datasets such as NinaPro.",
+  "source": "PMC · open access",
+  "summary": "The authors built a wristband that records muscle signals and a small, fast neural network, ThinNet, that recognizes hand gestures from them. To avoid false alarms, it only reports a gesture when three readings in a row agree.",
   "techniques": [
-   "Finding parasites in images (object detection)",
-   "Continual learning",
-   "Phone camera on a microscope"
+   "Recording muscle signals at the wrist",
+   "Small neural network",
+   "Voting over consecutive readings"
   ],
   "terms": [
    {
-    "meaning": "A thin layer of blood on a glass slide, viewed under a microscope.",
-    "term": "Blood smear"
+    "meaning": "Recognizing hand poses or movements.",
+    "term": "Gesture recognition"
    },
    {
-    "meaning": "When new data looks different from the training data.",
-    "term": "Domain shift"
-   },
-   {
-    "meaning": "Training a model on new data without it forgetting what it learned before.",
-    "term": "Continual learning"
+    "meaning": "A neural network small enough to run on a cheap chip.",
+    "term": "Lightweight network"
    }
   ],
-  "theme": "imaging",
-  "title": "Towards Field-Ready AI-based Malaria Diagnosis: A Continual Learning Approach",
+  "theme": "neural",
+  "title": "Wrist-Wearable sEMG Gesture Recognition System Based on the ThinNet Lightweight Network",
   "topics": [
-   "Global health",
-   "Microscopy",
-   "Domain shift"
+   "Gesture recognition",
+   "Wearables",
+   "Edge ML"
   ],
-  "url": "https://arxiv.org/abs/2507.23648"
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13296126/"
+ },
+ {
+  "id": "sign-to-voice-emergency",
+  "added": "2026-10-05",
+  "authors": "V. K. R. Gajjala et al.",
+  "date": "2026-07-08",
+  "feasibility": 3,
+  "fit": "Shows the full path from camera to speech. Useful as a starting point if you go the sign-language route.",
+  "future": [
+   "Make it work in real emergency-room conditions",
+   "Make it two-way, turning speech back into text or signs"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Webcam and laptop.",
+  "source": "Scientific Reports",
+  "summary": "A camera recognizes hand signs and the system speaks them aloud in real time. It's aimed at deaf or speech-impaired people in emergencies, when no interpreter is around.",
+  "techniques": [
+   "Image cleanup",
+   "Image-recognition network",
+   "Text-to-speech"
+  ],
+  "terms": [
+   {
+    "meaning": "Turning written text into spoken audio.",
+    "term": "Text-to-speech"
+   }
+  ],
+  "theme": "hci",
+  "title": "A vision-based sign language recognition and voice conversion system for inclusive communication",
+  "topics": [
+   "Assistive communication",
+   "Gesture recognition",
+   "Emergency access"
+  ],
+  "url": "https://pubmed.ncbi.nlm.nih.gov/42420290/"
+ },
+ {
+  "id": "signvla",
+  "added": "2026-10-05",
+  "authors": "N. Bai, … Z. Tang",
+  "date": "2026-06-18",
+  "feasibility": 3,
+  "fit": "An accessibility tool built from a small, well-understood model. A project could extend it to full sentences or to Israeli Sign Language, which has very little software support.",
+  "future": [
+   "Recognize full signed sentences, not just single signs",
+   "Support sign languages with little data",
+   "Work across different signers and lighting"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Webcam, MediaPipe hand landmarks, laptop; a robot arm is optional.",
+  "source": "arXiv 2606.20857",
+  "summary": "Robots that follow instructions usually expect speech or typed text, which leaves out deaf and speech-impaired people. SignVLA watches the user's hands on video, tracks points on the fingers, and recognizes sign-language letters and commands. It then passes the instruction to a robot that carries it out.",
+  "techniques": [
+   "Tracking points on the hand from video",
+   "Sequence model (LSTM) for gestures",
+   "Smoothing predictions over time"
+  ],
+  "terms": [
+   {
+    "meaning": "About 20 points on the fingers and wrist, found automatically in video.",
+    "term": "Hand landmarks"
+   },
+   {
+    "meaning": "A neural network for sequences, such as a gesture unfolding over time.",
+    "term": "LSTM"
+   },
+   {
+    "meaning": "AI that takes what a robot sees plus an instruction and outputs robot actions.",
+    "term": "VLA model"
+   }
+  ],
+  "theme": "hci",
+  "title": "SignVLA: Real-Time Sign Language-Guided Robotic Manipulation",
+  "topics": [
+   "Sign language recognition",
+   "Accessible HRI",
+   "Vision-language-action models"
+  ],
+  "url": "https://arxiv.org/abs/2606.20857"
+ },
+ {
+  "id": "surgical-vr-digital-twin",
+  "added": "2026-10-05",
+  "date": "2026-09-22",
+  "feasibility": 1,
+  "fit": "3D computer vision and user interfaces in a medical setting. A smaller version, like rebuilding a tabletop scene for remote control, is realistic for a project.",
+  "future": [
+   "Measure delay and accuracy of the 3D model compared with plain video",
+   "Test whether extra viewing angles really help people judge depth"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "Depth cameras and a VR headset; a surgical robot is out of reach, so use a tabletop analogue.",
+  "source": "arXiv 2609.25527 · IROS 2026",
+  "summary": "In robotic surgery, the surgeon sees inside the body through one 3D camera and controls the instruments from a console. This system rebuilds a 3D model of the scene from cameras and shows it in a VR headset, so the surgeon can look from other angles and judge depth better.",
+  "techniques": [
+   "Tracking instruments without markers",
+   "Live 3D model of the scene (digital twin)",
+   "Multiple cameras",
+   "VR headset display"
+  ],
+  "terms": [
+   {
+    "meaning": "Controlling a robot remotely.",
+    "term": "Teleoperation"
+   },
+   {
+    "meaning": "A live 3D computer model that mirrors a real scene.",
+    "term": "Digital twin"
+   },
+   {
+    "meaning": "A thin camera inserted into the body.",
+    "term": "Endoscope"
+   }
+  ],
+  "theme": "robotics",
+  "title": "Digital Twin-Driven VR Teleoperation with Multi-View Spatial Perception for Surgical Robots",
+  "topics": [
+   "Surgical robotics",
+   "Teleoperation",
+   "3D scene reconstruction",
+   "VR interfaces"
+  ],
+  "url": "https://arxiv.org/abs/2609.25527"
+ },
+ {
+  "id": "vbts-tactile-review",
+  "added": "2026-10-05",
+  "authors": "P. Zhou + 14 authors",
+  "date": "2026-08-16",
+  "feasibility": 2,
+  "fit": "Touch as an image is exactly where your image-processing background meets robotics, and you can build one of these sensors yourself for little money.",
+  "future": [
+   "Make models trained in simulation work on real sensors",
+   "Make one model work across different sensor builds",
+   "Add touch to AI models that control robots from camera and language"
+  ],
+  "futureFrom": "paper",
+  "kind": "Review",
+  "needs": "A DIY GelSight-style sensor costs tens of dollars; otherwise public tactile datasets.",
+  "source": "arXiv 2608.15490",
+  "summary": "Some robot touch sensors are a small camera looking at the inside of a soft rubber skin. When the skin presses against something, the camera sees it deform, so touch becomes an image. This review explains the types of these sensors, how AI reads their images, and the simulators and datasets researchers use.",
+  "techniques": [
+   "Camera behind a soft skin (GelSight-style)",
+   "Tracking dots printed on the skin",
+   "Training in simulation, then on a real robot"
+  ],
+  "terms": [
+   {
+    "meaning": "A sensor that gives a robot a sense of touch.",
+    "term": "Tactile sensor"
+   },
+   {
+    "meaning": "Training in a computer simulation, then making it work on a real robot.",
+    "term": "Sim-to-real"
+   },
+   {
+    "meaning": "Robots picking up, moving and handling objects.",
+    "term": "Manipulation"
+   }
+  ],
+  "theme": "robotics",
+  "title": "Vision-Based Tactile Intelligence for Robotics: Sensing, Learning, and Embodied Manipulation",
+  "topics": [
+   "Tactile sensing",
+   "Contact-rich manipulation",
+   "Visuo-tactile learning"
+  ],
+  "url": "https://arxiv.org/abs/2608.15490"
  }
 ]
