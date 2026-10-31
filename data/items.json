@@ -278,6 +278,53 @@
   "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10883563/"
  },
  {
+  "id": "looking-to-listen-av-separation",
+  "added": "2026-10-31",
+  "authors": "Ariel Ephrat, Inbar Mosseri, Oran Lang, Tali Dekel, Kevin Wilson, Avinatan Hassidim, William T. Freeman, Michael Rubinstein (Google)",
+  "date": "2018-04-10",
+  "feasibility": 3,
+  "fit": "The direct ancestor of your look-to-listen idea, and a good paper to bring to Prof. Avidan, since co-author Tali Dekel did her PhD with him. Your engineering step: replace 'click the face' with 'whoever you're looking at', move from web videos to shaky glasses video with several microphones, keep the delay low, and mix back some natural background instead of removing everything.",
+  "future": [
+   "Choose the speaker automatically instead of by clicking",
+   "Low-delay version that can run live",
+   "First-person (glasses) video with several microphones"
+  ],
+  "futureFrom": "inferred",
+  "kind": "Paper",
+  "needs": "The public AVSpeech list of web video clips (or EasyCom for glasses video), unofficial open re-implementations of the model, one GPU.",
+  "source": "arXiv 1804.03619 · ACM SIGGRAPH 2018 (Transactions on Graphics)",
+  "summary": "In a noisy room with several people talking, it's hard to follow one voice, and audio-only methods struggle to separate voices that sound alike. This Google team used video as well as sound: you click the face of the person you want, and a single network trained on thousands of hours of web video uses that face to pull out that person's voice. It works for any speaker without retraining, beat audio-only separation, and was shown on heated interviews, noisy bars and screaming children. It was built for editing recorded videos, not for live use or hearing aids.",
+  "techniques": [
+   "Face features from video frames",
+   "Spectrogram of the mixed audio (STFT)",
+   "Network that predicts a mask per speaker",
+   "Training on artificial mixtures of clean web videos"
+  ],
+  "terms": [
+   {
+    "meaning": "Splitting a recording of several people talking into one track per person.",
+    "term": "Speech separation"
+   },
+   {
+    "meaning": "Works on voices it never heard in training, without retraining.",
+    "term": "Speaker-independent"
+   },
+   {
+    "meaning": "A map saying how much of each time-frequency cell belongs to the chosen voice.",
+    "term": "Spectrogram mask"
+   }
+  ],
+  "theme": "audio",
+  "title": "Looking to Listen at the Cocktail Party: A Speaker-Independent Audio-Visual Model for Speech Separation",
+  "topics": [
+   "Hearing loss",
+   "Speech separation",
+   "Audio-visual AI",
+   "Lip and face cues"
+  ],
+  "url": "https://arxiv.org/abs/1804.03619"
+ },
+ {
   "id": "parkinson-subclinical-tremor-magnification",
   "added": "2026-10-31",
   "authors": "S. Williams, H. Fang, S. D. Relton, C. D. Graham, J. E. Alty",
